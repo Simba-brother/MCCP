@@ -100,11 +100,11 @@ weather_config = {
     "local_to_global_party_B_path":"exp_data/weather/LocalToGlobal/local_to_gobal_party_B.data",
     "dataset_A_train_path":"/data/mml/overlap_v2_datasets/weather/party_A/dataset_split/train",
     "dataset_B_train_path":"/data/mml/overlap_v2_datasets/weather/party_B/dataset_split/train",
-    "sampled_common_path":"exp_data/weather/sampling/percent/random",
+    "sampled_common_path":"exp_data/weather/sampling/num/random",
     "combination_model_path":"/data/mml/overlap_v2_datasets/weather/merged_model/combination_model_inheritWeights.h5",
     "stu_model_path":"/data/mml/overlap_v2_datasets/weather/merged_model/DenseNet121_224_224_claNum_13.h5",
     "combiantion_lr":0.0003,
-    "save_retrainResult_path":"exp_data/weather/retrainResult/percent/CFL"
+    "save_retrainResult_path":"exp_data/weather/retrainResult/num/CFL"
 }
 
 flower_2_config = {
@@ -180,11 +180,11 @@ animal_config = {
     "local_to_global_party_B_path":"exp_data/animal/LocalToGlobal/local_to_gobal_party_B.data",
     "dataset_A_train_path":"/data/mml/overlap_v2_datasets/animal/party_A/dataset_split/train",
     "dataset_B_train_path":"/data/mml/overlap_v2_datasets/animal/party_B/dataset_split/train",
-    "sampled_common_path":"exp_data/animal/sampling/percent/random",
+    "sampled_common_path":"exp_data/animal/sampling/num/random",
     "combination_model_path":"/data/mml/overlap_v2_datasets/animal/merged_model/combination_model_inheritWeights.h5",
     "stu_model_path":"/data/mml/overlap_v2_datasets/animal/merged_model/DenseNet121_224_224_claNum_13.h5",
     "combiantion_lr":0.0003,
-    "save_retrainResult_path":"exp_data/animal/retrainResult/percent/CFL"
+    "save_retrainResult_path":"exp_data/animal/retrainResult/num/CFL"
 }
 
 animal_2_config = {
@@ -206,11 +206,11 @@ animal_2_config = {
     "local_to_global_party_B_path":"exp_data/animal_2/LocalToGlobal/local_to_gobal_party_B.data",
     "dataset_A_train_path":"/data/mml/overlap_v2_datasets/animal_2/party_A/data_split/train",
     "dataset_B_train_path":"/data/mml/overlap_v2_datasets/animal_2/party_B/data_split/train",
-    "sampled_common_path":"exp_data/animal_2/sampling/percent/random",
+    "sampled_common_path":"exp_data/animal_2/sampling/num/random",
     "combination_model_path":"/data/mml/overlap_v2_datasets/animal_2/merged_model/combination_model_inheritWeights.h5",
     "stu_model_path":"/data/mml/overlap_v2_datasets/animal_2/merged_model/DenseNet121_224_224_claNum_6.h5",
     "combiantion_lr":0.0005,
-    "save_retrainResult_path":"exp_data/animal_2/retrainResult/percent/CFL"
+    "save_retrainResult_path":"exp_data/animal_2/retrainResult/num/CFL"
 }
 
 animal_3_config = {
@@ -232,9 +232,9 @@ animal_3_config = {
     "local_to_global_party_B_path":"exp_data/animal_3/LocalToGlobal/local_to_gobal_party_B.data",
     "dataset_A_train_path":"/data/mml/overlap_v2_datasets/animal_3/party_A/dataset_split/train",
     "dataset_B_train_path":"/data/mml/overlap_v2_datasets/animal_3/party_B/dataset_split/train",
-    "sampled_common_path":"exp_data/animal_3/sampling/percent/random",
+    "sampled_common_path":"exp_data/animal_3/sampling/num/random",
     "combination_model_path":"/data/mml/overlap_v2_datasets/animal_3/merged_model/combination_model_inheritWeights.h5",
     "stu_model_path":"/data/mml/overlap_v2_datasets/animal_3/merged_model/DenseNet121_224_224_claNum_9.h5",
     "combiantion_lr":0.0005,
-    "save_retrainResult_path":"exp_data/animal_3/retrainResult/percent/CFL"
+    "save_retrainResult_path":"exp_data/animal_3/retrainResult/num/CFL"
 }

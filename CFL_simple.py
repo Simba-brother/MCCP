@@ -425,9 +425,9 @@ def retrain():
 
 #全局变量区
 # 设置训练显卡
-os.environ['CUDA_VISIBLE_DEVICES']='6'
-config = sport_config
-Base_acc_config = Base_acc.sport
+os.environ['CUDA_VISIBLE_DEVICES']='4'
+config = animal_3_config
+Base_acc_config = Base_acc.animal_3
 merged_test_df = pd.read_csv(config["merged_df_path"])
 lr = 1e-3
 # 加载各方的评估集

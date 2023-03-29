@@ -33,8 +33,8 @@ def convert_data_struct(data, config):
 
 def help1():
     # 加载配置
-    config = Base_acc.animal_3
-    dataset_name = "animal_3"
+    config = Base_acc.animal_2
+    dataset_name = "animal_2"
     # 加载数据
     reTrain_result =  joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/CFL/reTrain_acc_improve_accords.data")
     ans = convert_data_struct(reTrain_result, config)
@@ -46,7 +46,7 @@ def help1():
 
    
 if __name__ == "__main__":
-    # help1()
+    help1()
     pass
 
             

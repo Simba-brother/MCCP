@@ -59,11 +59,11 @@ def draw_lines(x_list, y_data):
     return fig
 
 def draw_line_main():
-    dataset_name = "car_body_style"
+    dataset_name = "animal_3"
     sample_method = "num"
     resulst_file_name = "reTrain_acc.data"
     # x轴(x_list)
-    x_list = ["1%","3%","5%", "10%", "15%", "20%", "50%", "80", "100%"]
+    # x_list = ["1%","3%","5%", "10%", "15%", "20%", "50%", "80", "100%"]
     x_list = [30,60,90,120,150,180]
     # 加载数据
     OurCombin = joblib.load(f"exp_data/{dataset_name}/retrainResult/{sample_method}/OurCombin/{resulst_file_name}")
