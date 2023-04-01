@@ -91,9 +91,10 @@ def get_col_value(model_A, model_B, df, data_source, flag_2):
     percent_str = "{:.2f}%".format(percent*100)
     if flag_2 == "A" or flag_2 == "overlap":
         acc_model_A = eval(model_A, df, generator_A_test, target_size_A, classes_A)
+        acc_model_A = round(acc_model_A,4)
     if flag_2 == "B" or flag_2 == "overlap":
         acc_model_B = eval(model_B, df, generator_B_test, target_size_B, classes_B)
-    
+        acc_model_B = round(acc_model_B,4)
     return [num, percent_str, acc_model_A, acc_model_B]
 
 def analyse():
@@ -155,12 +156,12 @@ classes_B = getClasses(config["dataset_B_train_path"]) # sorted
 
 if __name__ == "__main__":
     df = analyse()
-    save_dir = f"exp_tabel/{dataset_name}"
+    save_dir = f"exp_table/{dataset_name}"
     makedir_help(save_dir)
     file_name = "RQ_1.xlsx"
     file_path = os.path.join(save_dir, file_name)
     print(df)
-    df.to_csv(file_path)
+    df.to_excel(file_path)
     print(f"savepath:{file_path}")
 
     # ans = dummy()
