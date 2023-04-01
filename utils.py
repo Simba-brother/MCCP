@@ -23,7 +23,10 @@ import io
 import re     # python re正则模块
 # FLAGS = flags.FLAGS
 
-
+def makedir_help(dir_path):
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
+    
 def saveData(data, filename):
     # with open(filename, "wb+") as file_obj:
     #     pickle.dump(data, file_obj)

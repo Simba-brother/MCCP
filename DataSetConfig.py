@@ -4,6 +4,7 @@ from tensorflow.keras.applications.densenet import preprocess_input
 项目数据集配置文件
 '''
 food_config = {
+    "dataset_name":"food",
     "merged_df_path":"/data/mml/overlap_v2_datasets/food/merged_data/test/merged_df.csv",
     "merged_train_df":"/data/mml/overlap_v2_datasets/food/merged_data/train/merged_df.csv",
     "df_eval_party_A_path":"/data/mml/overlap_v2_datasets/food/party_A/dataset_split/val.csv",
@@ -30,6 +31,7 @@ food_config = {
 }
 
 fruit_config = {
+    "dataset_name":"Fruit",
     "merged_df_path":"/data/mml/overlap_v2_datasets/Fruit/merged_data/test/merged_df.csv",
     "merged_train_df":"/data/mml/overlap_v2_datasets/Fruit/merged_data/train/merged_df.csv",
     "df_eval_party_A_path":"/data/mml/overlap_v2_datasets/Fruit/party_A/dataset_split/val.csv",
@@ -56,6 +58,7 @@ fruit_config = {
 }
 
 sport_config = {
+    "dataset_name":"sport",
     "merged_df_path":"/data/mml/overlap_v2_datasets/sport/merged_data/test/merged_df.csv",
     "merged_train_df":"/data/mml/overlap_v2_datasets/sport/merged_data/train/merged_df.csv",
     "df_eval_party_A_path":"/data/mml/overlap_v2_datasets/sport/party_A/dataset_split/val.csv",
@@ -82,6 +85,7 @@ sport_config = {
 }
 
 weather_config = {
+    "dataset_name":"weather",
     "merged_df_path":"/data/mml/overlap_v2_datasets/weather/merged_data/test/merged_df.csv",
     "merged_train_df":"/data/mml/overlap_v2_datasets/weather/merged_data/train/merged_df.csv",
     "df_eval_party_A_path":"/data/mml/overlap_v2_datasets/weather/party_A/dataset_split/val.csv",
@@ -108,6 +112,7 @@ weather_config = {
 }
 
 flower_2_config = {
+    "dataset_name":"flower_2",
     "merged_df_path":"/data/mml/overlap_v2_datasets/flower_2/merged_data/test/merged_df.csv",
     "merged_train_df":"/data/mml/overlap_v2_datasets/flower_2/merged_data/train/merged_df.csv",
     "df_eval_party_A_path":"/data/mml/overlap_v2_datasets/flower_2/party_A/dataset_split/val.csv",
@@ -135,6 +140,7 @@ flower_2_config = {
 }
 
 car_body_style_config = {
+    "dataset_name":"car_body_style",
     "merged_df_path":"/data/mml/overlap_v2_datasets/car_body_style/merged_data/test/merged_df.csv",
     "merged_train_df":"/data/mml/overlap_v2_datasets/car_body_style/merged_data/train/merged_df.csv",
     "df_eval_party_A_path":"/data/mml/overlap_v2_datasets/car_body_style/party_A/dataset_split/val.csv",
@@ -158,10 +164,11 @@ car_body_style_config = {
     "combination_model_path":"/data/mml/overlap_v2_datasets/car_body_style/merged_model/combination_model_inheritWeights.h5",
     "stu_model_path":"/data/mml/overlap_v2_datasets/car_body_style/merged_model/DenseNet121_224_224_claNum_10.h5",
     "combiantion_lr":0.0003,
-    "save_retrainResult_path":"exp_data/car_body_style/retrainResult/num/CFL"
+    "save_retrainResult_path":"exp_data/car_body_style/retrainResult/num/CFL",
 }
 
 animal_config = {
+    "dataset_name":"animal",
     "merged_df_path":"/data/mml/overlap_v2_datasets/animal/merged_data/test/merged_df.csv",
     "merged_train_df":"/data/mml/overlap_v2_datasets/animal/merged_data/train/merged_df.csv",
     "df_eval_party_A_path":"/data/mml/overlap_v2_datasets/animal/party_A/dataset_split/val.csv",
@@ -188,10 +195,11 @@ animal_config = {
 }
 
 animal_2_config = {
+    "dataset_name":"animal_2",
     "merged_df_path":"/data/mml/overlap_v2_datasets/animal_2/merged_data/test/merged_df.csv",
     "merged_train_df":"/data/mml/overlap_v2_datasets/animal_2/merged_data/train/merged_df.csv",
-    "df_eval_party_A_path":"/data/mml/overlap_v2_datasets/animal_2/party_A/data_split/val.csv",
-    "df_eval_party_B_path":"/data/mml/overlap_v2_datasets/animal_2/party_B/data_split/val.csv",
+    "df_eval_party_A_path":"/data/mml/overlap_v2_datasets/animal_2/party_A/dataset_split/val.csv",
+    "df_eval_party_B_path":"/data/mml/overlap_v2_datasets/animal_2/party_B/dataset_split/val.csv",
     "generator_A":ImageDataGenerator(fill_mode = 'nearest',validation_split=0.2),
     "generator_B":ImageDataGenerator(validation_split=0.2),
     "generator_A_test":ImageDataGenerator(),
@@ -204,8 +212,8 @@ animal_2_config = {
     "model_B_weight_path":"/data/mml/overlap_v2_datasets/animal_2/party_B/models/model_weights/model_weight_029_0.9396.h5",
     "local_to_global_party_A_path":"exp_data/animal_2/LocalToGlobal/local_to_gobal_party_A.data",
     "local_to_global_party_B_path":"exp_data/animal_2/LocalToGlobal/local_to_gobal_party_B.data",
-    "dataset_A_train_path":"/data/mml/overlap_v2_datasets/animal_2/party_A/data_split/train",
-    "dataset_B_train_path":"/data/mml/overlap_v2_datasets/animal_2/party_B/data_split/train",
+    "dataset_A_train_path":"/data/mml/overlap_v2_datasets/animal_2/party_A/dataset_split/train",
+    "dataset_B_train_path":"/data/mml/overlap_v2_datasets/animal_2/party_B/dataset_split/train",
     "sampled_common_path":"exp_data/animal_2/sampling/num/random",
     "combination_model_path":"/data/mml/overlap_v2_datasets/animal_2/merged_model/combination_model_inheritWeights.h5",
     "stu_model_path":"/data/mml/overlap_v2_datasets/animal_2/merged_model/DenseNet121_224_224_claNum_6.h5",
@@ -214,6 +222,7 @@ animal_2_config = {
 }
 
 animal_3_config = {
+    "dataset_name":"animal_3",
     "merged_df_path":"/data/mml/overlap_v2_datasets/animal_3/merged_data/test/merged_df.csv",
     "merged_train_df":"/data/mml/overlap_v2_datasets/animal_3/merged_data/train/merged_df.csv",
     "df_eval_party_A_path":"/data/mml/overlap_v2_datasets/animal_3/party_A/dataset_split/val.csv",
