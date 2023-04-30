@@ -1,5 +1,6 @@
 '''
 准备预训练模型 
+https://www.kaggle.com/datasets/gpiosenka/sports-classification
 '''
 import pandas as pd
 import os

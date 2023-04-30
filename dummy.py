@@ -155,14 +155,14 @@ classes_A = getClasses(config["dataset_A_train_path"]) # sorted
 classes_B = getClasses(config["dataset_B_train_path"]) # sorted
 
 if __name__ == "__main__":
-    df = analyse()
-    save_dir = f"exp_table/{dataset_name}"
-    makedir_help(save_dir)
-    file_name = "RQ_1.xlsx"
-    file_path = os.path.join(save_dir, file_name)
-    print(df)
-    df.to_excel(file_path)
-    print(f"savepath:{file_path}")
+    # df = analyse()
+    # save_dir = f"exp_table/{dataset_name}"
+    # makedir_help(save_dir)
+    # file_name = "RQ_1.xlsx"
+    # file_path = os.path.join(save_dir, file_name)
+    # print(df)
+    # df.to_excel(file_path)
+    # print(f"savepath:{file_path}")
 
     # ans = dummy()
     # print(ans)

@@ -47,7 +47,7 @@ def help1():
 
    
 def help2():
-    df = pd.read_csv("/data/mml/overlap_v2_datasets/animal_2/party_B/dataset_split/train_overlap.csv")
+    df = pd.read_csv("/data/mml/overlap_v2_datasets/animal_2/merged_data/train/merged_df_overlap.csv")
 
     file_path_list = []
     for row_idx, row in df.iterrows():
@@ -56,15 +56,15 @@ def help2():
         file_path_list.append(new_file_path)
     df["file_path"] = file_path_list
 
-    save_dir = "/data/mml/overlap_v2_datasets/animal_2/party_B/dataset_split"
-    file_name = "train_overlap.csv"
+    save_dir = "/data/mml/overlap_v2_datasets/animal_2/merged_data/train"
+    file_name = "merged_df_overlap.csv"
     file_path = os.path.join(save_dir, file_name)
     df.to_csv(file_path)
     print("help2() finally")
 
 if __name__ == "__main__":
     # help1()
-    # help2()
+    help2()
     pass
 
             

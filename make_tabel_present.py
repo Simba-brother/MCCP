@@ -49,6 +49,7 @@ def make_tabel_1():
         df.loc[dataset_name,"OurCombin"] = ourCombin_list
     return df
 
+
 # 全局变量
 dataset_name_list = ["car_body_style", "flower_2", "food", "Fruit", "sport", "weather", "animal", "animal_2", "animal_3"]
 sample_method = "percent"

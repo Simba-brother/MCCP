@@ -7,12 +7,12 @@ import numpy as np
 from tensorflow.keras import optimizers
 from tensorflow.keras.optimizers import Adam, Adamax
 from tensorflow.keras.losses import CategoricalCrossentropy
+import joblib
 sys.path.append("/home/mml/workspace/model_reuse_v2/")
 from utils import deleteIgnoreFile
-from DataSetConfig import car_body_style_config, flower_2_config, fruit_config, sport_config, weather_config, animal_config, animal_2_config, animal_3_config
-# 设置训练显卡
-os.environ['CUDA_VISIBLE_DEVICES']='4'
-config = animal_3_config
+from DataSetConfig import car_body_style_config, flower_2_config, food_config, fruit_config, sport_config, weather_config, animal_config, animal_2_config, animal_3_config
+import Base_acc
+
 def generate_generator_multiple(batches_A, batches_B):
     '''
     将连个模型的输入bath 同时返回
@@ -52,32 +52,25 @@ def eval_singleModel():
     '''
     评估各方原始模型
     '''
-    # 加载模型
-    # model_path = "/data/mml/overlap_v2_datasets/weather/party_B/models/model_struct/ResNet152V2.h5"
-    # model_weights_path = "/data/mml/overlap_v2_datasets/weather/party_B/models/model_weights/model_weight_049_0.8969.h5"
-    # model = load_model(model_path)
-    # model.load_weights(model_weights_path)
-    model = load_model("/data/mml/overlap_v2_datasets/sport/party_B/models/provided_models/vgg16.h5")
-    # 加载评估集
-    csv_path = "/data/mml/overlap_v2_datasets/sport/party_B/dataset_split/val.csv"
-    df = pd.read_csv(csv_path) 
-    test_gen = ImageDataGenerator(rescale=1./255)  # 归一化
-    # 样本分类,告诉生成器模型关注哪些分类
-    classes = getClasses("/data/mml/overlap_v2_datasets/sport/party_B/dataset_split/train")
-    target_size = (224,224)
+    model = model_B
+    df = df_B_test
     batch_size = 32
+    gen = generator_B_test
+    classes = classes_B
+    target_size = target_size_B
     # 样本batch
-    test_batches = test_gen.flow_from_dataframe(
-                                                df, 
-                                                directory = "/data/mml/overlap_v2_datasets/", # 添加绝对路径前缀
-                                                x_col='file_path', y_col='label', 
-                                                target_size=target_size, class_mode='categorical',
-                                                color_mode='rgb', classes = classes, shuffle=False, batch_size=batch_size,
-                                                validate_filenames=False
-                                                )
+    batches = gen.flow_from_dataframe(
+                                    df, 
+                                    directory = "/data/mml/overlap_v2_datasets/", # 添加绝对路径前缀
+                                    x_col='file_path', y_col='label', 
+                                    target_size=target_size, class_mode='categorical',
+                                    color_mode='rgb', classes = classes, 
+                                    shuffle=False, batch_size=batch_size,
+                                    validate_filenames=False
+                                    )
     print("评估集样本数: {}".format(df.shape[0]))
     # 开始评估
-    model.evaluate_generator(generator=test_batches,steps=test_batches.n / batch_size, verbose = 1)
+    model.evaluate_generator(generator=batches,steps=batches.n / batch_size, verbose = 1)
 
 def eval_singleExtendModel():
     '''
@@ -233,9 +226,39 @@ def eval_stuModel():
     loss = ans["loss"]
     return acc, loss
 
+
+os.environ['CUDA_VISIBLE_DEVICES']='2'
+config = animal_3_config
+Base_acc_config = Base_acc.animal_3
+dataset_name = config["dataset_name"]
+model_A = load_model(config["model_A_struct_path"])
+model_A.load_weights(config["model_A_weight_path"])
+model_B = load_model(config["model_B_struct_path"])
+if not config["model_B_weight_path"] is None:
+    model_B.load_weights(config["model_B_weight_path"])
+
+merged_test_df = pd.read_csv(config["merged_df_path"])
+df_A_train = pd.read_csv(config["df_train_party_A_path"])
+df_A_test = pd.read_csv(config["df_eval_party_A_path"])
+df_B_train = pd.read_csv(config["df_train_party_B_path"])
+df_B_test = pd.read_csv(config["df_eval_party_B_path"])
+generator_A_test = config["generator_A_test"]
+generator_B_test = config["generator_B_test"]
+target_size_A = config["target_size_A"]
+target_size_B = config["target_size_B"]
+local_to_global_party_A = joblib.load(config["local_to_global_party_A_path"])
+local_to_global_party_B = joblib.load(config["local_to_global_party_B_path"])
+# 双方的class_name_list
+classes_A = getClasses(config["dataset_A_train_path"]) # sorted
+classes_B = getClasses(config["dataset_B_train_path"]) # sorted
+# all_class_name_list
+all_classes_list = list(set(classes_A+classes_B))
+all_classes_list.sort()
+# 总分类数
+all_classes_num = len(all_classes_list)
 if __name__ == "__main__":
     # eval_combination_Model()
     # eval_singleModel()
     # eval_singleExtendModel()
-    eval_stuModel()
+    # eval_stuModel()
     pass
