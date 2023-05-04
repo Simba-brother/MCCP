@@ -112,7 +112,7 @@ def draw_truncation_line(x_list, y_data):
     return f
 
 def draw_line_main():
-    dataset_name = "animal_3"
+    dataset_name = "car_body_style"
     sample_method = "percent"
     resulst_file_name = "reTrain_acc.data"
     # x轴(x_list)
