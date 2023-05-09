@@ -4,6 +4,7 @@
 import joblib
 from matplotlib import pyplot as plt
 import os
+import numpy as np
 from DataSetConfig import food_config, fruit_config, sport_config, weather_config, flower_2_config, car_body_style_config, animal_config, animal_2_config, animal_3_config
 def get_y_list(dic):
     ans = []
@@ -174,10 +175,81 @@ def draw_box():
     plt.savefig(file_path)
     print("draw_box successfully!")
 
+def draw_unique_overlap_avg_line():
+    dataset_name = config["dataset_name"]
+    unique_data = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_unique_v3.data")
+    overlap_data = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_overlap_v3.data")
+    percent_list = [1,3,5,10,15,20]
+
+    unique_y = []
+    overlap_y = []
+    for percent in percent_list:
+        avg_u = sum(unique_data["train"][percent])/len(unique_data["train"][percent])
+        avg_u = round(avg_u,4)
+        unique_y.append(avg_u)
+
+        avg_o = sum(overlap_data["train"][percent])/len(overlap_data["train"][percent])
+        avg_o = round(avg_o,4)
+        overlap_y.append(avg_o)
+    x_list = ["1%","3%","5%", "10%", "15%", "20%"]
+    # 画线
+    line_1 = plt.plot(x_list, unique_y, label = "unique", color = "red", marker = "x")
+    line_2 = plt.plot(x_list, overlap_y, label = "overlap", color = "green", marker = "o")
+    # 画网格
+    plt.grid()
+    # 图例
+    plt.legend()
+    # 坐标轴说明
+    plt.xlabel("Sampling ratio")
+    plt.ylabel("Accuracy")
+
+    save_dir = f"exp_image/{dataset_name}"
+    file_name = "unique_overlap_avg_line.pdf"
+    file_path = os.path.join(save_dir, file_name)
+    plt.savefig(file_path)
+    print("draw_unique_overlap_avg_line successfully!")
+
+def draw_unique_overlap_var_line():
+    dataset_name = config["dataset_name"]
+    unique_data = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_unique_v3.data")
+    overlap_data = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_overlap_v3.data")
+    percent_list = [1,3,5,10,15,20]
+
+    unique_y = []
+    overlap_y = []
+    for percent in percent_list:
+        var_u = np.var(unique_data["train"][percent])
+        var_u = round(var_u,4)
+        unique_y.append(var_u)
+
+        var_o = np.var(overlap_data["train"][percent])
+        var_o = round(var_o,4)
+        overlap_y.append(var_o)
+
+    x_list = ["1%","3%","5%", "10%", "15%", "20%"]
+    # 画线
+    line_1 = plt.plot(x_list, unique_y, label = "unique", color = "red", marker = "x")
+    line_2 = plt.plot(x_list, overlap_y, label = "overlap", color = "green", marker = "o")
+    # 画网格
+    plt.grid()
+    # 图例
+    plt.legend()
+    # 坐标轴说明
+    plt.xlabel("Sampling ratio")
+    plt.ylabel("Variance of accuracy")
+
+    save_dir = f"exp_image/{dataset_name}"
+    file_name = "unique_overlap_var_line.pdf"
+    file_path = os.path.join(save_dir, file_name)
+    plt.savefig(file_path)
+    print("draw_unique_overlap_var_line successfully!")
+
 # 全局变量区
-config = weather_config
+config = animal_3_config
 
 if __name__ == "__main__":
+    # draw_unique_overlap_avg_line()
+    # draw_unique_overlap_var_line()
     # draw_box()
     # draw_line_main()
     pass

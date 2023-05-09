@@ -12,6 +12,8 @@ from DataSetConfig import food_config, fruit_config, sport_config, weather_confi
 import Base_acc
 from tensorflow.keras.preprocessing.image import load_img, img_to_array, ImageDataGenerator
 from tensorflow.keras import optimizers
+from tensorflow.keras import backend as K
+
 
 
 def generate_generator_multiple(batches_A, batches_B):
@@ -430,7 +432,7 @@ def get_eval_data():
     model = load_model(config["combination_model_path"])
     adam = optimizers.Adam(learning_rate=config["combiantion_lr"], beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
     model.compile(optimizer=adam,loss="categorical_crossentropy",metrics="accuracy")
-    df = merged_test_df
+    df = pd.read_csv(config["merged_overlap_df"])
     percent_list = [1,3,5,10,15,20]
     repeat_list = [0,1,2,3,4]
     prefix_dir = f"/data/mml/overlap_v2_datasets/{dataset_name}/merged_model/trained_model_weights/combined_model"
@@ -446,6 +448,53 @@ def get_eval_data():
             acc = eval_combination_model(model, df, generator_A_test, generator_B_test, all_classes_list, target_size_A, target_size_B)
             ans["train"][percent].append(acc)
     return ans
+
+def get_table_causal_variables():
+    def get_row(dataset_name):
+        row = []
+        # 加载模型
+        model = load_model(f"/data/mml/overlap_v2_datasets/{dataset_name}/merged_model/combination_model_inheritWeights.h5")
+        df = pd.read_csv(f"/data/mml/overlap_v2_datasets/{dataset_name}/merged_data/test/merged_df.csv")
+        dataset_size = df.shape[0]
+        trainable_count = int(np.sum([K.count_params(p) for p in model.trainable_weights]))
+        non_trainable_count = int(np.sum([K.count_params(p) for p in model.non_trainable_weights]))
+        model_param_size = trainable_count + non_trainable_count
+        train_acc = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_acc_v3.data")
+        avg = get_avg(train_acc)
+        row.append(model_param_size)
+        row.append(dataset_size)
+        row.extend(avg)
+        return row
+    def get_avg(train_acc):
+        ans = []
+        percent_list = [1,3,5,10,15,20]
+        for percent in percent_list:
+            ans.append(np.mean((train_acc["train"][percent])))
+        return ans
+    index = ["car", "flower", "food", "fruit", "sport", "weather", "animal_1", "animal_2", "animal_3"]
+    columns = ["model_param_size", "merged_test_dataset_size", "1%", "3%", "5%", "10%", "15%", "20%"]
+    # car
+    row_car = get_row("car_body_style")
+    # flower
+    row_flower = get_row("flower_2")
+    # food
+    row_food = get_row("food")
+    # fruit
+    row_fruit = get_row("Fruit")
+    # sport
+    row_sport = get_row("sport")
+    # weather 
+    row_weather = get_row("weather")
+    # animal
+    row_animal = get_row("animal")
+    # animal_2
+    row_animal_2 = get_row("animal_2")
+    # animal_3
+    row_animal_3 = get_row("animal_3")
+    data = [row_car, row_flower, row_food, row_fruit, row_sport, row_weather, row_animal, row_animal_2, row_animal_3]
+    df = pd.DataFrame(data, index, columns)
+    return df
+
 #  全局变量区域
 os.environ['CUDA_VISIBLE_DEVICES']='2'
 config = animal_3_config
@@ -475,13 +524,22 @@ all_classes_num = len(all_classes_list)
 
 
 def test():
+    df = pd.read_csv("exp_data/all/causal_variables.csv")
+    print("fa")
     pass
 
 if __name__ == "__main__":
+    test()
     
+    # df_v = get_table_causal_variables()
+    # save_dir = "exp_data/all"
+    # file_name = "causal_variables.csv"
+    # file_path = os.path.join(save_dir, file_name)
+    # df_v.to_csv(file_path)
+
     # train_acc = get_eval_data()
     # save_dir = f"exp_data/{dataset_name}/retrainResult/percent/OurCombin"
-    # file_name = "train_acc_v3.data"
+    # file_name = "train_overlap_v3.data"
     # saveData(train_acc, os.path.join(save_dir, file_name))
 
     # get_Train_Test_Size()
