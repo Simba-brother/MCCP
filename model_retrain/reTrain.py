@@ -6,14 +6,15 @@ from tensorflow.keras.models import Model, Sequential, load_model
 from tensorflow.keras import optimizers
 import sys
 sys.path.append("/home/mml/workspace/model_reuse_v2/")
-from utils import deleteIgnoreFile, saveData
+from utils import deleteIgnoreFile, saveData, makedir_help
 import joblib
 # 加载数据集 config
 from DataSetConfig import food_config, fruit_config, sport_config, weather_config, flower_2_config, car_body_style_config, animal_config, animal_2_config, animal_3_config
 # 设置训练显卡
-os.environ['CUDA_VISIBLE_DEVICES']='3'
+os.environ['CUDA_VISIBLE_DEVICES']='1'
 # 配置变量
-config = sport_config
+dataset_name = "animal_3"
+config = animal_3_config
 
 def generate_generator_multiple(batches_A, batches_B):
     '''
@@ -170,9 +171,10 @@ def start_reTrain():
     epochs=5
     sample_num_list = deleteIgnoreFile(os.listdir(common_dir))
     sample_num_list = sorted(sample_num_list, key=lambda e: int(e))
-    improve_Acc_result = {}
-    improve_Acc_records_result = {}
-    for sample_num in sample_num_list:
+    # improve_Acc_result = {}
+    # improve_Acc_records_result = {}
+    for sample_num in sample_num_list[:-3]:
+        print(f"==========sampeled_num:{sample_num}==========")
         cur_dir = os.path.join(common_dir, sample_num)
         # 用于记录 该 抽样 数量 下 重复 次数 val_acc。 用于求平均
         record_list = []
@@ -239,21 +241,27 @@ def start_reTrain():
                             validation_steps = merged_df.shape[0]//batch_size,
                             verbose = 1,
                             shuffle=False)
-            dic_metric = history.history
-            val_accuracy = dic_metric["val_accuracy"][epochs-1]
-            record_list.append(round(val_accuracy, 4))
+            prefix_path = f"/data/mml/overlap_v2_datasets/{dataset_name}/merged_model/trained_model_weights/combined_model/{sample_num}"
+            makedir_help(prefix_path)
+            weight_file_path = os.path.join(prefix_path, f"weights_{repeat}.h5")
+            model.save_weights(weight_file_path)
+            print(f"==========repeat:{repeat}==========")
+            print(f"sampled_num:{sample_num}, repeat:{repeat}, dataset_name:{dataset_name}, save_path:{weight_file_path}")
+    #         dic_metric = history.history
+    #         val_accuracy = dic_metric["val_accuracy"][epochs-1]
+    #         record_list.append(round(val_accuracy, 4))
         
-        avg_val_acc = np.mean(record_list)
-        improve_acc = avg_val_acc - init_val_acc
-        improve_acc = round(improve_acc,4)
-        print("采样数量: {}, 平均精度提升值: {}".format(sample_num, improve_acc))
-        improve_Acc_result[int(sample_num)] = improve_acc
-        improve_Acc_records_result[int(sample_num)] = np.array(record_list)-init_val_acc
-    save_dir = config["save_retrainResult_path"]
-    save_file_name = "reTrain_acc_improve.data"
-    saveData(improve_Acc_result, os.path.join(save_dir, save_file_name))
-    saveData(improve_Acc_records_result, os.path.join(save_dir, "reTrain_acc_improve_accords.data"))
-    print("return:", improve_Acc_result)
+    #     avg_val_acc = np.mean(record_list)
+    #     improve_acc = avg_val_acc - init_val_acc
+    #     improve_acc = round(improve_acc,4)
+    #     print("采样数量: {}, 平均精度提升值: {}".format(sample_num, improve_acc))
+    #     improve_Acc_result[int(sample_num)] = improve_acc
+    #     improve_Acc_records_result[int(sample_num)] = np.array(record_list)-init_val_acc
+    # save_dir = config["save_retrainResult_path"]
+    # save_file_name = "reTrain_acc_improve.data"
+    # saveData(improve_Acc_result, os.path.join(save_dir, save_file_name))
+    # saveData(improve_Acc_records_result, os.path.join(save_dir, "reTrain_acc_improve_accords.data"))
+    # print("return:", improve_Acc_result)
     print("start_reTrain() success")
     
 '''
@@ -346,6 +354,4 @@ def demo():
 
 if __name__ == "__main__":
     # start_reTrain()
-    a = joblib.load("exp_data/food/retrainResult/percent/random/reTrain_acc_improve.data")
-    print(a)
     pass

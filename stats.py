@@ -2,13 +2,51 @@ from tensorflow.keras.models import Model, Sequential, load_model
 import pandas as pd
 import numpy as np
 import joblib
-from utils import deleteIgnoreFile, makedir_help
+
+from utils import deleteIgnoreFile, saveData, makedir_help
+
 import os
 import tensorflow.keras as keras
 from tensorflow.keras.layers import Dense
 from DataSetConfig import food_config, fruit_config, sport_config, weather_config, flower_2_config, car_body_style_config, animal_config, animal_2_config, animal_3_config
 import Base_acc
 from tensorflow.keras.preprocessing.image import load_img, img_to_array, ImageDataGenerator
+from tensorflow.keras import optimizers
+
+
+def generate_generator_multiple(batches_A, batches_B):
+    '''
+    将连个模型的输入bath 同时返回
+    '''
+    while True:
+        X1i = batches_A.next()
+        X2i = batches_B.next()
+        yield [X1i[0], X2i[0]], X2i[1]  #Yield both images and their mutual label
+
+def eval_combination_model(model, df, generator_left, generator_right, classes, target_size_A, target_size_B):
+    y_col = "label"
+    batch_size = 32
+    batches_A = generator_left.flow_from_dataframe(df, 
+                                                    directory = "/data/mml/overlap_v2_datasets/", # 添加绝对路径前缀
+                                                    # subset="training",
+                                                    seed=42,
+                                                    x_col='file_path', y_col=y_col, 
+                                                    target_size=target_size_A, class_mode='categorical',
+                                                    color_mode='rgb', classes=classes, shuffle=False, batch_size=batch_size,
+                                                    validate_filenames=False)
+    batches_B = generator_right.flow_from_dataframe(df, 
+                                                    directory = "/data/mml/overlap_v2_datasets/", # 添加绝对路径前缀
+                                                    # subset="training",
+                                                    seed=42,
+                                                    x_col='file_path', y_col=y_col, 
+                                                    target_size=target_size_B, class_mode='categorical',
+                                                    color_mode='rgb', classes=classes, shuffle=False, batch_size=batch_size,
+                                                    validate_filenames=False)
+
+    batches = generate_generator_multiple(batches_A, batches_B)
+    batch_size = 32
+    eval_matric = model.evaluate(batches, batch_size = batch_size, verbose=1,steps = batches_A.n/batch_size, return_dict=True)
+    return eval_matric["accuracy"]
 
 def add_reserve_class(model):
     '''
@@ -387,7 +425,28 @@ def get_Train_Test_Size():
     print(f"B:TrainSize:{df_train_party_B.shape[0]}")
     print(f"B:TrainSize:{df_eval_party_B.shape[0]}")
 
-
+def get_eval_data():
+    ans = {}
+    model = load_model(config["combination_model_path"])
+    adam = optimizers.Adam(learning_rate=config["combiantion_lr"], beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
+    model.compile(optimizer=adam,loss="categorical_crossentropy",metrics="accuracy")
+    df = merged_test_df
+    percent_list = [1,3,5,10,15,20]
+    repeat_list = [0,1,2,3,4]
+    prefix_dir = f"/data/mml/overlap_v2_datasets/{dataset_name}/merged_model/trained_model_weights/combined_model"
+    init_acc = eval_combination_model(model, df, generator_A_test, generator_B_test, all_classes_list, target_size_A, target_size_B)
+    ans["init_acc"] = init_acc
+    ans["train"] = {}
+    for percent in percent_list:
+        ans["train"][percent] = []
+        for repeat in repeat_list:
+            file_name = f"weights_{repeat}.h5"
+            weights_path = os.path.join(prefix_dir, str(percent), file_name)
+            model.load_weights(weights_path)
+            acc = eval_combination_model(model, df, generator_A_test, generator_B_test, all_classes_list, target_size_A, target_size_B)
+            ans["train"][percent].append(acc)
+    return ans
+#  全局变量区域
 os.environ['CUDA_VISIBLE_DEVICES']='2'
 config = animal_3_config
 Base_acc_config = Base_acc.animal_3
@@ -415,8 +474,16 @@ all_classes_list.sort()
 all_classes_num = len(all_classes_list)
 
 
+def test():
+    pass
 
 if __name__ == "__main__":
+    
+    # train_acc = get_eval_data()
+    # save_dir = f"exp_data/{dataset_name}/retrainResult/percent/OurCombin"
+    # file_name = "train_acc_v3.data"
+    # saveData(train_acc, os.path.join(save_dir, file_name))
+
     # get_Train_Test_Size()
     # df = get_table()
     # save_dir = f"exp_table/{dataset_name}"

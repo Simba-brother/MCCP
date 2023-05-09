@@ -4,7 +4,7 @@
 import joblib
 from matplotlib import pyplot as plt
 import os
-
+from DataSetConfig import food_config, fruit_config, sport_config, weather_config, flower_2_config, car_body_style_config, animal_config, animal_2_config, animal_3_config
 def get_y_list(dic):
     ans = []
     base_acc = dic["base_acc"]
@@ -144,7 +144,40 @@ def draw_line_main():
     file_path = os.path.join(save_dir, file_name)
     fig.savefig(file_path)
 
+def draw_box():
+    dataset_name = config["dataset_name"]
+    labels = '1%', '3%', '5%', '10%', '15%', '20%'
+    train_acc = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_acc_v3.data")
+    A = train_acc["train"][1]
+    B = train_acc["train"][3]
+    C = train_acc["train"][5]
+    D = train_acc["train"][10]
+    E = train_acc["train"][15]
+    F = train_acc["train"][20]
+    data = [A, B, C, D, E, F]
+    plt.grid(True)  # 显示网格
+    plt.boxplot(data,
+                medianprops={'color': 'red', 'linewidth': '1.5'}, # 设置中位数的属性，如线的类型、粗细等；
+                showmeans=True,
+                meanline=False,
+                # meanline=True,
+                # meanprops={'color': 'blue', 'ls': '--', 'linewidth': '1.5'},
+                flierprops={"marker": "o", "markerfacecolor": "red", "markersize": 10}, # 设置异常值的属性，如异常点的形状、大小、填充色等
+                labels=labels)
+    # plt.yticks(np.arange(0.4, 0.81, 0.1))
+    plt.xlabel("Sampling ratio")
+    plt.ylabel("Accuracy")
+    plt.show()
+    save_dir = f"exp_image/{dataset_name}"
+    file_name = "box_full_classification_stability.pdf"
+    file_path = os.path.join(save_dir, file_name)
+    plt.savefig(file_path)
+    print("draw_box successfully!")
 
+# 全局变量区
+config = weather_config
 
 if __name__ == "__main__":
-    draw_line_main()
+    # draw_box()
+    # draw_line_main()
+    pass

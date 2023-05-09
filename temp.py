@@ -10,7 +10,7 @@ import joblib
 import tensorflow as tf
 from tensorflow.keras.applications.xception import Xception
 from tensorflow.keras.applications.resnet import ResNet50
-
+from tensorflow.keras.models import Model, Sequential, load_model
 
 
 pre_trained_model = ResNet50(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
