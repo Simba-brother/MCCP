@@ -69,6 +69,37 @@ def dummy():
     ans["combin_acc"] = acc
     return ans
 
+def dummy_eval(params_dic, df):
+    pseudo_labels = []
+    model_A = load_model(params_dic["model_A_struct_path"])
+    model_A.load_weights(params_dic["model_A_weight_path"])
+    model_B = load_model(params_dic["model_B_struct_path"])
+    if not params_dic["model_B_weight_path"] is None:
+        model_B.load_weights(params_dic["model_B_weight_path"])
+    generator_A_test = params_dic["generator_A_test"]
+    generator_B_test = params_dic["generator_B_test"]
+    target_size_A = params_dic["target_size_A"]
+    target_size_B = params_dic["target_size_B"]
+    confidences_A, pseudo_labels_A = get_confidences(model_A, df, generator_A_test, target_size_A)
+    confidences_B, pseudo_labels_B = get_confidences(model_B, df, generator_B_test, target_size_B)
+    local_to_global_party_A = joblib.load(params_dic["local_to_global_party_A_path"])
+    local_to_global_party_B = joblib.load(params_dic["local_to_global_party_B_path"])
+    for i in range(confidences_A.shape[0]):
+        if confidences_A[i] > confidences_B[i]:
+            pseudo_global_label = local_to_global_party_A[pseudo_labels_A[i]]
+            pseudo_labels.append(pseudo_global_label)
+            
+        else:
+            pseudo_global_label = local_to_global_party_B[pseudo_labels_B[i]]
+            pseudo_labels.append(pseudo_global_label)
+    
+    ground_truths = df["label_globalIndex"].to_numpy(dtype="int")
+    pseudo_labels = np.array(pseudo_labels)
+    acc = np.sum(pseudo_labels == ground_truths) / df.shape[0]
+    acc = round(acc,4)
+    return acc
+    
+
 def get_col_value(model_A, model_B, df, data_source, flag_2):
     num = 0
     percent = 0
@@ -133,28 +164,30 @@ def analyse():
     print("analyse final")
     return df
 
-os.environ['CUDA_VISIBLE_DEVICES']='6'
-config = animal_3_config
-Base_acc_config = Base_acc.animal_3
-dataset_name = config["dataset_name"]
-model_A = load_model(config["model_A_struct_path"])
-model_A.load_weights(config["model_A_weight_path"])
-model_B = load_model(config["model_B_struct_path"])
-if not config["model_B_weight_path"] is None:
-    model_B.load_weights(config["model_B_weight_path"])
-merged_test_df = pd.read_csv(config["merged_df_path"])
 
-generator_A_test = config["generator_A_test"]
-generator_B_test = config["generator_B_test"]
-target_size_A = config["target_size_A"]
-target_size_B = config["target_size_B"]
-local_to_global_party_A = joblib.load(config["local_to_global_party_A_path"])
-local_to_global_party_B = joblib.load(config["local_to_global_party_B_path"])
-# 双方的class_name_list
-classes_A = getClasses(config["dataset_A_train_path"]) # sorted
-classes_B = getClasses(config["dataset_B_train_path"]) # sorted
 
 if __name__ == "__main__":
+    os.environ['CUDA_VISIBLE_DEVICES']='6'
+    config = animal_3_config
+    Base_acc_config = Base_acc.animal_3
+    dataset_name = config["dataset_name"]
+    model_A = load_model(config["model_A_struct_path"])
+    model_A.load_weights(config["model_A_weight_path"])
+    model_B = load_model(config["model_B_struct_path"])
+    if not config["model_B_weight_path"] is None:
+        model_B.load_weights(config["model_B_weight_path"])
+    merged_test_df = pd.read_csv(config["merged_df_path"])
+
+    generator_A_test = config["generator_A_test"]
+    generator_B_test = config["generator_B_test"]
+    target_size_A = config["target_size_A"]
+    target_size_B = config["target_size_B"]
+    local_to_global_party_A = joblib.load(config["local_to_global_party_A_path"])
+    local_to_global_party_B = joblib.load(config["local_to_global_party_B_path"])
+    # 双方的class_name_list
+    classes_A = getClasses(config["dataset_A_train_path"]) # sorted
+    classes_B = getClasses(config["dataset_B_train_path"]) # sorted
+
     # df = analyse()
     # save_dir = f"exp_table/{dataset_name}"
     # makedir_help(save_dir)

@@ -24,8 +24,6 @@ from DataSetConfig import food_config, fruit_config, sport_config, weather_confi
 # 设置训练显卡
 os.environ['CUDA_VISIBLE_DEVICES']='4'
 
-# 配置变量
-config = animal_3_config
 
 def add_reserve_class(model):
     '''
@@ -137,46 +135,6 @@ def load_extended_models(config):
                 metrics=['accuracy'])
     return extended_model_A, extended_model_B
 
-# 文件全局变量区
-# 加载混合评估集
-merged_df = pd.read_csv(config["merged_df_path"])
-# 加载各方的评估集
-df_eval_party_A = pd.read_csv(config["df_eval_party_A_path"])
-df_eval_party_B = pd.read_csv(config["df_eval_party_B_path"])
-df_eval_party_list = [df_eval_party_A, df_eval_party_B]
-# 加载数据生成
-generator_A = config["generator_A"]
-generator_B = config["generator_B"]
-generator_A_test = config["generator_A_test"]
-generator_B_test = config["generator_B_test"]
-target_size_A = config["target_size_A"]
-target_size_B = config["target_size_B"]
-generator_train_list = [generator_A, generator_B]
-generator_test_list = [generator_A_test, generator_B_test]
-target_size_list = [target_size_A, target_size_B] 
-# 加载模型池
-models_pool, hasReceived_pool = load_models_pool(config)
-# 双方的local to global
-local_to_global_party_A = joblib.load(config["local_to_global_party_A_path"])
-local_to_global_party_B = joblib.load(config["local_to_global_party_B_path"])
-# 双方的训练集目录
-dataset_A_dir = config["dataset_A_train_path"]
-dataset_B_dir = config["dataset_B_train_path"]
-# 双方的class_name_list
-class_name_list_A = getClasses(dataset_A_dir) # sorted
-class_name_list_B = getClasses(dataset_B_dir) # sorted
-# local_class_name_list_list
-class_name_list_list = [class_name_list_A, class_name_list_B]
-# all_class_name_list
-all_class_name_list = list(set(class_name_list_A+class_name_list_B))
-all_class_name_list.sort()
-# 总分类数
-all_class_nums = len(all_class_name_list)
-# 双方的mapping
-localToGlobal_mapping = [local_to_global_party_A, local_to_global_party_B]
-
-
-
 def global_class_to_local_class(party, global_label_index):
     '''
     global_label_index => local_label_index
@@ -203,8 +161,6 @@ def global_class_to_local_class(party, global_label_index):
                 local_label_index = key
                 break
     return local_label_index, reserved_flag
-
-
 
 def adaptModel(i, received_flag, hasReceived_pool):
     '''
@@ -245,7 +201,6 @@ def get_need_classes(df, i):
         need_class_name_list.append("zzz")
         received_flag = True
     return need_class_name_list, received_flag
-
 
 def calibrate(tunnel, receiver, dataset):
     """ 
@@ -371,10 +326,6 @@ def MPMC_margin(row, models_pool):
     margin = correct_max - incorrect_max
     return (margin, i_pos, i_neg)
 
-# 数据传输隧道
-tunnel = Tunnel([0,1])
-
-
 def predict_proba(i, df, batch_size, remove_reserved_class=True):
     '''
     i方的对df的预测概率
@@ -437,6 +388,7 @@ def evaluate_on(models_pool,df):
     predict_global_idx_array = np.argmax(proba_vector,axis=1)
     true_global_idx_array = np.array(df["label_globalIndex"])
     accuracy = np.sum(predict_global_idx_array == true_global_idx_array) / df.shape[0]
+    accuracy = round(accuracy,4)
     return accuracy
 
 def HMR(budget, dataset_pool, models_pool, df_test_mix):
@@ -623,7 +575,6 @@ def HRM_improve(models_pool, df_sampled, df_test):
     accuracy_integrate = evaluate_on(models_pool,df_test)
     return accuracy_integrate
 
-
 def calibrate_improve(df, i):
     '''
     用df集对模型池calibrate
@@ -689,7 +640,6 @@ def data_alloc(df):
     df_B = pd.concat([df_unique_B, df_overlap_shuffle_2], ignore_index=True)
     dataset_pool = [df_A, df_B]
     return dataset_pool
-
 
 def eval_singleModel(i):
     '''
@@ -771,6 +721,49 @@ def eval_singleModel_v2(models_pool, i):
     # loss, acc = extended_model.evaluate_generator(batches,steps=batches.n / batch_size, verbose = 1)
     return acc
     
+
+# 文件全局变量区
+# 配置变量
+config = animal_3_config
+# 加载混合评估集
+merged_df = pd.read_csv(config["merged_df_path"])
+# 加载各方的评估集
+df_eval_party_A = pd.read_csv(config["df_eval_party_A_path"])
+df_eval_party_B = pd.read_csv(config["df_eval_party_B_path"])
+df_eval_party_list = [df_eval_party_A, df_eval_party_B]
+# 加载数据生成
+generator_A = config["generator_A"]
+generator_B = config["generator_B"]
+generator_A_test = config["generator_A_test"]
+generator_B_test = config["generator_B_test"]
+target_size_A = config["target_size_A"]
+target_size_B = config["target_size_B"]
+generator_train_list = [generator_A, generator_B]
+generator_test_list = [generator_A_test, generator_B_test]
+target_size_list = [target_size_A, target_size_B] 
+# 加载模型池
+models_pool, hasReceived_pool = load_models_pool(config)
+# 双方的local to global
+local_to_global_party_A = joblib.load(config["local_to_global_party_A_path"])
+local_to_global_party_B = joblib.load(config["local_to_global_party_B_path"])
+# 双方的训练集目录
+dataset_A_dir = config["dataset_A_train_path"]
+dataset_B_dir = config["dataset_B_train_path"]
+# 双方的class_name_list
+class_name_list_A = getClasses(dataset_A_dir) # sorted
+class_name_list_B = getClasses(dataset_B_dir) # sorted
+# local_class_name_list_list
+class_name_list_list = [class_name_list_A, class_name_list_B]
+# all_class_name_list
+all_class_name_list = list(set(class_name_list_A+class_name_list_B))
+all_class_name_list.sort()
+# 总分类数
+all_class_nums = len(all_class_name_list)
+# 双方的mapping
+localToGlobal_mapping = [local_to_global_party_A, local_to_global_party_B]
+# 数据传输隧道
+tunnel = Tunnel([0,1])
+
 if __name__ == "__main__":
     common_dir = config["sampled_common_path"]
     sample_num_list = deleteIgnoreFile(os.listdir(common_dir))

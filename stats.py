@@ -1,20 +1,22 @@
+import sys
+import os
 from tensorflow.keras.models import Model, Sequential, load_model
 import pandas as pd
 import numpy as np
 import joblib
-
 from utils import deleteIgnoreFile, saveData, makedir_help
-
-import os
+from scipy.stats import spearmanr
 import tensorflow.keras as keras
 from tensorflow.keras.layers import Dense
-from DataSetConfig import food_config, fruit_config, sport_config, weather_config, flower_2_config, car_body_style_config, animal_config, animal_2_config, animal_3_config
-import Base_acc
 from tensorflow.keras.preprocessing.image import load_img, img_to_array, ImageDataGenerator
 from tensorflow.keras import optimizers
 from tensorflow.keras import backend as K
-
-
+from DataSetConfig import food_config, fruit_config, sport_config, weather_config, flower_2_config, car_body_style_config, animal_config, animal_2_config, animal_3_config
+import Base_acc
+from model_eval import eval_combination_Model
+from HMR import load_models_pool, evaluate_on
+from CFL_simple import eval_stu_model
+from dummy import dummy_eval
 
 def generate_generator_multiple(batches_A, batches_B):
     '''
@@ -87,7 +89,7 @@ def getClasses(dir_path):
     '''
     classes_name_list = os.listdir(dir_path)
     classes_name_list = deleteIgnoreFile(classes_name_list)
-    classes_name_list.sort()
+    classes_name_list.sort() # 重要！！！
     return classes_name_list
 
 def get_pLabel_model(model, df, generator, target_size, local_to_global):
@@ -428,6 +430,7 @@ def get_Train_Test_Size():
     print(f"B:TrainSize:{df_eval_party_B.shape[0]}")
 
 def get_eval_data():
+
     ans = {}
     model = load_model(config["combination_model_path"])
     adam = optimizers.Adam(learning_rate=config["combiantion_lr"], beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
@@ -454,6 +457,10 @@ def get_table_causal_variables():
         row = []
         # 加载模型
         model = load_model(f"/data/mml/overlap_v2_datasets/{dataset_name}/merged_model/combination_model_inheritWeights.h5")
+        merged_train_df = pd.read_csv(f"/data/mml/overlap_v2_datasets/{dataset_name}/merged_data/train/merged_df.csv")
+        classes = merged_train_df["label"].unique()
+        classes = np.sort(classes).tolist()
+        categories = len(classes)
         df = pd.read_csv(f"/data/mml/overlap_v2_datasets/{dataset_name}/merged_data/test/merged_df.csv")
         dataset_size = df.shape[0]
         trainable_count = int(np.sum([K.count_params(p) for p in model.trainable_weights]))
@@ -463,6 +470,7 @@ def get_table_causal_variables():
         avg = get_avg(train_acc)
         row.append(model_param_size)
         row.append(dataset_size)
+        row.append(categories)
         row.extend(avg)
         return row
     def get_avg(train_acc):
@@ -472,7 +480,7 @@ def get_table_causal_variables():
             ans.append(np.mean((train_acc["train"][percent])))
         return ans
     index = ["car", "flower", "food", "fruit", "sport", "weather", "animal_1", "animal_2", "animal_3"]
-    columns = ["model_param_size", "merged_test_dataset_size", "1%", "3%", "5%", "10%", "15%", "20%"]
+    columns = ["model_param_size", "merged_test_dataset_size", "categories", "1%", "3%", "5%", "10%", "15%", "20%"]
     # car
     row_car = get_row("car_body_style")
     # flower
@@ -495,42 +503,74 @@ def get_table_causal_variables():
     df = pd.DataFrame(data, index, columns)
     return df
 
-#  全局变量区域
-os.environ['CUDA_VISIBLE_DEVICES']='2'
-config = animal_3_config
-Base_acc_config = Base_acc.animal_3
-dataset_name = config["dataset_name"]
-model_A = load_model(config["model_A_struct_path"])
-model_A.load_weights(config["model_A_weight_path"])
-model_B = load_model(config["model_B_struct_path"])
-if not config["model_B_weight_path"] is None:
-    model_B.load_weights(config["model_B_weight_path"])
-merged_test_df = pd.read_csv(config["merged_df_path"])
+def calc_correlation():
+    df = pd.read_csv("exp_data/all/causal_variables.csv", index_col=[0])    
+    corr = df.corr(method='spearman', min_periods=1)
+    new_corr = corr.iloc[0:3,3:9]
+    save_dir = "exp_data/all"
+    file_name = "spearman_corr.csv"
+    file_path = os.path.join(save_dir, file_name)
+    new_corr.to_csv(file_path)
+    print("calc_correlation successfully!")
 
-generator_A_test = config["generator_A_test"]
-generator_B_test = config["generator_B_test"]
-target_size_A = config["target_size_A"]
-target_size_B = config["target_size_B"]
-local_to_global_party_A = joblib.load(config["local_to_global_party_A_path"])
-local_to_global_party_B = joblib.load(config["local_to_global_party_B_path"])
-# 双方的class_name_list
-classes_A = getClasses(config["dataset_A_train_path"]) # sorted
-classes_B = getClasses(config["dataset_B_train_path"]) # sorted
-# all_class_name_list
-all_classes_list = list(set(classes_A+classes_B))
-all_classes_list.sort()
-# 总分类数
-all_classes_num = len(all_classes_list)
+def get_init_eval(config):
+    all_df = pd.read_csv(config["merged_df_path"])
+    overlap_df = pd.read_csv(config["merged_overlap_df"])
+    unique_df = pd.read_csv(config["merged_unique_df"])
+
+    eval_df = unique_df
+    # ==== our_combination ====
+    res = eval_combination_Model(config,eval_df)
+    acc_our = round(res["accuracy"],4)
+    # ==== HMR ====
+    models_pool,_ = load_models_pool(config, lr=1e-3)
+    acc_hmr = evaluate_on(models_pool, eval_df)  # 要去换方法所在文件的config
+
+    # ==== CFL ====
+    model = load_model(config['stu_model_path'])
+    generator = ImageDataGenerator(rescale=1/255.)
+    acc_cfl = eval_stu_model(model, eval_df, generator, (224,224), all_classes_list, lr=1e-3)
+    # ==== Dummy ====
+    acc_dummy = dummy_eval(config, eval_df)
+    print(f"our: {acc_our} hmr: {acc_hmr} cfl: {acc_cfl} dummy: {acc_dummy}")
 
 
 def test():
-    df = pd.read_csv("exp_data/all/causal_variables.csv")
-    print("fa")
     pass
 
 if __name__ == "__main__":
-    test()
-    
+    os.environ['CUDA_VISIBLE_DEVICES']='2'
+    config = animal_3_config
+    Base_acc_config = Base_acc.weather
+    dataset_name = config["dataset_name"]
+    model_A = load_model(config["model_A_struct_path"])
+    model_A.load_weights(config["model_A_weight_path"])
+    model_B = load_model(config["model_B_struct_path"])
+    if not config["model_B_weight_path"] is None:
+        model_B.load_weights(config["model_B_weight_path"])
+    merged_test_df = pd.read_csv(config["merged_df_path"])
+
+    generator_A_test = config["generator_A_test"]
+    generator_B_test = config["generator_B_test"]
+    target_size_A = config["target_size_A"]
+    target_size_B = config["target_size_B"]
+    local_to_global_party_A = joblib.load(config["local_to_global_party_A_path"])
+    local_to_global_party_B = joblib.load(config["local_to_global_party_B_path"])
+    # 双方的class_name_list
+    classes_A = getClasses(config["dataset_A_train_path"]) # sorted
+    classes_B = getClasses(config["dataset_B_train_path"]) # sorted
+    # all_class_name_list
+    all_classes_list = list(set(classes_A+classes_B))
+    all_classes_list.sort()
+    # 总分类数
+    all_classes_num = len(all_classes_list)
+
+    # test()
+
+    # get_init_eval(config)
+
+    # calc_correlation()
+
     # df_v = get_table_causal_variables()
     # save_dir = "exp_data/all"
     # file_name = "causal_variables.csv"

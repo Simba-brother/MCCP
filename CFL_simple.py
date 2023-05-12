@@ -79,8 +79,7 @@ def evaluate_integ(model_pool,df):
     accuracy = np.sum(predict_global_idx_array == true_global_idx_array) / df.shape[0]
     return accuracy
 
-
-def local_to_global(localToGlobal_dic,proba_local):
+def local_to_global(localToGlobal_dic, proba_local, all_class_nums):
     '''
     i方的proba => globa proba
     '''
@@ -123,8 +122,6 @@ def getClasses(dir_path):
     classes_name_list = deleteIgnoreFile(classes_name_list)
     classes_name_list.sort()
     return classes_name_list
-
-
 
 def get_out(model, df, generator, target_size, batch_size):
     '''
@@ -260,16 +257,14 @@ def eval_combin_model(model, df):
     # acc = model.evaluate(test_batches, batch_size = batch_size, verbose=1,steps = batches_A.n/batch_size, return_dict=True)
     return acc
 
-def eval_stu_model(model, df):
-    total = df.shape[0]
-    correct_num = 0
+def eval_stu_model(model, df, generator, target_size, all_class_name_list, lr):
     batch_size = 5
     prefix_path = "/data/mml/overlap_v2_datasets/"
 
-    batches = generator_stu_test.flow_from_dataframe(df, 
+    batches = generator.flow_from_dataframe(df, 
                                             directory = prefix_path , # 添加绝对路径前缀
                                             x_col='file_path', y_col='label', 
-                                            target_size=target_size_stu, class_mode='categorical',
+                                            target_size=target_size, class_mode='categorical',
                                             color_mode='rgb', classes = all_class_name_list, 
                                             shuffle=False, batch_size=batch_size,
                                             validate_filenames=False)
@@ -278,8 +273,9 @@ def eval_stu_model(model, df):
                 optimizer=Adamax(learning_rate=lr),
                 metrics=['accuracy'])
     ans_dic = model.evaluate(batches, batch_size = batch_size, verbose=1,steps = batches.n/batch_size, return_dict=True)
-    loss = ans_dic["loss"]
-    accuracy = ans_dic["accuracy"]
+    loss = round(ans_dic["loss"],4)
+    accuracy = round(ans_dic["accuracy"],4)
+
     return accuracy
 
 def kd(model_pool, stu_model, retrain_df, test_df, base_acc, epoches):
@@ -420,51 +416,44 @@ def retrain():
     saveData(ans, file_path)
     print("save success finally")                                                                                             
 
-
-
-
-#全局变量区
-# 设置训练显卡
-os.environ['CUDA_VISIBLE_DEVICES']='4'
-config = animal_3_config
-Base_acc_config = Base_acc.animal_3
-merged_test_df = pd.read_csv(config["merged_df_path"])
-lr = 1e-3
-# 加载各方的评估集
-df_eval_party_A = pd.read_csv(config["df_eval_party_A_path"])
-df_eval_party_B = pd.read_csv(config["df_eval_party_B_path"])
-df_eval_party_list = [df_eval_party_A, df_eval_party_B]
-# 加载数据生成
-generator_A = config["generator_A"]
-generator_B = config["generator_B"]
-generator_stu_train = ImageDataGenerator(rescale=1/255.)
-generator_A_test = config["generator_A_test"]
-generator_B_test = config["generator_B_test"]
-generator_stu_test = ImageDataGenerator(rescale=1/255.)
-target_size_A = config["target_size_A"]
-target_size_B = config["target_size_B"]
-target_size_stu = (224,224)
-generator_train_list = [generator_A, generator_B]
-generator_test_list = [generator_A_test, generator_B_test]
-target_size_list = [target_size_A, target_size_B] 
-# 双方的class_name_list
-class_name_list_A = getClasses(config["dataset_A_train_path"]) # sorted
-class_name_list_B = getClasses(config["dataset_B_train_path"]) # sorted
-# local_class_name_list_list
-class_name_list_list = [class_name_list_A, class_name_list_B]
-# all_class_name_list
-all_class_name_list = list(set(class_name_list_A+class_name_list_B))
-all_class_name_list.sort()
-# 总分类数
-all_class_nums = len(all_class_name_list)
-# 双方的mapping
-# 双方的local to global
-local_to_global_party_A = joblib.load(config["local_to_global_party_A_path"])
-local_to_global_party_B = joblib.load(config["local_to_global_party_B_path"])
-localToGlobal_mapping = [local_to_global_party_A, local_to_global_party_B]
-
-
 if __name__ == "__main__":
+    os.environ['CUDA_VISIBLE_DEVICES']='4'
+    config = animal_3_config
+    Base_acc_config = Base_acc.animal_3
+    merged_test_df = pd.read_csv(config["merged_df_path"])
+    lr = 1e-3
+    # 加载各方的评估集
+    df_eval_party_A = pd.read_csv(config["df_eval_party_A_path"])
+    df_eval_party_B = pd.read_csv(config["df_eval_party_B_path"])
+    df_eval_party_list = [df_eval_party_A, df_eval_party_B]
+    # 加载数据生成
+    generator_A = config["generator_A"]
+    generator_B = config["generator_B"]
+    generator_stu_train = ImageDataGenerator(rescale=1/255.)
+    generator_A_test = config["generator_A_test"]
+    generator_B_test = config["generator_B_test"]
+    generator_stu_test = ImageDataGenerator(rescale=1/255.)
+    target_size_A = config["target_size_A"]
+    target_size_B = config["target_size_B"]
+    target_size_stu = (224,224)
+    generator_train_list = [generator_A, generator_B]
+    generator_test_list = [generator_A_test, generator_B_test]
+    target_size_list = [target_size_A, target_size_B] 
+    # 双方的class_name_list
+    class_name_list_A = getClasses(config["dataset_A_train_path"]) # sorted
+    class_name_list_B = getClasses(config["dataset_B_train_path"]) # sorted
+    # local_class_name_list_list
+    class_name_list_list = [class_name_list_A, class_name_list_B]
+    # all_class_name_list
+    all_class_name_list = list(set(class_name_list_A+class_name_list_B))
+    all_class_name_list.sort()
+    # 总分类数
+    all_class_nums = len(all_class_name_list)
+    # 双方的mapping
+    # 双方的local to global
+    local_to_global_party_A = joblib.load(config["local_to_global_party_A_path"])
+    local_to_global_party_B = joblib.load(config["local_to_global_party_B_path"])
+    localToGlobal_mapping = [local_to_global_party_A, local_to_global_party_B]
     retrain()
 
     

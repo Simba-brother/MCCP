@@ -48,15 +48,17 @@ def getClasses(dir_path):
     classes_name_list.sort()  # 字典序
     return classes_name_list
 
-def eval_singleModel():
+def eval_singleModel(config):
     '''
     评估各方原始模型
     '''
-    model = model_B
-    df = df_B_test
+    model = load_model(config["model_B_struct_path"])
+    if not config["model_B_weight_path"] is None:
+        model.load_weights(config["model_B_weight_path"])
+    df = pd.read_csv(config["df_eval_party_B_path"])
     batch_size = 32
-    gen = generator_B_test
-    classes = classes_B
+    gen = config["generator_B_test"]
+    classes= getClasses(config["dataset_B_train_path"]) # sorted
     target_size = target_size_B
     # 样本batch
     batches = gen.flow_from_dataframe(
@@ -107,32 +109,31 @@ def eval_singleExtendModel():
     # 开始评估
     model.evaluate_generator(generator=test_batches,steps=test_batches.n / batch_size, verbose = 1)
 
-def eval_combination_Model():
+def eval_combination_Model(config,df):
     '''
     对combination_Model进行评估
     '''
     # 加载 合并模型
     combination_model = load_model(config["combination_model_path"])
     # 加载 合并的训练集csv
-    merged_df = pd.read_csv(config["merged_train_df"])
+    merged_train_df = pd.read_csv(config["merged_train_df"])
     # 模型编译
     combination_model.compile(optimizer="adam",loss="categorical_crossentropy",metrics="accuracy")
     # 加载评估集
-    csv_path = config["merged_df_path"]
-    df = pd.read_csv(csv_path) 
+    eval_df = df
 
     test_gen_left = config["generator_A_test"]
     test_gen_right = config["generator_B_test"]
 
     batch_size = 32
     # 全局类别,字典序列
-    classes = merged_df["label"].unique()
+    classes = merged_train_df["label"].unique()
     classes = np.sort(classes).tolist()
 
     target_size_A = config["target_size_A"]
     target_size_B = config["target_size_B"]
     prefix_path = "/data/mml/overlap_v2_datasets/"
-    test_batches_A = test_gen_left.flow_from_dataframe(df, 
+    test_batches_A = test_gen_left.flow_from_dataframe(eval_df, 
                                                 directory = prefix_path, # 添加绝对路径前缀
                                                 x_col='file_path', y_col='label', 
                                                 target_size=target_size_A, class_mode='categorical',
@@ -140,7 +141,7 @@ def eval_combination_Model():
                                                 validate_filenames=False)
                                                                                                                 # weather:rgb  150, 150
 
-    test_batches_B = test_gen_right.flow_from_dataframe(df, 
+    test_batches_B = test_gen_right.flow_from_dataframe(eval_df, 
                                                 directory = prefix_path, # 添加绝对路径前缀
                                                 x_col='file_path', y_col='label', 
                                                 target_size=target_size_B, class_mode='categorical',
@@ -149,9 +150,10 @@ def eval_combination_Model():
 
     test_batches = generate_generator_multiple(test_batches_A, test_batches_B)
 
-    print("评估集样本数: {}".format(df.shape[0]))
+    print("评估集样本数: {}".format(eval_df.shape[0]))
     acc = combination_model.evaluate(test_batches, batch_size = batch_size, verbose=1,steps = test_batches_A.n/batch_size, return_dict=True)
-    
+    return acc
+
 def eval_agree(df, model):
     '''
     评估各方原始模型
@@ -187,8 +189,7 @@ def eval_agree(df, model):
     # 开始评估
     model.evaluate_generator(generator=test_batches,steps=test_batches.n / batch_size, verbose = 1)
 
-
-def eval_stuModel():
+def eval_stuModel(config):
     '''
     对combination_Model进行评估
     '''
@@ -226,38 +227,11 @@ def eval_stuModel():
     loss = ans["loss"]
     return acc, loss
 
-
-os.environ['CUDA_VISIBLE_DEVICES']='2'
-config = animal_3_config
-Base_acc_config = Base_acc.animal_3
-dataset_name = config["dataset_name"]
-model_A = load_model(config["model_A_struct_path"])
-model_A.load_weights(config["model_A_weight_path"])
-model_B = load_model(config["model_B_struct_path"])
-if not config["model_B_weight_path"] is None:
-    model_B.load_weights(config["model_B_weight_path"])
-
-merged_test_df = pd.read_csv(config["merged_df_path"])
-df_A_train = pd.read_csv(config["df_train_party_A_path"])
-df_A_test = pd.read_csv(config["df_eval_party_A_path"])
-df_B_train = pd.read_csv(config["df_train_party_B_path"])
-df_B_test = pd.read_csv(config["df_eval_party_B_path"])
-generator_A_test = config["generator_A_test"]
-generator_B_test = config["generator_B_test"]
-target_size_A = config["target_size_A"]
-target_size_B = config["target_size_B"]
-local_to_global_party_A = joblib.load(config["local_to_global_party_A_path"])
-local_to_global_party_B = joblib.load(config["local_to_global_party_B_path"])
-# 双方的class_name_list
-classes_A = getClasses(config["dataset_A_train_path"]) # sorted
-classes_B = getClasses(config["dataset_B_train_path"]) # sorted
-# all_class_name_list
-all_classes_list = list(set(classes_A+classes_B))
-all_classes_list.sort()
-# 总分类数
-all_classes_num = len(all_classes_list)
 if __name__ == "__main__":
-    # eval_combination_Model()
+    print("=====model_eval.py=======")
+    os.environ['CUDA_VISIBLE_DEVICES']='2'
+    config = car_body_style_config
+    # eval_combination_Model(config)
     # eval_singleModel()
     # eval_singleExtendModel()
     # eval_stuModel()

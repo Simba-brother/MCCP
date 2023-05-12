@@ -244,10 +244,26 @@ def draw_unique_overlap_var_line():
     plt.savefig(file_path)
     print("draw_unique_overlap_var_line successfully!")
 
+def draw_slope(config):
+    dataset_name = config["dataset_name"]
+    our_data = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_acc_v3.data")
+    init_acc = our_data["init_acc"]
+    repeat_list = [1,3,5,10,15,20]
+    mean_list = []
+    mean_list.append(init_acc)
+    for repeat in repeat_list:
+        mean_list.append(round(np.mean(our_data["train"][repeat]),4))
+    x_list = ["1%","3%","5%", "10%", "15%", "20%"]
+    # 计算mean_list增长率
+    mean_list = np.array(mean_list)
+    slope = np.diff(mean_list) / mean_list[:-1]
+    print(slope)
+
 # 全局变量区
-config = animal_3_config
+config = car_body_style_config
 
 if __name__ == "__main__":
+    draw_slope(config)
     # draw_unique_overlap_avg_line()
     # draw_unique_overlap_var_line()
     # draw_box()
