@@ -10,6 +10,8 @@ car_body_style_config = {
     "merged_unique_df":"/data/mml/overlap_v2_datasets/car_body_style/merged_data/test/merged_df_unique.csv",
     "merged_overlap_df":"/data/mml/overlap_v2_datasets/car_body_style/merged_data/test/merged_df_overlap.csv",
     "df_eval_party_A_path":"/data/mml/overlap_v2_datasets/car_body_style/party_A/dataset_split/val.csv",
+    "df_A_val_overlap":"/data/mml/overlap_v2_datasets/car_body_style/party_A/dataset_split/val_overlap.csv",
+    "df_B_val_overlap":"/data/mml/overlap_v2_datasets/car_body_style/party_B/dataset_split/val_overlap.csv",
     "df_train_party_A_path":"/data/mml/overlap_v2_datasets/car_body_style/party_A/dataset_split/train.csv",
     "df_eval_party_B_path":"/data/mml/overlap_v2_datasets/car_body_style/party_B/dataset_split/val.csv",
     "df_train_party_B_path":"/data/mml/overlap_v2_datasets/car_body_style/party_B/dataset_split/train.csv",

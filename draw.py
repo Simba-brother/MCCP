@@ -5,6 +5,8 @@ import joblib
 from matplotlib import pyplot as plt
 import os
 import numpy as np
+import seaborn as sns
+import pandas as pd
 from DataSetConfig import food_config, fruit_config, sport_config, weather_config, flower_2_config, car_body_style_config, animal_config, animal_2_config, animal_3_config
 def get_y_list(dic):
     ans = []
@@ -175,6 +177,74 @@ def draw_box():
     plt.savefig(file_path)
     print("draw_box successfully!")
 
+def draw_overlap_unqiue_initAcc_bar():
+    dataset_name_list = ["car_body_style", "flower_2", "food", "Fruit", "sport", "weather", "animal", "animal_2", "animal_3"]
+    alias_list = ["Car", "Flower", "Food", "Fruit", "Sport", "Weather", "Animal_1", "Animal_2", "Animal_3"]
+    overlap_list = []
+    unique_list = []
+    for dataset_name in dataset_name_list:
+        initAcc = joblib.load(f"exp_data/{dataset_name}/initAcc.data") 
+        overlap_list.append(initAcc["overlap_initAcc"]["accuracy"])
+        unique_list.append(initAcc["unique_initAcc"]["accuracy"])
+    fig = plt.figure(figsize=(7,5))  
+    x = list(range(len(dataset_name_list)))
+    bar_width = 0.2 # 珠子宽度
+    plt.bar(x, unique_list, width=bar_width, label="non-overlap", tick_label = alias_list, fc="red")
+    # 第二个柱子的位置
+    x_1 = list(range(len(dataset_name_list)))
+    for i in range(len(x_1)):
+        x_1[i] = x[i]+bar_width
+    plt.bar(x_1, overlap_list, width=bar_width, label="overlap", fc="green")
+    plt.xticks(rotation=-15)  
+    plt.ylim(0.4, 1.0)  
+    plt.legend()
+    plt.show()
+    save_dir = f"exp_image/all"
+    file_name = "overlap_unique_initAcc.pdf"
+    file_path = os.path.join(save_dir, file_name)
+    plt.savefig(file_path)
+    print("draw_overlap_unqiue_initAcc_bar() successfully!")
+
+def draw_overlap_unqiue_avg_improve_line(config):
+    dataset_name = config["dataset_name"]
+    unique_trained_data = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_unique_v3.data")
+    overlap_trained_datadata = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_overlap_v3.data")
+    initAcc = joblib.load(f"exp_data/{dataset_name}/initAcc.data") 
+    overlap_initAcc = initAcc["overlap_initAcc"]["accuracy"]
+    unique_initAcc = initAcc["unique_initAcc"]["accuracy"]
+    
+    unique_y = []
+    overlap_y = []
+    percent_list = [1,3,5,10,15,20]
+    for percent in percent_list:
+        avg_u = sum(unique_trained_data["train"][percent])/len(unique_trained_data["train"][percent])
+        u_improve = avg_u - unique_initAcc
+        u_improve = round(u_improve,4)
+        unique_y.append(u_improve)
+
+        avg_o = sum(overlap_trained_datadata["train"][percent])/len(overlap_trained_datadata["train"][percent])
+        o_improve = avg_o - overlap_initAcc
+        o_improve = round(o_improve,4)
+        overlap_y.append(o_improve)
+    plt.figure(figsize=(8,5))
+    x_list = ["1%","3%","5%", "10%", "15%", "20%"]
+    # 画线
+    line_1 = plt.plot(x_list, unique_y, label = "non-overlap", color = "red", marker = "x")
+    line_2 = plt.plot(x_list, overlap_y, label = "overlap", color = "green", marker = "o")
+    # 画网格
+    plt.grid()
+    # 图例
+    plt.legend()
+    # 坐标轴说明
+    plt.xlabel("Sampling ratio")
+    plt.ylabel("Improved accuracy")
+
+    save_dir = f"exp_image/{dataset_name}"
+    file_name = "unique_overlap_avg_improve_line.pdf"
+    file_path = os.path.join(save_dir, file_name)
+    plt.savefig(file_path, dpi=800)
+    print("draw_overlap_unqiue_avg_improve_line() successfully!")
+
 def draw_unique_overlap_avg_line():
     dataset_name = config["dataset_name"]
     unique_data = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_unique_v3.data")
@@ -259,13 +329,38 @@ def draw_slope(config):
     slope = np.diff(mean_list) / mean_list[:-1]
     print(slope)
 
-# 全局变量区
-config = car_body_style_config
-
+def draw_heatmap():
+    spearman_corr = pd.read_csv("exp_data/all/spearman_corr.csv", index_col=0)
+    # mask = np.zeros_like(spearman_corr, dtype=np.bool)  # 定义一个大小一致全为零的矩阵  用布尔类型覆盖原来的类型
+    # mask[np.triu_indices_from(mask)]= True  #返回矩阵的上三角，并将其设置为true
+    # cmap = sns.diverging_palette(230, 20, as_cmap=True)
+    # sns.set(font_scale=1.2)
+    # plt.figure(figsize=(9,9))
+    f, ax = plt.subplots(figsize = (9, 7))
+    sns.heatmap(spearman_corr,
+                cmap="RdBu_r",
+                square = True,
+                # mask=mask, #只显示为true的值
+                center=0,
+                linewidths=.5, # 控制小方格间距
+                cbar_kws={"shrink": .5},
+                annot=True     #底图带数字 True为显示数字
+                )
+    ax.set_yticklabels(ax.get_yticklabels(), rotation=360)
+    save_dir = "exp_image/all"
+    file_name = "corr.pdf"
+    file_path = os.path.join(save_dir, file_name)
+    # plt.show()
+    f.savefig(file_path, dpi=800, bbox_inches="tight")
 if __name__ == "__main__":
-    draw_slope(config)
+    # 全局变量区
+    config = animal_3_config
+    # draw_overlap_unqiue_avg_improve_line(config)
+    # draw_slope(config)
+    # draw_overlap_unqiue_initAcc_bar()
     # draw_unique_overlap_avg_line()
     # draw_unique_overlap_var_line()
     # draw_box()
     # draw_line_main()
+    # draw_heatmap()
     pass

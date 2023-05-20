@@ -52,14 +52,14 @@ def eval_singleModel(config):
     '''
     评估各方原始模型
     '''
-    model = load_model(config["model_B_struct_path"])
-    if not config["model_B_weight_path"] is None:
-        model.load_weights(config["model_B_weight_path"])
+    model = load_model(config["model_A_struct_path"])
+    if not config["model_A_weight_path"] is None:
+        model.load_weights(config["model_A_weight_path"])
     df = pd.read_csv(config["df_eval_party_B_path"])
     batch_size = 32
-    gen = config["generator_B_test"]
-    classes= getClasses(config["dataset_B_train_path"]) # sorted
-    target_size = target_size_B
+    gen = config["generator_A_test"]
+    classes= getClasses(config["dataset_A_train_path"]) # sorted
+    target_size = config["target_size_B"]
     # 样本batch
     batches = gen.flow_from_dataframe(
                                     df, 
@@ -151,8 +151,10 @@ def eval_combination_Model(config,df):
     test_batches = generate_generator_multiple(test_batches_A, test_batches_B)
 
     print("评估集样本数: {}".format(eval_df.shape[0]))
-    acc = combination_model.evaluate(test_batches, batch_size = batch_size, verbose=1,steps = test_batches_A.n/batch_size, return_dict=True)
-    return acc
+    res = combination_model.evaluate(test_batches, batch_size = batch_size, verbose=1,steps = test_batches_A.n/batch_size, return_dict=True)
+    # loss = res["loss"]
+    # acc = res["accuracy"]
+    return res
 
 def eval_agree(df, model):
     '''
@@ -232,7 +234,7 @@ if __name__ == "__main__":
     os.environ['CUDA_VISIBLE_DEVICES']='2'
     config = car_body_style_config
     # eval_combination_Model(config)
-    # eval_singleModel()
+    eval_singleModel(config)
     # eval_singleExtendModel()
     # eval_stuModel()
     pass

@@ -457,6 +457,8 @@ def get_table_causal_variables():
         row = []
         # 加载模型
         model = load_model(f"/data/mml/overlap_v2_datasets/{dataset_name}/merged_model/combination_model_inheritWeights.h5")
+        initAcc_dic = joblib.load(f"exp_data/{dataset_name}/initAcc.data")
+        init_acc = initAcc_dic["all_initAcc"]["accuracy"]
         merged_train_df = pd.read_csv(f"/data/mml/overlap_v2_datasets/{dataset_name}/merged_data/train/merged_df.csv")
         classes = merged_train_df["label"].unique()
         classes = np.sort(classes).tolist()
@@ -471,6 +473,7 @@ def get_table_causal_variables():
         row.append(model_param_size)
         row.append(dataset_size)
         row.append(categories)
+        row.append(init_acc)
         row.extend(avg)
         return row
     def get_avg(train_acc):
@@ -480,7 +483,7 @@ def get_table_causal_variables():
             ans.append(np.mean((train_acc["train"][percent])))
         return ans
     index = ["car", "flower", "food", "fruit", "sport", "weather", "animal_1", "animal_2", "animal_3"]
-    columns = ["model_param_size", "merged_test_dataset_size", "categories", "1%", "3%", "5%", "10%", "15%", "20%"]
+    columns = ["model_param_size", "merged_test_dataset_size", "categories", "init_acc", "1%", "3%", "5%", "10%", "15%", "20%"]
     # car
     row_car = get_row("car_body_style")
     # flower
@@ -506,7 +509,7 @@ def get_table_causal_variables():
 def calc_correlation():
     df = pd.read_csv("exp_data/all/causal_variables.csv", index_col=[0])    
     corr = df.corr(method='spearman', min_periods=1)
-    new_corr = corr.iloc[0:3,3:9]
+    new_corr = corr.iloc[0:4,4:10]
     save_dir = "exp_data/all"
     file_name = "spearman_corr.csv"
     file_path = os.path.join(save_dir, file_name)
@@ -535,13 +538,30 @@ def get_init_eval(config):
     print(f"our: {acc_our} hmr: {acc_hmr} cfl: {acc_cfl} dummy: {acc_dummy}")
 
 
+def ourMethod_init_acc(config):
+    ans = {}
+    # 加载模型
+    model = load_model(config["combination_model_path"])
+    # 加载数据
+    df_all = pd.read_csv(config["merged_df_path"])
+    df_overlap = pd.read_csv(config["merged_overlap_df"])
+    df_unique = pd.read_csv(config["merged_unique_df"])
+    acc_all = eval_combination_Model(config,df_all)
+    acc_overlap = eval_combination_Model(config,df_overlap)
+    acc_unique = eval_combination_Model(config,df_unique)
+    ans["all_initAcc"] = acc_all
+    ans["overlap_initAcc"] = acc_overlap
+    ans["unique_initAcc"] = acc_unique
+    print("ourMethod_init_acc() successfully!")
+    return ans
+
 def test():
     pass
 
 if __name__ == "__main__":
-    os.environ['CUDA_VISIBLE_DEVICES']='2'
+    os.environ['CUDA_VISIBLE_DEVICES']='3'
     config = animal_3_config
-    Base_acc_config = Base_acc.weather
+    Base_acc_config = Base_acc.animal_3
     dataset_name = config["dataset_name"]
     model_A = load_model(config["model_A_struct_path"])
     model_A.load_weights(config["model_A_weight_path"])
@@ -565,17 +585,24 @@ if __name__ == "__main__":
     # 总分类数
     all_classes_num = len(all_classes_list)
 
+    # ans = ourMethod_init_acc(config)
+    # save_dir = f"exp_data/{dataset_name}"
+    # file_name = "initAcc.data"
+    # file_path = os.path.join(save_dir,file_name)
+    # saveData(ans, file_path)
+
     # test()
 
     # get_init_eval(config)
 
-    # calc_correlation()
-
+  
     # df_v = get_table_causal_variables()
     # save_dir = "exp_data/all"
     # file_name = "causal_variables.csv"
     # file_path = os.path.join(save_dir, file_name)
     # df_v.to_csv(file_path)
+
+    # calc_correlation()
 
     # train_acc = get_eval_data()
     # save_dir = f"exp_data/{dataset_name}/retrainResult/percent/OurCombin"

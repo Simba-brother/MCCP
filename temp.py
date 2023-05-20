@@ -12,7 +12,20 @@ from tensorflow.keras.applications.xception import Xception
 from tensorflow.keras.applications.resnet import ResNet50
 from tensorflow.keras.models import Model, Sequential, load_model
 
+a = pd.read_csv("exp_data/all/spearman_corr.csv")
+a.to_excel("exp_data/all/a.xlsx")
 
+car_A = pd.read_csv("/data/mml/overlap_v2_datasets/car_body_style/party_A/dataset_split/train.csv")
+classes_A  = car_A["label"].unique()
+classes_A = np.sort(classes_A).tolist()
+car_B = pd.read_csv("/data/mml/overlap_v2_datasets/car_body_style/party_B/dataset_split/train.csv")
+classes_B  = car_B["label"].unique()
+classes_B = np.sort(classes_B).tolist()
+overlap = pd.read_csv("/data/mml/overlap_v2_datasets/car_body_style/merged_data/train/merged_df_overlap.csv")
+classes_o  = overlap["label"].unique()
+classes_o = np.sort(classes_o).tolist()
+
+print("")
 pre_trained_model = ResNet50(include_top=True, weights='imagenet', input_tensor=None, input_shape=None, pooling=None, classes=1000)
 a = np.array(
     [
