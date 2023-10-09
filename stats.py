@@ -430,7 +430,6 @@ def get_Train_Test_Size():
     print(f"B:TrainSize:{df_eval_party_B.shape[0]}")
 
 def get_eval_data():
-
     ans = {}
     model = load_model(config["combination_model_path"])
     adam = optimizers.Adam(learning_rate=config["combiantion_lr"], beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)

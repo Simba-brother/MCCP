@@ -8,6 +8,7 @@ import numpy as np
 import seaborn as sns
 import pandas as pd
 from DataSetConfig import food_config, fruit_config, sport_config, weather_config, flower_2_config, car_body_style_config, animal_config, animal_2_config, animal_3_config
+
 def get_y_list(dic):
     ans = []
     base_acc = dic["base_acc"]
@@ -60,7 +61,7 @@ def draw_lines(x_list, y_data):
     plt.axhline(y_data["CFL_base_acc"],color='cornflowerblue',ls='--')
     plt.axhline(y_data["Dummy_base_acc"], color = "orange", ls="solid", marker="^", label="Dummy")
     plt.legend()
-    plt.xlabel("percent of sampling", fontsize=16)
+    plt.xlabel("Sampling ratio", fontsize=16)
     plt.ylabel("Accuracy", fontsize=16)
     # plt.title("Accuracy of Knowledge Amalgamation")
     plt.tick_params(labelsize=15)  #刻度字体大小13
@@ -70,9 +71,11 @@ def draw_truncation_line(x_list, y_data):
     ourCombin_list = y_data["OurCombin"]
     hmr_list = y_data["HMR"]
     cfl_list = y_data["CFL"]
-    f, (ax1, ax2) = plt.subplots(2, 1, sharex=False, figsize=(4, 4), dpi=600)  # 绘制两个子图
-    plt.xlabel("percent of sampling")
-    plt.ylabel("Accuracy")
+    f, (ax1, ax2) = plt.subplots(2, 1, sharex=False, figsize=(3,3), dpi=600)  # 绘制两个子图
+    plt.xlabel("Sampling ratio", fontproperties = "Times New Roman", fontsize = 12)
+    plt.ylabel("Accuracy", fontproperties = "Times New Roman", fontsize = 12)
+    plt.xticks(fontproperties = "Times New Roman", fontsize = 11)
+    plt.xticks(fontproperties = "Times New Roman", fontsize = 11)
 
     ax1.xaxis.tick_top()
     ax1.xaxis.set_visible(True)
@@ -83,12 +86,20 @@ def draw_truncation_line(x_list, y_data):
     ax2.plot(x_list, cfl_list, label = "CFL", color = "blue", marker = 's')
 
 
-    ax1.plot(x_list, ourCombin_list, label = "ourCombin", color = "red", marker = "x")   # 绘制折线
+    ax1.plot(x_list, ourCombin_list, label = "MCCP", color = "red", marker = "x")   # 绘制折线
     ax1.plot(x_list, hmr_list, label = "HMR", color = "green", marker = "o")
     ax1.plot(x_list, cfl_list, label = "CFL", color = "blue", marker = 's')
     ax1.axhline(y_data["Dummy_base_acc"], color = "orange", ls="solid", marker="^", label="Dummy")
-    ax1.set_ylim(0.73, 0.85) # 设置纵坐标范围
-
+    ax1.set_ylim(0.70,0.85) # 设置纵坐标范围
+    # car:(0.75,0.85)
+    # flower:(0.850,0.920)
+    # food:(0.80,0.95)
+    # fruit:(0.80,1.0)
+    # sport:(0.7,0.90)
+    # weather:(0.7,0.82)
+    # animal_1:(0.81,0.83)
+    # animal_2:(0.80,0.90)
+    # animal_3:(0.70,0.85)
     # 画网格
     ax1.grid(axis="both")
     ax2.grid(axis="both")
@@ -114,8 +125,8 @@ def draw_truncation_line(x_list, y_data):
     ax2.plot((1 - d, 1 + d), (1 - d, 1 + d), **kwargs) 
     return f
 
-def draw_line_main():
-    dataset_name = "car_body_style"
+def draw_line_main(config):
+    dataset_name = config["dataset_name"]
     sample_method = "percent"
     resulst_file_name = "reTrain_acc.data"
     # x轴(x_list)
@@ -143,23 +154,109 @@ def draw_line_main():
     fig = draw_truncation_line(x_list, y_data)
     # 保存图片
     save_dir = f"exp_image/{dataset_name}"
-    file_name = f"our_hmr_cfl_dummy_{sample_method}_v4.pdf"
+    file_name = f"RQ2.pdf"
     file_path = os.path.join(save_dir, file_name)
-    fig.savefig(file_path)
+    fig.savefig(file_path,bbox_inches="tight",pad_inches=0.1)
 
+def draw_case_study(config):
+    dataset_name = config["dataset_name"]
+    sample_method = "percent"
+    resulst_file_name = "reTrain_acc.data"
+    # x轴(x_list)
+    x_list = ["1%","3%","5%", "10%", "15%", "20%"] # "50%", "80", "100%"
+    color = [
+    '#FF0000',
+    '#00ff00',
+    '#0000ff']
+    # x_list = [30,60,90,120,150,180]
+    # 加载数据
+    OurCombin = joblib.load(f"exp_data/{dataset_name}/retrainResult/{sample_method}/OurCombin/{resulst_file_name}")
+    HMR = joblib.load(f"exp_data/{dataset_name}/retrainResult/{sample_method}/HMR/{resulst_file_name}")
+    CFL = joblib.load(f"exp_data/{dataset_name}/retrainResult/{sample_method}/CFL/{resulst_file_name}")
+    Dummy = joblib.load(f"exp_data/{dataset_name}/retrainResult/dummy/dummy.data")
+    # 获得y_list
+    ourCombin_list  = get_y_list(OurCombin)
+    ourCombin_list = ourCombin_list[:-3]
+    hmr_list = get_y_list(HMR)
+    hmr_list = hmr_list[:-3]
+    cfl_list = get_y_list(CFL)
+    cfl_list = cfl_list[:-3]
+    dummy_list = [Dummy["combin_acc"]]*len(x_list)
+    our_hmr_ans = []
+    our_cfl_ans = []
+    our_dummy_ans = []
+    for i in range(len(ourCombin_list)):
+        dif_1 = ourCombin_list[i] - hmr_list[i]
+        dif_2 = ourCombin_list[i] - cfl_list[i]
+        dif_3 = ourCombin_list[i] - dummy_list[i]
+        dif_1 = round(dif_1,4)
+        dif_2 = round(dif_2,4)
+        dif_3 = round(dif_3,4)
+        our_hmr_ans.append(dif_1)
+        our_cfl_ans.append(dif_2)
+        our_dummy_ans.append(dif_3)
+    # fig = plt.figure(figsize=(7,5))  
+    fig,ax1 = plt.subplots()
+    ax1.set_ylabel('Improved accuracy')
+    ax1.set_xlabel('percent of sampling')
+    ax1.set_ylim([0.02,0.1])
+    x_1 = list(range(len(x_list)))
+    bar_width = 0.2 # 柱子宽度
+    ax1.bar(x_1, our_hmr_ans, width=bar_width, label="MCCP-HMR", color=color[0])
+    # 第二个柱子的位置
+    x_2 = list(range(len(x_list)))
+    for i in range(len(x_2)):
+        x_2[i] = x_1[i]+bar_width
+    plt.bar(x_2, our_dummy_ans, width=bar_width, label="MCCP-Dummy", tick_label = x_list, color=color[1])
+    # 第三个柱子的位置
+    ax2 = ax1.twinx()
+    ax2.set_ylabel('Improved accuracy')
+    ax2.set_ylim([0.2,0.6])
+    # ax2.set_ylim([0.02,0.1])
+    x_3 = list(range(len(x_list)))
+    for i in range(len(x_3)):
+        x_3[i] = x_1[i]+2*bar_width
+    ax2.bar(x_3, our_cfl_ans, width=bar_width, label="MCCP-CFL", color=color[2])
+    # plt.xticks(rotation=-15)  
+    # plt.ylim(0.02, 0.1)  
+    fig.tight_layout()
+    # plt.legend()
+    ax1.legend(loc="upper left")
+    ax2.legend(loc="upper right")
+    plt.show()
+    save_dir = f"exp_image/animal_2"
+    file_name = "case_study.pdf"
+    file_path = os.path.join(save_dir, file_name)
+    plt.savefig(file_path)
+    
 def draw_box():
     dataset_name = config["dataset_name"]
     labels = '1%', '3%', '5%', '10%', '15%', '20%'
     train_acc = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_acc_v3.data")
     A = train_acc["train"][1]
+    # 计算方差
+    var_A = np.var(A)
     B = train_acc["train"][3]
+    var_B = np.var(B)
     C = train_acc["train"][5]
+    var_C = np.var(C)
     D = train_acc["train"][10]
+    var_D = np.var(D)
     E = train_acc["train"][15]
+    var_E = np.var(E)
     F = train_acc["train"][20]
+    var_F = np.var(F)
+    print(format(var_A,".3E"))
+    print(format(var_B,".3E"))
+    print(format(var_C,".3E"))
+    print(format(var_D,".3E"))
+    print(format(var_E,".3E"))
+    print(format(var_F,".3E"))
     data = [A, B, C, D, E, F]
+    plt.figure(figsize=(3,3),dpi=600)
     plt.grid(True)  # 显示网格
     plt.boxplot(data,
+                widths=0.4,
                 medianprops={'color': 'red', 'linewidth': '1.5'}, # 设置中位数的属性，如线的类型、粗细等；
                 showmeans=True,
                 meanline=False,
@@ -168,13 +265,15 @@ def draw_box():
                 flierprops={"marker": "o", "markerfacecolor": "red", "markersize": 10}, # 设置异常值的属性，如异常点的形状、大小、填充色等
                 labels=labels)
     # plt.yticks(np.arange(0.4, 0.81, 0.1))
-    plt.xlabel("Sampling ratio")
-    plt.ylabel("Accuracy")
+    plt.xticks(fontproperties = 'Times New Roman', size = 11)
+    plt.yticks(fontproperties = 'Times New Roman', size = 11)
+    plt.xlabel("Sampling ratio", fontproperties = "Times New Roman", fontsize = 12)
+    plt.ylabel("Accuracy", fontproperties = "Times New Roman", fontsize = 12)
     plt.show()
     save_dir = f"exp_image/{dataset_name}"
-    file_name = "box_full_classification_stability.pdf"
+    file_name = "box.pdf"
     file_path = os.path.join(save_dir, file_name)
-    plt.savefig(file_path)
+    # plt.savefig(file_path, bbox_inches = 'tight',pad_inches = 0.1)
     print("draw_box successfully!")
 
 def draw_overlap_unqiue_initAcc_bar():
@@ -188,13 +287,13 @@ def draw_overlap_unqiue_initAcc_bar():
         unique_list.append(initAcc["unique_initAcc"]["accuracy"])
     fig = plt.figure(figsize=(7,5))  
     x = list(range(len(dataset_name_list)))
-    bar_width = 0.2 # 珠子宽度
-    plt.bar(x, unique_list, width=bar_width, label="non-overlap", tick_label = alias_list, fc="red")
+    bar_width = 0.2 # 柱子宽度
+    plt.bar(x, unique_list, width=bar_width, label="unique", tick_label = alias_list, fc="red")
     # 第二个柱子的位置
     x_1 = list(range(len(dataset_name_list)))
     for i in range(len(x_1)):
         x_1[i] = x[i]+bar_width
-    plt.bar(x_1, overlap_list, width=bar_width, label="overlap", fc="green")
+    plt.bar(x_1, overlap_list, width=bar_width, label="overlapping", fc="green")
     plt.xticks(rotation=-15)  
     plt.ylim(0.4, 1.0)  
     plt.legend()
@@ -226,23 +325,25 @@ def draw_overlap_unqiue_avg_improve_line(config):
         o_improve = avg_o - overlap_initAcc
         o_improve = round(o_improve,4)
         overlap_y.append(o_improve)
-    plt.figure(figsize=(8,5))
+    plt.figure(figsize=(3,3))
+
     x_list = ["1%","3%","5%", "10%", "15%", "20%"]
     # 画线
-    line_1 = plt.plot(x_list, unique_y, label = "non-overlap", color = "red", marker = "x")
-    line_2 = plt.plot(x_list, overlap_y, label = "overlap", color = "green", marker = "o")
+    line_1 = plt.plot(x_list, unique_y, label = "unique", color = "red", marker = "x")
+    line_2 = plt.plot(x_list, overlap_y, label = "overlapping", color = "green", marker = "o")
     # 画网格
     plt.grid()
     # 图例
     plt.legend()
     # 坐标轴说明
-    plt.xlabel("Sampling ratio")
-    plt.ylabel("Improved accuracy")
-
+    plt.xlabel("Sampling ratio", fontproperties = "Times New Roman", fontsize = 12)
+    plt.ylabel("Improved accuracy", fontproperties = "Times New Roman", fontsize = 12)
+    plt.xticks(fontproperties = "Times New Roman", fontsize = 11)
+    plt.xticks(fontproperties = "Times New Roman", fontsize = 11)
     save_dir = f"exp_image/{dataset_name}"
-    file_name = "unique_overlap_avg_improve_line.pdf"
+    file_name = "discussion_improve.pdf"
     file_path = os.path.join(save_dir, file_name)
-    plt.savefig(file_path, dpi=800)
+    plt.savefig(file_path, bbox_inches = 'tight', pad_inches = 0.1, dpi=600)
     print("draw_overlap_unqiue_avg_improve_line() successfully!")
 
 def draw_unique_overlap_avg_line():
@@ -352,15 +453,17 @@ def draw_heatmap():
     file_path = os.path.join(save_dir, file_name)
     # plt.show()
     f.savefig(file_path, dpi=800, bbox_inches="tight")
+
 if __name__ == "__main__":
     # 全局变量区
-    config = animal_3_config
+    config = animal_2_config
     # draw_overlap_unqiue_avg_improve_line(config)
     # draw_slope(config)
     # draw_overlap_unqiue_initAcc_bar()
     # draw_unique_overlap_avg_line()
     # draw_unique_overlap_var_line()
     # draw_box()
-    # draw_line_main()
-    # draw_heatmap()
+    # draw_line_main(config)
+    draw_heatmap()
+    # draw_case_study(config)
     pass
