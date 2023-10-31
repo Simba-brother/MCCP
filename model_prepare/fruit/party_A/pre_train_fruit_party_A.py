@@ -12,7 +12,7 @@ from tensorflow.keras.layers import Layer, Dense, Conv2D, MaxPool2D, MaxPooling2
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, LearningRateScheduler, ReduceLROnPlateau
 from tensorflow.keras import Model
 import sys
-sys.path.append("/home/mml/workspace/model_reuse_v2/")
+sys.path.append("./")
 from utils import deleteIgnoreFile
 from tensorflow.keras.applications.efficientnet import EfficientNetB3
 from tensorflow.keras import regularizers

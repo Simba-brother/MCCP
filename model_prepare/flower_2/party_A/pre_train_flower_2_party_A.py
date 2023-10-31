@@ -5,7 +5,7 @@ refcode: https://www.kaggle.com/code/utkarshsaxenadn/flower-classification-resne
 import pandas as pd
 import os
 import sys
-sys.path.append("/home/mml/workspace/model_reuse_v2/")
+sys.path.append("./")
 from utils import deleteIgnoreFile
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 # keras.models

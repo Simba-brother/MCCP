@@ -7,7 +7,7 @@ import os
 from tensorflow.keras.losses import categorical_crossentropy, mse
 from tensorflow.keras.optimizers import Adam,Adamax
 import sys
-sys.path.append("/home/mml/workspace/model_reuse_v2/")
+sys.path.append("./")
 from DataSetConfig import car_body_style_config
 import joblib
 import tensorflow as tf

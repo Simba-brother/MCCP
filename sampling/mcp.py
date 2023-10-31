@@ -7,7 +7,7 @@ import multiprocessing
 import os
 import joblib
 
-sys.path.append("/home/mml/workspace/model_reuse_v2/")
+sys.path.append("./")
 from utils import deleteIgnoreFile, saveData, getOverlapGlobalLabelIndex, str_probabilty_list_To_list
 
 def get_max_secondMax(prob_list):

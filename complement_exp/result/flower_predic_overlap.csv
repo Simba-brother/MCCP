@@ -1,0 +1,1457 @@
+merged_idx,logic_id,file_path,label,label_localIndex,source,label_globalIndex,is_overlap,predict_global_label_A,predict_global_label_B
+0,0,flower_2/party_A/dataset_split/val/daisy/Daisy (73).jpeg,daisy,0,1,0,1,0,0
+1,1,flower_2/party_A/dataset_split/val/daisy/Daisy (713).jpeg,daisy,0,1,0,1,0,0
+2,2,flower_2/party_A/dataset_split/val/daisy/Daisy (565).jpeg,daisy,0,1,0,1,0,1
+3,3,flower_2/party_A/dataset_split/val/daisy/test_Daisy (182).jpeg,daisy,0,1,0,1,0,0
+4,4,flower_2/party_A/dataset_split/val/daisy/val_Daisy (17).jpeg,daisy,0,1,0,1,0,0
+5,5,flower_2/party_A/dataset_split/val/daisy/Daisy (665).jpeg,daisy,0,1,0,1,0,0
+6,6,flower_2/party_A/dataset_split/val/daisy/val_Daisy (325).jpeg,daisy,0,1,0,1,0,0
+7,7,flower_2/party_A/dataset_split/val/daisy/val_Daisy (437).jpeg,daisy,0,1,0,1,0,0
+8,8,flower_2/party_A/dataset_split/val/daisy/val_Daisy (361).jpeg,daisy,0,1,0,1,0,0
+9,9,flower_2/party_A/dataset_split/val/daisy/Daisy (797).jpeg,daisy,0,1,0,1,0,0
+10,10,flower_2/party_A/dataset_split/val/daisy/Daisy (587).jpeg,daisy,0,1,0,1,3,0
+11,11,flower_2/party_A/dataset_split/val/daisy/test_Daisy (62).jpeg,daisy,0,1,0,1,0,0
+12,12,flower_2/party_A/dataset_split/val/daisy/Daisy (91).jpeg,daisy,0,1,0,1,0,0
+13,13,flower_2/party_A/dataset_split/val/daisy/Daisy (170).jpeg,daisy,0,1,0,1,0,0
+14,14,flower_2/party_A/dataset_split/val/daisy/val_Daisy (274).jpeg,daisy,0,1,0,1,3,1
+15,15,flower_2/party_A/dataset_split/val/daisy/Daisy (287).jpeg,daisy,0,1,0,1,0,0
+16,16,flower_2/party_A/dataset_split/val/daisy/val_Daisy (295).jpeg,daisy,0,1,0,1,0,0
+17,17,flower_2/party_A/dataset_split/val/daisy/Daisy (809).jpeg,daisy,0,1,0,1,0,0
+18,18,flower_2/party_A/dataset_split/val/daisy/val_Daisy (420).jpeg,daisy,0,1,0,1,3,1
+19,19,flower_2/party_A/dataset_split/val/daisy/val_Daisy (123).jpeg,daisy,0,1,0,1,0,0
+20,20,flower_2/party_A/dataset_split/val/daisy/Daisy (623).jpeg,daisy,0,1,0,1,0,0
+21,21,flower_2/party_A/dataset_split/val/daisy/Daisy (1020).jpeg,daisy,0,1,0,1,0,0
+22,22,flower_2/party_A/dataset_split/val/daisy/Daisy (531).jpeg,daisy,0,1,0,1,0,0
+23,23,flower_2/party_A/dataset_split/val/daisy/Daisy (581).jpeg,daisy,0,1,0,1,0,0
+24,24,flower_2/party_A/dataset_split/val/daisy/val_Daisy (1).jpeg,daisy,0,1,0,1,0,0
+25,25,flower_2/party_A/dataset_split/val/daisy/val_Daisy (307).jpeg,daisy,0,1,0,1,0,0
+26,26,flower_2/party_A/dataset_split/val/daisy/val_Daisy (201).jpeg,daisy,0,1,0,1,3,0
+27,27,flower_2/party_A/dataset_split/val/daisy/Daisy (886).jpeg,daisy,0,1,0,1,0,0
+28,28,flower_2/party_A/dataset_split/val/daisy/Daisy (628).jpeg,daisy,0,1,0,1,0,0
+29,29,flower_2/party_A/dataset_split/val/daisy/val_Daisy (370).jpeg,daisy,0,1,0,1,0,0
+30,30,flower_2/party_A/dataset_split/val/daisy/Daisy (883).jpeg,daisy,0,1,0,1,0,0
+31,31,flower_2/party_A/dataset_split/val/daisy/Daisy (351).jpeg,daisy,0,1,0,1,0,0
+32,32,flower_2/party_A/dataset_split/val/daisy/Daisy (359).jpeg,daisy,0,1,0,1,2,1
+33,33,flower_2/party_A/dataset_split/val/daisy/Daisy (75).jpeg,daisy,0,1,0,1,0,0
+34,34,flower_2/party_A/dataset_split/val/daisy/val_Daisy (132).jpeg,daisy,0,1,0,1,0,0
+35,35,flower_2/party_A/dataset_split/val/daisy/val_Daisy (270).jpeg,daisy,0,1,0,1,0,0
+36,36,flower_2/party_A/dataset_split/val/daisy/Daisy (739).jpeg,daisy,0,1,0,1,0,0
+37,37,flower_2/party_A/dataset_split/val/daisy/Daisy (675).jpeg,daisy,0,1,0,1,0,0
+38,38,flower_2/party_A/dataset_split/val/daisy/Daisy (53).jpeg,daisy,0,1,0,1,0,6
+39,39,flower_2/party_A/dataset_split/val/daisy/Daisy (998).jpeg,daisy,0,1,0,1,0,0
+40,40,flower_2/party_A/dataset_split/val/daisy/val_Daisy (34).jpeg,daisy,0,1,0,1,0,0
+41,41,flower_2/party_A/dataset_split/val/daisy/val_Daisy (216).jpeg,daisy,0,1,0,1,0,0
+42,42,flower_2/party_A/dataset_split/val/daisy/Daisy (203).jpeg,daisy,0,1,0,1,0,0
+43,43,flower_2/party_A/dataset_split/val/daisy/test_Daisy (215).jpeg,daisy,0,1,0,1,5,0
+44,44,flower_2/party_A/dataset_split/val/daisy/Daisy (390).jpeg,daisy,0,1,0,1,0,0
+45,45,flower_2/party_A/dataset_split/val/daisy/test_Daisy (205).jpeg,daisy,0,1,0,1,0,0
+46,46,flower_2/party_A/dataset_split/val/daisy/val_Daisy (429).jpeg,daisy,0,1,0,1,0,0
+47,47,flower_2/party_A/dataset_split/val/daisy/val_Daisy (104).jpeg,daisy,0,1,0,1,0,1
+48,48,flower_2/party_A/dataset_split/val/daisy/Daisy (435).jpeg,daisy,0,1,0,1,3,0
+49,49,flower_2/party_A/dataset_split/val/daisy/val_Daisy (18).jpeg,daisy,0,1,0,1,0,0
+50,50,flower_2/party_A/dataset_split/val/daisy/val_Daisy (442).jpeg,daisy,0,1,0,1,2,1
+51,51,flower_2/party_A/dataset_split/val/daisy/val_Daisy (261).jpeg,daisy,0,1,0,1,0,0
+52,52,flower_2/party_A/dataset_split/val/daisy/Daisy (122).jpeg,daisy,0,1,0,1,0,0
+53,53,flower_2/party_A/dataset_split/val/daisy/val_Daisy (430).jpeg,daisy,0,1,0,1,0,0
+54,54,flower_2/party_A/dataset_split/val/daisy/Daisy (370).jpeg,daisy,0,1,0,1,0,0
+55,55,flower_2/party_A/dataset_split/val/daisy/val_Daisy (59).jpeg,daisy,0,1,0,1,0,0
+56,56,flower_2/party_A/dataset_split/val/daisy/Daisy (21).jpeg,daisy,0,1,0,1,0,0
+57,57,flower_2/party_A/dataset_split/val/daisy/Daisy (664).jpeg,daisy,0,1,0,1,0,0
+58,58,flower_2/party_A/dataset_split/val/daisy/val_Daisy (73).jpeg,daisy,0,1,0,1,0,0
+59,59,flower_2/party_A/dataset_split/val/daisy/Daisy (627).jpeg,daisy,0,1,0,1,0,1
+60,60,flower_2/party_A/dataset_split/val/daisy/test_Daisy (195).jpeg,daisy,0,1,0,1,0,0
+61,61,flower_2/party_A/dataset_split/val/daisy/Daisy (958).jpeg,daisy,0,1,0,1,0,4
+62,62,flower_2/party_A/dataset_split/val/daisy/Daisy (885).jpeg,daisy,0,1,0,1,0,0
+63,63,flower_2/party_A/dataset_split/val/daisy/val_Daisy (338).jpeg,daisy,0,1,0,1,0,0
+64,64,flower_2/party_A/dataset_split/val/daisy/Daisy (963).jpeg,daisy,0,1,0,1,0,0
+65,65,flower_2/party_A/dataset_split/val/daisy/Daisy (601).jpeg,daisy,0,1,0,1,0,0
+66,66,flower_2/party_A/dataset_split/val/daisy/val_Daisy (225).jpeg,daisy,0,1,0,1,0,0
+67,67,flower_2/party_A/dataset_split/val/daisy/Daisy (815).jpeg,daisy,0,1,0,1,3,0
+68,68,flower_2/party_A/dataset_split/val/daisy/Daisy (161).jpeg,daisy,0,1,0,1,0,0
+69,69,flower_2/party_A/dataset_split/val/daisy/test_Daisy (104).jpeg,daisy,0,1,0,1,0,0
+70,70,flower_2/party_A/dataset_split/val/daisy/val_Daisy (183).jpeg,daisy,0,1,0,1,0,0
+71,71,flower_2/party_A/dataset_split/val/daisy/Daisy (892).jpeg,daisy,0,1,0,1,0,0
+72,72,flower_2/party_A/dataset_split/val/daisy/val_Daisy (390).jpeg,daisy,0,1,0,1,0,0
+73,73,flower_2/party_A/dataset_split/val/daisy/Daisy (833).jpeg,daisy,0,1,0,1,0,0
+74,74,flower_2/party_A/dataset_split/val/daisy/Daisy (910).jpeg,daisy,0,1,0,1,0,0
+75,75,flower_2/party_A/dataset_split/val/daisy/Daisy (840).jpeg,daisy,0,1,0,1,0,0
+76,76,flower_2/party_A/dataset_split/val/daisy/Daisy (74).jpeg,daisy,0,1,0,1,0,0
+77,77,flower_2/party_A/dataset_split/val/daisy/test_Daisy (130).jpeg,daisy,0,1,0,1,0,0
+78,78,flower_2/party_A/dataset_split/val/daisy/val_Daisy (113).jpeg,daisy,0,1,0,1,0,0
+79,79,flower_2/party_A/dataset_split/val/daisy/Daisy (65).jpeg,daisy,0,1,0,1,0,1
+80,80,flower_2/party_A/dataset_split/val/daisy/val_Daisy (148).jpeg,daisy,0,1,0,1,0,0
+81,81,flower_2/party_A/dataset_split/val/daisy/Daisy (820).jpeg,daisy,0,1,0,1,0,0
+82,82,flower_2/party_A/dataset_split/val/daisy/val_Daisy (312).jpeg,daisy,0,1,0,1,0,0
+83,83,flower_2/party_A/dataset_split/val/daisy/test_Daisy (220).jpeg,daisy,0,1,0,1,0,0
+84,84,flower_2/party_A/dataset_split/val/daisy/Daisy (132).jpeg,daisy,0,1,0,1,0,0
+85,85,flower_2/party_A/dataset_split/val/daisy/Daisy (80).jpeg,daisy,0,1,0,1,0,0
+86,86,flower_2/party_A/dataset_split/val/daisy/val_Daisy (278).jpeg,daisy,0,1,0,1,0,0
+87,87,flower_2/party_A/dataset_split/val/daisy/val_Daisy (160).jpeg,daisy,0,1,0,1,0,0
+88,88,flower_2/party_A/dataset_split/val/daisy/Daisy (932).jpeg,daisy,0,1,0,1,0,0
+89,89,flower_2/party_A/dataset_split/val/daisy/Daisy (448).jpeg,daisy,0,1,0,1,0,0
+90,90,flower_2/party_A/dataset_split/val/daisy/Daisy (364).jpeg,daisy,0,1,0,1,0,0
+91,91,flower_2/party_A/dataset_split/val/daisy/Daisy (40).jpeg,daisy,0,1,0,1,0,0
+92,92,flower_2/party_A/dataset_split/val/daisy/test_Daisy (170).jpeg,daisy,0,1,0,1,3,0
+93,93,flower_2/party_A/dataset_split/val/daisy/test_Daisy (168).jpeg,daisy,0,1,0,1,0,0
+94,94,flower_2/party_A/dataset_split/val/daisy/Daisy (436).jpeg,daisy,0,1,0,1,0,0
+95,95,flower_2/party_A/dataset_split/val/daisy/Daisy (711).jpeg,daisy,0,1,0,1,0,0
+96,96,flower_2/party_A/dataset_split/val/daisy/Daisy (391).jpeg,daisy,0,1,0,1,0,0
+97,97,flower_2/party_A/dataset_split/val/daisy/Daisy (365).jpeg,daisy,0,1,0,1,3,6
+98,98,flower_2/party_A/dataset_split/val/daisy/Daisy (85).jpeg,daisy,0,1,0,1,0,0
+99,99,flower_2/party_A/dataset_split/val/daisy/Daisy (279).jpeg,daisy,0,1,0,1,0,0
+100,100,flower_2/party_A/dataset_split/val/daisy/val_Daisy (489).jpeg,daisy,0,1,0,1,0,0
+101,101,flower_2/party_A/dataset_split/val/daisy/val_Daisy (76).jpeg,daisy,0,1,0,1,0,0
+102,102,flower_2/party_A/dataset_split/val/daisy/test_Daisy (185).jpeg,daisy,0,1,0,1,0,0
+103,103,flower_2/party_A/dataset_split/val/daisy/Daisy (15).jpeg,daisy,0,1,0,1,0,0
+104,104,flower_2/party_A/dataset_split/val/daisy/test_Daisy (10).jpeg,daisy,0,1,0,1,0,0
+105,105,flower_2/party_A/dataset_split/val/daisy/val_Daisy (395).jpeg,daisy,0,1,0,1,0,0
+106,106,flower_2/party_A/dataset_split/val/daisy/val_Daisy (150).jpeg,daisy,0,1,0,1,0,0
+107,107,flower_2/party_A/dataset_split/val/daisy/test_Daisy (95).jpeg,daisy,0,1,0,1,0,0
+108,108,flower_2/party_A/dataset_split/val/daisy/val_Daisy (368).jpeg,daisy,0,1,0,1,0,0
+109,109,flower_2/party_A/dataset_split/val/daisy/val_Daisy (352).jpeg,daisy,0,1,0,1,0,0
+110,110,flower_2/party_A/dataset_split/val/daisy/val_Daisy (286).jpeg,daisy,0,1,0,1,0,0
+111,111,flower_2/party_A/dataset_split/val/daisy/Daisy (970).jpeg,daisy,0,1,0,1,0,0
+112,112,flower_2/party_A/dataset_split/val/daisy/Daisy (909).jpeg,daisy,0,1,0,1,0,0
+113,113,flower_2/party_A/dataset_split/val/daisy/Daisy (296).jpeg,daisy,0,1,0,1,3,0
+114,114,flower_2/party_A/dataset_split/val/daisy/val_Daisy (481).jpeg,daisy,0,1,0,1,0,0
+115,115,flower_2/party_A/dataset_split/val/daisy/Daisy (221).jpeg,daisy,0,1,0,1,0,0
+116,116,flower_2/party_A/dataset_split/val/daisy/test_Daisy (17).jpeg,daisy,0,1,0,1,0,0
+117,117,flower_2/party_A/dataset_split/val/daisy/Daisy (611).jpeg,daisy,0,1,0,1,0,0
+118,118,flower_2/party_A/dataset_split/val/daisy/val_Daisy (321).jpeg,daisy,0,1,0,1,0,0
+119,119,flower_2/party_A/dataset_split/val/daisy/test_Daisy (40).jpeg,daisy,0,1,0,1,0,0
+120,120,flower_2/party_A/dataset_split/val/daisy/Daisy (82).jpeg,daisy,0,1,0,1,0,0
+121,121,flower_2/party_A/dataset_split/val/daisy/Daisy (354).jpeg,daisy,0,1,0,1,5,5
+122,122,flower_2/party_A/dataset_split/val/daisy/val_Daisy (102).jpeg,daisy,0,1,0,1,0,5
+123,123,flower_2/party_A/dataset_split/val/daisy/Daisy (605).jpeg,daisy,0,1,0,1,0,1
+124,124,flower_2/party_A/dataset_split/val/daisy/val_Daisy (33).jpeg,daisy,0,1,0,1,0,0
+125,125,flower_2/party_A/dataset_split/val/daisy/Daisy (661).jpeg,daisy,0,1,0,1,0,0
+126,126,flower_2/party_A/dataset_split/val/daisy/Daisy (1).jpeg,daisy,0,1,0,1,0,0
+127,127,flower_2/party_A/dataset_split/val/daisy/Daisy (525).jpeg,daisy,0,1,0,1,0,0
+128,128,flower_2/party_A/dataset_split/val/daisy/test_Daisy (212).jpeg,daisy,0,1,0,1,0,0
+129,129,flower_2/party_A/dataset_split/val/daisy/Daisy (678).jpeg,daisy,0,1,0,1,3,0
+130,130,flower_2/party_A/dataset_split/val/daisy/val_Daisy (288).jpeg,daisy,0,1,0,1,0,0
+131,131,flower_2/party_A/dataset_split/val/daisy/val_Daisy (175).jpeg,daisy,0,1,0,1,0,0
+132,132,flower_2/party_A/dataset_split/val/daisy/Daisy (514).jpeg,daisy,0,1,0,1,0,0
+133,133,flower_2/party_A/dataset_split/val/daisy/val_Daisy (369).jpeg,daisy,0,1,0,1,0,0
+134,134,flower_2/party_A/dataset_split/val/daisy/val_Daisy (25).jpeg,daisy,0,1,0,1,0,0
+135,135,flower_2/party_A/dataset_split/val/daisy/val_Daisy (249).jpeg,daisy,0,1,0,1,2,0
+136,136,flower_2/party_A/dataset_split/val/daisy/val_Daisy (320).jpeg,daisy,0,1,0,1,0,0
+137,137,flower_2/party_A/dataset_split/val/daisy/val_Daisy (106).jpeg,daisy,0,1,0,1,0,0
+138,138,flower_2/party_A/dataset_split/val/daisy/Daisy (847).jpeg,daisy,0,1,0,1,0,0
+139,139,flower_2/party_A/dataset_split/val/daisy/Daisy (749).jpeg,daisy,0,1,0,1,0,0
+140,140,flower_2/party_A/dataset_split/val/daisy/val_Daisy (211).jpeg,daisy,0,1,0,1,0,0
+141,141,flower_2/party_A/dataset_split/val/daisy/Daisy (991).jpeg,daisy,0,1,0,1,0,0
+142,142,flower_2/party_A/dataset_split/val/daisy/Daisy (68).jpeg,daisy,0,1,0,1,0,0
+143,143,flower_2/party_A/dataset_split/val/daisy/val_Daisy (283).jpeg,daisy,0,1,0,1,0,0
+144,144,flower_2/party_A/dataset_split/val/daisy/Daisy (198).jpeg,daisy,0,1,0,1,0,0
+145,145,flower_2/party_A/dataset_split/val/daisy/val_Daisy (350).jpeg,daisy,0,1,0,1,4,0
+146,146,flower_2/party_A/dataset_split/val/daisy/Daisy (764).jpeg,daisy,0,1,0,1,0,0
+147,147,flower_2/party_A/dataset_split/val/daisy/Daisy (528).jpeg,daisy,0,1,0,1,0,0
+148,148,flower_2/party_A/dataset_split/val/daisy/Daisy (691).jpeg,daisy,0,1,0,1,0,0
+149,149,flower_2/party_A/dataset_split/val/daisy/val_Daisy (452).jpeg,daisy,0,1,0,1,0,1
+150,150,flower_2/party_A/dataset_split/val/daisy/Daisy (761).jpeg,daisy,0,1,0,1,0,0
+151,151,flower_2/party_A/dataset_split/val/daisy/test_Daisy (77).jpeg,daisy,0,1,0,1,0,0
+152,152,flower_2/party_A/dataset_split/val/daisy/val_Daisy (237).jpeg,daisy,0,1,0,1,0,0
+153,153,flower_2/party_A/dataset_split/val/daisy/Daisy (938).jpeg,daisy,0,1,0,1,0,0
+154,154,flower_2/party_A/dataset_split/val/daisy/val_Daisy (151).jpeg,daisy,0,1,0,1,0,0
+155,155,flower_2/party_A/dataset_split/val/daisy/val_Daisy (487).jpeg,daisy,0,1,0,1,0,0
+156,156,flower_2/party_A/dataset_split/val/daisy/val_Daisy (436).jpeg,daisy,0,1,0,1,0,0
+157,157,flower_2/party_A/dataset_split/val/daisy/Daisy (608).jpeg,daisy,0,1,0,1,0,0
+158,158,flower_2/party_A/dataset_split/val/daisy/Daisy (213).jpeg,daisy,0,1,0,1,0,0
+159,159,flower_2/party_A/dataset_split/val/daisy/Daisy (489).jpeg,daisy,0,1,0,1,0,0
+160,160,flower_2/party_A/dataset_split/val/daisy/test_Daisy (60).jpeg,daisy,0,1,0,1,0,0
+161,161,flower_2/party_A/dataset_split/val/daisy/val_Daisy (196).jpeg,daisy,0,1,0,1,3,0
+162,162,flower_2/party_A/dataset_split/val/daisy/val_Daisy (409).jpeg,daisy,0,1,0,1,0,0
+163,163,flower_2/party_A/dataset_split/val/daisy/Daisy (497).jpeg,daisy,0,1,0,1,0,0
+164,164,flower_2/party_A/dataset_split/val/daisy/val_Daisy (146).jpeg,daisy,0,1,0,1,0,0
+165,165,flower_2/party_A/dataset_split/val/daisy/test_Daisy (161).jpeg,daisy,0,1,0,1,0,0
+166,166,flower_2/party_A/dataset_split/val/daisy/val_Daisy (431).jpeg,daisy,0,1,0,1,0,0
+167,167,flower_2/party_A/dataset_split/val/daisy/Daisy (1002).jpeg,daisy,0,1,0,1,0,0
+168,168,flower_2/party_A/dataset_split/val/daisy/test_Daisy (6).jpeg,daisy,0,1,0,1,0,0
+169,169,flower_2/party_A/dataset_split/val/daisy/Daisy (671).jpeg,daisy,0,1,0,1,0,0
+170,170,flower_2/party_A/dataset_split/val/daisy/val_Daisy (302).jpeg,daisy,0,1,0,1,0,0
+171,171,flower_2/party_A/dataset_split/val/daisy/Daisy (371).jpeg,daisy,0,1,0,1,0,0
+172,172,flower_2/party_A/dataset_split/val/daisy/Daisy (904).jpeg,daisy,0,1,0,1,0,0
+173,173,flower_2/party_A/dataset_split/val/daisy/val_Daisy (142).jpeg,daisy,0,1,0,1,0,0
+174,174,flower_2/party_A/dataset_split/val/daisy/Daisy (742).jpeg,daisy,0,1,0,1,0,1
+175,175,flower_2/party_A/dataset_split/val/daisy/test_Daisy (72).jpeg,daisy,0,1,0,1,0,0
+176,176,flower_2/party_A/dataset_split/val/daisy/Daisy (266).jpeg,daisy,0,1,0,1,0,0
+177,177,flower_2/party_A/dataset_split/val/daisy/val_Daisy (397).jpeg,daisy,0,1,0,1,5,0
+178,178,flower_2/party_A/dataset_split/val/daisy/Daisy (584).jpeg,daisy,0,1,0,1,0,0
+179,179,flower_2/party_A/dataset_split/val/daisy/test_Daisy (29).jpeg,daisy,0,1,0,1,0,0
+180,180,flower_2/party_A/dataset_split/val/daisy/Daisy (200).jpeg,daisy,0,1,0,1,0,0
+181,181,flower_2/party_A/dataset_split/val/daisy/test_Daisy (34).jpeg,daisy,0,1,0,1,0,0
+182,182,flower_2/party_A/dataset_split/val/daisy/val_Daisy (275).jpeg,daisy,0,1,0,1,0,0
+183,183,flower_2/party_A/dataset_split/val/daisy/Daisy (177).jpeg,daisy,0,1,0,1,0,0
+184,184,flower_2/party_A/dataset_split/val/daisy/Daisy (1010).jpeg,daisy,0,1,0,1,0,0
+185,185,flower_2/party_A/dataset_split/val/daisy/val_Daisy (145).jpeg,daisy,0,1,0,1,0,0
+186,186,flower_2/party_A/dataset_split/val/daisy/Daisy (869).jpeg,daisy,0,1,0,1,3,0
+187,187,flower_2/party_A/dataset_split/val/daisy/Daisy (703).jpeg,daisy,0,1,0,1,0,0
+188,188,flower_2/party_A/dataset_split/val/daisy/test_Daisy (253).jpeg,daisy,0,1,0,1,0,0
+189,189,flower_2/party_A/dataset_split/val/daisy/Daisy (822).jpeg,daisy,0,1,0,1,0,0
+190,190,flower_2/party_A/dataset_split/val/daisy/val_Daisy (497).jpeg,daisy,0,1,0,1,4,1
+191,191,flower_2/party_A/dataset_split/val/daisy/val_Daisy (425).jpeg,daisy,0,1,0,1,0,0
+192,192,flower_2/party_A/dataset_split/val/daisy/test_Daisy (110).jpeg,daisy,0,1,0,1,0,0
+193,193,flower_2/party_A/dataset_split/val/daisy/val_Daisy (393).jpeg,daisy,0,1,0,1,0,5
+194,194,flower_2/party_A/dataset_split/val/daisy/test_Daisy (36).jpeg,daisy,0,1,0,1,3,5
+195,195,flower_2/party_A/dataset_split/val/daisy/test_Daisy (218).jpeg,daisy,0,1,0,1,0,0
+196,196,flower_2/party_A/dataset_split/val/daisy/Daisy (158).jpeg,daisy,0,1,0,1,3,0
+197,197,flower_2/party_A/dataset_split/val/daisy/Daisy (267).jpeg,daisy,0,1,0,1,0,0
+198,198,flower_2/party_A/dataset_split/val/daisy/Daisy (95).jpeg,daisy,0,1,0,1,0,0
+199,199,flower_2/party_A/dataset_split/val/daisy/test_Daisy (228).jpeg,daisy,0,1,0,1,0,0
+200,200,flower_2/party_A/dataset_split/val/daisy/test_Daisy (44).jpeg,daisy,0,1,0,1,0,0
+201,201,flower_2/party_A/dataset_split/val/daisy/val_Daisy (91).jpeg,daisy,0,1,0,1,0,0
+202,202,flower_2/party_A/dataset_split/val/daisy/val_Daisy (445).jpeg,daisy,0,1,0,1,0,0
+203,203,flower_2/party_A/dataset_split/val/daisy/val_Daisy (42).jpeg,daisy,0,1,0,1,0,0
+204,204,flower_2/party_A/dataset_split/val/daisy/Daisy (434).jpeg,daisy,0,1,0,1,0,0
+205,205,flower_2/party_A/dataset_split/val/daisy/val_Daisy (154).jpeg,daisy,0,1,0,1,0,0
+206,206,flower_2/party_A/dataset_split/val/daisy/test_Daisy (194).jpeg,daisy,0,1,0,1,0,0
+207,207,flower_2/party_A/dataset_split/val/daisy/Daisy (862).jpeg,daisy,0,1,0,1,0,0
+208,208,flower_2/party_A/dataset_split/val/daisy/Daisy (654).jpeg,daisy,0,1,0,1,0,1
+209,209,flower_2/party_A/dataset_split/val/daisy/Daisy (771).jpeg,daisy,0,1,0,1,0,0
+210,210,flower_2/party_A/dataset_split/val/daisy/val_Daisy (373).jpeg,daisy,0,1,0,1,0,0
+211,211,flower_2/party_A/dataset_split/val/daisy/val_Daisy (115).jpeg,daisy,0,1,0,1,0,0
+212,212,flower_2/party_A/dataset_split/val/daisy/val_Daisy (158).jpeg,daisy,0,1,0,1,0,0
+213,213,flower_2/party_A/dataset_split/val/daisy/val_Daisy (462).jpeg,daisy,0,1,0,1,0,0
+214,214,flower_2/party_A/dataset_split/val/daisy/test_Daisy (90).jpeg,daisy,0,1,0,1,0,0
+215,215,flower_2/party_A/dataset_split/val/daisy/Daisy (186).jpeg,daisy,0,1,0,1,0,1
+216,216,flower_2/party_A/dataset_split/val/daisy/test_Daisy (128).jpeg,daisy,0,1,0,1,0,0
+217,217,flower_2/party_A/dataset_split/val/daisy/val_Daisy (345).jpeg,daisy,0,1,0,1,0,0
+218,218,flower_2/party_A/dataset_split/val/daisy/val_Daisy (134).jpeg,daisy,0,1,0,1,0,0
+219,219,flower_2/party_A/dataset_split/val/daisy/val_Daisy (194).jpeg,daisy,0,1,0,1,0,0
+220,220,flower_2/party_A/dataset_split/val/daisy/val_Daisy (174).jpeg,daisy,0,1,0,1,0,0
+221,221,flower_2/party_A/dataset_split/val/daisy/val_Daisy (318).jpeg,daisy,0,1,0,1,0,0
+222,222,flower_2/party_A/dataset_split/val/daisy/Daisy (343).jpeg,daisy,0,1,0,1,0,0
+223,223,flower_2/party_A/dataset_split/val/daisy/Daisy (677).jpeg,daisy,0,1,0,1,0,5
+224,224,flower_2/party_A/dataset_split/val/daisy/val_Daisy (137).jpeg,daisy,0,1,0,1,0,0
+225,225,flower_2/party_A/dataset_split/val/daisy/Daisy (8).jpeg,daisy,0,1,0,1,0,0
+226,226,flower_2/party_A/dataset_split/val/daisy/Daisy (438).jpeg,daisy,0,1,0,1,0,6
+227,227,flower_2/party_A/dataset_split/val/daisy/test_Daisy (231).jpeg,daisy,0,1,0,1,0,0
+228,228,flower_2/party_A/dataset_split/val/daisy/Daisy (798).jpeg,daisy,0,1,0,1,0,0
+229,229,flower_2/party_A/dataset_split/val/daisy/Daisy (805).jpeg,daisy,0,1,0,1,0,1
+230,230,flower_2/party_A/dataset_split/val/daisy/val_Daisy (166).jpeg,daisy,0,1,0,1,0,0
+231,231,flower_2/party_A/dataset_split/val/daisy/test_Daisy (235).jpeg,daisy,0,1,0,1,0,0
+232,232,flower_2/party_A/dataset_split/val/daisy/Daisy (896).jpeg,daisy,0,1,0,1,0,0
+233,233,flower_2/party_A/dataset_split/val/daisy/val_Daisy (140).jpeg,daisy,0,1,0,1,0,0
+234,234,flower_2/party_A/dataset_split/val/daisy/Daisy (377).jpeg,daisy,0,1,0,1,0,0
+235,235,flower_2/party_A/dataset_split/val/daisy/Daisy (274).jpeg,daisy,0,1,0,1,0,0
+236,236,flower_2/party_A/dataset_split/val/daisy/Daisy (372).jpeg,daisy,0,1,0,1,0,0
+237,237,flower_2/party_A/dataset_split/val/daisy/val_Daisy (502).jpeg,daisy,0,1,0,1,0,0
+238,238,flower_2/party_A/dataset_split/val/daisy/val_Daisy (11).jpeg,daisy,0,1,0,1,0,0
+239,239,flower_2/party_A/dataset_split/val/daisy/val_Daisy (88).jpeg,daisy,0,1,0,1,0,0
+240,240,flower_2/party_A/dataset_split/val/daisy/val_Daisy (243).jpeg,daisy,0,1,0,1,0,0
+241,241,flower_2/party_A/dataset_split/val/daisy/Daisy (187).jpeg,daisy,0,1,0,1,0,0
+242,242,flower_2/party_A/dataset_split/val/daisy/val_Daisy (7).jpeg,daisy,0,1,0,1,0,0
+243,243,flower_2/party_A/dataset_split/val/daisy/Daisy (917).jpeg,daisy,0,1,0,1,0,0
+244,244,flower_2/party_A/dataset_split/val/daisy/Daisy (513).jpeg,daisy,0,1,0,1,0,0
+245,245,flower_2/party_A/dataset_split/val/daisy/test_Daisy (8).jpeg,daisy,0,1,0,1,0,0
+246,246,flower_2/party_A/dataset_split/val/daisy/Daisy (832).jpeg,daisy,0,1,0,1,0,0
+247,247,flower_2/party_A/dataset_split/val/daisy/val_Daisy (152).jpeg,daisy,0,1,0,1,3,0
+248,248,flower_2/party_A/dataset_split/val/daisy/Daisy (891).jpeg,daisy,0,1,0,1,0,0
+249,249,flower_2/party_A/dataset_split/val/daisy/Daisy (418).jpeg,daisy,0,1,0,1,0,0
+250,250,flower_2/party_A/dataset_split/val/daisy/test_Daisy (211).jpeg,daisy,0,1,0,1,0,0
+251,251,flower_2/party_A/dataset_split/val/daisy/Daisy (180).jpeg,daisy,0,1,0,1,0,0
+252,252,flower_2/party_A/dataset_split/val/daisy/Daisy (106).jpeg,daisy,0,1,0,1,0,0
+253,253,flower_2/party_A/dataset_split/val/daisy/Daisy (76).jpeg,daisy,0,1,0,1,0,0
+254,254,flower_2/party_A/dataset_split/val/daisy/Daisy (270).jpeg,daisy,0,1,0,1,0,0
+255,255,flower_2/party_A/dataset_split/val/daisy/Daisy (666).jpeg,daisy,0,1,0,1,0,0
+256,256,flower_2/party_A/dataset_split/val/daisy/Daisy (440).jpeg,daisy,0,1,0,1,3,0
+257,257,flower_2/party_A/dataset_split/val/daisy/test_Daisy (105).jpeg,daisy,0,1,0,1,3,6
+258,258,flower_2/party_A/dataset_split/val/daisy/test_Daisy (33).jpeg,daisy,0,1,0,1,0,0
+259,259,flower_2/party_A/dataset_split/val/daisy/Daisy (155).jpeg,daisy,0,1,0,1,0,0
+260,260,flower_2/party_A/dataset_split/val/daisy/Daisy (865).jpeg,daisy,0,1,0,1,0,0
+261,261,flower_2/party_A/dataset_split/val/daisy/Daisy (572).jpeg,daisy,0,1,0,1,0,0
+262,262,flower_2/party_A/dataset_split/val/daisy/Daisy (176).jpeg,daisy,0,1,0,1,0,0
+263,263,flower_2/party_A/dataset_split/val/daisy/val_Daisy (186).jpeg,daisy,0,1,0,1,0,0
+264,264,flower_2/party_A/dataset_split/val/daisy/Daisy (318).jpeg,daisy,0,1,0,1,0,0
+265,265,flower_2/party_A/dataset_split/val/daisy/Daisy (201).jpeg,daisy,0,1,0,1,0,0
+266,266,flower_2/party_A/dataset_split/val/daisy/val_Daisy (447).jpeg,daisy,0,1,0,1,0,0
+267,267,flower_2/party_A/dataset_split/val/daisy/val_Daisy (416).jpeg,daisy,0,1,0,1,0,0
+268,268,flower_2/party_A/dataset_split/val/daisy/Daisy (146).jpeg,daisy,0,1,0,1,0,0
+269,269,flower_2/party_A/dataset_split/val/daisy/test_Daisy (82).jpeg,daisy,0,1,0,1,0,0
+270,270,flower_2/party_A/dataset_split/val/daisy/Daisy (20).jpeg,daisy,0,1,0,1,0,0
+271,271,flower_2/party_A/dataset_split/val/daisy/Daisy (949).jpeg,daisy,0,1,0,1,0,0
+272,272,flower_2/party_A/dataset_split/val/daisy/val_Daisy (218).jpeg,daisy,0,1,0,1,0,0
+273,273,flower_2/party_A/dataset_split/val/daisy/test_Daisy (70).jpeg,daisy,0,1,0,1,0,0
+274,274,flower_2/party_A/dataset_split/val/daisy/Daisy (941).jpeg,daisy,0,1,0,1,0,0
+275,275,flower_2/party_A/dataset_split/val/daisy/val_Daisy (238).jpeg,daisy,0,1,0,1,0,0
+276,276,flower_2/party_A/dataset_split/val/daisy/test_Daisy (247).jpeg,daisy,0,1,0,1,0,0
+277,277,flower_2/party_A/dataset_split/val/daisy/val_Daisy (287).jpeg,daisy,0,1,0,1,0,0
+278,278,flower_2/party_A/dataset_split/val/daisy/val_Daisy (125).jpeg,daisy,0,1,0,1,0,0
+279,279,flower_2/party_A/dataset_split/val/daisy/val_Daisy (161).jpeg,daisy,0,1,0,1,0,0
+280,280,flower_2/party_A/dataset_split/val/daisy/val_Daisy (426).jpeg,daisy,0,1,0,1,0,0
+281,281,flower_2/party_A/dataset_split/val/daisy/Daisy (227).jpeg,daisy,0,1,0,1,0,0
+282,282,flower_2/party_A/dataset_split/val/daisy/Daisy (471).jpeg,daisy,0,1,0,1,0,0
+283,283,flower_2/party_A/dataset_split/val/daisy/test_Daisy (173).jpeg,daisy,0,1,0,1,0,0
+284,284,flower_2/party_A/dataset_split/val/daisy/Daisy (350).jpeg,daisy,0,1,0,1,0,0
+285,285,flower_2/party_A/dataset_split/val/daisy/Daisy (486).jpeg,daisy,0,1,0,1,3,0
+286,286,flower_2/party_A/dataset_split/val/daisy/Daisy (115).jpeg,daisy,0,1,0,1,0,0
+287,287,flower_2/party_A/dataset_split/val/daisy/Daisy (235).jpeg,daisy,0,1,0,1,4,4
+288,288,flower_2/party_A/dataset_split/val/daisy/val_Daisy (252).jpeg,daisy,0,1,0,1,3,0
+289,289,flower_2/party_A/dataset_split/val/daisy/val_Daisy (272).jpeg,daisy,0,1,0,1,0,0
+290,290,flower_2/party_A/dataset_split/val/daisy/val_Daisy (188).jpeg,daisy,0,1,0,1,0,0
+291,291,flower_2/party_A/dataset_split/val/daisy/Daisy (157).jpeg,daisy,0,1,0,1,0,0
+292,292,flower_2/party_A/dataset_split/val/daisy/val_Daisy (219).jpeg,daisy,0,1,0,1,0,0
+293,293,flower_2/party_A/dataset_split/val/daisy/test_Daisy (92).jpeg,daisy,0,1,0,1,0,0
+294,294,flower_2/party_A/dataset_split/val/daisy/Daisy (174).jpeg,daisy,0,1,0,1,0,0
+295,295,flower_2/party_A/dataset_split/val/daisy/test_Daisy (251).jpeg,daisy,0,1,0,1,0,0
+296,296,flower_2/party_A/dataset_split/val/daisy/Daisy (393).jpeg,daisy,0,1,0,1,0,0
+297,297,flower_2/party_A/dataset_split/val/daisy/test_Daisy (222).jpeg,daisy,0,1,0,1,0,0
+298,298,flower_2/party_A/dataset_split/val/daisy/val_Daisy (215).jpeg,daisy,0,1,0,1,0,0
+299,299,flower_2/party_A/dataset_split/val/daisy/Daisy (105).jpeg,daisy,0,1,0,1,0,0
+300,300,flower_2/party_A/dataset_split/val/daisy/Daisy (681).jpeg,daisy,0,1,0,1,0,5
+301,301,flower_2/party_A/dataset_split/val/daisy/test_Daisy (208).jpeg,daisy,0,1,0,1,0,0
+302,302,flower_2/party_A/dataset_split/val/daisy/Daisy (410).jpeg,daisy,0,1,0,1,0,0
+303,303,flower_2/party_A/dataset_split/val/daisy/Daisy (367).jpeg,daisy,0,1,0,1,3,4
+304,304,flower_2/party_A/dataset_split/val/daisy/Daisy (47).jpeg,daisy,0,1,0,1,0,0
+305,305,flower_2/party_A/dataset_split/val/daisy/Daisy (109).jpeg,daisy,0,1,0,1,0,0
+306,306,flower_2/party_A/dataset_split/val/daisy/Daisy (431).jpeg,daisy,0,1,0,1,0,0
+307,307,flower_2/party_A/dataset_split/val/daisy/Daisy (128).jpeg,daisy,0,1,0,1,0,0
+308,308,flower_2/party_A/dataset_split/val/daisy/test_Daisy (174).jpeg,daisy,0,1,0,1,0,0
+309,309,flower_2/party_A/dataset_split/val/daisy/Daisy (225).jpeg,daisy,0,1,0,1,0,0
+310,310,flower_2/party_A/dataset_split/val/daisy/Daisy (948).jpeg,daisy,0,1,0,1,0,0
+311,311,flower_2/party_A/dataset_split/val/daisy/Daisy (754).jpeg,daisy,0,1,0,1,0,0
+312,312,flower_2/party_A/dataset_split/val/daisy/Daisy (432).jpeg,daisy,0,1,0,1,0,0
+313,313,flower_2/party_A/dataset_split/val/daisy/Daisy (5).jpeg,daisy,0,1,0,1,0,1
+314,314,flower_2/party_A/dataset_split/val/daisy/val_Daisy (204).jpeg,daisy,0,1,0,1,0,1
+315,315,flower_2/party_A/dataset_split/val/daisy/Daisy (942).jpeg,daisy,0,1,0,1,0,0
+316,316,flower_2/party_A/dataset_split/val/daisy/Daisy (334).jpeg,daisy,0,1,0,1,0,6
+317,317,flower_2/party_A/dataset_split/val/daisy/val_Daisy (13).jpeg,daisy,0,1,0,1,0,0
+318,318,flower_2/party_A/dataset_split/val/daisy/Daisy (890).jpeg,daisy,0,1,0,1,0,0
+319,319,flower_2/party_A/dataset_split/val/daisy/test_Daisy (113).jpeg,daisy,0,1,0,1,0,0
+320,320,flower_2/party_A/dataset_split/val/daisy/val_Daisy (255).jpeg,daisy,0,1,0,1,0,0
+321,321,flower_2/party_A/dataset_split/val/daisy/Daisy (842).jpeg,daisy,0,1,0,1,0,4
+322,322,flower_2/party_A/dataset_split/val/daisy/Daisy (29).jpeg,daisy,0,1,0,1,0,0
+323,323,flower_2/party_A/dataset_split/val/daisy/val_Daisy (323).jpeg,daisy,0,1,0,1,0,0
+324,324,flower_2/party_A/dataset_split/val/daisy/test_Daisy (248).jpeg,daisy,0,1,0,1,0,0
+325,325,flower_2/party_A/dataset_split/val/daisy/val_Daisy (44).jpeg,daisy,0,1,0,1,0,0
+326,326,flower_2/party_A/dataset_split/val/daisy/val_Daisy (61).jpeg,daisy,0,1,0,1,0,4
+327,327,flower_2/party_A/dataset_split/val/daisy/Daisy (455).jpeg,daisy,0,1,0,1,0,0
+328,328,flower_2/party_A/dataset_split/val/daisy/Daisy (430).jpeg,daisy,0,1,0,1,0,0
+329,329,flower_2/party_A/dataset_split/val/daisy/Daisy (328).jpeg,daisy,0,1,0,1,0,0
+330,330,flower_2/party_A/dataset_split/val/daisy/Daisy (156).jpeg,daisy,0,1,0,1,0,0
+331,331,flower_2/party_A/dataset_split/val/daisy/Daisy (11).jpeg,daisy,0,1,0,1,0,0
+332,332,flower_2/party_A/dataset_split/val/daisy/val_Daisy (114).jpeg,daisy,0,1,0,1,0,0
+333,333,flower_2/party_A/dataset_split/val/daisy/Daisy (492).jpeg,daisy,0,1,0,1,0,0
+334,334,flower_2/party_A/dataset_split/val/daisy/Daisy (773).jpeg,daisy,0,1,0,1,0,0
+335,335,flower_2/party_A/dataset_split/val/daisy/Daisy (56).jpeg,daisy,0,1,0,1,0,0
+336,336,flower_2/party_A/dataset_split/val/daisy/Daisy (606).jpeg,daisy,0,1,0,1,0,0
+337,337,flower_2/party_A/dataset_split/val/daisy/test_Daisy (54).jpeg,daisy,0,1,0,1,0,0
+338,338,flower_2/party_A/dataset_split/val/daisy/Daisy (123).jpeg,daisy,0,1,0,1,0,0
+339,339,flower_2/party_A/dataset_split/val/daisy/val_Daisy (474).jpeg,daisy,0,1,0,1,0,0
+340,340,flower_2/party_A/dataset_split/val/daisy/val_Daisy (168).jpeg,daisy,0,1,0,1,0,0
+341,341,flower_2/party_A/dataset_split/val/daisy/val_Daisy (27).jpeg,daisy,0,1,0,1,0,0
+342,342,flower_2/party_A/dataset_split/val/daisy/Daisy (644).jpeg,daisy,0,1,0,1,0,0
+343,343,flower_2/party_A/dataset_split/val/daisy/Daisy (44).jpeg,daisy,0,1,0,1,0,0
+344,344,flower_2/party_A/dataset_split/val/daisy/val_Daisy (486).jpeg,daisy,0,1,0,1,0,0
+345,345,flower_2/party_A/dataset_split/val/daisy/Daisy (844).jpeg,daisy,0,1,0,1,0,0
+346,346,flower_2/party_A/dataset_split/val/daisy/val_Daisy (351).jpeg,daisy,0,1,0,1,0,0
+347,347,flower_2/party_A/dataset_split/val/daisy/Daisy (748).jpeg,daisy,0,1,0,1,0,0
+348,348,flower_2/party_A/dataset_split/val/daisy/Daisy (383).jpeg,daisy,0,1,0,1,0,1
+349,349,flower_2/party_A/dataset_split/val/daisy/val_Daisy (209).jpeg,daisy,0,1,0,1,0,0
+350,350,flower_2/party_A/dataset_split/val/daisy/test_Daisy (199).jpeg,daisy,0,1,0,1,0,0
+351,351,flower_2/party_A/dataset_split/val/daisy/Daisy (461).jpeg,daisy,0,1,0,1,0,0
+1046,1046,flower_2/party_A/dataset_split/val/rose/rose (1513).jpeg,rose,3,1,4,1,4,4
+1047,1047,flower_2/party_A/dataset_split/val/rose/test_rose (77).jpeg,rose,3,1,4,1,4,4
+1048,1048,flower_2/party_A/dataset_split/val/rose/rose (1300).jpeg,rose,3,1,4,1,4,4
+1049,1049,flower_2/party_A/dataset_split/val/rose/val_rose (529).jpeg,rose,3,1,4,1,4,4
+1050,1050,flower_2/party_A/dataset_split/val/rose/rose (812).jpeg,rose,3,1,4,1,4,4
+1051,1051,flower_2/party_A/dataset_split/val/rose/rose (845).jpeg,rose,3,1,4,1,4,4
+1052,1052,flower_2/party_A/dataset_split/val/rose/rose (1139).jpeg,rose,3,1,4,1,4,4
+1053,1053,flower_2/party_A/dataset_split/val/rose/rose (1338).jpeg,rose,3,1,4,1,4,4
+1054,1054,flower_2/party_A/dataset_split/val/rose/rose (1555).jpeg,rose,3,1,4,1,4,4
+1055,1055,flower_2/party_A/dataset_split/val/rose/val_rose (398).jpeg,rose,3,1,4,1,4,4
+1056,1056,flower_2/party_A/dataset_split/val/rose/val_rose (310).jpeg,rose,3,1,4,1,4,4
+1057,1057,flower_2/party_A/dataset_split/val/rose/rose (1161).jpeg,rose,3,1,4,1,4,4
+1058,1058,flower_2/party_A/dataset_split/val/rose/rose (811).jpeg,rose,3,1,4,1,4,0
+1059,1059,flower_2/party_A/dataset_split/val/rose/val_rose (128).jpeg,rose,3,1,4,1,4,4
+1060,1060,flower_2/party_A/dataset_split/val/rose/rose (1416).jpeg,rose,3,1,4,1,4,4
+1061,1061,flower_2/party_A/dataset_split/val/rose/rose (1517).jpeg,rose,3,1,4,1,4,4
+1062,1062,flower_2/party_A/dataset_split/val/rose/rose (1077).jpeg,rose,3,1,4,1,4,4
+1063,1063,flower_2/party_A/dataset_split/val/rose/rose (649).jpeg,rose,3,1,4,1,4,4
+1064,1064,flower_2/party_A/dataset_split/val/rose/val_rose (272).jpeg,rose,3,1,4,1,4,6
+1065,1065,flower_2/party_A/dataset_split/val/rose/rose (704).jpeg,rose,3,1,4,1,4,4
+1066,1066,flower_2/party_A/dataset_split/val/rose/rose (1531).jpeg,rose,3,1,4,1,4,4
+1067,1067,flower_2/party_A/dataset_split/val/rose/val_rose (297).jpeg,rose,3,1,4,1,4,6
+1068,1068,flower_2/party_A/dataset_split/val/rose/rose (1510).jpeg,rose,3,1,4,1,3,4
+1069,1069,flower_2/party_A/dataset_split/val/rose/val_rose (352).jpeg,rose,3,1,4,1,4,4
+1070,1070,flower_2/party_A/dataset_split/val/rose/rose (1167).jpeg,rose,3,1,4,1,4,4
+1071,1071,flower_2/party_A/dataset_split/val/rose/val_rose (560).jpeg,rose,3,1,4,1,4,4
+1072,1072,flower_2/party_A/dataset_split/val/rose/val_rose (434).jpeg,rose,3,1,4,1,4,4
+1073,1073,flower_2/party_A/dataset_split/val/rose/rose (1473).jpeg,rose,3,1,4,1,4,4
+1074,1074,flower_2/party_A/dataset_split/val/rose/val_rose (538).jpeg,rose,3,1,4,1,3,4
+1075,1075,flower_2/party_A/dataset_split/val/rose/rose (1596).jpeg,rose,3,1,4,1,4,6
+1076,1076,flower_2/party_A/dataset_split/val/rose/rose (1014).jpeg,rose,3,1,4,1,4,4
+1077,1077,flower_2/party_A/dataset_split/val/rose/val_rose (132).jpeg,rose,3,1,4,1,4,4
+1078,1078,flower_2/party_A/dataset_split/val/rose/val_rose (248).jpeg,rose,3,1,4,1,4,4
+1079,1079,flower_2/party_A/dataset_split/val/rose/test_rose (14).jpeg,rose,3,1,4,1,4,0
+1080,1080,flower_2/party_A/dataset_split/val/rose/val_rose (491).jpeg,rose,3,1,4,1,4,4
+1081,1081,flower_2/party_A/dataset_split/val/rose/rose (1333).jpeg,rose,3,1,4,1,4,4
+1082,1082,flower_2/party_A/dataset_split/val/rose/val_rose (154).jpeg,rose,3,1,4,1,4,4
+1083,1083,flower_2/party_A/dataset_split/val/rose/val_rose (458).jpeg,rose,3,1,4,1,4,4
+1084,1084,flower_2/party_A/dataset_split/val/rose/val_rose (561).jpeg,rose,3,1,4,1,4,4
+1085,1085,flower_2/party_A/dataset_split/val/rose/rose (1325).jpeg,rose,3,1,4,1,4,4
+1086,1086,flower_2/party_A/dataset_split/val/rose/rose (759).jpeg,rose,3,1,4,1,4,4
+1087,1087,flower_2/party_A/dataset_split/val/rose/rose (1042).jpeg,rose,3,1,4,1,4,4
+1088,1088,flower_2/party_A/dataset_split/val/rose/rose (768).jpeg,rose,3,1,4,1,4,4
+1089,1089,flower_2/party_A/dataset_split/val/rose/rose (1309).jpeg,rose,3,1,4,1,4,4
+1090,1090,flower_2/party_A/dataset_split/val/rose/rose (899).jpeg,rose,3,1,4,1,3,4
+1091,1091,flower_2/party_A/dataset_split/val/rose/val_rose (286).jpeg,rose,3,1,4,1,4,4
+1092,1092,flower_2/party_A/dataset_split/val/rose/rose (797).jpeg,rose,3,1,4,1,4,4
+1093,1093,flower_2/party_A/dataset_split/val/rose/val_rose (177).jpeg,rose,3,1,4,1,4,4
+1094,1094,flower_2/party_A/dataset_split/val/rose/rose (1432).jpeg,rose,3,1,4,1,4,4
+1095,1095,flower_2/party_A/dataset_split/val/rose/rose (1165).jpeg,rose,3,1,4,1,4,4
+1096,1096,flower_2/party_A/dataset_split/val/rose/rose (1110).jpeg,rose,3,1,4,1,4,4
+1097,1097,flower_2/party_A/dataset_split/val/rose/rose (1318).jpeg,rose,3,1,4,1,4,4
+1098,1098,flower_2/party_A/dataset_split/val/rose/val_rose (241).jpeg,rose,3,1,4,1,4,0
+1099,1099,flower_2/party_A/dataset_split/val/rose/rose (1227).jpeg,rose,3,1,4,1,4,4
+1100,1100,flower_2/party_A/dataset_split/val/rose/val_rose (262).jpeg,rose,3,1,4,1,4,4
+1101,1101,flower_2/party_A/dataset_split/val/rose/rose (1324).jpeg,rose,3,1,4,1,4,4
+1102,1102,flower_2/party_A/dataset_split/val/rose/rose (1515).jpeg,rose,3,1,4,1,4,4
+1103,1103,flower_2/party_A/dataset_split/val/rose/rose (1035).jpeg,rose,3,1,4,1,4,4
+1104,1104,flower_2/party_A/dataset_split/val/rose/rose (998).jpeg,rose,3,1,4,1,4,4
+1105,1105,flower_2/party_A/dataset_split/val/rose/rose (1620).jpeg,rose,3,1,4,1,4,4
+1106,1106,flower_2/party_A/dataset_split/val/rose/val_rose (319).jpeg,rose,3,1,4,1,4,4
+1107,1107,flower_2/party_A/dataset_split/val/rose/val_rose (457).jpeg,rose,3,1,4,1,4,4
+1108,1108,flower_2/party_A/dataset_split/val/rose/rose (890).jpeg,rose,3,1,4,1,4,4
+1109,1109,flower_2/party_A/dataset_split/val/rose/val_rose (169).jpeg,rose,3,1,4,1,4,4
+1110,1110,flower_2/party_A/dataset_split/val/rose/val_rose (325).jpeg,rose,3,1,4,1,4,4
+1111,1111,flower_2/party_A/dataset_split/val/rose/val_rose (135).jpeg,rose,3,1,4,1,4,4
+1112,1112,flower_2/party_A/dataset_split/val/rose/rose (1104).jpeg,rose,3,1,4,1,4,4
+1113,1113,flower_2/party_A/dataset_split/val/rose/rose (1466).jpeg,rose,3,1,4,1,5,6
+1114,1114,flower_2/party_A/dataset_split/val/rose/rose (882).jpeg,rose,3,1,4,1,4,4
+1115,1115,flower_2/party_A/dataset_split/val/rose/val_rose (121).jpeg,rose,3,1,4,1,4,4
+1116,1116,flower_2/party_A/dataset_split/val/rose/rose (717).jpeg,rose,3,1,4,1,3,4
+1117,1117,flower_2/party_A/dataset_split/val/rose/rose (1408).jpeg,rose,3,1,4,1,4,4
+1118,1118,flower_2/party_A/dataset_split/val/rose/val_rose (565).jpeg,rose,3,1,4,1,4,4
+1119,1119,flower_2/party_A/dataset_split/val/rose/rose (941).jpeg,rose,3,1,4,1,4,4
+1120,1120,flower_2/party_A/dataset_split/val/rose/rose (772).jpeg,rose,3,1,4,1,4,4
+1121,1121,flower_2/party_A/dataset_split/val/rose/val_rose (202).jpeg,rose,3,1,4,1,4,4
+1122,1122,flower_2/party_A/dataset_split/val/rose/rose (852).jpeg,rose,3,1,4,1,4,4
+1123,1123,flower_2/party_A/dataset_split/val/rose/rose (1583).jpeg,rose,3,1,4,1,4,4
+1124,1124,flower_2/party_A/dataset_split/val/rose/rose (892).jpeg,rose,3,1,4,1,4,4
+1125,1125,flower_2/party_A/dataset_split/val/rose/rose (1025).jpeg,rose,3,1,4,1,4,4
+1126,1126,flower_2/party_A/dataset_split/val/rose/test_rose (1).png,rose,3,1,4,1,4,6
+1127,1127,flower_2/party_A/dataset_split/val/rose/val_rose (195).jpeg,rose,3,1,4,1,4,4
+1128,1128,flower_2/party_A/dataset_split/val/rose/val_rose (224).jpeg,rose,3,1,4,1,4,4
+1129,1129,flower_2/party_A/dataset_split/val/rose/val_rose (494).jpeg,rose,3,1,4,1,3,4
+1130,1130,flower_2/party_A/dataset_split/val/rose/val_rose (138).jpeg,rose,3,1,4,1,4,4
+1131,1131,flower_2/party_A/dataset_split/val/rose/rose (1424).jpeg,rose,3,1,4,1,4,4
+1132,1132,flower_2/party_A/dataset_split/val/rose/val_rose (588).jpeg,rose,3,1,4,1,4,4
+1133,1133,flower_2/party_A/dataset_split/val/rose/val_rose (193).jpeg,rose,3,1,4,1,4,4
+1134,1134,flower_2/party_A/dataset_split/val/rose/rose (1478).jpeg,rose,3,1,4,1,4,4
+1135,1135,flower_2/party_A/dataset_split/val/rose/rose (1031).jpeg,rose,3,1,4,1,4,4
+1136,1136,flower_2/party_A/dataset_split/val/rose/val_rose (223).jpeg,rose,3,1,4,1,3,4
+1137,1137,flower_2/party_A/dataset_split/val/rose/rose (700).jpeg,rose,3,1,4,1,4,4
+1138,1138,flower_2/party_A/dataset_split/val/rose/val_rose (435).jpeg,rose,3,1,4,1,4,4
+1139,1139,flower_2/party_A/dataset_split/val/rose/rose (1141).jpeg,rose,3,1,4,1,4,6
+1140,1140,flower_2/party_A/dataset_split/val/rose/rose (1469).jpeg,rose,3,1,4,1,3,6
+1141,1141,flower_2/party_A/dataset_split/val/rose/val_rose (366).jpeg,rose,3,1,4,1,4,4
+1142,1142,flower_2/party_A/dataset_split/val/rose/rose (1415).jpeg,rose,3,1,4,1,4,4
+1143,1143,flower_2/party_A/dataset_split/val/rose/rose (672).jpeg,rose,3,1,4,1,4,4
+1144,1144,flower_2/party_A/dataset_split/val/rose/rose (784).jpeg,rose,3,1,4,1,4,4
+1145,1145,flower_2/party_A/dataset_split/val/rose/rose (1240).jpeg,rose,3,1,4,1,4,4
+1146,1146,flower_2/party_A/dataset_split/val/rose/val_rose (390).jpeg,rose,3,1,4,1,4,4
+1147,1147,flower_2/party_A/dataset_split/val/rose/rose (1137).jpeg,rose,3,1,4,1,4,4
+1148,1148,flower_2/party_A/dataset_split/val/rose/rose (1122).jpeg,rose,3,1,4,1,4,6
+1149,1149,flower_2/party_A/dataset_split/val/rose/val_rose (475).jpeg,rose,3,1,4,1,3,4
+1150,1150,flower_2/party_A/dataset_split/val/rose/val_rose (351).jpeg,rose,3,1,4,1,4,4
+1151,1151,flower_2/party_A/dataset_split/val/rose/rose (870).jpeg,rose,3,1,4,1,4,4
+1152,1152,flower_2/party_A/dataset_split/val/rose/rose (1089).jpeg,rose,3,1,4,1,4,4
+1153,1153,flower_2/party_A/dataset_split/val/rose/val_rose (150).jpeg,rose,3,1,4,1,4,4
+1154,1154,flower_2/party_A/dataset_split/val/rose/val_rose (373).jpeg,rose,3,1,4,1,4,4
+1155,1155,flower_2/party_A/dataset_split/val/rose/val_rose (284).jpeg,rose,3,1,4,1,4,4
+1156,1156,flower_2/party_A/dataset_split/val/rose/val_rose (242).jpeg,rose,3,1,4,1,4,4
+1157,1157,flower_2/party_A/dataset_split/val/rose/test_rose (70).jpeg,rose,3,1,4,1,4,4
+1158,1158,flower_2/party_A/dataset_split/val/rose/val_rose (592).jpeg,rose,3,1,4,1,4,4
+1159,1159,flower_2/party_A/dataset_split/val/rose/rose (1152).jpeg,rose,3,1,4,1,4,4
+1160,1160,flower_2/party_A/dataset_split/val/rose/rose (1108).jpeg,rose,3,1,4,1,4,4
+1161,1161,flower_2/party_A/dataset_split/val/rose/rose (1237).jpeg,rose,3,1,4,1,4,4
+1162,1162,flower_2/party_A/dataset_split/val/rose/rose (1111).jpeg,rose,3,1,4,1,4,4
+1163,1163,flower_2/party_A/dataset_split/val/rose/rose (952).jpeg,rose,3,1,4,1,4,4
+1164,1164,flower_2/party_A/dataset_split/val/rose/val_rose (140).jpeg,rose,3,1,4,1,4,4
+1165,1165,flower_2/party_A/dataset_split/val/rose/rose (1409).jpeg,rose,3,1,4,1,4,4
+1166,1166,flower_2/party_A/dataset_split/val/rose/val_rose (429).jpeg,rose,3,1,4,1,4,4
+1167,1167,flower_2/party_A/dataset_split/val/rose/rose (690).jpeg,rose,3,1,4,1,4,0
+1168,1168,flower_2/party_A/dataset_split/val/rose/test_rose (82).jpeg,rose,3,1,4,1,4,4
+1169,1169,flower_2/party_A/dataset_split/val/rose/test_rose (94).jpeg,rose,3,1,4,1,4,4
+1170,1170,flower_2/party_A/dataset_split/val/rose/rose (1356).jpeg,rose,3,1,4,1,4,4
+1171,1171,flower_2/party_A/dataset_split/val/rose/rose (1036).jpeg,rose,3,1,4,1,4,4
+1172,1172,flower_2/party_A/dataset_split/val/rose/rose (1481).jpeg,rose,3,1,4,1,4,4
+1173,1173,flower_2/party_A/dataset_split/val/rose/rose (1365).jpeg,rose,3,1,4,1,4,4
+1174,1174,flower_2/party_A/dataset_split/val/rose/rose (924).jpeg,rose,3,1,4,1,4,4
+1175,1175,flower_2/party_A/dataset_split/val/rose/val_rose (578).jpeg,rose,3,1,4,1,4,4
+1176,1176,flower_2/party_A/dataset_split/val/rose/rose (1272).jpeg,rose,3,1,4,1,4,4
+1177,1177,flower_2/party_A/dataset_split/val/rose/rose (942).jpeg,rose,3,1,4,1,4,4
+1178,1178,flower_2/party_A/dataset_split/val/rose/rose (1115).jpeg,rose,3,1,4,1,4,4
+1179,1179,flower_2/party_A/dataset_split/val/rose/rose (712).jpeg,rose,3,1,4,1,4,4
+1180,1180,flower_2/party_A/dataset_split/val/rose/rose (822).jpeg,rose,3,1,4,1,4,4
+1181,1181,flower_2/party_A/dataset_split/val/rose/rose (1354).jpeg,rose,3,1,4,1,4,6
+1182,1182,flower_2/party_A/dataset_split/val/rose/rose (943).jpeg,rose,3,1,4,1,4,4
+1183,1183,flower_2/party_A/dataset_split/val/rose/val_rose (206).jpeg,rose,3,1,4,1,4,4
+1184,1184,flower_2/party_A/dataset_split/val/rose/test_rose (39).jpeg,rose,3,1,4,1,4,4
+1185,1185,flower_2/party_A/dataset_split/val/rose/val_rose (438).jpeg,rose,3,1,4,1,4,4
+1186,1186,flower_2/party_A/dataset_split/val/rose/rose (1005).jpeg,rose,3,1,4,1,4,4
+1187,1187,flower_2/party_A/dataset_split/val/rose/rose (771).jpeg,rose,3,1,4,1,3,4
+1188,1188,flower_2/party_A/dataset_split/val/rose/rose (1081).jpeg,rose,3,1,4,1,4,4
+1189,1189,flower_2/party_A/dataset_split/val/rose/val_rose (487).jpeg,rose,3,1,4,1,4,4
+1190,1190,flower_2/party_A/dataset_split/val/rose/val_rose (566).jpeg,rose,3,1,4,1,4,4
+1191,1191,flower_2/party_A/dataset_split/val/rose/test_rose (79).jpeg,rose,3,1,4,1,4,4
+1192,1192,flower_2/party_A/dataset_split/val/rose/val_rose (448).jpeg,rose,3,1,4,1,4,4
+1193,1193,flower_2/party_A/dataset_split/val/rose/val_rose (364).jpeg,rose,3,1,4,1,4,4
+1194,1194,flower_2/party_A/dataset_split/val/rose/rose (1148).jpeg,rose,3,1,4,1,4,4
+1195,1195,flower_2/party_A/dataset_split/val/rose/val_rose (517).jpeg,rose,3,1,4,1,4,4
+1196,1196,flower_2/party_A/dataset_split/val/rose/val_rose (333).jpeg,rose,3,1,4,1,3,6
+1197,1197,flower_2/party_A/dataset_split/val/rose/val_rose (483).jpeg,rose,3,1,4,1,4,6
+1198,1198,flower_2/party_A/dataset_split/val/rose/rose (825).jpeg,rose,3,1,4,1,4,4
+1199,1199,flower_2/party_A/dataset_split/val/rose/rose (1345).jpeg,rose,3,1,4,1,4,4
+1200,1200,flower_2/party_A/dataset_split/val/rose/val_rose (412).jpeg,rose,3,1,4,1,4,4
+1201,1201,flower_2/party_A/dataset_split/val/rose/rose (625).jpeg,rose,3,1,4,1,4,4
+1202,1202,flower_2/party_A/dataset_split/val/rose/rose (1327).jpeg,rose,3,1,4,1,4,4
+1203,1203,flower_2/party_A/dataset_split/val/rose/rose (1331).jpeg,rose,3,1,4,1,4,4
+1204,1204,flower_2/party_A/dataset_split/val/rose/val_rose (385).jpeg,rose,3,1,4,1,4,4
+1205,1205,flower_2/party_A/dataset_split/val/rose/val_rose (314).jpeg,rose,3,1,4,1,4,4
+1206,1206,flower_2/party_A/dataset_split/val/rose/val_rose (109).jpeg,rose,3,1,4,1,4,4
+1207,1207,flower_2/party_A/dataset_split/val/rose/val_rose (594).jpeg,rose,3,1,4,1,4,4
+1208,1208,flower_2/party_A/dataset_split/val/rose/test_rose (83).jpeg,rose,3,1,4,1,4,4
+1209,1209,flower_2/party_A/dataset_split/val/rose/rose (701).jpeg,rose,3,1,4,1,4,4
+1210,1210,flower_2/party_A/dataset_split/val/rose/rose (619).jpeg,rose,3,1,4,1,4,4
+1211,1211,flower_2/party_A/dataset_split/val/rose/rose (848).jpeg,rose,3,1,4,1,4,4
+1212,1212,flower_2/party_A/dataset_split/val/rose/rose (1032).jpeg,rose,3,1,4,1,4,4
+1213,1213,flower_2/party_A/dataset_split/val/rose/rose (820).jpeg,rose,3,1,4,1,4,4
+1214,1214,flower_2/party_A/dataset_split/val/rose/rose (780).jpeg,rose,3,1,4,1,4,4
+1215,1215,flower_2/party_A/dataset_split/val/rose/rose (1211).jpeg,rose,3,1,4,1,4,4
+1216,1216,flower_2/party_A/dataset_split/val/rose/rose (868).jpeg,rose,3,1,4,1,4,4
+1217,1217,flower_2/party_A/dataset_split/val/rose/rose (1405).jpeg,rose,3,1,4,1,4,4
+1218,1218,flower_2/party_A/dataset_split/val/rose/val_rose (502).jpeg,rose,3,1,4,1,4,4
+1219,1219,flower_2/party_A/dataset_split/val/rose/rose (617).jpeg,rose,3,1,4,1,4,4
+1220,1220,flower_2/party_A/dataset_split/val/rose/val_rose (307).jpeg,rose,3,1,4,1,4,4
+1221,1221,flower_2/party_A/dataset_split/val/rose/rose (798).jpeg,rose,3,1,4,1,4,4
+1222,1222,flower_2/party_A/dataset_split/val/rose/rose (752).jpeg,rose,3,1,4,1,4,4
+1223,1223,flower_2/party_A/dataset_split/val/rose/rose (800).jpeg,rose,3,1,4,1,4,4
+1224,1224,flower_2/party_A/dataset_split/val/rose/rose (898).jpeg,rose,3,1,4,1,4,4
+1225,1225,flower_2/party_A/dataset_split/val/rose/val_rose (217).jpeg,rose,3,1,4,1,4,4
+1226,1226,flower_2/party_A/dataset_split/val/rose/val_rose (285).jpeg,rose,3,1,4,1,4,4
+1227,1227,flower_2/party_A/dataset_split/val/rose/val_rose (188).jpeg,rose,3,1,4,1,4,4
+1228,1228,flower_2/party_A/dataset_split/val/rose/rose (1088).jpeg,rose,3,1,4,1,4,4
+1229,1229,flower_2/party_A/dataset_split/val/rose/rose (1579).jpeg,rose,3,1,4,1,4,6
+1230,1230,flower_2/party_A/dataset_split/val/rose/rose (1552).jpeg,rose,3,1,4,1,4,4
+1231,1231,flower_2/party_A/dataset_split/val/rose/rose (934).jpeg,rose,3,1,4,1,4,4
+1232,1232,flower_2/party_A/dataset_split/val/rose/rose (1217).jpeg,rose,3,1,4,1,4,4
+1233,1233,flower_2/party_A/dataset_split/val/rose/rose (791).jpeg,rose,3,1,4,1,4,4
+1234,1234,flower_2/party_A/dataset_split/val/rose/rose (741).jpeg,rose,3,1,4,1,4,4
+1235,1235,flower_2/party_A/dataset_split/val/rose/rose (1062).jpeg,rose,3,1,4,1,4,4
+1236,1236,flower_2/party_A/dataset_split/val/rose/rose (629).jpeg,rose,3,1,4,1,4,4
+1237,1237,flower_2/party_A/dataset_split/val/rose/val_rose (568).jpeg,rose,3,1,4,1,4,6
+1238,1238,flower_2/party_A/dataset_split/val/rose/val_rose (597).jpeg,rose,3,1,4,1,4,6
+1239,1239,flower_2/party_A/dataset_split/val/rose/val_rose (226).jpeg,rose,3,1,4,1,4,4
+1240,1240,flower_2/party_A/dataset_split/val/rose/val_rose (170).jpeg,rose,3,1,4,1,4,4
+1241,1241,flower_2/party_A/dataset_split/val/rose/rose (1332).jpeg,rose,3,1,4,1,4,4
+1242,1242,flower_2/party_A/dataset_split/val/rose/rose (1572).jpeg,rose,3,1,4,1,4,4
+1243,1243,flower_2/party_A/dataset_split/val/rose/rose (739).jpeg,rose,3,1,4,1,4,4
+1244,1244,flower_2/party_A/dataset_split/val/rose/rose (991).jpeg,rose,3,1,4,1,4,4
+1245,1245,flower_2/party_A/dataset_split/val/rose/rose (1576).jpeg,rose,3,1,4,1,4,4
+1246,1246,flower_2/party_A/dataset_split/val/rose/rose (1389).jpeg,rose,3,1,4,1,4,4
+1247,1247,flower_2/party_A/dataset_split/val/rose/val_rose (519).jpeg,rose,3,1,4,1,4,4
+1248,1248,flower_2/party_A/dataset_split/val/rose/rose (1222).jpeg,rose,3,1,4,1,4,4
+1249,1249,flower_2/party_A/dataset_split/val/rose/rose (900).jpeg,rose,3,1,4,1,4,4
+1250,1250,flower_2/party_A/dataset_split/val/rose/val_rose (276).jpeg,rose,3,1,4,1,3,0
+1251,1251,flower_2/party_A/dataset_split/val/rose/rose (967).jpeg,rose,3,1,4,1,4,4
+1252,1252,flower_2/party_A/dataset_split/val/rose/rose (1498).jpeg,rose,3,1,4,1,4,4
+1253,1253,flower_2/party_A/dataset_split/val/rose/rose (1290).jpeg,rose,3,1,4,1,3,5
+1254,1254,flower_2/party_A/dataset_split/val/rose/rose (1176).jpeg,rose,3,1,4,1,4,4
+1255,1255,flower_2/party_A/dataset_split/val/rose/rose (670).jpeg,rose,3,1,4,1,3,4
+1256,1256,flower_2/party_A/dataset_split/val/rose/val_rose (549).jpeg,rose,3,1,4,1,4,4
+1257,1257,flower_2/party_A/dataset_split/val/rose/rose (1312).jpeg,rose,3,1,4,1,4,4
+1258,1258,flower_2/party_A/dataset_split/val/rose/rose (634).jpeg,rose,3,1,4,1,4,4
+1259,1259,flower_2/party_A/dataset_split/val/rose/rose (871).jpeg,rose,3,1,4,1,4,4
+1260,1260,flower_2/party_A/dataset_split/val/rose/rose (1283).jpeg,rose,3,1,4,1,4,4
+1261,1261,flower_2/party_A/dataset_split/val/rose/rose (1530).jpeg,rose,3,1,4,1,3,4
+1262,1262,flower_2/party_A/dataset_split/val/rose/rose (601).jpeg,rose,3,1,4,1,4,4
+1263,1263,flower_2/party_A/dataset_split/val/rose/val_rose (460).jpeg,rose,3,1,4,1,4,4
+1264,1264,flower_2/party_A/dataset_split/val/rose/val_rose (259).jpeg,rose,3,1,4,1,4,4
+1265,1265,flower_2/party_A/dataset_split/val/rose/val_rose (257).jpeg,rose,3,1,4,1,4,4
+1266,1266,flower_2/party_A/dataset_split/val/rose/rose (1406).jpeg,rose,3,1,4,1,4,4
+1267,1267,flower_2/party_A/dataset_split/val/rose/test_rose (24).jpeg,rose,3,1,4,1,4,4
+1268,1268,flower_2/party_A/dataset_split/val/rose/val_rose (375).jpeg,rose,3,1,4,1,4,6
+1269,1269,flower_2/party_A/dataset_split/val/rose/val_rose (108).jpeg,rose,3,1,4,1,4,4
+1270,1270,flower_2/party_A/dataset_split/val/rose/rose (930).jpeg,rose,3,1,4,1,4,4
+1271,1271,flower_2/party_A/dataset_split/val/rose/rose (632).jpeg,rose,3,1,4,1,4,4
+1272,1272,flower_2/party_A/dataset_split/val/rose/rose (959).jpeg,rose,3,1,4,1,4,4
+1273,1273,flower_2/party_A/dataset_split/val/rose/rose (1121).jpeg,rose,3,1,4,1,4,4
+1274,1274,flower_2/party_A/dataset_split/val/rose/rose (1404).jpeg,rose,3,1,4,1,4,0
+1275,1275,flower_2/party_A/dataset_split/val/rose/rose (711).jpeg,rose,3,1,4,1,4,4
+1276,1276,flower_2/party_A/dataset_split/val/rose/val_rose (197).jpeg,rose,3,1,4,1,4,4
+1277,1277,flower_2/party_A/dataset_split/val/rose/rose (731).jpeg,rose,3,1,4,1,4,4
+1278,1278,flower_2/party_A/dataset_split/val/rose/val_rose (235).jpeg,rose,3,1,4,1,4,4
+1279,1279,flower_2/party_A/dataset_split/val/rose/val_rose (421).jpeg,rose,3,1,4,1,4,6
+1280,1280,flower_2/party_A/dataset_split/val/rose/val_rose (305).jpeg,rose,3,1,4,1,4,4
+1281,1281,flower_2/party_A/dataset_split/val/rose/test_rose (91).jpeg,rose,3,1,4,1,4,4
+1282,1282,flower_2/party_A/dataset_split/val/rose/val_rose (237).jpeg,rose,3,1,4,1,4,4
+1283,1283,flower_2/party_A/dataset_split/val/rose/rose (1601).jpeg,rose,3,1,4,1,4,4
+1284,1284,flower_2/party_A/dataset_split/val/rose/val_rose (327).jpeg,rose,3,1,4,1,4,0
+1285,1285,flower_2/party_A/dataset_split/val/rose/val_rose (329).jpeg,rose,3,1,4,1,2,0
+1286,1286,flower_2/party_A/dataset_split/val/rose/val_rose (295).jpeg,rose,3,1,4,1,2,6
+1287,1287,flower_2/party_A/dataset_split/val/rose/val_rose (280).jpeg,rose,3,1,4,1,4,4
+1288,1288,flower_2/party_A/dataset_split/val/rose/rose (1377).jpeg,rose,3,1,4,1,4,4
+1289,1289,flower_2/party_A/dataset_split/val/rose/rose (1308).jpeg,rose,3,1,4,1,4,4
+1290,1290,flower_2/party_A/dataset_split/val/rose/rose (1600).jpeg,rose,3,1,4,1,4,4
+1291,1291,flower_2/party_A/dataset_split/val/rose/rose (878).jpeg,rose,3,1,4,1,4,6
+1292,1292,flower_2/party_A/dataset_split/val/rose/rose (647).jpeg,rose,3,1,4,1,4,6
+1293,1293,flower_2/party_A/dataset_split/val/rose/rose (1000).jpeg,rose,3,1,4,1,4,4
+1294,1294,flower_2/party_A/dataset_split/val/rose/rose (1448).jpeg,rose,3,1,4,1,4,4
+1295,1295,flower_2/party_A/dataset_split/val/rose/rose (1094).jpeg,rose,3,1,4,1,4,4
+1296,1296,flower_2/party_A/dataset_split/val/rose/rose (1051).jpeg,rose,3,1,4,1,4,4
+1297,1297,flower_2/party_A/dataset_split/val/rose/val_rose (318).jpeg,rose,3,1,4,1,4,4
+1298,1298,flower_2/party_A/dataset_split/val/rose/rose (614).jpeg,rose,3,1,4,1,4,4
+1299,1299,flower_2/party_A/dataset_split/val/rose/val_rose (124).jpeg,rose,3,1,4,1,3,4
+1300,1300,flower_2/party_A/dataset_split/val/rose/rose (725).jpeg,rose,3,1,4,1,4,4
+1301,1301,flower_2/party_A/dataset_split/val/rose/val_rose (316).jpeg,rose,3,1,4,1,4,4
+1302,1302,flower_2/party_A/dataset_split/val/rose/val_rose (320).jpeg,rose,3,1,4,1,4,6
+1303,1303,flower_2/party_A/dataset_split/val/rose/val_rose (245).jpeg,rose,3,1,4,1,4,6
+1304,1304,flower_2/party_A/dataset_split/val/rose/val_rose (346).jpeg,rose,3,1,4,1,4,4
+1305,1305,flower_2/party_A/dataset_split/val/rose/rose (1057).jpeg,rose,3,1,4,1,4,6
+1306,1306,flower_2/party_A/dataset_split/val/rose/val_rose (129).jpeg,rose,3,1,4,1,4,4
+1307,1307,flower_2/party_A/dataset_split/val/rose/val_rose (539).jpeg,rose,3,1,4,1,3,4
+1308,1308,flower_2/party_A/dataset_split/val/rose/test_rose (8).jpeg,rose,3,1,4,1,4,6
+1309,1309,flower_2/party_A/dataset_split/val/rose/val_rose (574).jpeg,rose,3,1,4,1,4,4
+1310,1310,flower_2/party_A/dataset_split/val/rose/rose (1247).jpeg,rose,3,1,4,1,4,4
+1311,1311,flower_2/party_A/dataset_split/val/rose/rose (769).jpeg,rose,3,1,4,1,4,4
+1312,1312,flower_2/party_A/dataset_split/val/rose/val_rose (274).jpeg,rose,3,1,4,1,4,4
+1313,1313,flower_2/party_A/dataset_split/val/rose/rose (1134).jpeg,rose,3,1,4,1,4,4
+1314,1314,flower_2/party_A/dataset_split/val/rose/rose (1026).jpeg,rose,3,1,4,1,4,4
+1315,1315,flower_2/party_A/dataset_split/val/rose/val_rose (488).jpeg,rose,3,1,4,1,4,4
+1316,1316,flower_2/party_A/dataset_split/val/rose/val_rose (499).jpeg,rose,3,1,4,1,4,4
+1317,1317,flower_2/party_A/dataset_split/val/rose/val_rose (113).jpeg,rose,3,1,4,1,4,4
+1318,1318,flower_2/party_A/dataset_split/val/rose/rose (876).jpeg,rose,3,1,4,1,4,0
+1319,1319,flower_2/party_A/dataset_split/val/rose/val_rose (326).jpeg,rose,3,1,4,1,4,4
+1320,1320,flower_2/party_A/dataset_split/val/rose/val_rose (267).jpeg,rose,3,1,4,1,4,6
+1321,1321,flower_2/party_A/dataset_split/val/rose/test_rose (15).jpeg,rose,3,1,4,1,4,4
+1322,1322,flower_2/party_A/dataset_split/val/rose/rose (1497).jpeg,rose,3,1,4,1,4,4
+1323,1323,flower_2/party_A/dataset_split/val/rose/rose (1411).jpeg,rose,3,1,4,1,4,4
+1324,1324,flower_2/party_A/dataset_split/val/rose/rose (1080).jpeg,rose,3,1,4,1,4,4
+1325,1325,flower_2/party_A/dataset_split/val/rose/rose (1353).jpeg,rose,3,1,4,1,4,4
+1326,1326,flower_2/party_A/dataset_split/val/rose/rose (935).jpeg,rose,3,1,4,1,4,4
+1327,1327,flower_2/party_A/dataset_split/val/rose/val_rose (470).jpeg,rose,3,1,4,1,4,4
+1328,1328,flower_2/party_A/dataset_split/val/rose/rose (1116).jpeg,rose,3,1,4,1,4,4
+1329,1329,flower_2/party_A/dataset_split/val/rose/val_rose (581).jpeg,rose,3,1,4,1,4,4
+1330,1330,flower_2/party_A/dataset_split/val/rose/rose (1090).jpeg,rose,3,1,4,1,4,4
+1331,1331,flower_2/party_A/dataset_split/val/rose/val_rose (146).jpeg,rose,3,1,4,1,4,4
+1332,1332,flower_2/party_A/dataset_split/val/rose/test_rose (40).jpeg,rose,3,1,4,1,4,4
+1333,1333,flower_2/party_A/dataset_split/val/rose/rose (710).jpeg,rose,3,1,4,1,4,4
+1334,1334,flower_2/party_A/dataset_split/val/rose/rose (606).jpeg,rose,3,1,4,1,4,4
+1335,1335,flower_2/party_A/dataset_split/val/rose/rose (1138).jpeg,rose,3,1,4,1,4,4
+1336,1336,flower_2/party_A/dataset_split/val/rose/val_rose (336).jpeg,rose,3,1,4,1,4,4
+1337,1337,flower_2/party_A/dataset_split/val/rose/rose (618).jpeg,rose,3,1,4,1,3,4
+1338,1338,flower_2/party_A/dataset_split/val/rose/val_rose (393).jpeg,rose,3,1,4,1,4,1
+1339,1339,flower_2/party_A/dataset_split/val/rose/test_rose (21).jpeg,rose,3,1,4,1,4,4
+1340,1340,flower_2/party_A/dataset_split/val/rose/val_rose (344).jpeg,rose,3,1,4,1,4,4
+1341,1341,flower_2/party_A/dataset_split/val/rose/rose (828).jpeg,rose,3,1,4,1,4,4
+1342,1342,flower_2/party_A/dataset_split/val/rose/val_rose (322).jpeg,rose,3,1,4,1,4,4
+1343,1343,flower_2/party_A/dataset_split/val/rose/rose (1087).jpeg,rose,3,1,4,1,4,4
+1344,1344,flower_2/party_A/dataset_split/val/rose/rose (1539).jpeg,rose,3,1,4,1,4,4
+1345,1345,flower_2/party_A/dataset_split/val/rose/rose (661).jpeg,rose,3,1,4,1,4,4
+1346,1346,flower_2/party_A/dataset_split/val/rose/rose (602).jpeg,rose,3,1,4,1,4,4
+1347,1347,flower_2/party_A/dataset_split/val/rose/val_rose (505).jpeg,rose,3,1,4,1,4,4
+1348,1348,flower_2/party_A/dataset_split/val/rose/rose (1577).jpeg,rose,3,1,4,1,4,4
+1349,1349,flower_2/party_A/dataset_split/val/rose/rose (636).jpeg,rose,3,1,4,1,4,4
+1350,1350,flower_2/party_A/dataset_split/val/rose/val_rose (302).jpeg,rose,3,1,4,1,4,4
+1351,1351,flower_2/party_A/dataset_split/val/rose/rose (1050).jpeg,rose,3,1,4,1,4,4
+1352,1352,flower_2/party_A/dataset_split/val/rose/rose (995).jpeg,rose,3,1,4,1,4,4
+1353,1353,flower_2/party_A/dataset_split/val/rose/rose (728).jpeg,rose,3,1,4,1,4,4
+1354,1354,flower_2/party_A/dataset_split/val/rose/rose (831).jpeg,rose,3,1,4,1,4,4
+1355,1355,flower_2/party_A/dataset_split/val/rose/val_rose (357).jpeg,rose,3,1,4,1,4,4
+1356,1356,flower_2/party_A/dataset_split/val/rose/rose (877).jpeg,rose,3,1,4,1,4,4
+1357,1357,flower_2/party_A/dataset_split/val/rose/rose (631).jpeg,rose,3,1,4,1,4,4
+1358,1358,flower_2/party_A/dataset_split/val/rose/rose (1549).jpeg,rose,3,1,4,1,4,4
+1359,1359,flower_2/party_A/dataset_split/val/rose/rose (1183).jpeg,rose,3,1,4,1,4,4
+1360,1360,flower_2/party_A/dataset_split/val/rose/rose (907).jpeg,rose,3,1,4,1,4,4
+1361,1361,flower_2/party_A/dataset_split/val/rose/rose (1212).jpeg,rose,3,1,4,1,4,4
+1362,1362,flower_2/party_A/dataset_split/val/rose/rose (1450).jpeg,rose,3,1,4,1,4,4
+1363,1363,flower_2/party_A/dataset_split/val/rose/val_rose (175).jpeg,rose,3,1,4,1,4,4
+1364,1364,flower_2/party_A/dataset_split/val/rose/rose (1413).jpeg,rose,3,1,4,1,4,4
+1365,1365,flower_2/party_A/dataset_split/val/rose/rose (1439).jpeg,rose,3,1,4,1,4,4
+1366,1366,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (714).jpeg,sunflower,4,1,5,1,5,5
+1367,1367,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (893).jpeg,sunflower,4,1,5,1,5,5
+1368,1368,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1166).jpeg,sunflower,4,1,5,1,5,5
+1369,1369,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1570).jpeg,sunflower,4,1,5,1,5,5
+1370,1370,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1031).jpeg,sunflower,4,1,5,1,5,5
+1371,1371,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (882).jpeg,sunflower,4,1,5,1,5,5
+1372,1372,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1164).jpeg,sunflower,4,1,5,1,5,5
+1373,1373,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (952).jpeg,sunflower,4,1,5,1,5,5
+1374,1374,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1278).jpeg,sunflower,4,1,5,1,5,5
+1375,1375,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1874).jpeg,sunflower,4,1,5,1,5,5
+1376,1376,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1095).jpeg,sunflower,4,1,5,1,5,0
+1377,1377,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (94).jpeg,sunflower,4,1,5,1,5,0
+1378,1378,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (923).jpeg,sunflower,4,1,5,1,5,5
+1379,1379,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (739).jpeg,sunflower,4,1,5,1,5,0
+1380,1380,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (742).jpeg,sunflower,4,1,5,1,5,5
+1381,1381,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1171).jpeg,sunflower,4,1,5,1,5,5
+1382,1382,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (97).jpeg,sunflower,4,1,5,1,5,5
+1383,1383,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1232).jpeg,sunflower,4,1,5,1,5,5
+1384,1384,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1723).jpeg,sunflower,4,1,5,1,5,5
+1385,1385,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1175).jpeg,sunflower,4,1,5,1,5,1
+1386,1386,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1944).jpeg,sunflower,4,1,5,1,5,5
+1387,1387,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1160).jpeg,sunflower,4,1,5,1,5,5
+1388,1388,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (799).jpeg,sunflower,4,1,5,1,5,1
+1389,1389,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1456).jpeg,sunflower,4,1,5,1,5,5
+1390,1390,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1114).jpeg,sunflower,4,1,5,1,5,5
+1391,1391,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1002).jpeg,sunflower,4,1,5,1,5,5
+1392,1392,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (821).jpeg,sunflower,4,1,5,1,5,5
+1393,1393,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1133).jpeg,sunflower,4,1,5,1,5,5
+1394,1394,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1419).jpeg,sunflower,4,1,5,1,5,5
+1395,1395,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1437).jpeg,sunflower,4,1,5,1,5,5
+1396,1396,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1056).jpeg,sunflower,4,1,5,1,5,5
+1397,1397,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1188).jpeg,sunflower,4,1,5,1,5,5
+1398,1398,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (758).jpeg,sunflower,4,1,5,1,5,5
+1399,1399,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1518).jpeg,sunflower,4,1,5,1,5,5
+1400,1400,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1080).jpeg,sunflower,4,1,5,1,5,5
+1401,1401,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1526).jpeg,sunflower,4,1,5,1,5,5
+1402,1402,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1053).jpeg,sunflower,4,1,5,1,5,5
+1403,1403,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1318).jpeg,sunflower,4,1,5,1,5,5
+1404,1404,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1235).jpeg,sunflower,4,1,5,1,5,5
+1405,1405,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (806).jpeg,sunflower,4,1,5,1,5,5
+1406,1406,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1749).jpeg,sunflower,4,1,5,1,5,5
+1407,1407,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1393).jpeg,sunflower,4,1,5,1,5,1
+1408,1408,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1008).jpeg,sunflower,4,1,5,1,5,5
+1409,1409,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (924).jpeg,sunflower,4,1,5,1,5,5
+1410,1410,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (703).jpeg,sunflower,4,1,5,1,5,5
+1411,1411,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1025).jpeg,sunflower,4,1,5,1,5,5
+1412,1412,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1587).jpeg,sunflower,4,1,5,1,5,0
+1413,1413,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (913).jpeg,sunflower,4,1,5,1,5,5
+1414,1414,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1960).jpeg,sunflower,4,1,5,1,5,5
+1415,1415,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1137).jpeg,sunflower,4,1,5,1,5,5
+1416,1416,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (72).jpeg,sunflower,4,1,5,1,5,5
+1417,1417,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1187).jpeg,sunflower,4,1,5,1,5,0
+1418,1418,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1426).jpeg,sunflower,4,1,5,1,5,5
+1419,1419,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (60).jpeg,sunflower,4,1,5,1,5,5
+1420,1420,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1739).jpeg,sunflower,4,1,5,1,0,4
+1421,1421,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1326).jpeg,sunflower,4,1,5,1,5,5
+1422,1422,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1722).jpeg,sunflower,4,1,5,1,5,5
+1423,1423,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1396).jpeg,sunflower,4,1,5,1,5,5
+1424,1424,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (84).jpeg,sunflower,4,1,5,1,5,5
+1425,1425,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1779).jpeg,sunflower,4,1,5,1,5,5
+1426,1426,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1223).jpeg,sunflower,4,1,5,1,5,5
+1427,1427,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1242).jpeg,sunflower,4,1,5,1,5,5
+1428,1428,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (723).jpeg,sunflower,4,1,5,1,5,5
+1429,1429,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1117).jpeg,sunflower,4,1,5,1,5,5
+1430,1430,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (863).jpeg,sunflower,4,1,5,1,5,5
+1431,1431,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (982).jpeg,sunflower,4,1,5,1,5,5
+1432,1432,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1998).jpeg,sunflower,4,1,5,1,5,0
+1433,1433,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1321).jpeg,sunflower,4,1,5,1,5,5
+1434,1434,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (818).jpeg,sunflower,4,1,5,1,5,5
+1435,1435,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1168).jpeg,sunflower,4,1,5,1,5,5
+1436,1436,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (48).jpeg,sunflower,4,1,5,1,5,5
+1437,1437,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1079).jpeg,sunflower,4,1,5,1,5,5
+1438,1438,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1658).jpeg,sunflower,4,1,5,1,5,5
+1439,1439,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1625).jpeg,sunflower,4,1,5,1,5,5
+1440,1440,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1392).jpeg,sunflower,4,1,5,1,5,5
+1441,1441,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1064).jpeg,sunflower,4,1,5,1,5,5
+1442,1442,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1536).jpeg,sunflower,4,1,5,1,5,5
+1443,1443,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1146).jpeg,sunflower,4,1,5,1,5,5
+1444,1444,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1081).jpeg,sunflower,4,1,5,1,0,1
+1445,1445,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (90).jpeg,sunflower,4,1,5,1,5,5
+1446,1446,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1613).jpeg,sunflower,4,1,5,1,0,0
+1447,1447,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1402).jpeg,sunflower,4,1,5,1,5,5
+1448,1448,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1055).jpeg,sunflower,4,1,5,1,5,5
+1449,1449,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1715).jpeg,sunflower,4,1,5,1,5,5
+1450,1450,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1147).jpeg,sunflower,4,1,5,1,5,5
+1451,1451,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1076).jpeg,sunflower,4,1,5,1,5,5
+1452,1452,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1497).jpeg,sunflower,4,1,5,1,5,5
+1453,1453,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1312).jpeg,sunflower,4,1,5,1,5,5
+1454,1454,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1103).jpeg,sunflower,4,1,5,1,5,5
+1455,1455,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (833).jpeg,sunflower,4,1,5,1,5,5
+1456,1456,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (816).jpeg,sunflower,4,1,5,1,5,5
+1457,1457,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1945).jpeg,sunflower,4,1,5,1,5,5
+1458,1458,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (940).jpeg,sunflower,4,1,5,1,5,5
+1459,1459,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1120).jpeg,sunflower,4,1,5,1,5,5
+1460,1460,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1110).jpeg,sunflower,4,1,5,1,5,5
+1461,1461,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1734).jpeg,sunflower,4,1,5,1,5,5
+1462,1462,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1711).jpeg,sunflower,4,1,5,1,5,5
+1463,1463,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1902).jpeg,sunflower,4,1,5,1,5,5
+1464,1464,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (63).jpeg,sunflower,4,1,5,1,5,5
+1465,1465,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (73).jpeg,sunflower,4,1,5,1,5,5
+1466,1466,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (834).jpeg,sunflower,4,1,5,1,5,5
+1467,1467,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (861).jpeg,sunflower,4,1,5,1,5,5
+1468,1468,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (944).jpeg,sunflower,4,1,5,1,5,5
+1469,1469,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (104).jpeg,sunflower,4,1,5,1,5,5
+1470,1470,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (879).jpeg,sunflower,4,1,5,1,5,5
+1471,1471,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1183).jpeg,sunflower,4,1,5,1,5,5
+1472,1472,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1778).jpeg,sunflower,4,1,5,1,5,5
+1473,1473,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (801).jpeg,sunflower,4,1,5,1,5,5
+1474,1474,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1332).jpeg,sunflower,4,1,5,1,5,5
+1475,1475,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1636).jpeg,sunflower,4,1,5,1,5,5
+1476,1476,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1796).jpeg,sunflower,4,1,5,1,5,5
+1477,1477,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1370).jpeg,sunflower,4,1,5,1,5,5
+1478,1478,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (899).jpeg,sunflower,4,1,5,1,3,6
+1479,1479,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (708).jpeg,sunflower,4,1,5,1,5,5
+1480,1480,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1701).jpeg,sunflower,4,1,5,1,5,5
+1481,1481,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (810).jpeg,sunflower,4,1,5,1,5,5
+1482,1482,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1564).jpeg,sunflower,4,1,5,1,5,5
+1483,1483,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1468).jpeg,sunflower,4,1,5,1,5,5
+1484,1484,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1034).jpeg,sunflower,4,1,5,1,5,5
+1485,1485,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (747).jpeg,sunflower,4,1,5,1,5,5
+1486,1486,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1093).jpeg,sunflower,4,1,5,1,5,5
+1487,1487,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1218).jpeg,sunflower,4,1,5,1,5,5
+1488,1488,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1051).jpeg,sunflower,4,1,5,1,5,5
+1489,1489,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1789).jpeg,sunflower,4,1,5,1,5,5
+1490,1490,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1824).jpeg,sunflower,4,1,5,1,5,5
+1491,1491,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1084).jpeg,sunflower,4,1,5,1,5,5
+1492,1492,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (878).jpeg,sunflower,4,1,5,1,5,5
+1493,1493,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (4).jpeg,sunflower,4,1,5,1,5,5
+1494,1494,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (730).jpeg,sunflower,4,1,5,1,5,5
+1495,1495,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1943).jpeg,sunflower,4,1,5,1,5,5
+1496,1496,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1848).jpeg,sunflower,4,1,5,1,5,5
+1497,1497,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1630).jpeg,sunflower,4,1,5,1,5,5
+1498,1498,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1517).jpeg,sunflower,4,1,5,1,5,5
+1499,1499,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (690).jpeg,sunflower,4,1,5,1,5,5
+1500,1500,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (46).jpeg,sunflower,4,1,5,1,5,5
+1501,1501,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (49).jpeg,sunflower,4,1,5,1,3,5
+1502,1502,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1995).jpeg,sunflower,4,1,5,1,5,5
+1503,1503,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1851).jpeg,sunflower,4,1,5,1,5,5
+1504,1504,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1180).jpeg,sunflower,4,1,5,1,5,4
+1505,1505,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (128).jpeg,sunflower,4,1,5,1,5,5
+1506,1506,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (969).jpeg,sunflower,4,1,5,1,5,5
+1507,1507,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1640).jpeg,sunflower,4,1,5,1,3,5
+1508,1508,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1032).jpeg,sunflower,4,1,5,1,5,5
+1509,1509,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1879).jpeg,sunflower,4,1,5,1,5,5
+1510,1510,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1397).jpeg,sunflower,4,1,5,1,5,5
+1511,1511,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1186).jpeg,sunflower,4,1,5,1,5,5
+1512,1512,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (873).jpeg,sunflower,4,1,5,1,5,5
+1513,1513,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1147).jpeg,sunflower,4,1,5,1,5,5
+1514,1514,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1628).jpeg,sunflower,4,1,5,1,5,5
+1515,1515,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (852).jpeg,sunflower,4,1,5,1,5,5
+1516,1516,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1721).jpeg,sunflower,4,1,5,1,0,5
+1517,1517,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1776).jpeg,sunflower,4,1,5,1,5,5
+1518,1518,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1140).jpeg,sunflower,4,1,5,1,5,4
+1519,1519,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1900).jpeg,sunflower,4,1,5,1,5,5
+1520,1520,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1484).jpeg,sunflower,4,1,5,1,5,5
+1521,1521,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1816).jpeg,sunflower,4,1,5,1,5,5
+1522,1522,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1728).jpeg,sunflower,4,1,5,1,5,5
+1523,1523,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1135).jpeg,sunflower,4,1,5,1,5,5
+1524,1524,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1181).jpeg,sunflower,4,1,5,1,5,5
+1525,1525,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (779).jpeg,sunflower,4,1,5,1,5,5
+1526,1526,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1566).jpeg,sunflower,4,1,5,1,5,5
+1527,1527,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1400).jpeg,sunflower,4,1,5,1,5,5
+1528,1528,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1327).jpeg,sunflower,4,1,5,1,5,5
+1529,1529,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1136).jpeg,sunflower,4,1,5,1,5,5
+1530,1530,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (973).jpeg,sunflower,4,1,5,1,5,5
+1531,1531,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1166).jpeg,sunflower,4,1,5,1,5,5
+1532,1532,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1016).jpeg,sunflower,4,1,5,1,5,5
+1533,1533,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1460).jpeg,sunflower,4,1,5,1,5,5
+1534,1534,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1453).jpeg,sunflower,4,1,5,1,3,5
+1535,1535,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1093).jpeg,sunflower,4,1,5,1,5,5
+1536,1536,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1645).jpeg,sunflower,4,1,5,1,5,0
+1537,1537,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (105).jpeg,sunflower,4,1,5,1,5,5
+1538,1538,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1000).jpeg,sunflower,4,1,5,1,5,5
+1539,1539,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1358).jpeg,sunflower,4,1,5,1,5,5
+1540,1540,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1785).jpeg,sunflower,4,1,5,1,5,5
+1541,1541,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1158).jpeg,sunflower,4,1,5,1,5,5
+1542,1542,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (750).jpeg,sunflower,4,1,5,1,5,5
+1543,1543,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1030).jpeg,sunflower,4,1,5,1,5,5
+1544,1544,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1991).jpeg,sunflower,4,1,5,1,5,5
+1545,1545,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1500).jpeg,sunflower,4,1,5,1,5,5
+1546,1546,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1175).jpeg,sunflower,4,1,5,1,5,5
+1547,1547,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (796).jpeg,sunflower,4,1,5,1,5,5
+1548,1548,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1052).jpeg,sunflower,4,1,5,1,5,5
+1549,1549,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1035).jpeg,sunflower,4,1,5,1,3,5
+1550,1550,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1209).jpeg,sunflower,4,1,5,1,5,5
+1551,1551,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1502).jpeg,sunflower,4,1,5,1,5,5
+1552,1552,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1747).jpeg,sunflower,4,1,5,1,5,5
+1553,1553,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1128).jpeg,sunflower,4,1,5,1,5,5
+1554,1554,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (10).jpeg,sunflower,4,1,5,1,5,5
+1555,1555,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1036).jpeg,sunflower,4,1,5,1,5,5
+1556,1556,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1133).jpeg,sunflower,4,1,5,1,5,5
+1557,1557,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1156).jpeg,sunflower,4,1,5,1,5,5
+1558,1558,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (934).jpeg,sunflower,4,1,5,1,5,5
+1559,1559,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1804).jpeg,sunflower,4,1,5,1,5,5
+1560,1560,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (51).jpeg,sunflower,4,1,5,1,5,5
+1561,1561,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1151).jpeg,sunflower,4,1,5,1,5,5
+1562,1562,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1403).jpeg,sunflower,4,1,5,1,5,5
+1563,1563,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1647).jpeg,sunflower,4,1,5,1,5,5
+1564,1564,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1138).jpeg,sunflower,4,1,5,1,5,5
+1565,1565,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (77).jpeg,sunflower,4,1,5,1,5,5
+1566,1566,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (716).jpeg,sunflower,4,1,5,1,5,5
+1567,1567,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (963).jpeg,sunflower,4,1,5,1,5,5
+1568,1568,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1954).jpeg,sunflower,4,1,5,1,5,5
+1569,1569,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1937).jpeg,sunflower,4,1,5,1,5,5
+1570,1570,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1005).jpeg,sunflower,4,1,5,1,5,5
+1571,1571,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1075).jpeg,sunflower,4,1,5,1,5,0
+1572,1572,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1086).jpeg,sunflower,4,1,5,1,5,5
+1573,1573,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1936).jpeg,sunflower,4,1,5,1,5,5
+1574,1574,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (721).jpeg,sunflower,4,1,5,1,5,5
+1575,1575,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1660).jpeg,sunflower,4,1,5,1,5,5
+1576,1576,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (823).jpeg,sunflower,4,1,5,1,5,5
+1577,1577,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (694).jpeg,sunflower,4,1,5,1,5,5
+1578,1578,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1210).jpeg,sunflower,4,1,5,1,5,5
+1579,1579,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1047).jpeg,sunflower,4,1,5,1,5,5
+1580,1580,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1163).jpeg,sunflower,4,1,5,1,5,5
+1581,1581,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1100).jpeg,sunflower,4,1,5,1,5,5
+1582,1582,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1012).jpeg,sunflower,4,1,5,1,5,5
+1583,1583,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1061).jpeg,sunflower,4,1,5,1,5,6
+1584,1584,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1736).jpeg,sunflower,4,1,5,1,5,5
+1585,1585,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (732).jpeg,sunflower,4,1,5,1,5,5
+1586,1586,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1873).jpeg,sunflower,4,1,5,1,5,5
+1587,1587,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (130).jpeg,sunflower,4,1,5,1,5,5
+1588,1588,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (91).jpeg,sunflower,4,1,5,1,5,5
+1589,1589,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (52).jpeg,sunflower,4,1,5,1,5,5
+1590,1590,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1350).jpeg,sunflower,4,1,5,1,5,5
+1591,1591,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1339).jpeg,sunflower,4,1,5,1,5,5
+1592,1592,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1109).jpeg,sunflower,4,1,5,1,5,5
+1593,1593,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1815).jpeg,sunflower,4,1,5,1,5,1
+1594,1594,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1115).jpeg,sunflower,4,1,5,1,5,5
+1595,1595,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1106).jpeg,sunflower,4,1,5,1,5,5
+1596,1596,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1880).jpeg,sunflower,4,1,5,1,3,6
+1597,1597,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1036).jpeg,sunflower,4,1,5,1,5,0
+1598,1598,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (869).jpeg,sunflower,4,1,5,1,5,5
+1599,1599,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1885).jpeg,sunflower,4,1,5,1,5,5
+1600,1600,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1088).jpeg,sunflower,4,1,5,1,5,5
+1601,1601,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1901).jpeg,sunflower,4,1,5,1,5,5
+1602,1602,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1285).jpeg,sunflower,4,1,5,1,5,5
+1603,1603,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1683).jpeg,sunflower,4,1,5,1,5,5
+1604,1604,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (988).jpeg,sunflower,4,1,5,1,5,6
+1605,1605,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1775).jpeg,sunflower,4,1,5,1,5,5
+1606,1606,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1681).jpeg,sunflower,4,1,5,1,5,5
+1607,1607,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1145).jpeg,sunflower,4,1,5,1,5,5
+1608,1608,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (793).jpeg,sunflower,4,1,5,1,3,5
+1609,1609,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1394).jpeg,sunflower,4,1,5,1,5,5
+1610,1610,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1295).jpeg,sunflower,4,1,5,1,5,5
+1611,1611,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1347).jpeg,sunflower,4,1,5,1,5,5
+1612,1612,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1089).jpeg,sunflower,4,1,5,1,5,5
+1613,1613,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (976).jpeg,sunflower,4,1,5,1,5,5
+1614,1614,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1606).jpeg,sunflower,4,1,5,1,3,1
+1615,1615,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1760).jpeg,sunflower,4,1,5,1,5,5
+1616,1616,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1082).jpeg,sunflower,4,1,5,1,5,5
+1617,1617,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1617).jpeg,sunflower,4,1,5,1,5,5
+1618,1618,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1895).jpeg,sunflower,4,1,5,1,5,5
+1619,1619,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1855).jpeg,sunflower,4,1,5,1,5,1
+1620,1620,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1267).jpeg,sunflower,4,1,5,1,5,5
+1621,1621,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (933).jpeg,sunflower,4,1,5,1,5,0
+1622,1622,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1629).jpeg,sunflower,4,1,5,1,5,5
+1623,1623,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1348).jpeg,sunflower,4,1,5,1,5,5
+1624,1624,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1968).jpeg,sunflower,4,1,5,1,5,5
+1625,1625,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1).jpeg,sunflower,4,1,5,1,5,0
+1626,1626,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (857).jpeg,sunflower,4,1,5,1,5,5
+1627,1627,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1485).jpeg,sunflower,4,1,5,1,5,1
+1628,1628,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1588).jpeg,sunflower,4,1,5,1,5,5
+1629,1629,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1060).jpeg,sunflower,4,1,5,1,5,5
+1630,1630,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1398).jpeg,sunflower,4,1,5,1,5,5
+1631,1631,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1559).jpeg,sunflower,4,1,5,1,5,5
+1632,1632,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1909).jpeg,sunflower,4,1,5,1,5,5
+1633,1633,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1177).jpeg,sunflower,4,1,5,1,5,5
+1634,1634,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1831).jpeg,sunflower,4,1,5,1,5,5
+1635,1635,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1834).jpeg,sunflower,4,1,5,1,5,1
+1636,1636,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1325).jpeg,sunflower,4,1,5,1,5,4
+1637,1637,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1029).jpeg,sunflower,4,1,5,1,5,5
+1638,1638,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (792).jpeg,sunflower,4,1,5,1,5,5
+1639,1639,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (997).jpeg,sunflower,4,1,5,1,5,5
+1640,1640,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1014).jpeg,sunflower,4,1,5,1,5,5
+1641,1641,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1120).jpeg,sunflower,4,1,5,1,3,5
+1642,1642,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1539).jpeg,sunflower,4,1,5,1,5,5
+1643,1643,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (87).jpeg,sunflower,4,1,5,1,5,5
+1644,1644,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1304).jpeg,sunflower,4,1,5,1,5,5
+1645,1645,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (755).jpeg,sunflower,4,1,5,1,5,5
+1646,1646,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (897).jpeg,sunflower,4,1,5,1,5,5
+1647,1647,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1319).jpeg,sunflower,4,1,5,1,5,5
+1648,1648,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (781).jpeg,sunflower,4,1,5,1,5,5
+1649,1649,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1190).jpeg,sunflower,4,1,5,1,5,5
+1650,1650,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1802).jpeg,sunflower,4,1,5,1,5,5
+1651,1651,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1563).jpeg,sunflower,4,1,5,1,5,5
+1652,1652,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1612).jpeg,sunflower,4,1,5,1,5,5
+1653,1653,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1542).jpeg,sunflower,4,1,5,1,5,5
+1654,1654,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1214).jpeg,sunflower,4,1,5,1,5,5
+1655,1655,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1435).jpeg,sunflower,4,1,5,1,5,5
+1656,1656,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (693).jpeg,sunflower,4,1,5,1,5,0
+1657,1657,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1141).jpeg,sunflower,4,1,5,1,5,5
+1658,1658,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1583).jpeg,sunflower,4,1,5,1,5,5
+1659,1659,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1050).jpeg,sunflower,4,1,5,1,5,5
+1660,1660,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (786).jpeg,sunflower,4,1,5,1,5,5
+1661,1661,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1465).jpeg,sunflower,4,1,5,1,5,5
+1662,1662,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (709).jpeg,sunflower,4,1,5,1,5,5
+1663,1663,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1378).jpeg,sunflower,4,1,5,1,5,5
+1664,1664,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1828).jpeg,sunflower,4,1,5,1,5,5
+1665,1665,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1504).jpeg,sunflower,4,1,5,1,5,0
+1666,1666,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1026).jpeg,sunflower,4,1,5,1,5,0
+1667,1667,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1121).jpeg,sunflower,4,1,5,1,5,5
+1668,1668,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (875).jpeg,sunflower,4,1,5,1,5,5
+1669,1669,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1801).jpeg,sunflower,4,1,5,1,5,5
+1670,1670,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (113).jpeg,sunflower,4,1,5,1,5,5
+1671,1671,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1137).jpeg,sunflower,4,1,5,1,5,5
+1672,1672,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (960).jpeg,sunflower,4,1,5,1,5,5
+1673,1673,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (701).jpeg,sunflower,4,1,5,1,5,5
+1674,1674,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1672).jpeg,sunflower,4,1,5,1,5,5
+1675,1675,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1881).jpeg,sunflower,4,1,5,1,3,5
+1676,1676,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1871).jpeg,sunflower,4,1,5,1,5,5
+1677,1677,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1107).jpeg,sunflower,4,1,5,1,5,5
+1678,1678,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1307).jpeg,sunflower,4,1,5,1,5,5
+1679,1679,flower_2/party_A/dataset_split/val/sunflower/test_sunflower (110).jpeg,sunflower,4,1,5,1,5,5
+1680,1680,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1303).jpeg,sunflower,4,1,5,1,5,5
+1681,1681,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1042).jpeg,sunflower,4,1,5,1,5,5
+1682,1682,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (847).jpeg,sunflower,4,1,5,1,5,5
+1683,1683,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1643).jpeg,sunflower,4,1,5,1,5,5
+1684,1684,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1642).jpeg,sunflower,4,1,5,1,0,4
+1685,1685,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1932).jpeg,sunflower,4,1,5,1,5,5
+1686,1686,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1087).jpeg,sunflower,4,1,5,1,5,5
+1687,1687,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (1103).jpeg,sunflower,4,1,5,1,5,5
+1688,1688,flower_2/party_A/dataset_split/val/sunflower/val_sunflower (773).jpeg,sunflower,4,1,5,1,5,5
+1689,1689,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1926).jpeg,sunflower,4,1,5,1,5,5
+1690,1690,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1826).jpeg,sunflower,4,1,5,1,5,5
+1691,1691,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1712).jpeg,sunflower,4,1,5,1,3,5
+1692,1692,flower_2/party_A/dataset_split/val/sunflower/Sunflower (1411).jpeg,sunflower,4,1,5,1,5,5
+1693,0,flower_2/party_B/dataset_split/val/daisy/34518374242_310e7abd54_n.jpg,daisy,0,2,0,1,5,5
+1694,1,flower_2/party_B/dataset_split/val/daisy/512477177_d9004cbcf1_n.jpg,daisy,0,2,0,1,0,0
+1695,2,flower_2/party_B/dataset_split/val/daisy/18684594849_7dd3634f5e_n.jpg,daisy,0,2,0,1,0,0
+1696,3,flower_2/party_B/dataset_split/val/daisy/5110109540_beed4ed162_m.jpg,daisy,0,2,0,1,3,0
+1697,4,flower_2/party_B/dataset_split/val/daisy/99306615_739eb94b9e_m.jpg,daisy,0,2,0,1,0,0
+1698,5,flower_2/party_B/dataset_split/val/daisy/5896110423_e084b33401_n.jpg,daisy,0,2,0,1,0,1
+1699,6,flower_2/party_B/dataset_split/val/daisy/1344985627_c3115e2d71_n.jpg,daisy,0,2,0,1,3,0
+1700,7,flower_2/party_B/dataset_split/val/daisy/34637970155_a2b917077c_n.jpg,daisy,0,2,0,1,0,0
+1701,8,flower_2/party_B/dataset_split/val/daisy/5608389827_a42a46f760.jpg,daisy,0,2,0,1,0,0
+1702,9,flower_2/party_B/dataset_split/val/daisy/4561871220_47f420ca59_m.jpg,daisy,0,2,0,1,0,0
+1703,10,flower_2/party_B/dataset_split/val/daisy/2812442552_3eed5fb9f2_m.jpg,daisy,0,2,0,1,0,0
+1704,11,flower_2/party_B/dataset_split/val/daisy/4993492878_11fd4f5d12.jpg,daisy,0,2,0,1,3,0
+1705,12,flower_2/party_B/dataset_split/val/daisy/34518066912_0e432507bc_n.jpg,daisy,0,2,0,1,0,0
+1706,13,flower_2/party_B/dataset_split/val/daisy/3720632920_93cf1cc7f3_m.jpg,daisy,0,2,0,1,0,0
+1707,14,flower_2/party_B/dataset_split/val/daisy/4065883015_4bb6010cb7_n.jpg,daisy,0,2,0,1,0,0
+1708,15,flower_2/party_B/dataset_split/val/daisy/506348009_9ecff8b6ef.jpg,daisy,0,2,0,1,0,0
+1709,16,flower_2/party_B/dataset_split/val/daisy/29380234244_c50a60374e_n.jpg,daisy,0,2,0,1,3,5
+1710,17,flower_2/party_B/dataset_split/val/daisy/538920244_59899a78f8_n.jpg,daisy,0,2,0,1,0,0
+1711,18,flower_2/party_B/dataset_split/val/daisy/3450822975_7e77d67636_n.jpg,daisy,0,2,0,1,0,0
+1712,19,flower_2/party_B/dataset_split/val/daisy/3695826945_9f374e8a00_m.jpg,daisy,0,2,0,1,3,0
+1713,20,flower_2/party_B/dataset_split/val/daisy/799952628_bf836677fa_n.jpg,daisy,0,2,0,1,0,0
+1714,21,flower_2/party_B/dataset_split/val/daisy/18195689904_46619b7e16_n.jpg,daisy,0,2,0,1,0,0
+1715,22,flower_2/party_B/dataset_split/val/daisy/5885826924_38fdc6bcaa_n.jpg,daisy,0,2,0,1,0,0
+1716,23,flower_2/party_B/dataset_split/val/daisy/7357072446_c21c38c863_n.jpg,daisy,0,2,0,1,0,0
+1717,24,flower_2/party_B/dataset_split/val/daisy/3703643767_dee82cdef9_n.jpg,daisy,0,2,0,1,0,0
+1718,25,flower_2/party_B/dataset_split/val/daisy/4229503616_9b8a42123c_n.jpg,daisy,0,2,0,1,0,0
+1719,26,flower_2/party_B/dataset_split/val/daisy/5110110938_9da91455c4_m.jpg,daisy,0,2,0,1,0,0
+1720,27,flower_2/party_B/dataset_split/val/daisy/1392946544_115acbb2d9.jpg,daisy,0,2,0,1,0,0
+1721,28,flower_2/party_B/dataset_split/val/daisy/18400014056_2e4c601ed5.jpg,daisy,0,2,0,1,0,0
+1722,29,flower_2/party_B/dataset_split/val/daisy/13583238844_573df2de8e_m.jpg,daisy,0,2,0,1,0,0
+1723,30,flower_2/party_B/dataset_split/val/daisy/8405273313_bef13f6c27_n.jpg,daisy,0,2,0,1,3,0
+1724,31,flower_2/party_B/dataset_split/val/daisy/4131565290_0585c4dd5a_n.jpg,daisy,0,2,0,1,0,0
+1725,32,flower_2/party_B/dataset_split/val/daisy/4141147800_813f660b47.jpg,daisy,0,2,0,1,0,0
+1726,33,flower_2/party_B/dataset_split/val/daisy/13826249325_f61cb15f86_n.jpg,daisy,0,2,0,1,0,0
+1727,34,flower_2/party_B/dataset_split/val/daisy/8671824531_64b816949e_m.jpg,daisy,0,2,0,1,0,0
+1728,35,flower_2/party_B/dataset_split/val/daisy/20948886919_cac7844f34_n.jpg,daisy,0,2,0,1,0,0
+1729,36,flower_2/party_B/dataset_split/val/daisy/754248840_95092de274.jpg,daisy,0,2,0,1,3,0
+1730,37,flower_2/party_B/dataset_split/val/daisy/4613992315_143ccc2a10_m.jpg,daisy,0,2,0,1,3,0
+1731,38,flower_2/party_B/dataset_split/val/daisy/10466290366_cc72e33532.jpg,daisy,0,2,0,1,3,1
+1732,39,flower_2/party_B/dataset_split/val/daisy/34701078235_4a770d14a1_n.jpg,daisy,0,2,0,1,0,0
+1733,40,flower_2/party_B/dataset_split/val/daisy/2001380507_19488ff96a_n.jpg,daisy,0,2,0,1,0,0
+1734,41,flower_2/party_B/dataset_split/val/daisy/286875003_f7c0e1882d.jpg,daisy,0,2,0,1,0,0
+1735,42,flower_2/party_B/dataset_split/val/daisy/7066602021_2647457985_m.jpg,daisy,0,2,0,1,0,0
+1736,43,flower_2/party_B/dataset_split/val/daisy/33871813063_d7b6bedafe_n.jpg,daisy,0,2,0,1,3,0
+1737,44,flower_2/party_B/dataset_split/val/daisy/534547364_3f6b7279d2_n.jpg,daisy,0,2,0,1,0,0
+1738,45,flower_2/party_B/dataset_split/val/daisy/9221345475_67735dbf4f_n.jpg,daisy,0,2,0,1,0,0
+1739,46,flower_2/party_B/dataset_split/val/daisy/16482676953_5296227d40_n.jpg,daisy,0,2,0,1,0,0
+1740,47,flower_2/party_B/dataset_split/val/daisy/2514748602_343d4727c0_n.jpg,daisy,0,2,0,1,0,0
+1741,48,flower_2/party_B/dataset_split/val/daisy/10994032453_ac7f8d9e2e.jpg,daisy,0,2,0,1,3,1
+1742,49,flower_2/party_B/dataset_split/val/daisy/6529588249_d9cbe68aab_n.jpg,daisy,0,2,0,1,0,0
+1743,50,flower_2/party_B/dataset_split/val/daisy/34287492780_6dab677857_n.jpg,daisy,0,2,0,1,0,0
+1744,51,flower_2/party_B/dataset_split/val/daisy/8696022686_1f8d62c5cb_m.jpg,daisy,0,2,0,1,3,0
+1745,52,flower_2/party_B/dataset_split/val/daisy/1355787476_32e9f2a30b.jpg,daisy,0,2,0,1,3,0
+1746,53,flower_2/party_B/dataset_split/val/daisy/34486116262_411e6991f4_n.jpg,daisy,0,2,0,1,0,1
+1747,54,flower_2/party_B/dataset_split/val/daisy/8759177308_951790e00d_m.jpg,daisy,0,2,0,1,0,0
+1748,55,flower_2/party_B/dataset_split/val/daisy/3386988684_bc5a66005e.jpg,daisy,0,2,0,1,3,0
+1749,56,flower_2/party_B/dataset_split/val/daisy/4318007511_e9f4311936_n.jpg,daisy,0,2,0,1,0,6
+1750,57,flower_2/party_B/dataset_split/val/daisy/705422469_ffa28c566d.jpg,daisy,0,2,0,1,0,0
+1751,58,flower_2/party_B/dataset_split/val/daisy/1140299375_3aa7024466.jpg,daisy,0,2,0,1,0,0
+1752,59,flower_2/party_B/dataset_split/val/daisy/299129811_d6ebda9970.jpg,daisy,0,2,0,1,0,0
+1753,60,flower_2/party_B/dataset_split/val/daisy/3468498624_d082f99e98.jpg,daisy,0,2,0,1,0,0
+1754,61,flower_2/party_B/dataset_split/val/daisy/19178753159_a471bf4b6b.jpg,daisy,0,2,0,1,0,0
+1755,62,flower_2/party_B/dataset_split/val/daisy/14866200659_6462c723cb_m.jpg,daisy,0,2,0,1,0,0
+1756,63,flower_2/party_B/dataset_split/val/daisy/5809489674_5659b3ae5d_n.jpg,daisy,0,2,0,1,0,0
+1757,64,flower_2/party_B/dataset_split/val/daisy/5434742166_35773eba57_m.jpg,daisy,0,2,0,1,0,0
+1758,65,flower_2/party_B/dataset_split/val/daisy/34682895116_88ef018e83_n.jpg,daisy,0,2,0,1,0,0
+1759,66,flower_2/party_B/dataset_split/val/daisy/8127252886_96558c23d1.jpg,daisy,0,2,0,1,3,0
+1760,67,flower_2/party_B/dataset_split/val/daisy/8742143296_fed9fa007c.jpg,daisy,0,2,0,1,0,0
+1761,68,flower_2/party_B/dataset_split/val/daisy/34288158610_6e42406193_n.jpg,daisy,0,2,0,1,0,0
+1762,69,flower_2/party_B/dataset_split/val/daisy/7227973870_806d9d3e42_n.jpg,daisy,0,2,0,1,0,0
+1763,70,flower_2/party_B/dataset_split/val/daisy/33885735373_444ba02d9c_n.jpg,daisy,0,2,0,1,0,0
+1764,71,flower_2/party_B/dataset_split/val/daisy/3611577717_f3a7a8c416_n.jpg,daisy,0,2,0,1,0,0
+1765,72,flower_2/party_B/dataset_split/val/daisy/5739768868_9f982684f9_n.jpg,daisy,0,2,0,1,0,0
+1766,73,flower_2/party_B/dataset_split/val/daisy/20773528301_008fcbc5a1_n.jpg,daisy,0,2,0,1,0,0
+1767,74,flower_2/party_B/dataset_split/val/daisy/3706420943_66f3214862_n.jpg,daisy,0,2,0,1,0,0
+1768,75,flower_2/party_B/dataset_split/val/daisy/12601254324_3cb62c254a_m.jpg,daisy,0,2,0,1,0,0
+1769,76,flower_2/party_B/dataset_split/val/daisy/5673551_01d1ea993e_n.jpg,daisy,0,2,0,1,5,6
+1770,77,flower_2/party_B/dataset_split/val/daisy/18442919723_d1251d3e14_n.jpg,daisy,0,2,0,1,0,0
+1771,78,flower_2/party_B/dataset_split/val/daisy/5883162120_dc7274af76_n.jpg,daisy,0,2,0,1,0,0
+1772,79,flower_2/party_B/dataset_split/val/daisy/14219214466_3ca6104eae_m.jpg,daisy,0,2,0,1,0,0
+1773,80,flower_2/party_B/dataset_split/val/daisy/519880292_7a3a6c6b69.jpg,daisy,0,2,0,1,0,4
+1774,81,flower_2/party_B/dataset_split/val/daisy/1285423653_18926dc2c8_n.jpg,daisy,0,2,0,1,0,0
+1775,82,flower_2/party_B/dataset_split/val/daisy/14114116486_0bb6649bc1_m.jpg,daisy,0,2,0,1,3,0
+1776,83,flower_2/party_B/dataset_split/val/daisy/28056118836_77a6847d94_n.jpg,daisy,0,2,0,1,0,0
+1777,84,flower_2/party_B/dataset_split/val/daisy/5904946193_bd1eb1f39d_n.jpg,daisy,0,2,0,1,0,0
+1778,85,flower_2/party_B/dataset_split/val/daisy/488202750_c420cbce61.jpg,daisy,0,2,0,1,0,0
+1779,86,flower_2/party_B/dataset_split/val/daisy/21626652132_97e1318bb8_m.jpg,daisy,0,2,0,1,0,0
+1780,87,flower_2/party_B/dataset_split/val/daisy/521762040_f26f2e08dd.jpg,daisy,0,2,0,1,0,0
+1781,88,flower_2/party_B/dataset_split/val/daisy/1286274236_1d7ac84efb_n.jpg,daisy,0,2,0,1,5,0
+1782,89,flower_2/party_B/dataset_split/val/daisy/34729724865_787c98299d_n.jpg,daisy,0,2,0,1,3,0
+1783,90,flower_2/party_B/dataset_split/val/daisy/10559679065_50d2b16f6d.jpg,daisy,0,2,0,1,0,0
+1784,91,flower_2/party_B/dataset_split/val/daisy/813445367_187ecf080a_n.jpg,daisy,0,2,0,1,0,0
+1785,92,flower_2/party_B/dataset_split/val/daisy/2346726545_2ebce2b2a6.jpg,daisy,0,2,0,1,0,0
+1786,93,flower_2/party_B/dataset_split/val/daisy/34076975155_1faeedec90_n.jpg,daisy,0,2,0,1,3,0
+1787,94,flower_2/party_B/dataset_split/val/daisy/14163875973_467224aaf5_m.jpg,daisy,0,2,0,1,0,0
+1788,95,flower_2/party_B/dataset_split/val/daisy/7924174040_444d5bbb8a.jpg,daisy,0,2,0,1,3,0
+1789,96,flower_2/party_B/dataset_split/val/daisy/5623010186_796ca8d29a.jpg,daisy,0,2,0,1,0,0
+1790,97,flower_2/party_B/dataset_split/val/daisy/6776075110_1ea7a09dd4_n.jpg,daisy,0,2,0,1,0,0
+1791,98,flower_2/party_B/dataset_split/val/daisy/754296579_30a9ae018c_n.jpg,daisy,0,2,0,1,0,0
+1792,99,flower_2/party_B/dataset_split/val/daisy/8964198962_6d8593b533.jpg,daisy,0,2,0,1,0,0
+1793,100,flower_2/party_B/dataset_split/val/daisy/2480569557_f4e1f0dcb8_n.jpg,daisy,0,2,0,1,0,0
+1794,101,flower_2/party_B/dataset_split/val/daisy/14330343061_99478302d4_m.jpg,daisy,0,2,0,1,0,0
+1795,102,flower_2/party_B/dataset_split/val/daisy/33879354664_615c72773d_n.jpg,daisy,0,2,0,1,0,0
+1796,103,flower_2/party_B/dataset_split/val/daisy/3379332157_04724f6480.jpg,daisy,0,2,0,1,0,0
+1797,104,flower_2/party_B/dataset_split/val/daisy/8021540573_c56cf9070d_n.jpg,daisy,0,2,0,1,3,0
+1798,105,flower_2/party_B/dataset_split/val/daisy/7630517248_98fb8bee1f_n.jpg,daisy,0,2,0,1,0,0
+1799,106,flower_2/party_B/dataset_split/val/daisy/2642408410_61545fdc83_n.jpg,daisy,0,2,0,1,0,0
+1800,107,flower_2/party_B/dataset_split/val/daisy/20329326505_a777c71cc2.jpg,daisy,0,2,0,1,0,0
+1801,108,flower_2/party_B/dataset_split/val/daisy/33891398493_e0b6d7f683_n.jpg,daisy,0,2,0,1,0,0
+1802,109,flower_2/party_B/dataset_split/val/daisy/2561371688_c80a4fe957_n.jpg,daisy,0,2,0,1,0,1
+1803,110,flower_2/party_B/dataset_split/val/daisy/4955671608_8d3862db05_n.jpg,daisy,0,2,0,1,0,0
+1804,111,flower_2/party_B/dataset_split/val/daisy/5905502226_bb23bd8fa0_n.jpg,daisy,0,2,0,1,0,0
+1805,112,flower_2/party_B/dataset_split/val/daisy/34670512115_af22cce24d_n.jpg,daisy,0,2,0,1,0,0
+1806,113,flower_2/party_B/dataset_split/val/daisy/5981645737_29eceac291_m.jpg,daisy,0,2,0,1,0,0
+1807,114,flower_2/party_B/dataset_split/val/daisy/3704305945_a80e60e2f6_m.jpg,daisy,0,2,0,1,0,0
+1808,115,flower_2/party_B/dataset_split/val/daisy/34542837641_10492bf600_n.jpg,daisy,0,2,0,1,0,0
+1809,116,flower_2/party_B/dataset_split/val/daisy/147068564_32bb4350cc.jpg,daisy,0,2,0,1,0,0
+1810,117,flower_2/party_B/dataset_split/val/daisy/3758221664_b19116d61f.jpg,daisy,0,2,0,1,0,0
+1811,118,flower_2/party_B/dataset_split/val/daisy/19177263840_6a316ea639.jpg,daisy,0,2,0,1,0,0
+1812,119,flower_2/party_B/dataset_split/val/daisy/2454280135_ac3aa75cdc_n.jpg,daisy,0,2,0,1,0,0
+1813,120,flower_2/party_B/dataset_split/val/daisy/34613530216_26cf037012_n.jpg,daisy,0,2,0,1,2,0
+1814,121,flower_2/party_B/dataset_split/val/daisy/3483303007_42e3f90da7.jpg,daisy,0,2,0,1,3,0
+1815,122,flower_2/party_B/dataset_split/val/daisy/8063844363_db3f4dea85.jpg,daisy,0,2,0,1,0,0
+1816,123,flower_2/party_B/dataset_split/val/daisy/4222584034_8964cbd3de.jpg,daisy,0,2,0,1,0,1
+1817,124,flower_2/party_B/dataset_split/val/daisy/5714327423_50af0cffe9.jpg,daisy,0,2,0,1,0,0
+1818,125,flower_2/party_B/dataset_split/val/daisy/162362897_1d21b70621_m.jpg,daisy,0,2,0,1,0,0
+1819,126,flower_2/party_B/dataset_split/val/daisy/5973491805_556bba93cc.jpg,daisy,0,2,0,1,3,0
+1820,127,flower_2/party_B/dataset_split/val/daisy/1299501272_59d9da5510_n.jpg,daisy,0,2,0,1,3,0
+1821,128,flower_2/party_B/dataset_split/val/daisy/5896105367_fa08a65869_n.jpg,daisy,0,2,0,1,0,0
+1822,129,flower_2/party_B/dataset_split/val/daisy/5586977262_6b24412805_n.jpg,daisy,0,2,0,1,5,0
+1823,130,flower_2/party_B/dataset_split/val/daisy/5896680664_641de2de5a_n.jpg,daisy,0,2,0,1,3,0
+1824,131,flower_2/party_B/dataset_split/val/daisy/33807950584_f5b63715e4_n.jpg,daisy,0,2,0,1,0,0
+1825,132,flower_2/party_B/dataset_split/val/daisy/7630511450_02d3292e90.jpg,daisy,0,2,0,1,3,0
+1826,133,flower_2/party_B/dataset_split/val/daisy/5434914569_e9b982fde0_n.jpg,daisy,0,2,0,1,0,0
+1827,134,flower_2/party_B/dataset_split/val/daisy/4534460263_8e9611db3c_n.jpg,daisy,0,2,0,1,0,0
+1828,135,flower_2/party_B/dataset_split/val/daisy/9310226774_d1b8f5d9c9.jpg,daisy,0,2,0,1,0,0
+1829,136,flower_2/party_B/dataset_split/val/daisy/15760153042_a2a90e9da5_m.jpg,daisy,0,2,0,1,0,0
+1830,137,flower_2/party_B/dataset_split/val/daisy/5973488341_50bdf6cee3_n.jpg,daisy,0,2,0,1,0,0
+1831,138,flower_2/party_B/dataset_split/val/daisy/3661613900_b15ca1d35d_m.jpg,daisy,0,2,0,1,0,0
+1832,139,flower_2/party_B/dataset_split/val/daisy/495098110_3a4bb30042_n.jpg,daisy,0,2,0,1,0,0
+1833,140,flower_2/party_B/dataset_split/val/daisy/8694909523_3ca25d449d_n.jpg,daisy,0,2,0,1,4,0
+1834,141,flower_2/party_B/dataset_split/val/daisy/6910811638_aa6f17df23.jpg,daisy,0,2,0,1,3,1
+1835,142,flower_2/party_B/dataset_split/val/daisy/34508227161_a9ff840f71_n.jpg,daisy,0,2,0,1,3,5
+1836,143,flower_2/party_B/dataset_split/val/daisy/34531542152_c8ba2e0fea_n.jpg,daisy,0,2,0,1,0,0
+1837,144,flower_2/party_B/dataset_split/val/daisy/9350942387_5b1d043c26_n.jpg,daisy,0,2,0,1,0,0
+1838,145,flower_2/party_B/dataset_split/val/daisy/34543119581_1fb7e0bd7f_n.jpg,daisy,0,2,0,1,5,0
+1839,146,flower_2/party_B/dataset_split/val/daisy/14087947408_9779257411_n.jpg,daisy,0,2,0,1,0,0
+1840,147,flower_2/party_B/dataset_split/val/daisy/294451721_5106537b34.jpg,daisy,0,2,0,1,3,0
+1841,148,flower_2/party_B/dataset_split/val/daisy/22244161124_53e457bb66_n.jpg,daisy,0,2,0,1,0,0
+1842,149,flower_2/party_B/dataset_split/val/daisy/4727955343_0bb23ac4ae.jpg,daisy,0,2,0,1,0,0
+1843,150,flower_2/party_B/dataset_split/val/daisy/105806915_a9c13e2106_n.jpg,daisy,0,2,0,1,0,0
+1844,151,flower_2/party_B/dataset_split/val/daisy/174131220_c853df1287.jpg,daisy,0,2,0,1,0,0
+1845,152,flower_2/party_B/dataset_split/val/daisy/9120905231_329598304e.jpg,daisy,0,2,0,1,0,0
+2057,364,flower_2/party_B/dataset_split/val/rose/2777518561_105abc8cfc_n.jpg,rose,2,2,4,1,3,6
+2058,365,flower_2/party_B/dataset_split/val/rose/3634244527_e72c47842c_n.jpg,rose,2,2,4,1,3,4
+2059,366,flower_2/party_B/dataset_split/val/rose/537625768_791e973b40.jpg,rose,2,2,4,1,3,4
+2060,367,flower_2/party_B/dataset_split/val/rose/2414954629_3708a1a04d.jpg,rose,2,2,4,1,4,4
+2061,368,flower_2/party_B/dataset_split/val/rose/6163179241_f093f45d95_n.jpg,rose,2,2,4,1,4,4
+2062,369,flower_2/party_B/dataset_split/val/rose/19566556880_476c66c5ee_n.jpg,rose,2,2,4,1,3,4
+2063,370,flower_2/party_B/dataset_split/val/rose/18464055536_709c8af0b7_n.jpg,rose,2,2,4,1,3,4
+2064,371,flower_2/party_B/dataset_split/val/rose/1445228333_59a07e0801.jpg,rose,2,2,4,1,3,4
+2065,372,flower_2/party_B/dataset_split/val/rose/16670921315_0fc48d7ab2_n.jpg,rose,2,2,4,1,4,4
+2066,373,flower_2/party_B/dataset_split/val/rose/18486124712_17ebe7559b_n.jpg,rose,2,2,4,1,3,6
+2067,374,flower_2/party_B/dataset_split/val/rose/18492322571_3b99e55560_n.jpg,rose,2,2,4,1,2,6
+2068,375,flower_2/party_B/dataset_split/val/rose/5693502877_41c11295b6_n.jpg,rose,2,2,4,1,3,4
+2069,376,flower_2/party_B/dataset_split/val/rose/6241886381_cc722785af.jpg,rose,2,2,4,1,3,5
+2070,377,flower_2/party_B/dataset_split/val/rose/8035908422_87220425d2_n.jpg,rose,2,2,4,1,3,6
+2071,378,flower_2/party_B/dataset_split/val/rose/8667101118_87ea757b15.jpg,rose,2,2,4,1,4,4
+2072,379,flower_2/party_B/dataset_split/val/rose/7474126248_889a026929_n.jpg,rose,2,2,4,1,0,4
+2073,380,flower_2/party_B/dataset_split/val/rose/8279801891_5369a6c3c1_n.jpg,rose,2,2,4,1,3,4
+2074,381,flower_2/party_B/dataset_split/val/rose/7471890996_e61b134867_n.jpg,rose,2,2,4,1,3,4
+2075,382,flower_2/party_B/dataset_split/val/rose/9216323421_f737c1d50e.jpg,rose,2,2,4,1,3,4
+2076,383,flower_2/party_B/dataset_split/val/rose/5001846495_56068de2da_n.jpg,rose,2,2,4,1,3,4
+2077,384,flower_2/party_B/dataset_split/val/rose/8096324039_4db2555490.jpg,rose,2,2,4,1,3,6
+2078,385,flower_2/party_B/dataset_split/val/rose/9355706808_a9a723a8e8_n.jpg,rose,2,2,4,1,2,4
+2079,386,flower_2/party_B/dataset_split/val/rose/17158274118_00ec99a23c.jpg,rose,2,2,4,1,4,4
+2080,387,flower_2/party_B/dataset_split/val/rose/4279990882_031482f8b6_n.jpg,rose,2,2,4,1,3,4
+2081,388,flower_2/party_B/dataset_split/val/rose/33184832190_e5411d91a4_n.jpg,rose,2,2,4,1,3,4
+2082,389,flower_2/party_B/dataset_split/val/rose/5349250331_05501d6557_n.jpg,rose,2,2,4,1,4,4
+2083,390,flower_2/party_B/dataset_split/val/rose/3475572132_01ae28e834_n.jpg,rose,2,2,4,1,4,4
+2084,391,flower_2/party_B/dataset_split/val/rose/7461898018_7e12128f14_n.jpg,rose,2,2,4,1,4,4
+2085,392,flower_2/party_B/dataset_split/val/rose/388405293_4db1d71f21_n.jpg,rose,2,2,4,1,4,4
+2086,393,flower_2/party_B/dataset_split/val/rose/15965652160_de91389965_m.jpg,rose,2,2,4,1,3,4
+2087,394,flower_2/party_B/dataset_split/val/rose/6111589202_8b9555364c_m.jpg,rose,2,2,4,1,3,4
+2088,395,flower_2/party_B/dataset_split/val/rose/14414100710_753a36fce9.jpg,rose,2,2,4,1,3,4
+2089,396,flower_2/party_B/dataset_split/val/rose/12238827553_cf427bfd51_n.jpg,rose,2,2,4,1,3,4
+2090,397,flower_2/party_B/dataset_split/val/rose/17305246720_1866d6303b.jpg,rose,2,2,4,1,3,4
+2091,398,flower_2/party_B/dataset_split/val/rose/18741313803_1bbf842fc6_n.jpg,rose,2,2,4,1,4,4
+2092,399,flower_2/party_B/dataset_split/val/rose/6231418894_7946a7712b_n.jpg,rose,2,2,4,1,4,4
+2093,400,flower_2/party_B/dataset_split/val/rose/14870567200_80cda4362e_n.jpg,rose,2,2,4,1,4,4
+2094,401,flower_2/party_B/dataset_split/val/rose/5537794501_a0767743fd_n.jpg,rose,2,2,4,1,3,4
+2095,402,flower_2/party_B/dataset_split/val/rose/2423565102_2f1a00bb1b_n.jpg,rose,2,2,4,1,3,4
+2096,403,flower_2/party_B/dataset_split/val/rose/160954292_6c2b4fda65_n.jpg,rose,2,2,4,1,3,4
+2097,404,flower_2/party_B/dataset_split/val/rose/16209331331_343c899d38.jpg,rose,2,2,4,1,3,4
+2098,405,flower_2/party_B/dataset_split/val/rose/5234278003_d827fcd73b_m.jpg,rose,2,2,4,1,4,4
+2099,406,flower_2/party_B/dataset_split/val/rose/5529341024_0c35f2657d.jpg,rose,2,2,4,1,3,4
+2100,407,flower_2/party_B/dataset_split/val/rose/17105684129_e2cb69ea24_n.jpg,rose,2,2,4,1,3,4
+2101,408,flower_2/party_B/dataset_split/val/rose/1757822526_fe30b9b3ca_m.jpg,rose,2,2,4,1,3,4
+2102,409,flower_2/party_B/dataset_split/val/rose/685724528_6cd5cbe203.jpg,rose,2,2,4,1,3,4
+2103,410,flower_2/party_B/dataset_split/val/rose/1775233884_12ff5a124f.jpg,rose,2,2,4,1,4,4
+2104,411,flower_2/party_B/dataset_split/val/rose/33568244695_7ec846bcc6_n.jpg,rose,2,2,4,1,3,4
+2105,412,flower_2/party_B/dataset_split/val/rose/14381787252_e8e12e277a_n.jpg,rose,2,2,4,1,3,6
+2106,413,flower_2/party_B/dataset_split/val/rose/15699509054_d3e125286f_n.jpg,rose,2,2,4,1,4,4
+2107,414,flower_2/party_B/dataset_split/val/rose/20622485918_90fc000c86_n.jpg,rose,2,2,4,1,3,4
+2108,415,flower_2/party_B/dataset_split/val/rose/17062080069_36ac7907d2_n.jpg,rose,2,2,4,1,4,4
+2109,416,flower_2/party_B/dataset_split/val/rose/6732261031_861a1026fa_n.jpg,rose,2,2,4,1,0,4
+2110,417,flower_2/party_B/dataset_split/val/rose/14172324538_2147808483_n.jpg,rose,2,2,4,1,4,4
+2111,418,flower_2/party_B/dataset_split/val/rose/6690926183_afedba9f15_n.jpg,rose,2,2,4,1,3,4
+2112,419,flower_2/party_B/dataset_split/val/rose/5335946155_be70e11cf2_n.jpg,rose,2,2,4,1,3,4
+2113,420,flower_2/party_B/dataset_split/val/rose/4612833069_8e48b47aa4_n.jpg,rose,2,2,4,1,3,4
+2114,421,flower_2/party_B/dataset_split/val/rose/7683456068_02644b8382_m.jpg,rose,2,2,4,1,3,4
+2115,422,flower_2/party_B/dataset_split/val/rose/5002456302_e3d2600c17_n.jpg,rose,2,2,4,1,3,4
+2116,423,flower_2/party_B/dataset_split/val/rose/5089363428_2c5a1272ea.jpg,rose,2,2,4,1,3,4
+2117,424,flower_2/party_B/dataset_split/val/rose/3873271620_1d9d314f01_n.jpg,rose,2,2,4,1,4,4
+2118,425,flower_2/party_B/dataset_split/val/rose/4921988677_e2eb0c9a24_m.jpg,rose,2,2,4,1,3,4
+2119,426,flower_2/party_B/dataset_split/val/rose/6363951285_a802238d4e.jpg,rose,2,2,4,1,3,4
+2120,427,flower_2/party_B/dataset_split/val/rose/2491600761_7e9d6776e8_m.jpg,rose,2,2,4,1,3,4
+2121,428,flower_2/party_B/dataset_split/val/rose/394990940_7af082cf8d_n.jpg,rose,2,2,4,1,4,4
+2122,429,flower_2/party_B/dataset_split/val/rose/14747962886_2bff6bb323_m.jpg,rose,2,2,4,1,3,4
+2123,430,flower_2/party_B/dataset_split/val/rose/4735314389_94fe1b2a9f_n.jpg,rose,2,2,4,1,4,4
+2124,431,flower_2/party_B/dataset_split/val/rose/1461381091_aaaa663bbe_n.jpg,rose,2,2,4,1,4,4
+2125,432,flower_2/party_B/dataset_split/val/rose/3407482427_49d5c75291_m.jpg,rose,2,2,4,1,4,4
+2126,433,flower_2/party_B/dataset_split/val/rose/7409458444_0bfc9a0682_n.jpg,rose,2,2,4,1,4,4
+2127,434,flower_2/party_B/dataset_split/val/rose/7502389724_85b4a6c855_n.jpg,rose,2,2,4,1,3,4
+2128,435,flower_2/party_B/dataset_split/val/rose/123128873_546b8b7355_n.jpg,rose,2,2,4,1,4,4
+2129,436,flower_2/party_B/dataset_split/val/rose/3276552939_8c31b22d3e.jpg,rose,2,2,4,1,3,4
+2130,437,flower_2/party_B/dataset_split/val/rose/1402130395_0b89d76029.jpg,rose,2,2,4,1,4,4
+2131,438,flower_2/party_B/dataset_split/val/rose/5335944093_a00b28c4ff_n.jpg,rose,2,2,4,1,3,4
+2132,439,flower_2/party_B/dataset_split/val/rose/4279989256_9a48c0d194_n.jpg,rose,2,2,4,1,3,4
+2133,440,flower_2/party_B/dataset_split/val/rose/2850381271_d2f9a470b1_n.jpg,rose,2,2,4,1,3,4
+2134,441,flower_2/party_B/dataset_split/val/rose/5001847255_34ff6146ec_n.jpg,rose,2,2,4,1,3,4
+2135,442,flower_2/party_B/dataset_split/val/rose/18490508225_0fc630e963_n.jpg,rose,2,2,4,1,3,4
+2136,443,flower_2/party_B/dataset_split/val/rose/3630246240_4fee9a33db.jpg,rose,2,2,4,1,4,4
+2137,444,flower_2/party_B/dataset_split/val/rose/5002452576_f61a48b2e3_n.jpg,rose,2,2,4,1,4,4
+2138,445,flower_2/party_B/dataset_split/val/rose/410425647_4586667858.jpg,rose,2,2,4,1,3,4
+2139,446,flower_2/party_B/dataset_split/val/rose/8960904651_9a0b727258.jpg,rose,2,2,4,1,4,4
+2140,447,flower_2/party_B/dataset_split/val/rose/1446097778_97149b8362.jpg,rose,2,2,4,1,3,4
+2141,448,flower_2/party_B/dataset_split/val/rose/8063462557_e0a8bd6c64_n.jpg,rose,2,2,4,1,4,4
+2142,449,flower_2/party_B/dataset_split/val/rose/9159362388_c6f4cf3812_n.jpg,rose,2,2,4,1,3,4
+2143,450,flower_2/party_B/dataset_split/val/rose/229488796_21ac6ee16d_n.jpg,rose,2,2,4,1,3,4
+2144,451,flower_2/party_B/dataset_split/val/rose/8301512319_45185c447f_n.jpg,rose,2,2,4,1,2,4
+2145,452,flower_2/party_B/dataset_split/val/rose/6108118824_5b0231a56d.jpg,rose,2,2,4,1,3,4
+2146,453,flower_2/party_B/dataset_split/val/rose/180613732_3a7aba0b80_n.jpg,rose,2,2,4,1,3,6
+2147,454,flower_2/party_B/dataset_split/val/rose/7461878736_a55f749faf_n.jpg,rose,2,2,4,1,3,4
+2148,455,flower_2/party_B/dataset_split/val/rose/7456198272_f5d0c6bc7e_n.jpg,rose,2,2,4,1,3,4
+2149,456,flower_2/party_B/dataset_split/val/rose/5349254467_388ff94f8b_n.jpg,rose,2,2,4,1,3,4
+2150,457,flower_2/party_B/dataset_split/val/rose/7456914664_cdee3170c5_n.jpg,rose,2,2,4,1,3,4
+2151,458,flower_2/party_B/dataset_split/val/rose/22982871191_ec61e36939_n.jpg,rose,2,2,4,1,4,4
+2152,459,flower_2/party_B/dataset_split/val/rose/7461897398_0053093145_n.jpg,rose,2,2,4,1,3,4
+2153,460,flower_2/party_B/dataset_split/val/rose/5001846725_7bb1b9fedf_n.jpg,rose,2,2,4,1,3,4
+2154,461,flower_2/party_B/dataset_split/val/rose/8437935944_aab997560a_n.jpg,rose,2,2,4,1,3,4
+2155,462,flower_2/party_B/dataset_split/val/rose/12434194695_a7c4e73c6b_n.jpg,rose,2,2,4,1,4,4
+2156,463,flower_2/party_B/dataset_split/val/rose/14414117598_cf70df30de.jpg,rose,2,2,4,1,3,4
+2157,464,flower_2/party_B/dataset_split/val/rose/18464075576_4e496e7d42_n.jpg,rose,2,2,4,1,3,4
+2158,465,flower_2/party_B/dataset_split/val/rose/5002447916_8a7b7b689a_n.jpg,rose,2,2,4,1,4,4
+2159,466,flower_2/party_B/dataset_split/val/rose/5001844777_d9e1968119_n.jpg,rose,2,2,4,1,4,4
+2160,467,flower_2/party_B/dataset_split/val/rose/3948347096_42261f047a_m.jpg,rose,2,2,4,1,3,4
+2161,468,flower_2/party_B/dataset_split/val/rose/7456196908_d34b9b76c4_n.jpg,rose,2,2,4,1,3,4
+2162,469,flower_2/party_B/dataset_split/val/rose/14145188939_b4de638bd3_n.jpg,rose,2,2,4,1,4,4
+2163,470,flower_2/party_B/dataset_split/val/rose/534228982_4afbcece9b_m.jpg,rose,2,2,4,1,3,4
+2164,471,flower_2/party_B/dataset_split/val/rose/8742493689_fb852f0228_n.jpg,rose,2,2,4,1,3,4
+2165,472,flower_2/party_B/dataset_split/val/rose/4764674741_82b8f93359_n.jpg,rose,2,2,4,1,3,4
+2166,473,flower_2/party_B/dataset_split/val/rose/8181940917_1ac63937d5_n.jpg,rose,2,2,4,1,3,4
+2167,474,flower_2/party_B/dataset_split/val/rose/5001850247_33681cc95c_n.jpg,rose,2,2,4,1,3,4
+2168,475,flower_2/party_B/dataset_split/val/rose/6347847065_83cf87333b_n.jpg,rose,2,2,4,1,3,4
+2169,476,flower_2/party_B/dataset_split/val/rose/15032112248_30c5284e54_n.jpg,rose,2,2,4,1,4,4
+2170,477,flower_2/party_B/dataset_split/val/rose/5349861636_4101a36923_n.jpg,rose,2,2,4,1,4,4
+2171,478,flower_2/party_B/dataset_split/val/rose/8926641787_d2515dfe8f_m.jpg,rose,2,2,4,1,4,4
+2172,479,flower_2/party_B/dataset_split/val/rose/12243069253_e512464095_n.jpg,rose,2,2,4,1,3,4
+2173,480,flower_2/party_B/dataset_split/val/rose/5502949025_96d11a17ff_n.jpg,rose,2,2,4,1,3,4
+2174,481,flower_2/party_B/dataset_split/val/rose/7481118556_6c209b9b7d_n.jpg,rose,2,2,4,1,3,4
+2175,482,flower_2/party_B/dataset_split/val/rose/5349248481_6445341842_n.jpg,rose,2,2,4,1,4,4
+2176,483,flower_2/party_B/dataset_split/val/rose/5002449706_647ffe5249_n.jpg,rose,2,2,4,1,3,4
+2177,484,flower_2/party_B/dataset_split/val/rose/4608559939_3487bf3b62_n.jpg,rose,2,2,4,1,3,4
+2178,485,flower_2/party_B/dataset_split/val/rose/13235124703_a7e1266e44.jpg,rose,2,2,4,1,3,6
+2179,486,flower_2/party_B/dataset_split/val/rose/5349865018_99cd7f985a_n.jpg,rose,2,2,4,1,4,4
+2180,487,flower_2/party_B/dataset_split/val/rose/14687731322_5613f76353.jpg,rose,2,2,4,1,3,4
+2181,488,flower_2/party_B/dataset_split/val/rose/7470985338_a1f3bba601_n.jpg,rose,2,2,4,1,3,4
+2182,489,flower_2/party_B/dataset_split/val/rose/7456197696_7e1558cc22_n.jpg,rose,2,2,4,1,3,4
+2183,490,flower_2/party_B/dataset_split/val/rose/22506717337_0fd63e53e9.jpg,rose,2,2,4,1,3,4
+2184,491,flower_2/party_B/dataset_split/val/rose/5336546068_8fd643243c_n.jpg,rose,2,2,4,1,3,4
+2185,492,flower_2/party_B/dataset_split/val/rose/4694341873_65fe187a4e_n.jpg,rose,2,2,4,1,4,4
+2186,493,flower_2/party_B/dataset_split/val/rose/7316409504_7cf3707f8a_m.jpg,rose,2,2,4,1,4,6
+2187,494,flower_2/party_B/dataset_split/val/rose/5897035797_e67bf68124_n.jpg,rose,2,2,4,1,3,4
+2188,495,flower_2/party_B/dataset_split/val/rose/7470985688_c1ee9105fa_n.jpg,rose,2,2,4,1,3,4
+2189,496,flower_2/party_B/dataset_split/val/rose/14154164774_3b39d36778.jpg,rose,2,2,4,1,3,4
+2190,497,flower_2/party_B/dataset_split/val/rose/5073473370_bdbb5a99fc.jpg,rose,2,2,4,1,4,4
+2191,498,flower_2/party_B/dataset_split/val/rose/5001845289_e5740889b0_n.jpg,rose,2,2,4,1,4,4
+2192,499,flower_2/party_B/dataset_split/val/rose/3872230296_6c477309f3_n.jpg,rose,2,2,4,1,3,4
+2193,500,flower_2/party_B/dataset_split/val/rose/2331651885_619653a5d3.jpg,rose,2,2,4,1,4,4
+2194,501,flower_2/party_B/dataset_split/val/rose/1831404161_d2df86fd70.jpg,rose,2,2,4,1,3,4
+2195,502,flower_2/party_B/dataset_split/val/rose/32724693914_282ccc4f92_n.jpg,rose,2,2,4,1,3,4
+2196,503,flower_2/party_B/dataset_split/val/rose/15818051327_9a44bf6244_n.jpg,rose,2,2,4,1,4,4
+2197,504,flower_2/party_B/dataset_split/val/rose/5694090698_1f0c218250_n.jpg,rose,2,2,4,1,3,4
+2198,505,flower_2/party_B/dataset_split/val/rose/4644336779_acd973528c.jpg,rose,2,2,4,1,3,4
+2199,506,flower_2/party_B/dataset_split/val/rose/5335946401_f49bfbe3f9_n.jpg,rose,2,2,4,1,3,4
+2200,507,flower_2/party_B/dataset_split/val/rose/5002452394_22896fb9df_n.jpg,rose,2,2,4,1,3,4
+2201,508,flower_2/party_B/dataset_split/val/rose/5002446614_bb2a5b4bc1_n.jpg,rose,2,2,4,1,3,4
+2202,509,flower_2/party_B/dataset_split/val/rose/5336558870_22d0a6a318_n.jpg,rose,2,2,4,1,4,4
+2203,510,flower_2/party_B/dataset_split/val/rose/563847503_89e9756c80.jpg,rose,2,2,4,1,4,4
+2204,511,flower_2/party_B/dataset_split/val/rose/4575042086_7674b76297_n.jpg,rose,2,2,4,1,3,4
+2205,512,flower_2/party_B/dataset_split/val/rose/5001852517_6a8713ffe2_n.jpg,rose,2,2,4,1,4,4
+2206,513,flower_2/party_B/dataset_split/val/rose/5159317458_bbb22e2f65_n.jpg,rose,2,2,4,1,3,4
+2207,514,flower_2/party_B/dataset_split/val/rose/5349865556_e3263fbdc0_n.jpg,rose,2,2,4,1,3,4
+2208,515,flower_2/party_B/dataset_split/val/rose/8209458141_38f38be65c_m.jpg,rose,2,2,4,1,3,4
+2209,516,flower_2/party_B/dataset_split/val/rose/6347846935_51e3dc2481_n.jpg,rose,2,2,4,1,4,4
+2210,517,flower_2/party_B/dataset_split/val/rose/4625089819_55c45a189c.jpg,rose,2,2,4,1,3,4
+2211,518,flower_2/party_B/dataset_split/val/rose/18302691898_9dc45afae8_n.jpg,rose,2,2,4,1,3,4
+2212,519,flower_2/party_B/dataset_split/val/rose/5349249357_d4c0523f7e_n.jpg,rose,2,2,4,1,3,4
+2213,520,flower_2/party_B/dataset_split/val/rose/7345657862_689366e79a.jpg,rose,2,2,4,1,3,4
+2214,521,flower_2/party_B/dataset_split/val/sunflower/6606823367_e89dc52a95_n.jpg,sunflower,3,2,5,1,5,5
+2215,522,flower_2/party_B/dataset_split/val/sunflower/14921668662_3ffc5b9db3_n.jpg,sunflower,3,2,5,1,5,5
+2216,523,flower_2/party_B/dataset_split/val/sunflower/7176723954_e41618edc1_n.jpg,sunflower,3,2,5,1,5,5
+2217,524,flower_2/party_B/dataset_split/val/sunflower/3946535195_9382dcb951_n.jpg,sunflower,3,2,5,1,5,5
+2218,525,flower_2/party_B/dataset_split/val/sunflower/3846717708_ea11383ed8.jpg,sunflower,3,2,5,1,5,5
+2219,526,flower_2/party_B/dataset_split/val/sunflower/14678298676_6db8831ee6_m.jpg,sunflower,3,2,5,1,3,5
+2220,527,flower_2/party_B/dataset_split/val/sunflower/3883895985_bd20198371.jpg,sunflower,3,2,5,1,5,5
+2221,528,flower_2/party_B/dataset_split/val/sunflower/14858674096_ed0fc1a130.jpg,sunflower,3,2,5,1,5,5
+2222,529,flower_2/party_B/dataset_split/val/sunflower/5970868068_fe1c8b282e_n.jpg,sunflower,3,2,5,1,5,5
+2223,530,flower_2/party_B/dataset_split/val/sunflower/5967283168_90dd4daf28_n.jpg,sunflower,3,2,5,1,5,5
+2224,531,flower_2/party_B/dataset_split/val/sunflower/6250692311_cb60c85ee9_n.jpg,sunflower,3,2,5,1,5,5
+2225,532,flower_2/party_B/dataset_split/val/sunflower/3912497870_a2f91c3a65_n.jpg,sunflower,3,2,5,1,5,5
+2226,533,flower_2/party_B/dataset_split/val/sunflower/19504937128_a4ae90fcbd_m.jpg,sunflower,3,2,5,1,3,5
+2227,534,flower_2/party_B/dataset_split/val/sunflower/7857605684_fc86440c23.jpg,sunflower,3,2,5,1,5,5
+2228,535,flower_2/party_B/dataset_split/val/sunflower/5231868667_f0baa71feb_n.jpg,sunflower,3,2,5,1,5,5
+2229,536,flower_2/party_B/dataset_split/val/sunflower/22183521655_56221bf2a4_n.jpg,sunflower,3,2,5,1,5,5
+2230,537,flower_2/party_B/dataset_split/val/sunflower/265450085_6e9f276e2e.jpg,sunflower,3,2,5,1,5,5
+2231,538,flower_2/party_B/dataset_split/val/sunflower/3146795631_d062f233c1.jpg,sunflower,3,2,5,1,3,5
+2232,539,flower_2/party_B/dataset_split/val/sunflower/7804213238_1d92ae5edb_m.jpg,sunflower,3,2,5,1,5,5
+2233,540,flower_2/party_B/dataset_split/val/sunflower/215798354_429de28c2d.jpg,sunflower,3,2,5,1,5,5
+2234,541,flower_2/party_B/dataset_split/val/sunflower/3154932290_4bf43bd34f_n.jpg,sunflower,3,2,5,1,5,5
+2235,542,flower_2/party_B/dataset_split/val/sunflower/34571252122_b3b1f45fac_n.jpg,sunflower,3,2,5,1,3,0
+2236,543,flower_2/party_B/dataset_split/val/sunflower/4869189730_f47c124cda_n.jpg,sunflower,3,2,5,1,5,5
+2237,544,flower_2/party_B/dataset_split/val/sunflower/6002598514_22a9a404c7_n.jpg,sunflower,3,2,5,1,5,5
+2238,545,flower_2/party_B/dataset_split/val/sunflower/5979111025_3bcae48ae6_n.jpg,sunflower,3,2,5,1,5,5
+2239,546,flower_2/party_B/dataset_split/val/sunflower/8543642705_b841b0e5f6.jpg,sunflower,3,2,5,1,5,5
+2240,547,flower_2/party_B/dataset_split/val/sunflower/4895721242_89014e723c_n.jpg,sunflower,3,2,5,1,5,5
+2241,548,flower_2/party_B/dataset_split/val/sunflower/9511172241_8aee411e2e.jpg,sunflower,3,2,5,1,5,5
+2242,549,flower_2/party_B/dataset_split/val/sunflower/15493195788_60530f2398_m.jpg,sunflower,3,2,5,1,5,5
+2243,550,flower_2/party_B/dataset_split/val/sunflower/6061177447_d8ce96aee0.jpg,sunflower,3,2,5,1,5,5
+2244,551,flower_2/party_B/dataset_split/val/sunflower/5180260869_1db7ff98e4_n.jpg,sunflower,3,2,5,1,5,5
+2245,552,flower_2/party_B/dataset_split/val/sunflower/14741813010_5d44e33088_n.jpg,sunflower,3,2,5,1,5,5
+2246,553,flower_2/party_B/dataset_split/val/sunflower/1484598527_579a272f53.jpg,sunflower,3,2,5,1,5,1
+2247,554,flower_2/party_B/dataset_split/val/sunflower/5933438337_b26a81ea81_n.jpg,sunflower,3,2,5,1,5,5
+2248,555,flower_2/party_B/dataset_split/val/sunflower/4895718876_0246882882_n.jpg,sunflower,3,2,5,1,5,5
+2249,556,flower_2/party_B/dataset_split/val/sunflower/2619000556_6634478e64_n.jpg,sunflower,3,2,5,1,5,5
+2250,557,flower_2/party_B/dataset_split/val/sunflower/4848279231_c4960e28b2_n.jpg,sunflower,3,2,5,1,5,5
+2251,558,flower_2/party_B/dataset_split/val/sunflower/6606817351_10f6e43a09.jpg,sunflower,3,2,5,1,5,5
+2252,559,flower_2/party_B/dataset_split/val/sunflower/19349582128_68a662075e_n.jpg,sunflower,3,2,5,1,5,5
+2253,560,flower_2/party_B/dataset_split/val/sunflower/13095941995_9a66faa713_n.jpg,sunflower,3,2,5,1,3,5
+2254,561,flower_2/party_B/dataset_split/val/sunflower/6133988570_9dc778e622_m.jpg,sunflower,3,2,5,1,5,5
+2255,562,flower_2/party_B/dataset_split/val/sunflower/18828277053_1493158b28.jpg,sunflower,3,2,5,1,5,5
+2256,563,flower_2/party_B/dataset_split/val/sunflower/26254755_1bfc494ef1_n.jpg,sunflower,3,2,5,1,5,5
+2257,564,flower_2/party_B/dataset_split/val/sunflower/7586498522_4dcab1c8d2_m.jpg,sunflower,3,2,5,1,5,5
+2258,565,flower_2/party_B/dataset_split/val/sunflower/4271193206_666ef60aa0_m.jpg,sunflower,3,2,5,1,5,5
+2259,566,flower_2/party_B/dataset_split/val/sunflower/5020805135_1219d7523d.jpg,sunflower,3,2,5,1,5,5
+2260,567,flower_2/party_B/dataset_split/val/sunflower/8368015811_2893411cf7_n.jpg,sunflower,3,2,5,1,5,5
+2261,568,flower_2/party_B/dataset_split/val/sunflower/9216286162_6ceefdd1b4_m.jpg,sunflower,3,2,5,1,5,5
+2262,569,flower_2/party_B/dataset_split/val/sunflower/9558628596_722c29ec60_m.jpg,sunflower,3,2,5,1,5,5
+2263,570,flower_2/party_B/dataset_split/val/sunflower/5004121118_e9393e60d0_n.jpg,sunflower,3,2,5,1,5,5
+2264,571,flower_2/party_B/dataset_split/val/sunflower/20112366233_d6cb3b6e15_n.jpg,sunflower,3,2,5,1,5,5
+2265,572,flower_2/party_B/dataset_split/val/sunflower/8014735546_3db46bb1fe_n.jpg,sunflower,3,2,5,1,5,5
+2266,573,flower_2/party_B/dataset_split/val/sunflower/14889392928_9742aed45b_m.jpg,sunflower,3,2,5,1,5,5
+2267,574,flower_2/party_B/dataset_split/val/sunflower/20972862281_5367f4af88.jpg,sunflower,3,2,5,1,5,5
+2268,575,flower_2/party_B/dataset_split/val/sunflower/6482016425_d8fab362f6.jpg,sunflower,3,2,5,1,5,5
+2269,576,flower_2/party_B/dataset_split/val/sunflower/2823659190_afdabee45c.jpg,sunflower,3,2,5,1,5,5
+2270,577,flower_2/party_B/dataset_split/val/sunflower/6482016439_b0d06dac04.jpg,sunflower,3,2,5,1,5,5
+2271,578,flower_2/party_B/dataset_split/val/sunflower/3001536784_3bfd101b23_n.jpg,sunflower,3,2,5,1,5,5
+2272,579,flower_2/party_B/dataset_split/val/sunflower/2442985637_8748180f69.jpg,sunflower,3,2,5,1,5,5
+2273,580,flower_2/party_B/dataset_split/val/sunflower/45045005_57354ee844.jpg,sunflower,3,2,5,1,5,5
+2274,581,flower_2/party_B/dataset_split/val/sunflower/23356825566_f5885875f2.jpg,sunflower,3,2,5,1,5,5
+2275,582,flower_2/party_B/dataset_split/val/sunflower/9246304620_768d1f54d7_n.jpg,sunflower,3,2,5,1,5,5
+2276,583,flower_2/party_B/dataset_split/val/sunflower/14646282112_447cc7d1f9.jpg,sunflower,3,2,5,1,5,5
+2277,584,flower_2/party_B/dataset_split/val/sunflower/8935252770_263d682fe8_n.jpg,sunflower,3,2,5,1,3,5
+2278,585,flower_2/party_B/dataset_split/val/sunflower/8433716268_8b7b4083bc_n.jpg,sunflower,3,2,5,1,5,6
+2279,586,flower_2/party_B/dataset_split/val/sunflower/253586685_ee5b5f5232.jpg,sunflower,3,2,5,1,5,5
+2280,587,flower_2/party_B/dataset_split/val/sunflower/8929288228_6795bcb1fe.jpg,sunflower,3,2,5,1,5,5
+2281,588,flower_2/party_B/dataset_split/val/sunflower/6122711533_2c219f0392_n.jpg,sunflower,3,2,5,1,3,5
+2282,589,flower_2/party_B/dataset_split/val/sunflower/6074427492_1b5bab7848_n.jpg,sunflower,3,2,5,1,5,5
+2283,590,flower_2/party_B/dataset_split/val/sunflower/6104713425_8a3277e34a.jpg,sunflower,3,2,5,1,5,5
+2284,591,flower_2/party_B/dataset_split/val/sunflower/7935826214_9b57628203_m.jpg,sunflower,3,2,5,1,5,5
+2285,592,flower_2/party_B/dataset_split/val/sunflower/4489516263_e49fe82637_n.jpg,sunflower,3,2,5,1,5,5
+2286,593,flower_2/party_B/dataset_split/val/sunflower/8481979626_98c9f88848_n.jpg,sunflower,3,2,5,1,5,5
+2287,594,flower_2/party_B/dataset_split/val/sunflower/9610374042_bb16cded3d.jpg,sunflower,3,2,5,1,5,5
+2288,595,flower_2/party_B/dataset_split/val/sunflower/4664767140_fe01231322_n.jpg,sunflower,3,2,5,1,5,5
+2289,596,flower_2/party_B/dataset_split/val/sunflower/20258015499_93b9951800_m.jpg,sunflower,3,2,5,1,3,5
+2290,597,flower_2/party_B/dataset_split/val/sunflower/4814106562_7c3564d2d9_n.jpg,sunflower,3,2,5,1,3,5
+2291,598,flower_2/party_B/dataset_split/val/sunflower/12282924083_fb80aa17d4_n.jpg,sunflower,3,2,5,1,5,5
+2292,599,flower_2/party_B/dataset_split/val/sunflower/5042785753_392cc4e74d_n.jpg,sunflower,3,2,5,1,5,5
+2293,600,flower_2/party_B/dataset_split/val/sunflower/20621698991_dcb323911d.jpg,sunflower,3,2,5,1,5,5
+2294,601,flower_2/party_B/dataset_split/val/sunflower/3846907701_e13b66aa87.jpg,sunflower,3,2,5,1,5,5
+2295,602,flower_2/party_B/dataset_split/val/sunflower/7603036176_9e8967cd21.jpg,sunflower,3,2,5,1,5,5
+2296,603,flower_2/party_B/dataset_split/val/sunflower/14266917699_91b207888e.jpg,sunflower,3,2,5,1,5,5
+2297,604,flower_2/party_B/dataset_split/val/sunflower/3848405800_8eea982c40.jpg,sunflower,3,2,5,1,5,5
+2298,605,flower_2/party_B/dataset_split/val/sunflower/29972905_4cc537ff4b_n.jpg,sunflower,3,2,5,1,5,5
+2299,606,flower_2/party_B/dataset_split/val/sunflower/6606749757_b98a4ba403.jpg,sunflower,3,2,5,1,5,5
+2300,607,flower_2/party_B/dataset_split/val/sunflower/184682506_8a9b8c662d.jpg,sunflower,3,2,5,1,5,5
+2301,608,flower_2/party_B/dataset_split/val/sunflower/10541580714_ff6b171abd_n.jpg,sunflower,3,2,5,1,5,5
+2302,609,flower_2/party_B/dataset_split/val/sunflower/9400904374_37723396e3_n.jpg,sunflower,3,2,5,1,0,5
+2303,610,flower_2/party_B/dataset_split/val/sunflower/14932787983_d6e05f2434_m.jpg,sunflower,3,2,5,1,5,5
+2304,611,flower_2/party_B/dataset_split/val/sunflower/3596902268_049e33a2cb_n.jpg,sunflower,3,2,5,1,5,5
+2305,612,flower_2/party_B/dataset_split/val/sunflower/6050020905_881295ac72_n.jpg,sunflower,3,2,5,1,5,5
+2306,613,flower_2/party_B/dataset_split/val/sunflower/8928658373_fdca5ff1b8.jpg,sunflower,3,2,5,1,5,5
+2307,614,flower_2/party_B/dataset_split/val/sunflower/14460075029_5cd715bb72_m.jpg,sunflower,3,2,5,1,5,5
+2308,615,flower_2/party_B/dataset_split/val/sunflower/2996573407_5e473b9359.jpg,sunflower,3,2,5,1,5,5
+2309,616,flower_2/party_B/dataset_split/val/sunflower/164670455_29d8e02bbd_n.jpg,sunflower,3,2,5,1,5,5
+2310,617,flower_2/party_B/dataset_split/val/sunflower/9206376642_8348ba5c7a.jpg,sunflower,3,2,5,1,5,5
+2311,618,flower_2/party_B/dataset_split/val/sunflower/9681915384_b3b646dc92_m.jpg,sunflower,3,2,5,1,5,5
+2312,619,flower_2/party_B/dataset_split/val/sunflower/14646281372_5f13794b47.jpg,sunflower,3,2,5,1,5,5
+2313,620,flower_2/party_B/dataset_split/val/sunflower/9460336948_6ae968be93.jpg,sunflower,3,2,5,1,5,1
+2314,621,flower_2/party_B/dataset_split/val/sunflower/3665455426_9cd1c3af4a_n.jpg,sunflower,3,2,5,1,5,5
+2315,622,flower_2/party_B/dataset_split/val/sunflower/7791014076_07a897cb85_n.jpg,sunflower,3,2,5,1,5,5
+2316,623,flower_2/party_B/dataset_split/val/sunflower/9484354480_07ff2ef0a6.jpg,sunflower,3,2,5,1,5,5
+2317,624,flower_2/party_B/dataset_split/val/sunflower/19710076021_f5bb162540.jpg,sunflower,3,2,5,1,3,5
+2318,625,flower_2/party_B/dataset_split/val/sunflower/4745991955_6804568ae0_n.jpg,sunflower,3,2,5,1,5,5
+2319,626,flower_2/party_B/dataset_split/val/sunflower/3884437548_ca8c36be3f_n.jpg,sunflower,3,2,5,1,5,5
+2320,627,flower_2/party_B/dataset_split/val/sunflower/1419608016_707b887337_n.jpg,sunflower,3,2,5,1,3,5
+2321,628,flower_2/party_B/dataset_split/val/sunflower/18972803569_1a0634f398_m.jpg,sunflower,3,2,5,1,5,5
+2322,629,flower_2/party_B/dataset_split/val/sunflower/7510285306_ba8f80c382_n.jpg,sunflower,3,2,5,1,5,5
+2323,630,flower_2/party_B/dataset_split/val/sunflower/4878447831_e904c60cf8_n.jpg,sunflower,3,2,5,1,5,5
+2324,631,flower_2/party_B/dataset_split/val/sunflower/9610098411_f1613c8e14.jpg,sunflower,3,2,5,1,5,5
+2325,632,flower_2/party_B/dataset_split/val/sunflower/200557981_f800fa1af9.jpg,sunflower,3,2,5,1,5,5
+2326,633,flower_2/party_B/dataset_split/val/sunflower/4940287066_385afd9c18_m.jpg,sunflower,3,2,5,1,5,5
+2327,634,flower_2/party_B/dataset_split/val/sunflower/20704967595_a9c9b8d431.jpg,sunflower,3,2,5,1,5,5
+2328,635,flower_2/party_B/dataset_split/val/sunflower/9216286876_289a4779f7.jpg,sunflower,3,2,5,1,5,5
+2329,636,flower_2/party_B/dataset_split/val/sunflower/6140808687_88df0fd733.jpg,sunflower,3,2,5,1,5,5
+2330,637,flower_2/party_B/dataset_split/val/sunflower/9375675309_987d32f99e_n.jpg,sunflower,3,2,5,1,5,5
+2331,638,flower_2/party_B/dataset_split/val/sunflower/4980406384_791774d953.jpg,sunflower,3,2,5,1,5,5
+2332,639,flower_2/party_B/dataset_split/val/sunflower/5526324308_b333da0e57_n.jpg,sunflower,3,2,5,1,5,5
+2333,640,flower_2/party_B/dataset_split/val/sunflower/2807106374_f422b5f00c.jpg,sunflower,3,2,5,1,5,5
+2334,641,flower_2/party_B/dataset_split/val/sunflower/6125761554_4e72819ce4_m.jpg,sunflower,3,2,5,1,5,5
+2335,642,flower_2/party_B/dataset_split/val/sunflower/9483429732_5ae73eb672_n.jpg,sunflower,3,2,5,1,5,5
+2336,643,flower_2/party_B/dataset_split/val/sunflower/5999024446_5721493894.jpg,sunflower,3,2,5,1,5,5
+2337,644,flower_2/party_B/dataset_split/val/sunflower/2443095419_17b920d155_m.jpg,sunflower,3,2,5,1,5,5
+2338,645,flower_2/party_B/dataset_split/val/sunflower/15218421476_9d5f38e732_m.jpg,sunflower,3,2,5,1,5,5
+2339,646,flower_2/party_B/dataset_split/val/sunflower/4872284527_ff52128b97.jpg,sunflower,3,2,5,1,5,5
+2340,647,flower_2/party_B/dataset_split/val/sunflower/15145607875_e87204d78c_n.jpg,sunflower,3,2,5,1,5,5
+2341,648,flower_2/party_B/dataset_split/val/sunflower/5991628433_e1d853e40d_n.jpg,sunflower,3,2,5,1,5,5
+2342,649,flower_2/party_B/dataset_split/val/sunflower/20812318934_82f10c45a1_n.jpg,sunflower,3,2,5,1,5,5
+2343,650,flower_2/party_B/dataset_split/val/sunflower/5018120483_cc0421b176_m.jpg,sunflower,3,2,5,1,5,5
+2344,651,flower_2/party_B/dataset_split/val/sunflower/8014734302_65c6e83bb4_m.jpg,sunflower,3,2,5,1,4,5
+2345,652,flower_2/party_B/dataset_split/val/sunflower/5970869550_d7d9fabebd_n.jpg,sunflower,3,2,5,1,5,5
+2346,653,flower_2/party_B/dataset_split/val/sunflower/197011740_21825de2bf.jpg,sunflower,3,2,5,1,5,5
+2347,654,flower_2/party_B/dataset_split/val/sunflower/14623720226_aeeac66e0a_n.jpg,sunflower,3,2,5,1,5,5
+2348,655,flower_2/party_B/dataset_split/val/sunflower/4186808407_06688641e2_n.jpg,sunflower,3,2,5,1,0,5
+2349,656,flower_2/party_B/dataset_split/val/sunflower/12323859023_447387dbf0_n.jpg,sunflower,3,2,5,1,5,6
+2350,657,flower_2/party_B/dataset_split/val/sunflower/4872892690_52dc25b0b4.jpg,sunflower,3,2,5,1,5,5
+2351,658,flower_2/party_B/dataset_split/val/sunflower/4746668678_0e2693b1b9_n.jpg,sunflower,3,2,5,1,3,5
+2352,659,flower_2/party_B/dataset_split/val/sunflower/45045003_30bbd0a142_m.jpg,sunflower,3,2,5,1,5,5
+2353,660,flower_2/party_B/dataset_split/val/sunflower/8265023280_713f2c69d0_m.jpg,sunflower,3,2,5,1,5,5
+2354,661,flower_2/party_B/dataset_split/val/sunflower/14348961225_09bd803317_n.jpg,sunflower,3,2,5,1,5,5
+2355,662,flower_2/party_B/dataset_split/val/sunflower/20407896403_a50fef58ac_n.jpg,sunflower,3,2,5,1,5,5
+2356,663,flower_2/party_B/dataset_split/val/sunflower/9448615838_04078d09bf_n.jpg,sunflower,3,2,5,1,5,5
+2357,664,flower_2/party_B/dataset_split/val/sunflower/16967372357_15b1b9a812_n.jpg,sunflower,3,2,5,1,5,5
+2358,665,flower_2/party_B/dataset_split/val/sunflower/3946535709_78613461cb_n.jpg,sunflower,3,2,5,1,0,0
+2359,666,flower_2/party_B/dataset_split/val/sunflower/20344366953_44fb51051b.jpg,sunflower,3,2,5,1,5,5
+2360,667,flower_2/party_B/dataset_split/val/sunflower/12471443383_b71e7a7480_m.jpg,sunflower,3,2,5,1,5,5

@@ -7,7 +7,7 @@ import os
 import sys
 import tensorflow as tf
 print(tf.__version__)
-sys.path.append("/home/mml/workspace/model_reuse_v2/")
+sys.path.append("./")
 from utils import deleteIgnoreFile
 
 # keras.models

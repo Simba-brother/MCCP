@@ -5,7 +5,7 @@ import numpy as np
 from tensorflow.keras.models import Model, Sequential, load_model
 from tensorflow.keras import optimizers
 import sys
-sys.path.append("/home/mml/workspace/model_reuse_v2/")
+sys.path.append("./")
 from utils import deleteIgnoreFile, saveData, makedir_help
 import joblib
 # 加载数据集 config

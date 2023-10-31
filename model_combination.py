@@ -12,7 +12,7 @@ from tensorflow.keras.models import (Model, Sequential, load_model,
 from tensorflow.python.keras.layers.core import Dropout
 from yaml import load
 
-sys.path.append("/home/mml/workspace/model_reuse_v2/")
+sys.path.append("./")
 from utils import deleteIgnoreFile, getOverlapGlobalLabelIndex, saveData
 
 os.environ['CUDA_VISIBLE_DEVICES']='0'

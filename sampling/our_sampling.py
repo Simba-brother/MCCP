@@ -9,7 +9,7 @@ import numpy as np
 import queue  # python queue模块
 import joblib
 import random
-sys.path.append("/home/mml/workspace/model_reuse_v2/")
+sys.path.append("./")
 from utils import deleteIgnoreFile, saveData, getOverlapGlobalLabelIndex, str_probabilty_list_To_list
 
 # 设置训练显卡

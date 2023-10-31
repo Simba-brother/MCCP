@@ -8,7 +8,7 @@ from tensorflow.keras import optimizers
 from tensorflow.keras.optimizers import Adam, Adamax
 from tensorflow.keras.losses import CategoricalCrossentropy
 import joblib
-sys.path.append("/home/mml/workspace/model_reuse_v2/")
+sys.path.append("./")
 from utils import deleteIgnoreFile
 from DataSetConfig import car_body_style_config, flower_2_config, food_config, fruit_config, sport_config, weather_config, animal_config, animal_2_config, animal_3_config
 import Base_acc

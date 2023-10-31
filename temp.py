@@ -16,6 +16,7 @@ from matplotlib import pyplot as plt
 from matplotlib.font_manager import FontManager
 import subprocess
 import mplcyberpunk
+import torch
 
 def dawline():
     def std(x):
@@ -52,8 +53,11 @@ def test():
     df = pd.read_csv("/data/mml/overlap_v2_datasets/animal_2/merged_data/train/merged_df.csv")
     print()
     # unique_df = df[df["is_overlap"] == 0]
+
+
 if __name__ == "__main__":
-    test()
+    pass
+    # test()
     # dawline()
 # a = pd.read_csv("exp_data/all/spearman_corr.csv")
 # a.to_excel("exp_data/all/a.xlsx")

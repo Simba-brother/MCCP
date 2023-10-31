@@ -2,7 +2,7 @@ from fileinput import filename
 import pandas as pd
 import os
 import sys
-sys.path.append("/home/mml/workspace/model_reuse_v2/")
+sys.path.append("./")
 from utils import deleteIgnoreFile, saveData
 
 def random_samping(csv_path, num):
