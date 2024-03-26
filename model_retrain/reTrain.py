@@ -52,7 +52,7 @@ def eval_combination_model(model, df, generator_left, generator_right, classes, 
 
 def start_reTrain():
     common_dir = config["sampled_common_path"]
-    repeat_num = 5  # 先 统计 5 次随机采样 importent
+    repeat_num = 5  # 统计5次随机采样 importent
     merged_csv_path = config["merged_df_path"]
     combination_model_path = config["combination_model_path"]
     # A,B双发的数据生成器 训练集

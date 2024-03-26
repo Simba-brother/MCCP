@@ -244,6 +244,7 @@ my_model = load_model("/data/mml/overlap_v2_datasets/car_body_style/merged_model
 # my_model.compile(loss=categorical_crossentropy,optimizer=Adam(learning_rate=1e-4),metrics=['accuracy'])
 init_acc = eval_model(my_model, classes, merged_test_df)
 print(f"init_acc:{init_acc}")
+
 if __name__ == "__main__":
     ans = start()
     print(ans)

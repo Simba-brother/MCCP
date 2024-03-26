@@ -21,6 +21,8 @@ from shutil import copyfile
 import joblib
 import io
 import re     # python re正则模块
+from DatasetConfig_2 import config
+from sklearn.model_selection import train_test_split
 # FLAGS = flags.FLAGS
 
 def makedir_help(dir_path):
@@ -95,6 +97,16 @@ def split_data():
     target_dir = "/data/mml/overlap_v2_datasets/flower_2/party_B/dataset_split"
     splitfolders.ratio(origin_dir, output=target_dir, seed=1337, ratio=(.8, .2), group_prefix=None) # default values
     print("split_data() success")
+
+
+def look_csv(csv_path):
+    df = pd.read_csv(csv_path)
+    print(f"df.shape:{df.shape}")
+
+
+def split_df(df):
+    df_train,df_test = train_test_split(df,test_size = 0.5,random_state = 666, stratify=df['label'])
+    return df_train, df_test
 
 def deleteIgnoreFile(file_list):
     '''
@@ -563,7 +575,7 @@ if __name__ == "__main__":
     '''
     删除数据集中无效文件
     '''
-    deleteInvalidImage()
+    # deleteInvalidImage()
     '''
     切分数据集
     '''
@@ -700,4 +712,15 @@ if __name__ == "__main__":
     双方模型评估
     '''
     # eval()
+
+    '''
+    看看merged_test_dataset num
+    '''
+    dataset_name = config['dataset_name']
+    root_dir = config["root_dir"]
+    dataset_csv_path = os.path.join(root_dir,dataset_name,"merged_data","test","merged_df.csv")
+    df = pd.read_csv(dataset_csv_path)
+    look_csv(dataset_csv_path)
+    df_train, df_test = split_df(df)
+    print("fjal")
     pass
