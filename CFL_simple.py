@@ -418,7 +418,7 @@ def retrain():
 
 if __name__ == "__main__":
     os.environ['CUDA_VISIBLE_DEVICES']='4'
-    config = animal_3_config
+    config = car_body_style_config
     Base_acc_config = Base_acc.animal_3
     merged_test_df = pd.read_csv(config["merged_df_path"])
     lr = 1e-3

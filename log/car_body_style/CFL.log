@@ -1,0 +1,3696 @@
+2024-03-27 15:53:56.498642: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcudart.so.11.0
+2024-03-27 15:53:58.149342: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcuda.so.1
+2024-03-27 15:53:58.166094: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1733] Found device 0 with properties: 
+pciBusID: 0000:3e:00.0 name: NVIDIA GeForce RTX 3090 computeCapability: 8.6
+coreClock: 1.695GHz coreCount: 82 deviceMemorySize: 23.69GiB deviceMemoryBandwidth: 871.81GiB/s
+2024-03-27 15:53:58.166136: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcudart.so.11.0
+2024-03-27 15:53:58.174143: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcublas.so.11
+2024-03-27 15:53:58.174214: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcublasLt.so.11
+2024-03-27 15:53:58.175284: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcufft.so.10
+2024-03-27 15:53:58.175549: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcurand.so.10
+2024-03-27 15:53:58.187467: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcusolver.so.11
+2024-03-27 15:53:58.188143: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcusparse.so.11
+2024-03-27 15:53:58.188329: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcudnn.so.8
+2024-03-27 15:53:58.189050: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1871] Adding visible gpu devices: 0
+2024-03-27 15:53:58.189359: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-03-27 15:53:58.193188: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1733] Found device 0 with properties: 
+pciBusID: 0000:3e:00.0 name: NVIDIA GeForce RTX 3090 computeCapability: 8.6
+coreClock: 1.695GHz coreCount: 82 deviceMemorySize: 23.69GiB deviceMemoryBandwidth: 871.81GiB/s
+2024-03-27 15:53:58.193769: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1871] Adding visible gpu devices: 0
+2024-03-27 15:53:58.193814: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcudart.so.11.0
+2024-03-27 15:53:58.896606: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1258] Device interconnect StreamExecutor with strength 1 edge matrix:
+2024-03-27 15:53:58.896648: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1264]      0 
+2024-03-27 15:53:58.896657: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1277] 0:   N 
+2024-03-27 15:53:58.897887: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1418] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 22310 MB memory) -> physical GPU (device: 0, name: NVIDIA GeForce RTX 3090, pci bus id: 0000:3e:00.0, compute capability: 8.6)
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+2024-03-27 15:54:03.322095: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcudnn.so.8
+2024-03-27 15:54:04.364783: I tensorflow/stream_executor/cuda/cuda_dnn.cc:359] Loaded cuDNN version 8300
+2024-03-27 15:54:06.236207: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcublas.so.11
+2024-03-27 15:54:06.238845: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Successfully opened dynamic library libcublasLt.so.11
+2024-03-27 15:54:06.260078: I tensorflow/stream_executor/cuda/cuda_blas.cc:1838] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/1/weight_0.h5
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/1/weight_1.h5
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/1/weight_2.h5
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+Found 11 non-validated image filenames belonging to 6 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/1/weight_3.h5
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+epoch:{epoch}
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+Found 11 non-validated image filenames belonging to 7 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/1/weight_4.h5
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+/home/mml/anaconda3/envs/ConstrainedKMeans_Euclidean_GPU/lib/python3.8/site-packages/PIL/Image.py:945: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+/home/mml/anaconda3/envs/ConstrainedKMeans_Euclidean_GPU/lib/python3.8/site-packages/PIL/Image.py:945: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+/home/mml/anaconda3/envs/ConstrainedKMeans_Euclidean_GPU/lib/python3.8/site-packages/PIL/Image.py:945: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+/home/mml/anaconda3/envs/ConstrainedKMeans_Euclidean_GPU/lib/python3.8/site-packages/PIL/Image.py:945: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+/home/mml/anaconda3/envs/ConstrainedKMeans_Euclidean_GPU/lib/python3.8/site-packages/PIL/Image.py:945: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+训练批次:6
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/3/weight_0.h5
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 7 classes.
+Found 33 non-validated image filenames belonging to 7 classes.
+Found 33 non-validated image filenames belonging to 7 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 7 classes.
+Found 33 non-validated image filenames belonging to 7 classes.
+Found 33 non-validated image filenames belonging to 7 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 7 classes.
+Found 33 non-validated image filenames belonging to 7 classes.
+Found 33 non-validated image filenames belonging to 7 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 7 classes.
+Found 33 non-validated image filenames belonging to 7 classes.
+Found 33 non-validated image filenames belonging to 7 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 7 classes.
+Found 33 non-validated image filenames belonging to 7 classes.
+Found 33 non-validated image filenames belonging to 7 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/3/weight_1.h5
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/3/weight_2.h5
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/3/weight_3.h5
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+epoch:{epoch}
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+Found 33 non-validated image filenames belonging to 9 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/3/weight_4.h5
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/5/weight_0.h5
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/5/weight_1.h5
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/5/weight_2.h5
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/5/weight_3.h5
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+epoch:{epoch}
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+Found 54 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/5/weight_4.h5/home/mml/anaconda3/envs/ConstrainedKMeans_Euclidean_GPU/lib/python3.8/site-packages/PIL/Image.py:945: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+/home/mml/anaconda3/envs/ConstrainedKMeans_Euclidean_GPU/lib/python3.8/site-packages/PIL/Image.py:945: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+/home/mml/anaconda3/envs/ConstrainedKMeans_Euclidean_GPU/lib/python3.8/site-packages/PIL/Image.py:945: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+/home/mml/anaconda3/envs/ConstrainedKMeans_Euclidean_GPU/lib/python3.8/site-packages/PIL/Image.py:945: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+/home/mml/anaconda3/envs/ConstrainedKMeans_Euclidean_GPU/lib/python3.8/site-packages/PIL/Image.py:945: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/10/weight_0.h5
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/10/weight_1.h5
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/10/weight_2.h5
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/10/weight_3.h5
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+epoch:{epoch}
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+Found 108 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/10/weight_4.h5
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+训练批次:31
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/15/weight_0.h5
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/15/weight_1.h5
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/15/weight_2.h5
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/15/weight_3.h5
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+epoch:{epoch}
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+Found 161 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/15/weight_4.h5
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/20/weight_0.h5
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/20/weight_1.h5
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/20/weight_2.h5
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.WARNING:tensorflow:No training configuration found in the save file, so the model was *not* compiled. Compile it manually.
+/home/mml/anaconda3/envs/ConstrainedKMeans_Euclidean_GPU/lib/python3.8/site-packages/PIL/Image.py:945: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+/home/mml/anaconda3/envs/ConstrainedKMeans_Euclidean_GPU/lib/python3.8/site-packages/PIL/Image.py:945: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+/home/mml/anaconda3/envs/ConstrainedKMeans_Euclidean_GPU/lib/python3.8/site-packages/PIL/Image.py:945: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+/home/mml/anaconda3/envs/ConstrainedKMeans_Euclidean_GPU/lib/python3.8/site-packages/PIL/Image.py:945: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+/home/mml/anaconda3/envs/ConstrainedKMeans_Euclidean_GPU/lib/python3.8/site-packages/PIL/Image.py:945: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/20/weight_3.h5
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+epoch:{epoch}
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+Found 215 non-validated image filenames belonging to 10 classes.
+训练批次:0
+训练批次:1
+训练批次:2
+训练批次:3
+训练批次:4
+训练批次:5
+训练批次:6
+训练批次:7
+训练批次:8
+训练批次:9
+训练批次:10
+训练批次:11
+训练批次:12
+训练批次:13
+训练批次:14
+训练批次:15
+训练批次:16
+训练批次:17
+训练批次:18
+训练批次:19
+训练批次:20
+训练批次:21
+训练批次:22
+训练批次:23
+训练批次:24
+训练批次:25
+训练批次:26
+训练批次:27
+训练批次:28
+训练批次:29
+训练批次:30
+训练批次:31
+训练批次:32
+训练批次:33
+训练批次:34
+训练批次:35
+训练批次:36
+训练批次:37
+训练批次:38
+训练批次:39
+训练批次:40
+训练批次:41
+训练批次:42
+save_file_path:/data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/20/weight_4.h5
+==========CFL retraining ends==========

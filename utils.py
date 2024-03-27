@@ -23,6 +23,7 @@ import io
 import re     # python re正则模块
 from DatasetConfig_2 import config
 from sklearn.model_selection import train_test_split
+import math
 # FLAGS = flags.FLAGS
 
 def makedir_help(dir_path):
@@ -714,13 +715,27 @@ if __name__ == "__main__":
     # eval()
 
     '''
-    看看merged_test_dataset num
+    划分merged_test_dataset
     '''
     dataset_name = config['dataset_name']
     root_dir = config["root_dir"]
     dataset_csv_path = os.path.join(root_dir,dataset_name,"merged_data","test","merged_df.csv")
     df = pd.read_csv(dataset_csv_path)
-    look_csv(dataset_csv_path)
     df_train, df_test = split_df(df)
-    print("fjal")
+    save_dir = f"exp_data/{dataset_name}/sampling/percent/random_split/test"
+    makedir_help(save_dir)
+    save_file_name = "test.csv"
+    save_file_path = os.path.join(save_dir, save_file_name)
+    df_test.to_csv(save_file_path, index=False)
+    total_num = df.shape[0]
+    sample_rate_list = config["sample_rate_list"]
+    for sample_rate in sample_rate_list:
+        sample_num = math.ceil(total_num*sample_rate)
+        for i in range(5):
+            sampled_df = df_train.sample(n=sample_num, axis=0) # random_state=123    
+            save_dir = f"exp_data/{dataset_name}/sampling/percent/random_split/train/{int(sample_rate*100)}" 
+            makedir_help(save_dir)
+            save_file_name =f"sample_{i}.csv" 
+            save_file_path = os.path.join(save_dir, save_file_name)
+            sampled_df.to_csv(save_file_path, index=False)
     pass
