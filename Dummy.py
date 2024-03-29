@@ -2,11 +2,14 @@ import os
 import setproctitle
 import numpy as np
 import joblib
-from DataSetConfig import car_body_style_config,flower_2_config,food_config
+from DataSetConfig import car_body_style_config,flower_2_config,food_config,fruit_config,sport_config,weather_config,animal_config,animal_2_config,animal_3_config
 import pandas as pd
+import tensorflow as tf
+from tensorflow.python.keras.backend import set_session
 from tensorflow.keras.models import load_model
 from tensorflow.keras.losses import categorical_crossentropy
 from tensorflow.keras.optimizers import Adamax
+from utils import makedir_help
 
 
 def load_models(config, lr=1e-3):
@@ -30,8 +33,9 @@ def load_models(config, lr=1e-3):
 def get_confidences(model, df, generator, target_size):
    
    batch_size = 5
+   root_dir = "/data2/mml/overlap_v2_datasets/"
    batches = generator.flow_from_dataframe(df, 
-                            directory = "/data/mml/overlap_v2_datasets/", # 添加绝对路径前缀
+                            directory = root_dir, # 添加绝对路径前缀
                             x_col='file_path', y_col="label", 
                             target_size=target_size, class_mode='categorical', # one-hot
                             color_mode='rgb', classes=None,
@@ -66,10 +70,11 @@ class Dummy(object):
         return acc
     
 def app_Dummy():
-    
-    config = car_body_style_config
+    os.environ['CUDA_VISIBLE_DEVICES']='0'
+    config = animal_3_config
     dataset_name = config["dataset_name"]
-    setproctitle.setproctitle("{dataset_name}|Dummy")
+    root_dir = "/data2/mml/overlap_v2_datasets/"
+    setproctitle.setproctitle(f"{dataset_name}|Dummy|eval")
     test_dir = f"exp_data/{dataset_name}/sampling/percent/random_split/test"
     df_test = pd.read_csv(os.path.join(test_dir, "test.csv"))
     generator_A_test = config["generator_A_test"]
@@ -81,7 +86,46 @@ def app_Dummy():
     model_A, model_B = load_models(config=config)
     dummy = Dummy(model_A, model_B, df_test)
     acc = dummy.integrate(generator_A_test,  generator_B_test, target_size_A, target_size_B, local_to_global_A, local_to_global_B)
+    save_dir = os.path.join(root_dir, dataset_name, "Dummy")
+    makedir_help(save_dir)
+    save_file_name = f"eval_ans.data"
+    save_file_path = os.path.join(save_dir, save_file_name)
+    joblib.dump(acc, save_file_path)
+    print(f"save_file_path:{save_file_path}")
+    print("Dummy evaluation end")
     return acc
+
+def app_Dummy_FangHui():
+    os.environ['CUDA_VISIBLE_DEVICES']='0'
+    config_tf = tf.compat.v1.ConfigProto()
+    config_tf.gpu_options.allow_growth=True 
+    # config.gpu_options.per_process_gpu_memory_fraction = 0.3
+    session = tf.compat.v1.Session(config=config_tf)
+    set_session(session)
+    config = animal_3_config
+    dataset_name = config["dataset_name"]
+    root_dir = "/data2/mml/overlap_v2_datasets/"
+    setproctitle.setproctitle(f"{dataset_name}|Dummy|eval|FangHui")
+    df_test = pd.read_csv(config["merged_df_path"])
+    generator_A_test = config["generator_A_test"]
+    generator_B_test = config["generator_B_test"]
+    target_size_A = config["target_size_A"]
+    target_size_B = config["target_size_B"]
+    local_to_global_A = joblib.load(config["local_to_global_party_A_path"])
+    local_to_global_B = joblib.load(config["local_to_global_party_B_path"])
+    model_A, model_B = load_models(config=config)
+    dummy = Dummy(model_A, model_B, df_test)
+    acc = dummy.integrate(generator_A_test,  generator_B_test, target_size_A, target_size_B, local_to_global_A, local_to_global_B)
+    save_dir = os.path.join(root_dir, dataset_name, "Dummy")
+    makedir_help(save_dir)
+    save_file_name = f"eval_ans_FangHui.data"
+    save_file_path = os.path.join(save_dir, save_file_name)
+    joblib.dump(acc, save_file_path)
+    print(f"save_file_path:{save_file_path}")
+    print("Dummy evaluation FangHui end")
+    return acc
+
 if __name__ == "__main__":
     # app_Dummy()
+    app_Dummy_FangHui()
     pass

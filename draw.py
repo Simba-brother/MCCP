@@ -90,14 +90,14 @@ def draw_truncation_line(x_list, y_data):
     ax1.plot(x_list, hmr_list, label = "HMR", color = "green", marker = "o")
     ax1.plot(x_list, cfl_list, label = "CFL", color = "blue", marker = 's')
     ax1.axhline(y_data["Dummy_base_acc"], color = "orange", ls="solid", marker="^", label="Dummy")
-    ax1.set_ylim(0.70,0.85) # 设置纵坐标范围
+    ax1.set_ylim(0.7,0.9) # 设置纵坐标范围
     # car:(0.75,0.85)
-    # flower:(0.850,0.920)
-    # food:(0.80,0.95)
+    # flower:(0.850,0.920) rebuttal：(0.84,0.92)
+    # food:(0.80,0.95) rebuttal:(0.7,0.95)
     # fruit:(0.80,1.0)
     # sport:(0.7,0.90)
-    # weather:(0.7,0.82)
-    # animal_1:(0.81,0.83)
+    # weather:(0.7,0.82) rebuttal:(0.7,0.85)
+    # animal_1:(0.81,0.83) rebuttal:(0.81,0.84)
     # animal_2:(0.80,0.90)
     # animal_3:(0.70,0.85)
     # 画网格
@@ -124,6 +124,38 @@ def draw_truncation_line(x_list, y_data):
     ax2.plot((-d, +d), (1 - d, 1 + d), **kwargs)  # bottom-left diagonal
     ax2.plot((1 - d, 1 + d), (1 - d, 1 + d), **kwargs) 
     return f
+
+def draw_line_main_2(config):
+    def get_y_list_internal(data):
+        y_list = []
+        sample_rate_list = [0.01,0.03,0.05,0.1,0.15,0.2]
+        for sample_rate in sample_rate_list:
+            avg = sum(data[sample_rate])/len(data[sample_rate])
+            y_list.append(avg)
+        return y_list
+    
+    dataset_name = config["dataset_name"]
+    x_list = ["1%","3%","5%", "10%", "15%", "20%"]
+    root_dir = "/data2/mml/overlap_v2_datasets"
+    MCCP_res = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans.data"))
+    HMR_res = joblib.load(os.path.join(root_dir, dataset_name, "HMR", "eval_ans.data"))
+    CFL_res = joblib.load(os.path.join(root_dir, dataset_name, "CFL", "eval_ans.data"))
+    Dummy_res = joblib.load(os.path.join(root_dir, dataset_name, "Dummy", "eval_ans.data"))
+    MCCP_y_list = get_y_list_internal(MCCP_res)
+    HMR_y_list = get_y_list_internal(HMR_res)
+    CFL_y_list = get_y_list_internal(CFL_res)
+    y_data = {}
+    y_data["OurCombin"] = MCCP_y_list
+    y_data["HMR"] = HMR_y_list
+    y_data["CFL"] = CFL_y_list
+    y_data["Dummy_base_acc"] = Dummy_res
+    fig = draw_truncation_line(x_list, y_data)
+    # 保存图片
+    save_dir = f"exp_image/{dataset_name}"
+    file_name = f"RQ2_rebuttal.pdf"
+    file_path = os.path.join(save_dir, file_name)
+    fig.savefig(file_path,bbox_inches="tight",pad_inches=0.1)
+
 
 def draw_line_main(config):
     dataset_name = config["dataset_name"]
@@ -456,7 +488,7 @@ def draw_heatmap():
 
 if __name__ == "__main__":
     # 全局变量区
-    config = animal_2_config
+    config = sport_config
     # draw_overlap_unqiue_avg_improve_line(config)
     # draw_slope(config)
     # draw_overlap_unqiue_initAcc_bar()
@@ -464,6 +496,7 @@ if __name__ == "__main__":
     # draw_unique_overlap_var_line()
     # draw_box()
     # draw_line_main(config)
-    draw_heatmap()
+    draw_line_main_2(config)
+    # draw_heatmap()
     # draw_case_study(config)
     pass
