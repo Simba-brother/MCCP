@@ -102,7 +102,7 @@ def app_Dummy_FangHui():
     # config.gpu_options.per_process_gpu_memory_fraction = 0.3
     session = tf.compat.v1.Session(config=config_tf)
     set_session(session)
-    config = animal_3_config
+    config = weather_config
     dataset_name = config["dataset_name"]
     root_dir = "/data2/mml/overlap_v2_datasets/"
     setproctitle.setproctitle(f"{dataset_name}|Dummy|eval|FangHui")

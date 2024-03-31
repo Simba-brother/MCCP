@@ -369,14 +369,14 @@ def app_HMR_eval_FangHui():
     for sample_rate in sample_rate_list:
         ans[sample_rate] = []
     
-    os.environ['CUDA_VISIBLE_DEVICES']='0'
+    os.environ['CUDA_VISIBLE_DEVICES']='1'
     config_tf = tf.compat.v1.ConfigProto()
     config_tf.gpu_options.allow_growth=True 
     # config.gpu_options.per_process_gpu_memory_fraction = 0.3
     session = tf.compat.v1.Session(config=config_tf)
     set_session(session)
     root_dir = "/data2/mml/overlap_v2_datasets/"
-    config = flower_2_config
+    config = animal_3_config
     dataset_name =  config["dataset_name"]
     model_A_extend, model_B_extend = load_models_pool(config) # 构建和编译
     setproctitle.setproctitle(f"{dataset_name}|HMR|eval|FangHui")

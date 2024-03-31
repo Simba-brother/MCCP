@@ -232,7 +232,7 @@ def app_CFL_retrain_FangHui():
     session = tf.compat.v1.Session(config=config_tf)
     set_session(session)
     root_dir = "/data2/mml/overlap_v2_datasets/"
-    config = animal_3_config
+    config = weather_config
     dataset_name = config["dataset_name"]
     setproctitle.setproctitle(f"{dataset_name}|CFL|retrain|FangHui")
     train_dir = f"exp_data/{dataset_name}/sampling/percent/random"
@@ -364,9 +364,9 @@ def app_CFL_eval_FangHui():
     ans = {}
     for sample_rate in sample_rate_list:
         ans[sample_rate] = []
-    os.environ['CUDA_VISIBLE_DEVICES']='4'
+    os.environ['CUDA_VISIBLE_DEVICES']='1'
     root_dir = "/data2/mml/overlap_v2_datasets/"
-    config = car_body_style_config
+    config = weather_config
     config_tf = tf.compat.v1.ConfigProto()
     config_tf.gpu_options.allow_growth=True 
     # config.gpu_options.per_process_gpu_memory_fraction = 0.3
@@ -408,6 +408,7 @@ if __name__ == "__main__":
     # app_CFL_retrain()
     # app_CFL_eval()
     # app_CFL_retrain_FangHui()
+    app_CFL_eval_FangHui()
     pass
     
 
