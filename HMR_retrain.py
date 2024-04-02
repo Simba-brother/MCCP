@@ -255,7 +255,12 @@ def app_HMR_retrain():
     print("app HMR retraining end")            
             
 def app_HMR_retrain_FangHui():
-    os.environ['CUDA_VISIBLE_DEVICES']='1'
+    os.environ['CUDA_VISIBLE_DEVICES']='7'
+    config_tf = tf.compat.v1.ConfigProto()
+    config_tf.gpu_options.allow_growth=True 
+    # config.gpu_options.per_process_gpu_memory_fraction = 0.3
+    session = tf.compat.v1.Session(config=config_tf)
+    set_session(session)
     root_dir = "/data2/mml/overlap_v2_datasets/"
     config = animal_3_config
     dataset_name = config["dataset_name"]
@@ -270,7 +275,7 @@ def app_HMR_retrain_FangHui():
     sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
     for sample_rate in sample_rate_list:
         sample_rate_dir = os.path.join(train_dir,str(int(sample_rate*100))) 
-        for repeat_num in range(5):
+        for repeat_num in range(5,10):
             df_retrain = pd.read_csv(os.path.join(sample_rate_dir, f"sampled_{repeat_num}.csv"))
             model_A_extend, model_B_extend = load_models_pool(config) # 添加新类和编译
             hmr_retrain = HMR_Retrain(model_A_extend,model_B_extend,df_retrain)
@@ -395,7 +400,7 @@ def app_HMR_eval_FangHui():
     local_to_global_party_A = joblib.load(config["local_to_global_party_A_path"])
     local_to_global_party_B = joblib.load(config["local_to_global_party_B_path"])
     for sample_rate in sample_rate_list:
-        for repeat_num in range(5):
+        for repeat_num in range(10):
             weight_A_path = os.path.join(root_dir, f"{dataset_name}", "HMR", "trained_weights_FangHui", str(int(sample_rate*100)), f"model_A_weight_{repeat_num}.h5")
             weight_B_path = os.path.join(root_dir, f"{dataset_name}", "HMR", "trained_weights_FangHui", str(int(sample_rate*100)), f"model_B_weight_{repeat_num}.h5")
             model_A_extend.load_weights(weight_A_path)

@@ -9,6 +9,7 @@ import seaborn as sns
 import pandas as pd
 from DataSetConfig import food_config, fruit_config, sport_config, weather_config, flower_2_config, car_body_style_config, animal_config, animal_2_config, animal_3_config
 
+
 def get_y_list(dic):
     ans = []
     base_acc = dic["base_acc"]
@@ -90,7 +91,7 @@ def draw_truncation_line(x_list, y_data):
     ax1.plot(x_list, hmr_list, label = "HMR", color = "green", marker = "o")
     ax1.plot(x_list, cfl_list, label = "CFL", color = "blue", marker = 's')
     ax1.axhline(y_data["Dummy_base_acc"], color = "orange", ls="solid", marker="^", label="Dummy")
-    ax1.set_ylim(0.7,0.82) # 设置纵坐标范围
+    ax1.set_ylim(0.70,0.86) # 设置纵坐标范围
     # car:(0.75,0.85)
     # flower:(0.85,0.92) rebuttal：(0.84,0.92)
     # food:(0.80,0.95) rebuttal:(0.7,0.95)
@@ -99,7 +100,7 @@ def draw_truncation_line(x_list, y_data):
     # weather:(0.7,0.82) rebuttal:(0.7,0.85)
     # animal_1:(0.81,0.83) rebuttal:(0.81,0.84)
     # animal_2:(0.80,0.90)
-    # animal_3:(0.70,0.85)
+    # animal_3:(0.70,0.86)
     # 画网格
     ax1.grid(axis="both")
     ax2.grid(axis="both")
@@ -152,7 +153,7 @@ def draw_line_main_2(config):
     fig = draw_truncation_line(x_list, y_data)
     # 保存图片
     save_dir = f"exp_image/{dataset_name}"
-    file_name = f"RQ2_rebuttal_FangHui.pdf"
+    file_name = f"RQ2_rebuttal_FangHui_repeat10.pdf"
     file_path = os.path.join(save_dir, file_name)
     fig.savefig(file_path,bbox_inches="tight",pad_inches=0.1)
 
@@ -336,7 +337,129 @@ def draw_overlap_unqiue_initAcc_bar():
     plt.savefig(file_path)
     print("draw_overlap_unqiue_initAcc_bar() successfully!")
 
+def draw_overlap_initAcc_bar():
+    dataset_name_list = ["car_body_style", "flower_2", "food", "Fruit", "sport", "weather", "animal", "animal_2", "animal_3"]
+    alias_list = ["Car", "Flower", "Food", "Fruit", "Sport", "Weather", "Animal_1", "Animal_2", "Animal_3"]
+    model_A_list = []
+    model_B_list = []
+    mccp_list = []
+    root_dir = "/data2/mml/overlap_v2_datasets"
+    for dataset_name in dataset_name_list:
+        overlap_init_acc_teachers =  joblib.load(os.path.join(root_dir,dataset_name,"OriginModel","eval_overlap_merged_test.data"))
+        acc_t1 = overlap_init_acc_teachers["acc_A"]
+        acc_t2 = overlap_init_acc_teachers["acc_B"]
+        acc_mccp = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_overlap_merged_test_acc.data"))
+        model_A_list.append(acc_t1)
+        model_B_list.append(acc_t2)
+        mccp_list.append(acc_mccp)
+    fig = plt.figure(figsize=(10,5))  
+    x_1 = list(range(len(dataset_name_list)))
+    bar_width = 0.2 # 柱子宽度
+    plt.bar(x_1, model_A_list, width=bar_width, label="Model A", fc="red")
+    # 第二个柱子的位置
+    x_2 = list(range(len(dataset_name_list)))
+    for i in range(len(x_2)):
+        x_2[i] = x_2[i]+bar_width
+    plt.bar(x_2, model_B_list, width=bar_width, label="Model B",tick_label = alias_list, fc="green")
+    # 第三个柱子的位置
+    x_3 = list(range(len(dataset_name_list)))
+    for i in range(len(x_3)):
+        x_3[i] = x_3[i]+2*bar_width
+    plt.bar(x_3, mccp_list, width=bar_width, label="MCCP", fc="blue")
+    plt.xticks(rotation=-15)  
+    # plt.ylim(0.4, 1.0)  
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+    save_dir = f"exp_image/all"
+    file_name = "overlap_initAcc.pdf"
+    file_path = os.path.join(save_dir, file_name)
+    plt.savefig(file_path)
+    print("draw_overlap_initAcc_bar() successfully!")
+
+def draw_unique_initAcc_bar():
+    dataset_name_list = ["car_body_style", "flower_2", "food", "Fruit", "sport", "weather", "animal", "animal_2", "animal_3"]
+    alias_list = ["Car", "Flower", "Food", "Fruit", "Sport", "Weather", "Animal_1", "Animal_2", "Animal_3"]
+    model_A_list = []
+    model_B_list = []
+    mccp_list = []
+    root_dir = "/data2/mml/overlap_v2_datasets"
+    for dataset_name in dataset_name_list:
+        overlap_init_acc_teachers =  joblib.load(os.path.join(root_dir,dataset_name,"OriginModel","eval_unique_merged_test.data"))
+        acc_t1 = overlap_init_acc_teachers["acc_A"]
+        acc_t2 = overlap_init_acc_teachers["acc_B"]
+        acc_mccp = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_unique_merged_test_acc.data"))
+        model_A_list.append(acc_t1)
+        model_B_list.append(acc_t2)
+        mccp_list.append(acc_mccp)
+    fig = plt.figure(figsize=(10,5))  
+    x_1 = list(range(len(dataset_name_list)))
+    bar_width = 0.2 # 柱子宽度
+    plt.bar(x_1, model_A_list, width=bar_width, label="Model A", fc="red")
+    # 第二个柱子的位置
+    x_2 = list(range(len(dataset_name_list)))
+    for i in range(len(x_2)):
+        x_2[i] = x_2[i]+bar_width
+    plt.bar(x_2, model_B_list, width=bar_width, label="Model B",tick_label = alias_list, fc="green")
+    # 第三个柱子的位置
+    x_3 = list(range(len(dataset_name_list)))
+    for i in range(len(x_3)):
+        x_3[i] = x_3[i]+2*bar_width
+    plt.bar(x_3, mccp_list, width=bar_width, label="MCCP", fc="blue")
+    plt.xticks(rotation=-15)  
+    # plt.ylim(0.4, 1.0)  
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+    save_dir = f"exp_image/all"
+    file_name = "unique_initAcc.pdf"
+    file_path = os.path.join(save_dir, file_name)
+    plt.savefig(file_path)
+    print("draw_unique_initAcc_bar() successfully!")
+
+def draw_merged_initAcc_bar():
+    dataset_name_list = ["car_body_style", "flower_2", "food", "Fruit", "sport", "weather", "animal", "animal_2", "animal_3"]
+    alias_list = ["Car", "Flower", "Food", "Fruit", "Sport", "Weather", "Animal_1", "Animal_2", "Animal_3"]
+    model_A_list = []
+    model_B_list = []
+    mccp_list = []
+    root_dir = "/data2/mml/overlap_v2_datasets"
+    for dataset_name in dataset_name_list:
+        overlap_init_acc_teachers =  joblib.load(os.path.join(root_dir,dataset_name,"OriginModel","eval_merged_test.data"))
+        acc_t1 = overlap_init_acc_teachers["acc_A"]
+        acc_t2 = overlap_init_acc_teachers["acc_B"]
+        acc_mccp = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_merged_test_acc.data"))
+        model_A_list.append(acc_t1)
+        model_B_list.append(acc_t2)
+        mccp_list.append(acc_mccp)
+    fig = plt.figure(figsize=(10,5))  
+    x_1 = list(range(len(dataset_name_list)))
+    bar_width = 0.2 # 柱子宽度
+    plt.bar(x_1, model_A_list, width=bar_width, label="Model A", fc="red")
+    # 第二个柱子的位置
+    x_2 = list(range(len(dataset_name_list)))
+    for i in range(len(x_2)):
+        x_2[i] = x_2[i]+bar_width
+    plt.bar(x_2, model_B_list, width=bar_width, label="Model B",tick_label = alias_list, fc="green")
+    # 第三个柱子的位置
+    x_3 = list(range(len(dataset_name_list)))
+    for i in range(len(x_3)):
+        x_3[i] = x_3[i]+2*bar_width
+    plt.bar(x_3, mccp_list, width=bar_width, label="MCCP", fc="blue")
+    plt.xticks(rotation=-15)  
+    # plt.ylim(0.4, 1.0)  
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+    save_dir = f"exp_image/all"
+    file_name = "merged_initAcc.pdf"
+    file_path = os.path.join(save_dir, file_name)
+    plt.savefig(file_path)
+    print("draw_merged_initAcc_bar() successfully!")
+
+
 def draw_overlap_unqiue_avg_improve_line(config):
+
     dataset_name = config["dataset_name"]
     unique_trained_data = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_unique_v3.data")
     overlap_trained_datadata = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_overlap_v3.data")
@@ -412,7 +535,7 @@ def draw_unique_overlap_avg_line():
     plt.savefig(file_path)
     print("draw_unique_overlap_avg_line successfully!")
 
-def draw_unique_overlap_var_line():
+def draw_unique_overlap_var_line(config):
     dataset_name = config["dataset_name"]
     unique_data = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_unique_v3.data")
     overlap_data = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_overlap_v3.data")
@@ -488,15 +611,18 @@ def draw_heatmap():
 
 if __name__ == "__main__":
     # 全局变量区
-    config = weather_config
+    # config = car_body_style_config
     # draw_overlap_unqiue_avg_improve_line(config)
     # draw_slope(config)
     # draw_overlap_unqiue_initAcc_bar()
+    # draw_overlap_initAcc_bar()
+    # draw_unique_initAcc_bar()
+    draw_merged_initAcc_bar()
     # draw_unique_overlap_avg_line()
     # draw_unique_overlap_var_line()
     # draw_box()
     # draw_line_main(config)
-    draw_line_main_2(config)
+    # draw_line_main_2(config)
     # draw_heatmap()
     # draw_case_study(config)
     pass

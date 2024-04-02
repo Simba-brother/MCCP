@@ -96,13 +96,110 @@ def app_eval_origin_model_with_overlap_merged():
     ans = {"acc_A":acc_A, "acc_B":acc_B}
     save_dir = os.path.join(root_dir, dataset_name, "OriginModel")
     makedir_help(save_dir)
-    save_file_name = f"eval_overlap_merged_test_.data"
+    save_file_name = f"eval_overlap_merged_test.data"
     save_file_path = os.path.join(save_dir, save_file_name)
     joblib.dump(ans, save_file_path)
     print(f"save_file_path:{save_file_path}")
     print("origin model eval overlap merged test end")
     return ans
 
+def app_eval_origin_model_with_unique_merged():
+    os.environ['CUDA_VISIBLE_DEVICES']='0'
+    config_tf = tf.compat.v1.ConfigProto()
+    config_tf.gpu_options.allow_growth=True 
+    # config.gpu_options.per_process_gpu_memory_fraction = 0.3
+    session = tf.compat.v1.Session(config=config_tf)
+    set_session(session)
+    root_dir = "/data2/mml/overlap_v2_datasets/"
+    config = animal_3_config
+    dataset_name =  config["dataset_name"]
+    setproctitle.setproctitle(f"{dataset_name}|OriginModel|unique_merged")
+    merged_unique_df = pd.read_csv(config["merged_unique_df"]) 
+    unique_A_df = merged_unique_df[merged_unique_df["source"]==1]
+    unique_B_df = merged_unique_df[merged_unique_df["source"]==2]
+    model_A, model_B = load_models_pool(config) # compiled
+    A_classes = getClasses(config["dataset_A_train_path"])
+    B_classes = getClasses(config["dataset_B_train_path"])
+    # 评估model_A
+    evalOriginModel = EvalOriginModel(model_A, unique_A_df)
+    eval_ans_A = evalOriginModel.eval(
+        root_dir,
+        batch_size=32,  
+        generator_test = config["generator_A_test"],
+        target_size = config["target_size_A"], 
+        classes = A_classes # sorted
+        )
+    acc_A = eval_ans_A["accuracy"] * unique_A_df.shape[0] / merged_unique_df.shape[0]
+    # 评估model_B
+    evalOriginModel = EvalOriginModel(model_B, unique_B_df)
+    eval_ans_B = evalOriginModel.eval(
+        root_dir,
+        batch_size=32,  
+        generator_test = config["generator_B_test"], 
+        target_size = config["target_size_B"], 
+        classes = B_classes
+        )
+    acc_B = eval_ans_B["accuracy"] * unique_B_df.shape[0] / merged_unique_df.shape[0]
+    ans = {"acc_A":acc_A, "acc_B":acc_B}
+    save_dir = os.path.join(root_dir, dataset_name, "OriginModel")
+    makedir_help(save_dir)
+    save_file_name = f"eval_unique_merged_test.data"
+    save_file_path = os.path.join(save_dir, save_file_name)
+    joblib.dump(ans, save_file_path)
+    print(f"save_file_path:{save_file_path}")
+    print("origin model eval unique merged test end")
+    return ans
+
+
+def app_eval_origin_model_with_merged():
+    os.environ['CUDA_VISIBLE_DEVICES']='0'
+    config_tf = tf.compat.v1.ConfigProto()
+    config_tf.gpu_options.allow_growth=True 
+    # config.gpu_options.per_process_gpu_memory_fraction = 0.3
+    session = tf.compat.v1.Session(config=config_tf)
+    set_session(session)
+    root_dir = "/data2/mml/overlap_v2_datasets/"
+    config = animal_3_config
+    dataset_name =  config["dataset_name"]
+    setproctitle.setproctitle(f"{dataset_name}|OriginModel|unique_merged")
+    merged_df = pd.read_csv(config["merged_df_path"]) 
+    merged_df_A = merged_df[merged_df["source"] == 1]
+    merged_df_B = merged_df[merged_df["source"] == 2]
+    model_A, model_B = load_models_pool(config) # compiled
+    A_classes = getClasses(config["dataset_A_train_path"])
+    B_classes = getClasses(config["dataset_B_train_path"])
+    # 评估model_A
+    evalOriginModel = EvalOriginModel(model_A, merged_df_A)
+    eval_ans_A = evalOriginModel.eval(
+        root_dir,
+        batch_size=32,  
+        generator_test = config["generator_A_test"],
+        target_size = config["target_size_A"], 
+        classes = A_classes # sorted
+        )
+    acc_A = eval_ans_A["accuracy"] * merged_df_A.shape[0] / merged_df.shape[0]
+    # 评估model_B
+    evalOriginModel = EvalOriginModel(model_B, merged_df_B)
+    eval_ans_B = evalOriginModel.eval(
+        root_dir,
+        batch_size=32,  
+        generator_test = config["generator_B_test"], 
+        target_size = config["target_size_B"], 
+        classes = B_classes
+        )
+    acc_B = eval_ans_B["accuracy"] * merged_df_B.shape[0] / merged_df.shape[0]
+    ans = {"acc_A":acc_A, "acc_B":acc_B}
+    save_dir = os.path.join(root_dir, dataset_name, "OriginModel")
+    makedir_help(save_dir)
+    save_file_name = f"eval_merged_test.data"
+    save_file_path = os.path.join(save_dir, save_file_name)
+    joblib.dump(ans, save_file_path)
+    print(f"save_file_path:{save_file_path}")
+    print("origin model eval unique merged test end")
+    return ans
+
 
 if __name__ == "__main__":
-    app_eval_origin_model_with_overlap_merged()
+    # app_eval_origin_model_with_overlap_merged()
+    # app_eval_origin_model_with_unique_merged()
+    app_eval_origin_model_with_merged()

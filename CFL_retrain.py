@@ -225,14 +225,14 @@ def app_CFL_retrain():
     print("==========CFL retraining ends==========")
 
 def app_CFL_retrain_FangHui():
-    os.environ['CUDA_VISIBLE_DEVICES']='0'
+    os.environ['CUDA_VISIBLE_DEVICES']='2'
     config_tf = tf.compat.v1.ConfigProto()
     config_tf.gpu_options.allow_growth=True 
     # config.gpu_options.per_process_gpu_memory_fraction = 0.3
     session = tf.compat.v1.Session(config=config_tf)
     set_session(session)
     root_dir = "/data2/mml/overlap_v2_datasets/"
-    config = weather_config
+    config = animal_3_config
     dataset_name = config["dataset_name"]
     setproctitle.setproctitle(f"{dataset_name}|CFL|retrain|FangHui")
     train_dir = f"exp_data/{dataset_name}/sampling/percent/random"
@@ -259,7 +259,7 @@ def app_CFL_retrain_FangHui():
     sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
     for sample_rate in sample_rate_list:
         sample_rate_dir = os.path.join(train_dir, str(int(sample_rate*100)))
-        for repeat_num in range(5):
+        for repeat_num in range(5,10):
             df_retrain = pd.read_csv(os.path.join(sample_rate_dir, f"sampled_{repeat_num}.csv"))
              # 加载模型
             model_A = load_model(config["model_A_struct_path"])
@@ -366,7 +366,7 @@ def app_CFL_eval_FangHui():
         ans[sample_rate] = []
     os.environ['CUDA_VISIBLE_DEVICES']='1'
     root_dir = "/data2/mml/overlap_v2_datasets/"
-    config = weather_config
+    config = animal_3_config
     config_tf = tf.compat.v1.ConfigProto()
     config_tf.gpu_options.allow_growth=True 
     # config.gpu_options.per_process_gpu_memory_fraction = 0.3
@@ -387,7 +387,7 @@ def app_CFL_eval_FangHui():
     stu_model = load_model(config["stu_model_path"])
     for sample_rate in sample_rate_list:
         print(f"sample_rate:{sample_rate}")
-        for repeat_num in range(5):
+        for repeat_num in range(10):
             print(f"repeat_num:{repeat_num}")
             # /data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/1/weight_0.h5
             weight_path = os.path.join(root_dir,f"{dataset_name}", "CFL", "trained_weights_FangHui", str(int((sample_rate*100))), f"weight_{repeat_num}.h5")
