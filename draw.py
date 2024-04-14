@@ -2,6 +2,7 @@
 画图文件
 '''
 import joblib
+from collections import defaultdict
 from matplotlib import pyplot as plt
 import os
 import numpy as np
@@ -29,43 +30,33 @@ def get_y_list(dic):
         
 def draw_lines(x_list, y_data):
     ourCombin_list = y_data["OurCombin"]
-    hmr_list = y_data["HMR"]
-    cfl_list = y_data["CFL"]
+    LR_list = y_data["LR"]
+    DT_list = y_data["DT"]
     # 画布
-    fig = plt.figure(figsize=(15, 5.5), dpi=600)
+    fig = plt.figure(figsize=(3,3), dpi=600)
     # 激活区域
-    plt.subplot(1,2,1)
+    # plt.subplot(1,2,1)
     # plt.xticks(x_list)
     # 画线
-    line_1 = plt.plot(x_list, ourCombin_list, label = "ourCombin", color = "red", marker = "x")
-    line_2 = plt.plot(x_list, hmr_list, label = "HMR", color = "green", marker = "o")
+    line_1 = plt.plot(x_list, ourCombin_list, label = "MCCP", color = "red", marker = "x")
+    line_2 = plt.plot(x_list, LR_list, label = "LogisticRegression", color = "green", marker = "o")
+    line_3 = plt.plot(x_list, DT_list, label = "DecisionTree", color = "blue", marker = "s")
+
     # 画网格
     plt.grid()
     # 画水平线
-    plt.axhline(y_data["OurCombin_base_acc"],color='lightcoral',ls='--')
-    plt.axhline(y_data["HMR_base_acc"],color='springgreen',ls='--')
-    plt.axhline(y_data["Dummy_base_acc"], color = "orange", ls="solid", marker="^", label="Dummy")
+    # plt.axhline(y_data["OurCombin_base_acc"],color='lightcoral',ls='--')
+    # plt.axhline(y_data["HMR_base_acc"],color='springgreen',ls='--')
+    # plt.axhline(y_data["Dummy_base_acc"], color = "orange", ls="solid", marker="^", label="Dummy")
     # 图例
     plt.legend()
     # 坐标轴说明
-    plt.xlabel("percent of sampling", fontsize=16)
-    plt.ylabel("Accuracy", fontsize=16)
-    plt.tick_params(labelsize=15)  #刻度字体大小13
+    plt.xlabel("sampling rate", fontsize=12)
+    plt.ylabel("Accuracy", fontsize=12)
+    # plt.tick_params(labelsize=15)  #刻度字体大小13
+    plt.xticks(fontproperties = "Times New Roman", fontsize = 11)
     # 图题目
     # plt.title("Accuracy of Knowledge Amalgamation")
-    
-    
-    plt.subplot(1,2,2)
-    # plt.xticks(x_list)
-    line_3 = plt.plot(x_list, cfl_list, label = "CFL", color = "blue", marker = 's')
-    plt.grid()
-    plt.axhline(y_data["CFL_base_acc"],color='cornflowerblue',ls='--')
-    plt.axhline(y_data["Dummy_base_acc"], color = "orange", ls="solid", marker="^", label="Dummy")
-    plt.legend()
-    plt.xlabel("Sampling ratio", fontsize=16)
-    plt.ylabel("Accuracy", fontsize=16)
-    # plt.title("Accuracy of Knowledge Amalgamation")
-    plt.tick_params(labelsize=15)  #刻度字体大小13
     return fig
 
 def draw_truncation_line(x_list, y_data):
@@ -83,15 +74,13 @@ def draw_truncation_line(x_list, y_data):
     ax2.xaxis.set_visible(True)
     plt.subplots_adjust(wspace=0,hspace=0.08) # 设置子图间距
 
-
     ax2.plot(x_list, cfl_list, label = "CFL", color = "blue", marker = 's')
-
 
     ax1.plot(x_list, ourCombin_list, label = "MCCP", color = "red", marker = "x")   # 绘制折线
     ax1.plot(x_list, hmr_list, label = "HMR", color = "green", marker = "o")
     ax1.plot(x_list, cfl_list, label = "CFL", color = "blue", marker = 's')
     ax1.axhline(y_data["Dummy_base_acc"], color = "orange", ls="solid", marker="^", label="Dummy")
-    ax1.set_ylim(0.70,0.86) # 设置纵坐标范围
+    ax1.set_ylim(0.80,0.90) # 设置纵坐标范围
     # car:(0.75,0.85)
     # flower:(0.85,0.92) rebuttal：(0.84,0.92)
     # food:(0.80,0.95) rebuttal:(0.7,0.95)
@@ -139,7 +128,7 @@ def draw_line_main_2(config):
     x_list = ["1%","3%","5%", "10%", "15%", "20%"]
     root_dir = "/data2/mml/overlap_v2_datasets"
     MCCP_res = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_FangHui.data"))
-    HMR_res = joblib.load(os.path.join(root_dir, dataset_name, "HMR", "eval_ans_FangHui.data"))
+    HMR_res = joblib.load(os.path.join(root_dir, dataset_name, "HMR", "eval_ans_FangHui_seed42.data"))
     CFL_res = joblib.load(os.path.join(root_dir, dataset_name, "CFL", "eval_ans_FangHui.data"))
     Dummy_res = joblib.load(os.path.join(root_dir, dataset_name, "Dummy", "eval_ans_FangHui.data"))
     MCCP_y_list = get_y_list_internal(MCCP_res)
@@ -153,10 +142,38 @@ def draw_line_main_2(config):
     fig = draw_truncation_line(x_list, y_data)
     # 保存图片
     save_dir = f"exp_image/{dataset_name}"
-    file_name = f"RQ2_rebuttal_FangHui_repeat10.pdf"
+    file_name = f"RQ2_rebuttal_FangHui_seed42_repeat10.pdf"
     file_path = os.path.join(save_dir, file_name)
     fig.savefig(file_path,bbox_inches="tight",pad_inches=0.1)
 
+def draw_line_main_3(config):
+    def get_y_list_internal(data):
+        y_list = []
+        sample_rate_list = [0.01,0.03,0.05,0.1,0.15,0.2]
+        for sample_rate in sample_rate_list:
+            avg = sum(data[sample_rate])/len(data[sample_rate])
+            y_list.append(avg)
+        return y_list
+    
+    dataset_name = config["dataset_name"]
+    x_list = ["1%","3%","5%", "10%", "15%", "20%"]
+    root_dir = "/data2/mml/overlap_v2_datasets"
+    MCCP_res = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_FangHui.data"))
+    LogisticRegression_res = joblib.load(os.path.join(root_dir, dataset_name, "LogisticRegression", "eval_ans.data"))
+    DecisionTree_res = joblib.load(os.path.join(root_dir, dataset_name, "DecisionTree", "eval_ans.data"))
+    MCCP_y_list = get_y_list_internal(MCCP_res)
+    LR_y_list = get_y_list_internal(LogisticRegression_res)
+    DT_y_list = get_y_list_internal(DecisionTree_res)
+    y_data = {}
+    y_data["OurCombin"] = MCCP_y_list
+    y_data["LR"] = LR_y_list
+    y_data["DT"] = DT_y_list
+    fig = draw_lines(x_list, y_data)
+    # 保存图片
+    save_dir = f"exp_image/{dataset_name}"
+    file_name = f"RQ2_MCCP_LR_DT.pdf"
+    file_path = os.path.join(save_dir, file_name)
+    fig.savefig(file_path,bbox_inches="tight",pad_inches=0.1)
 
 def draw_line_main(config):
     dataset_name = config["dataset_name"]
@@ -457,6 +474,67 @@ def draw_merged_initAcc_bar():
     plt.savefig(file_path)
     print("draw_merged_initAcc_bar() successfully!")
 
+def draw_case_study_bar():
+    def get_class_avg_precision(report):
+        ans = []
+        reports = report[rate]
+        for class_i in range(global_class_num):
+            precision_list = []
+            for report in reports:
+                precision = report[str(class_i)]["precision"]
+                precision_list.append(precision)
+            avg_precision = sum(precision_list)/len(precision_list)
+            ans.append(avg_precision)           
+        return ans
+
+    # class_list = ["Class_0", "Class_1", "Class_2", "Class_3", "Class_4", "Class_5","Class_6","Class_7","Class_8"]
+    class_list = ["Class_0", "Class_1", "Class_2", "Class_3", "Class_4", "Class_5"]
+
+    # alias_list = ["Car", "Flower", "Food", "Fruit", "Sport", "Weather", "Animal_1", "Animal_2", "Animal_3"]
+    root_dir = "/data2/mml/overlap_v2_datasets"
+    dataset_name = "animal_2"
+    rate = 0.05
+    global_class_num = 6
+    MCCP_report =  joblib.load(os.path.join(root_dir,dataset_name,"MCCP","eval_classes_FangHui.data"))
+    HMR_report =  joblib.load(os.path.join(root_dir,dataset_name,"HMR","eval_classes_FangHui.data"))
+    CFL_report =  joblib.load(os.path.join(root_dir,dataset_name,"CFL","eval_classes_FangHui.data"))
+    Dummy_report =  joblib.load(os.path.join(root_dir,dataset_name,"Dummy","eval_classes_FangHui.data"))
+    MCCP_list = get_class_avg_precision(MCCP_report)
+    HMR_list = get_class_avg_precision(HMR_report)
+    CFL_list = get_class_avg_precision(CFL_report)
+    Dummy_list = []
+    for class_i in range(global_class_num):
+        Dummy_list.append(Dummy_report[str(class_i)]["precision"])
+
+    fig = plt.figure(figsize=(10,5))  
+    x_1 = list(range(len(class_list)))
+    bar_width = 0.2 # 柱子宽度
+    plt.bar(x_1, MCCP_list, width=bar_width, label="MCCP", fc="red")
+    # 第二个柱子的位置
+    x_2 = list(range(len(class_list)))
+    for i in range(len(x_2)):
+        x_2[i] = x_2[i]+bar_width
+    plt.bar(x_2, HMR_list, width=bar_width, label="HMR",tick_label = class_list, fc="green")
+    # 第三个柱子的位置
+    x_3 = list(range(len(class_list)))
+    for i in range(len(x_3)):
+        x_3[i] = x_3[i]+2*bar_width
+    plt.bar(x_3, CFL_list, width=bar_width, label="CFL", fc="blue")
+    # 第四个柱子的位置
+    x_4 = list(range(len(class_list)))
+    for i in range(len(x_4)):
+        x_4[i] = x_4[i]+3*bar_width
+    plt.bar(x_4, Dummy_list, width=bar_width, label="Dummy", fc="yellow")
+    plt.xticks(rotation=-15)  
+    # plt.ylim(0.4, 1.0)  
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+    save_dir = f"exp_image/all"
+    file_name = "case_study_classes.pdf"
+    file_path = os.path.join(save_dir, file_name)
+    plt.savefig(file_path)
+    print("draw_case_study_bar() successfully!")
 
 def draw_overlap_unqiue_avg_improve_line(config):
 
@@ -609,20 +687,61 @@ def draw_heatmap():
     # plt.show()
     f.savefig(file_path, dpi=800, bbox_inches="tight")
 
+def draw_stable_bar(config):
+    root_dir = "/data2/mml/overlap_v2_datasets/"
+    dataset_name = config["dataset_name"]
+    MCCP_trueOrFalse_ans = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_TrueOrFalse_list_FangHui.data"))
+    HMR_trueOrFalse_ans = joblib.load(os.path.join(root_dir, dataset_name, "HMR", "eval_TrueOrFalse_list_FangHui.data"))
+    data = defaultdict(list)
+    sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
+    base_rate = sample_rate_list[0]
+    for repeat_i in range(10):
+        MCCP_trueOrFalse_list = MCCP_trueOrFalse_ans[base_rate][repeat_i]
+        HMR_trueOrFalse_list = HMR_trueOrFalse_ans[base_rate][repeat_i]
+        base_dif_i_list = []
+        for i in range(len(MCCP_trueOrFalse_list)):
+            MCCP_trueOrFalse = MCCP_trueOrFalse_list[i]
+            HMR_trueOrFalse = HMR_trueOrFalse_list[i]
+            if MCCP_trueOrFalse == True and HMR_trueOrFalse == False:
+                base_dif_i_list.append(i)
+        for sample_rate in sample_rate_list:
+            MCCP_trueOrFalse_list = MCCP_trueOrFalse_ans[sample_rate][repeat_i]
+            HMR_trueOrFalse_list = HMR_trueOrFalse_ans[sample_rate][repeat_i]
+            dif_i_list = []
+            for i in range(len(MCCP_trueOrFalse_list)):
+                MCCP_trueOrFalse = MCCP_trueOrFalse_list[i]
+                HMR_trueOrFalse = HMR_trueOrFalse_list[i]
+                if MCCP_trueOrFalse == True and HMR_trueOrFalse == False:
+                    dif_i_list.append(i)
+            intersection = set(base_dif_i_list).intersection(set(dif_i_list))
+            percent = len(intersection)/len(base_dif_i_list)
+            data[repeat_i].append(percent)
+    matrix = np.array([])
+    for repeat_i in range(10):
+        matrix = np.append(matrix,data[repeat_i])
+    print(matrix)
+
 if __name__ == "__main__":
     # 全局变量区
-    # config = car_body_style_config
+    config = animal_2_config
+    local_to_global_A = joblib.load(config["local_to_global_party_A_path"])
+    local_to_global_B = joblib.load(config["local_to_global_party_B_path"])
+    print(local_to_global_A)
+    print(local_to_global_B)
     # draw_overlap_unqiue_avg_improve_line(config)
     # draw_slope(config)
     # draw_overlap_unqiue_initAcc_bar()
     # draw_overlap_initAcc_bar()
     # draw_unique_initAcc_bar()
-    draw_merged_initAcc_bar()
+    # draw_merged_initAcc_bar()
+    # draw_case_study_bar()
     # draw_unique_overlap_avg_line()
     # draw_unique_overlap_var_line()
     # draw_box()
     # draw_line_main(config)
     # draw_line_main_2(config)
+    # draw_line_main_3(config)
     # draw_heatmap()
     # draw_case_study(config)
+    draw_stable_bar(config)
     pass

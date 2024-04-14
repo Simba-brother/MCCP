@@ -4,6 +4,7 @@ import numpy as np
 import setproctitle
 import pandas as pd
 import tensorflow as tf
+import tensorflow.keras as keras
 from tensorflow.python.keras.backend import set_session
 from tensorflow.keras.models import load_model
 from tensorflow.keras.losses import categorical_crossentropy
@@ -59,6 +60,37 @@ class EvalOriginModel(object):
                     steps = batches.n/batch_size, 
                     return_dict=True)
         return eval_res
+    
+    def predict_prob(self, root_dir, batch_size, generator, target_size):
+        batches = generator.flow_from_dataframe(
+            self.df, 
+            directory = root_dir, # 添加绝对路径前缀
+            x_col='file_path', y_col="label", 
+            target_size=target_size, 
+            class_mode='categorical', # one-hot
+            color_mode='rgb', 
+            classes=None,
+            shuffle=False, 
+            batch_size=batch_size,
+            validate_filenames=False)
+        probs = self.model.predict_generator(generator = batches, steps=batches.n/batch_size)
+        return probs
+    
+    def get_features(self, root_dir, batch_size, generator, target_size):
+        batches = generator.flow_from_dataframe(
+            self.df, 
+            directory = root_dir, # 添加绝对路径前缀
+            x_col='file_path', y_col="label", 
+            target_size=target_size, 
+            class_mode='categorical', # one-hot
+            color_mode='rgb', 
+            classes=None,
+            shuffle=False, 
+            batch_size=batch_size,
+            validate_filenames=False)
+        features = self.model.predict(batches, steps=batches.n/batch_size)
+        return features
+
     
 def app_eval_origin_model_with_overlap_merged():
     os.environ['CUDA_VISIBLE_DEVICES']='2'

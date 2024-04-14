@@ -11,6 +11,7 @@ from tensorflow.keras.optimizers import Adamax
 from tensorflow.python.keras.backend import set_session
 from DataSetConfig import car_body_style_config,flower_2_config,food_config,fruit_config,sport_config,weather_config,animal_config, animal_2_config, animal_3_config
 from utils import deleteIgnoreFile, makedir_help
+from sklearn.metrics import classification_report
 
 
 def local_to_global(localToGlobal_dic, proba_local, all_class_nums):
@@ -148,6 +149,25 @@ class CFL_Eval(object):
         # eval_res["loss"]
         return eval_res
 
+    def predict_output(self, generator_stu_test, target_size_stu, all_class_name_list):
+        batch_size = 32
+        root_dir = "/data2/mml/overlap_v2_datasets/"
+        y_col = 'label'
+        batches = generator_stu_test.flow_from_dataframe(
+            self.df_test, 
+            directory = root_dir,
+            x_col='file_path', y_col=y_col, 
+            target_size=target_size_stu, class_mode='categorical',
+            color_mode='rgb', classes = all_class_name_list, 
+            shuffle=False, batch_size=batch_size,
+            validate_filenames=False)
+        output_predict = self.stu.predict(
+            batches, 
+            batch_size = batch_size, 
+            verbose=1,
+            steps = batches.n/batch_size, 
+            )
+        return output_predict
 
 
 def app_CFL_retrain():
@@ -404,11 +424,68 @@ def app_CFL_eval_FangHui():
     print(f"save_file_path:{save_file_path}")
     print("CFL evaluation FangHui end")
     return ans
+
+
+def app_CFL_eval_Classes_FangHui():
+    sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
+    # 定义出存储结果的数据结构
+    '''
+    ans = {
+        0.01:[],
+        0.03:[]
+    }
+    '''
+    ans = {}
+    for sample_rate in sample_rate_list:
+        ans[sample_rate] = []
+    os.environ['CUDA_VISIBLE_DEVICES']='1'
+    root_dir = "/data2/mml/overlap_v2_datasets/"
+    config = animal_3_config
+    config_tf = tf.compat.v1.ConfigProto()
+    config_tf.gpu_options.allow_growth=True 
+    # config.gpu_options.per_process_gpu_memory_fraction = 0.3
+    session = tf.compat.v1.Session(config=config_tf)
+    set_session(session)
+    dataset_name = config["dataset_name"]
+    setproctitle.setproctitle(f"{dataset_name}|CFL|eval|FangHui")
+    df_test = pd.read_csv(config["merged_df_path"])
+    true_labels = df_test["label_globalIndex"].values
+    generator_stu_test = ImageDataGenerator(rescale=1/255.)
+    target_size_stu = (224,224)
+    # 双方的class_name_list
+    class_name_list_A = getClasses(config["dataset_A_train_path"]) # sorted
+    class_name_list_B = getClasses(config["dataset_B_train_path"]) # sorted
+    # all_class_name_list
+    all_class_name_list = list(set(class_name_list_A+class_name_list_B))
+    all_class_name_list.sort()
+    # 总分类数
+    stu_model = load_model(config["stu_model_path"])
+    for sample_rate in sample_rate_list:
+        print(f"sample_rate:{sample_rate}")
+        for repeat_num in range(10):
+            print(f"repeat_num:{repeat_num}")
+            # /data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/1/weight_0.h5
+            weight_path = os.path.join(root_dir,f"{dataset_name}", "CFL", "trained_weights_FangHui", str(int((sample_rate*100))), f"weight_{repeat_num}.h5")
+            stu_model.compile(loss=categorical_crossentropy,optimizer=Adamax(learning_rate=1e-3),metrics=['accuracy'])
+            stu_model.load_weights(weight_path)
+            cfl_eval = CFL_Eval(stu_model, df_test)
+            output_predict = cfl_eval.predict_output(generator_stu_test, target_size_stu, all_class_name_list)
+            predict_labels = np.argmax(output_predict, axis = 1)
+            report = classification_report(true_labels, predict_labels, output_dict=True)
+            ans[sample_rate].append(report)
+    save_dir = os.path.join(root_dir, dataset_name, "CFL")
+    save_file_name = f"eval_classes_FangHui.data"
+    save_file_path = os.path.join(save_dir, save_file_name)
+    joblib.dump(ans, save_file_path)
+    print(f"save_file_path:{save_file_path}")
+    print("CFL evaluation FangHui end")
+    return ans
 if __name__ == "__main__":
     # app_CFL_retrain()
     # app_CFL_eval()
     # app_CFL_retrain_FangHui()
-    app_CFL_eval_FangHui()
+    # app_CFL_eval_FangHui()
+    app_CFL_eval_Classes_FangHui()
     pass
     
 

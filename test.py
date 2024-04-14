@@ -12,6 +12,11 @@ def test2():
     for i in range(5,10):
         print(i)
     
+def test3():
+    l1 = [1,2,3]
+    l2 = [9,9,9]
+    for a,b in  zip(l1,l2):
+        print(a,b)
 if __name__ == "__main__":
-    test2()
+    test3()
     
