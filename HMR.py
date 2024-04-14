@@ -11,7 +11,7 @@ from tensorflow.keras.losses import categorical_crossentropy
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.optimizers import Adam,Adamax
 import tensorflow.keras as keras
-
+from tensorflow.python.keras.backend import set_session
 from sklearn.utils import shuffle
 import math
 import os
@@ -21,8 +21,7 @@ from utils import deleteIgnoreFile,saveData
 # 加载数据集 config
 from DataSetConfig import food_config, fruit_config, sport_config, weather_config, flower_2_config, car_body_style_config, animal_config, animal_2_config, animal_3_config
 
-# 设置训练显卡
-os.environ['CUDA_VISIBLE_DEVICES']='4'
+
 
 
 def add_reserve_class(model):
@@ -335,7 +334,7 @@ def predict_proba(i, df, batch_size, remove_reserved_class=True):
     generator = generator_test_list[i]
     target_size = target_size_list[i]
     batches = generator.flow_from_dataframe(df, 
-                                            directory = "/data/mml/overlap_v2_datasets/", # 添加绝对路径前缀
+                                            directory = "/data2/mml/overlap_v2_datasets/", # 添加绝对路径前缀
                                             # subset="training",
                                             seed=42,
                                             x_col='file_path', y_col="label", 
@@ -487,7 +486,7 @@ def calibrate_improve_v2(df, models_pool, i):
     # 生成batches
     batch_size = 5 # min(math.ceil(df.shape[0]/4), 32)
     batches = generator.flow_from_dataframe(df, 
-                                            directory = "/data/mml/overlap_v2_datasets/", # 添加绝对路径前缀
+                                            directory = "/data2/mml/overlap_v2_datasets/", # 添加绝对路径前缀
                                             seed=42,
                                             x_col='file_path', y_col="label", 
                                             target_size=target_size, 
@@ -665,7 +664,7 @@ def eval_singleModel(i):
     batch_size = 8
     target_size = target_size_list[i]
     batches = generator.flow_from_dataframe(df, 
-                                            directory = "/data/mml/overlap_v2_datasets/", # 添加绝对路径前缀
+                                            directory = "/data2/mml/overlap_v2_datasets/", # 添加绝对路径前缀
                                             # subset="training",
                                             seed=42,
                                             x_col='file_path', y_col="label", 
@@ -673,7 +672,7 @@ def eval_singleModel(i):
                                             color_mode='rgb', classes=classes, shuffle=False, 
                                             batch_size=batch_size,
                                             validate_filenames=False)
-        # 开始评估
+    # 开始评估
     eval_matric = model.evaluate(batches,steps=batches.n / batch_size, verbose = 1)
     acc = eval_matric[1]
     return acc
@@ -700,7 +699,7 @@ def eval_singleModel_v2(models_pool, i):
     target_size = target_size_list[i]
     # 获得batches
     batches = generator.flow_from_dataframe(test_df, 
-                                            directory = "/data/mml/overlap_v2_datasets/", # 添加绝对路径前缀
+                                            directory = "/data2/mml/overlap_v2_datasets/", # 添加绝对路径前缀
                                             seed=42,
                                             x_col='file_path', y_col="label", 
                                             target_size=target_size, class_mode='categorical', # one-hot
@@ -724,7 +723,10 @@ def eval_singleModel_v2(models_pool, i):
 
 # 文件全局变量区
 # 配置变量
-config = animal_3_config
+# 设置训练显卡
+os.environ['CUDA_VISIBLE_DEVICES']='1'
+config = animal_2_config
+dataset_name = config["dataset_name"]
 # 加载混合评估集
 merged_df = pd.read_csv(config["merged_df_path"])
 # 加载各方的评估集
@@ -765,24 +767,41 @@ localToGlobal_mapping = [local_to_global_party_A, local_to_global_party_B]
 tunnel = Tunnel([0,1])
 
 if __name__ == "__main__":
+    # "exp_data/animal_2/sampling/percent/random"
+    root_dir = "/data2/mml/overlap_v2_datasets/"
+    config_tf = tf.compat.v1.ConfigProto()
+    config_tf.gpu_options.allow_growth=True 
+    # config.gpu_options.per_process_gpu_memory_fraction = 0.3
+    session = tf.compat.v1.Session(config=config_tf)
+    set_session(session)
     common_dir = config["sampled_common_path"]
-    sample_num_list = deleteIgnoreFile(os.listdir(common_dir))
-    sample_num_list = sorted(sample_num_list, key=lambda e: int(e))
-    sample_num_list = [int(sample_num) for sample_num in sample_num_list]
-    repeat_num = 5  # 先 统计 5 次随机采样 importent
-    lr = 1e-5
+    sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
+    # 定义出存储结果的数据结构
+    '''
+    ans = {
+        0.01:[],
+        0.03:[]
+    }
+    '''
     ans = {}
+    for sample_rate in sample_rate_list:
+        ans[sample_rate] = []
+    # sample_num_list = deleteIgnoreFile(os.listdir(common_dir))
+    # sample_num_list = sorted(sample_num_list, key=lambda e: int(e))
+    # sample_num_list = [int(sample_num) for sample_num in sample_num_list]
+    # 先 统计 5 次随机采样 importent
+    repeat_num = 5  
+    lr = 1e-5
     models_pool, _ = load_models_pool(config, lr) # 输出层添加了"zzz"类别
     # extended_model_A, extended_model_B = load_extended_models(config)
     # 获得init acc
     accuracy_integrate_init = evaluate_on(models_pool,merged_df)
     accuracy_integrate_init = round(accuracy_integrate_init,4)
-    acc_init_A =  round(eval_singleModel(0),4)
-    acc_init_B =  round(eval_singleModel(1),4)
+    acc_init_A = round(eval_singleModel(0),4)
+    acc_init_B = round(eval_singleModel(1),4)
     print(f"集成模型混合集初始精度:{accuracy_integrate_init}, extended_model_A初始精度:{acc_init_A}, extended_model_B初始精度:{acc_init_B}")
-    for sample_num in sample_num_list:
-        ans[sample_num] = []
-        cur_dir = os.path.join(common_dir, str(sample_num))
+    for sample_rate in sample_rate_list:
+        cur_dir = os.path.join(common_dir, str(int(sample_rate*100)))
         for repeat in range(repeat_num):
             # 新的重复实验，得将模型池重新加载初始各方预训练模型！！！！！并且添加了"zzz"
             models_pool, _ = load_models_pool(config, lr)
@@ -797,18 +816,20 @@ if __name__ == "__main__":
             acc_improve_integrate = round(accuracy_integrate - accuracy_integrate_init,4)
             acc_improve_local_A = round(acc_local_A - acc_init_A,4)
             acc_improve_local_B = round(acc_local_B - acc_init_B,4)
-            print("目标采样数量:{}, 实际采样数量:{}, 重复次数:{}, 混合评估精度提高:{}, local_A评估精度提高:{}, local_B评估精度提高:{}".format(sample_num, 
-                                                                                                            retrain_df.shape[0],
-                                                                                                            repeat, 
-                                                                                                            acc_improve_integrate, 
-                                                                                                            acc_improve_local_A,
-                                                                                                            acc_improve_local_B
-                                                                                                            ))
-            ans[sample_num].append({"acc_improve_integrate":acc_improve_integrate, "acc_improve_local_A":acc_improve_local_A, "acc_improve_local_B":acc_improve_local_B})
-    print(ans)
+            # print("目标采样数量:{}, 实际采样数量:{}, 重复次数:{}, 混合评估精度提高:{}, local_A评估精度提高:{}, local_B评估精度提高:{}".format(sample_num, 
+            #                                                                                                 retrain_df.shape[0],
+            #                                                                                                 repeat, 
+            #                                                                                                 acc_improve_integrate, 
+            #                                                                                                 acc_improve_local_A,
+            #                                                                                                 acc_improve_local_B
+            #                                                                                                 ))
+            # ans[sample_rate].append({"acc_improve_integrate":acc_improve_integrate, "acc_improve_local_A":acc_improve_local_A, "acc_improve_local_B":acc_improve_local_B})
+            ans[sample_rate].append(accuracy_integrate)
+    
     # 保存ans
-    save_dir = config["save_retrainResult_path"]
-    file_name = "reTrain_acc_improve_accords_alluse_new.data"
+            
+    save_dir = os.path.join(root_dir, dataset_name, "HMR")
+    file_name = f"eval_ans_RQ2_Origin.data"
     file_path = os.path.join(save_dir, file_name)
     saveData(ans, file_path)
     print("save success finally")

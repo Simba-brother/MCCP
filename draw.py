@@ -688,6 +688,7 @@ def draw_heatmap():
     f.savefig(file_path, dpi=800, bbox_inches="tight")
 
 def draw_stable_bar(config):
+    
     root_dir = "/data2/mml/overlap_v2_datasets/"
     dataset_name = config["dataset_name"]
     MCCP_trueOrFalse_ans = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_TrueOrFalse_list_FangHui.data"))
@@ -698,12 +699,15 @@ def draw_stable_bar(config):
     for repeat_i in range(10):
         MCCP_trueOrFalse_list = MCCP_trueOrFalse_ans[base_rate][repeat_i]
         HMR_trueOrFalse_list = HMR_trueOrFalse_ans[base_rate][repeat_i]
+        MCCP_acc = sum(MCCP_trueOrFalse_list)/len(MCCP_trueOrFalse_list)
+        HMR_acc = sum(HMR_trueOrFalse_list)/len(MCCP_trueOrFalse_list)
         base_dif_i_list = []
         for i in range(len(MCCP_trueOrFalse_list)):
             MCCP_trueOrFalse = MCCP_trueOrFalse_list[i]
             HMR_trueOrFalse = HMR_trueOrFalse_list[i]
             if MCCP_trueOrFalse == True and HMR_trueOrFalse == False:
                 base_dif_i_list.append(i)
+        intersection = set(base_dif_i_list)
         for sample_rate in sample_rate_list:
             MCCP_trueOrFalse_list = MCCP_trueOrFalse_ans[sample_rate][repeat_i]
             HMR_trueOrFalse_list = HMR_trueOrFalse_ans[sample_rate][repeat_i]
@@ -713,9 +717,13 @@ def draw_stable_bar(config):
                 HMR_trueOrFalse = HMR_trueOrFalse_list[i]
                 if MCCP_trueOrFalse == True and HMR_trueOrFalse == False:
                     dif_i_list.append(i)
-            intersection = set(base_dif_i_list).intersection(set(dif_i_list))
-            percent = len(intersection)/len(base_dif_i_list)
-            data[repeat_i].append(percent)
+            intersection = intersection.intersection(set(dif_i_list))
+        win_rate = len(intersection)/len(MCCP_trueOrFalse_list)
+        win_acc = MCCP_acc - HMR_acc
+        print("jflaj")
+            # percent = len(intersection)/len(base_dif_i_list)
+            # data[repeat_i].append(percent)
+        
     matrix = np.array([])
     for repeat_i in range(10):
         matrix = np.append(matrix,data[repeat_i])

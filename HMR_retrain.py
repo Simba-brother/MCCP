@@ -611,6 +611,6 @@ if __name__ == "__main__":
     # app_HMR_eval()
     # app_HMR_eval_initial()
     # app_HMR_retrain_FangHui()
-    # app_HMR_eval_FangHui()
-    app_HMR_eval_TrueFalse_FangHui()
+    app_HMR_eval_FangHui()
+    # app_HMR_eval_TrueFalse_FangHui()
     # app_HMR_eval_classes_FangHui()

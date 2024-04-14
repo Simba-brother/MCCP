@@ -1,5 +1,5 @@
 
-
+import joblib
 def test1():
     import pandas as pd
     df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})
@@ -17,6 +17,12 @@ def test3():
     l2 = [9,9,9]
     for a,b in  zip(l1,l2):
         print(a,b)
+
+def test4():
+    reTrain_acc = joblib.load('exp_data/animal_2/retrainResult/percent/HMR/reTrain_acc.data')
+    reTrain_acc_improve_accords_alluse_new = joblib.load('exp_data/animal_2/retrainResult/percent/HMR/reTrain_acc_improve_accords_alluse_new.data')
+    print("test4()")
+    
 if __name__ == "__main__":
-    test3()
+    test4()
     
