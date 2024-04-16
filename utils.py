@@ -24,7 +24,7 @@ import re     # python re正则模块
 from DatasetConfig_2 import config
 from sklearn.model_selection import train_test_split
 import math
-# FLAGS = flags.FLAGS
+
 
 def makedir_help(dir_path):
     if not os.path.exists(dir_path):
@@ -731,7 +731,7 @@ if __name__ == "__main__":
     sample_rate_list = config["sample_rate_list"]
     for sample_rate in sample_rate_list:
         sample_num = math.ceil(total_num*sample_rate)
-        for i in range(5):
+        for i in range(10):
             sampled_df = df_train.sample(n=sample_num, axis=0) # random_state=123    
             save_dir = f"exp_data/{dataset_name}/sampling/percent/random_split/train/{int(sample_rate*100)}" 
             makedir_help(save_dir)

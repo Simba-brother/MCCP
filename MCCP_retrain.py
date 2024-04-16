@@ -188,10 +188,10 @@ class MCCP_Eval(object):
                                          verbose=1,steps = test_batches_A.n/batch_size)
         return output_prediction  
 
-def app_MCCP_retrain():
-    os.environ['CUDA_VISIBLE_DEVICES']='7'
-    config = animal_3_config
+def app_MCCP_retrain_NoFangHui(config):
     dataset_name =  config["dataset_name"]
+    repeat_num = 10
+    setproctitle.setproctitle(f"{dataset_name}|MCCP|retrain|NoFanghui")
     # log_save_dir = os.path.join('log',f"{dataset_name}")
     # makedir_help(log_save_dir)
     # log_file_name = "MCCP.log"
@@ -206,9 +206,9 @@ def app_MCCP_retrain():
     for sample_rate in sample_rate_list:
         print(f"sample_rate:{sample_rate}")
         sample_rate_dir = os.path.join(retrain_dir, str(int(sample_rate*100))) 
-        for repeat_num in range(5):
-            print(f"repeat_num:{repeat_num}")
-            dataset_retrain_csv_path = os.path.join(sample_rate_dir, f"sample_{repeat_num}.csv")
+        for repeat_i in range(repeat_num):
+            print(f"repeat_i:{repeat_i}")
+            dataset_retrain_csv_path = os.path.join(sample_rate_dir, f"sample_{repeat_i}.csv")
             dataset_retrain_df = pd.read_csv(dataset_retrain_csv_path)
             combin_model = load_model(config["combination_model_path"])
             retrain = Retrain(combin_model, dataset_name, dataset_retrain_df, dataset_merged_df, dataset_test_df)
@@ -224,13 +224,13 @@ def app_MCCP_retrain():
                 generator_B_test=config["generator_B_test"]
                 )
             root_dir = "/data2/mml/overlap_v2_datasets/"
-            save_dir = os.path.join(root_dir, dataset_name, "MCCP", "trained_weights", str(int(sample_rate*100)))
+            save_dir = os.path.join(root_dir, dataset_name, "MCCP", "trained_weights_NoFangHui", str(int(sample_rate*100)))
             makedir_help(save_dir)
-            save_file_name = f"weight_{repeat_num}.h5"
+            save_file_name = f"weight_{repeat_i}.h5"
             save_file_path = os.path.join(save_dir, save_file_name)
             model.save_weights(save_file_path)
             print(f"save_file_path:{save_file_path}")
-    print("MCCP retraining end")        
+    print("app_MCCP_retrain_NoFangHui end")        
 
 
 def app_MCCP_retrain_FangHui():
@@ -787,7 +787,18 @@ def app_MCCP_init_merged_classes_acc():
 
 
 if __name__ == "__main__":
-    # app_MCCP_retrain()
+    # 设置GPU id
+    os.environ['CUDA_VISIBLE_DEVICES']='2'
+    # tf设置GPU内存分配
+    config_tf = tf.compat.v1.ConfigProto()
+    config_tf.gpu_options.allow_growth=True 
+    # config.gpu_options.per_process_gpu_memory_fraction = 0.3
+    session = tf.compat.v1.Session(config=config_tf)
+    set_session(session)
+    # 倒入数据集相关配置
+    config = animal_3_config
+    # NoFangHui MCCP train application
+    # app_MCCP_retrain_NoFangHui(config)
     # app_MCCP_eval()
     # app_MCCP_retrain_FangHui()
     # app_MCCP_eval_FangHui()
@@ -799,6 +810,6 @@ if __name__ == "__main__":
     # app_MCCP_init_merged_classes_acc()
     # app_MCCP_eval_Overlap_FangHui()
     # app_MCCP_eval_Unique_FangHui()
-    app_MCCP_init_overlap_acc()
+    # app_MCCP_init_overlap_acc()
     # app_MCCP_init_unique_acc()
     pass
