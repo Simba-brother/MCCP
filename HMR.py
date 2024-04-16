@@ -797,6 +797,10 @@ if __name__ == "__main__":
     # 获得init acc
     accuracy_integrate_init = evaluate_on(models_pool,merged_df)
     accuracy_integrate_init = round(accuracy_integrate_init,4)
+    # t = joblib.load("exp_data/animal_2/retrainResult/percent/HMR/reTrain_acc.data")
+    # t["old_base_acc"] = t["base_acc"]
+    # t["base_acc"] = accuracy_integrate_init
+    # joblib.dump(t, "exp_data/animal_2/retrainResult/percent/HMR/reTrain_acc.data")
     acc_init_A = round(eval_singleModel(0),4)
     acc_init_B = round(eval_singleModel(1),4)
     print(f"集成模型混合集初始精度:{accuracy_integrate_init}, extended_model_A初始精度:{acc_init_A}, extended_model_B初始精度:{acc_init_B}")

@@ -128,7 +128,7 @@ def draw_line_main_2(config):
     x_list = ["1%","3%","5%", "10%", "15%", "20%"]
     root_dir = "/data2/mml/overlap_v2_datasets"
     MCCP_res = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_FangHui.data"))
-    HMR_res = joblib.load(os.path.join(root_dir, dataset_name, "HMR", "eval_ans_FangHui_seed42.data"))
+    HMR_res = joblib.load(os.path.join(root_dir, dataset_name, "HMR", "eval_ans_FangHu.data"))
     CFL_res = joblib.load(os.path.join(root_dir, dataset_name, "CFL", "eval_ans_FangHui.data"))
     Dummy_res = joblib.load(os.path.join(root_dir, dataset_name, "Dummy", "eval_ans_FangHui.data"))
     MCCP_y_list = get_y_list_internal(MCCP_res)
@@ -142,11 +142,11 @@ def draw_line_main_2(config):
     fig = draw_truncation_line(x_list, y_data)
     # 保存图片
     save_dir = f"exp_image/{dataset_name}"
-    file_name = f"RQ2_rebuttal_FangHui_seed42_repeat10.pdf"
+    file_name = f"RQ2_rebuttal_FangHui_repeat10.pdf"
     file_path = os.path.join(save_dir, file_name)
     fig.savefig(file_path,bbox_inches="tight",pad_inches=0.1)
 
-def draw_line_main_3(config):
+def draw_line_main_ML(config):
     def get_y_list_internal(data):
         y_list = []
         sample_rate_list = [0.01,0.03,0.05,0.1,0.15,0.2]
@@ -204,7 +204,7 @@ def draw_line_main(config):
     fig = draw_truncation_line(x_list, y_data)
     # 保存图片
     save_dir = f"exp_image/{dataset_name}"
-    file_name = f"RQ2.pdf"
+    file_name = f"RQ2_new.pdf"
     file_path = os.path.join(save_dir, file_name)
     fig.savefig(file_path,bbox_inches="tight",pad_inches=0.1)
 
@@ -481,8 +481,9 @@ def draw_case_study_bar():
         for class_i in range(global_class_num):
             precision_list = []
             for report in reports:
-                precision = report[str(class_i)]["precision"]
+                precision = report[str(class_i)]["recall"]
                 precision_list.append(precision)
+            precision_list = precision_list[0:5]
             avg_precision = sum(precision_list)/len(precision_list)
             ans.append(avg_precision)           
         return ans
@@ -493,7 +494,7 @@ def draw_case_study_bar():
     # alias_list = ["Car", "Flower", "Food", "Fruit", "Sport", "Weather", "Animal_1", "Animal_2", "Animal_3"]
     root_dir = "/data2/mml/overlap_v2_datasets"
     dataset_name = "animal_2"
-    rate = 0.05
+    rate = 0.03
     global_class_num = 6
     MCCP_report =  joblib.load(os.path.join(root_dir,dataset_name,"MCCP","eval_classes_FangHui.data"))
     HMR_report =  joblib.load(os.path.join(root_dir,dataset_name,"HMR","eval_classes_FangHui.data"))
@@ -504,17 +505,16 @@ def draw_case_study_bar():
     CFL_list = get_class_avg_precision(CFL_report)
     Dummy_list = []
     for class_i in range(global_class_num):
-        Dummy_list.append(Dummy_report[str(class_i)]["precision"])
-
-    fig = plt.figure(figsize=(10,5))  
+        Dummy_list.append(Dummy_report[str(class_i)]["recall"])
+    fig = plt.figure(figsize=(7,4))  
     x_1 = list(range(len(class_list)))
-    bar_width = 0.2 # 柱子宽度
+    bar_width = 0.15 # 柱子宽度
     plt.bar(x_1, MCCP_list, width=bar_width, label="MCCP", fc="red")
     # 第二个柱子的位置
     x_2 = list(range(len(class_list)))
     for i in range(len(x_2)):
         x_2[i] = x_2[i]+bar_width
-    plt.bar(x_2, HMR_list, width=bar_width, label="HMR",tick_label = class_list, fc="green")
+    plt.bar(x_2, HMR_list, width=bar_width, label="HMR", fc="green") # tick_label = class_list
     # 第三个柱子的位置
     x_3 = list(range(len(class_list)))
     for i in range(len(x_3)):
@@ -524,13 +524,15 @@ def draw_case_study_bar():
     x_4 = list(range(len(class_list)))
     for i in range(len(x_4)):
         x_4[i] = x_4[i]+3*bar_width
-    plt.bar(x_4, Dummy_list, width=bar_width, label="Dummy", fc="yellow")
+    plt.bar(x_4, Dummy_list, width=bar_width, label="Dummy", fc="orange")
     plt.xticks(rotation=-15)  
+    ticks_positions = [x+0.5*bar_width for x in x_2]
+    plt.xticks(ticks_positions, class_list)
     # plt.ylim(0.4, 1.0)  
     plt.legend()
     plt.tight_layout()
     plt.show()
-    save_dir = f"exp_image/all"
+    save_dir = f"exp_image/{dataset_name}"
     file_name = "case_study_classes.pdf"
     file_path = os.path.join(save_dir, file_name)
     plt.savefig(file_path)
@@ -540,7 +542,7 @@ def draw_overlap_unqiue_avg_improve_line(config):
 
     dataset_name = config["dataset_name"]
     unique_trained_data = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_unique_v3.data")
-    overlap_trained_datadata = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_overlap_v3.data")
+    overlap_trained_data = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_overlap_v3.data")
     initAcc = joblib.load(f"exp_data/{dataset_name}/initAcc.data") 
     overlap_initAcc = initAcc["overlap_initAcc"]["accuracy"]
     unique_initAcc = initAcc["unique_initAcc"]["accuracy"]
@@ -554,7 +556,7 @@ def draw_overlap_unqiue_avg_improve_line(config):
         u_improve = round(u_improve,4)
         unique_y.append(u_improve)
 
-        avg_o = sum(overlap_trained_datadata["train"][percent])/len(overlap_trained_datadata["train"][percent])
+        avg_o = sum(overlap_trained_data["train"][percent])/len(overlap_trained_data["train"][percent])
         o_improve = avg_o - overlap_initAcc
         o_improve = round(o_improve,4)
         overlap_y.append(o_improve)
@@ -688,7 +690,6 @@ def draw_heatmap():
     f.savefig(file_path, dpi=800, bbox_inches="tight")
 
 def draw_stable_bar(config):
-    
     root_dir = "/data2/mml/overlap_v2_datasets/"
     dataset_name = config["dataset_name"]
     MCCP_trueOrFalse_ans = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_TrueOrFalse_list_FangHui.data"))
@@ -729,13 +730,102 @@ def draw_stable_bar(config):
         matrix = np.append(matrix,data[repeat_i])
     print(matrix)
 
+def draw_classes_improve(config):
+    root_dir = "/data2/mml/overlap_v2_datasets"
+    dataset_name = config["dataset_name"]
+    classes_acc_record = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_classes_FangHui.data"))
+    base_classes_acc = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_merged_test_classes_acc.data"))
+    local_to_global_A = joblib.load(config["local_to_global_party_A_path"])
+    local_to_global_B = joblib.load(config["local_to_global_party_B_path"])
+    global_A = list(local_to_global_A.values())
+    global_B = list(local_to_global_B.values())
+    global_index_list = sorted(list(set(list(set(global_A+global_B)))))
+    global_overlap = sorted(list(set(global_A).intersection(set(global_B))))
+
+    # sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
+    sample_rate = 0.2
+    improve_list = []
+    for global_idx in global_index_list:
+        MCCP_base_precision = base_classes_acc[str(global_idx)]["recall"]
+        avg_improve = 0
+        for repeat_i in range(10):
+            precision = classes_acc_record[sample_rate][repeat_i][str(global_idx)]["recall"]
+            improve = precision - MCCP_base_precision
+            avg_improve += improve
+        avg_improve = avg_improve/10
+        improve_list.append(avg_improve)
+    fig = plt.figure(figsize=(4,3))  
+    x = global_index_list
+    colors = []
+    for global_idx in global_index_list:
+        if global_idx in global_overlap:
+            colors.append("green")
+        else:
+            colors.append("red")
+    bar_width = 0.5 # 柱子宽度
+    tick_label = [f"Class_{str(class_idx)}" for class_idx in global_index_list]
+    plt.bar(x, improve_list, width=bar_width, label="MCCP", tick_label = tick_label, color=colors)
+    plt.grid()
+    plt.xticks(rotation=-15)
+    save_dir = f"exp_image/{dataset_name}"
+    save_file_name = f"classes_improve_{str(sample_rate)}.pdf"
+    save_file_path = os.path.join(save_dir,save_file_name)
+    plt.savefig(save_file_path,bbox_inches='tight')
+
+def draw_Overlap_unique_improve(config):
+    root_dir = "/data2/mml/overlap_v2_datasets"
+    dataset_name = config["dataset_name"]
+    overlap_ans = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_Overlap_FangHui.data"))
+    unique_ans = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_Unique_FangHui.data"))
+    overlap_base = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_overlap_test_acc.data"))
+    unique_base = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_unique_test_acc.data"))
+    sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
+    overlap_improve_list = []
+    unique_improve_list = []
+    for sample_rate in sample_rate_list:
+        avg_overlap_improve = 0
+        avg_unique_improve = 0
+        for repeat_i in range(10):
+            overlap_acc =  overlap_ans[sample_rate][repeat_i]
+            overlap_improve = overlap_acc - overlap_base
+            avg_overlap_improve += overlap_improve
+            unique_acc =  unique_ans[sample_rate][repeat_i]
+            unique_improve = unique_acc - unique_base
+            avg_unique_improve += unique_improve
+        avg_unique_improve /= 10
+        avg_overlap_improve /= 10
+        overlap_improve_list.append(avg_overlap_improve)
+        unique_improve_list.append(avg_unique_improve)
+    plt.figure(figsize=(3,3))
+
+    x_list = ["1%","3%","5%", "10%", "15%", "20%"]
+    # 画线
+    line_1 = plt.plot(x_list, unique_improve_list, label = "unique", color = "red", marker = "x")
+    line_2 = plt.plot(x_list, overlap_improve_list, label = "overlapping", color = "green", marker = "o")
+    # 画网格
+    plt.grid()
+    # 图例
+    plt.legend()
+    # 坐标轴说明
+    plt.xlabel("Sampling ratio", fontproperties = "Times New Roman", fontsize = 12)
+    plt.ylabel("Improved accuracy", fontproperties = "Times New Roman", fontsize = 12)
+    plt.xticks(fontproperties = "Times New Roman", fontsize = 11)
+    plt.xticks(fontproperties = "Times New Roman", fontsize = 11)
+    save_dir = f"exp_image/{dataset_name}"
+    file_name = "discussion_improve_new.pdf"
+    file_path = os.path.join(save_dir, file_name)
+    plt.savefig(file_path, bbox_inches = 'tight', pad_inches = 0.1, dpi=600)
+    print("draw_Overlap_unique_improve() successfully!")
+
+
+    pass
 if __name__ == "__main__":
     # 全局变量区
     config = animal_2_config
-    local_to_global_A = joblib.load(config["local_to_global_party_A_path"])
-    local_to_global_B = joblib.load(config["local_to_global_party_B_path"])
-    print(local_to_global_A)
-    print(local_to_global_B)
+    # local_to_global_A = joblib.load(config["local_to_global_party_A_path"])
+    # local_to_global_B = joblib.load(config["local_to_global_party_B_path"])
+    # print(local_to_global_A)
+    # print(local_to_global_B)
     # draw_overlap_unqiue_avg_improve_line(config)
     # draw_slope(config)
     # draw_overlap_unqiue_initAcc_bar()
@@ -748,8 +838,10 @@ if __name__ == "__main__":
     # draw_box()
     # draw_line_main(config)
     # draw_line_main_2(config)
-    # draw_line_main_3(config)
+    # draw_line_main_ML(config)
     # draw_heatmap()
     # draw_case_study(config)
-    draw_stable_bar(config)
+    # draw_stable_bar(config)
+    draw_classes_improve(config)
+    # draw_Overlap_unique_improve(config)
     pass

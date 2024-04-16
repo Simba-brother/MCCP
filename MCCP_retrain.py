@@ -432,7 +432,111 @@ def app_MCCP_eval_Classes_FangHui():
     print("MCCP evaluation FangHui end")
     return ans
 
-def    app_MCCP_eval_TrueFalse_FangHui():
+def app_MCCP_eval_Overlap_FangHui():
+    sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
+    # 定义出存储结果的数据结构
+    '''
+    ans = {
+        0.01:[],
+        0.03:[]
+    }
+    '''
+    ans = {}
+    for sample_rate in sample_rate_list:
+        ans[sample_rate] = []
+    
+    os.environ['CUDA_VISIBLE_DEVICES']='0'
+    config_tf = tf.compat.v1.ConfigProto()
+    config_tf.gpu_options.allow_growth=True 
+    # config.gpu_options.per_process_gpu_memory_fraction = 0.3
+    session = tf.compat.v1.Session(config=config_tf)
+    set_session(session)
+    config = animal_2_config
+    root_dir = "/data2/mml/overlap_v2_datasets"
+    dataset_name =  config["dataset_name"]
+    setproctitle.setproctitle(f"{dataset_name}|MCCP|eval|FangHui")
+    print(f"dataset_name:{dataset_name}")
+    combin_model = load_model(config["combination_model_path"])
+    df_merged = pd.read_csv(config["merged_df_path"])
+    df_test = pd.read_csv(config["merged_overlap_df"])
+    for sample_rate in sample_rate_list:
+        print(f"sample_rate:{sample_rate}")
+        for repeat_num in range(10):
+            print(f"repeat_num:{repeat_num}")
+            weight_path = os.path.join(root_dir, f"{dataset_name}", "MCCP", "trained_weights_FangHui", str(int(sample_rate*100)), f"weight_{repeat_num}.h5")
+            adam = Adam(learning_rate=config["combiantion_lr"], beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
+            combin_model.compile(optimizer=adam,loss="categorical_crossentropy",metrics="accuracy")
+            combin_model.load_weights(weight_path)
+            mccp_eval = MCCP_Eval(combin_model, dataset_name, df_merged, df_test)
+            eval_res = mccp_eval.eval(
+                target_size_A = config["target_size_A"],
+                target_size_B = config["target_size_B"],
+                generator_A_test = config["generator_A_test"],
+                generator_B_test = config["generator_B_test"])
+            acc = eval_res["accuracy"]
+            ans[sample_rate].append(acc)
+    
+    save_dir = os.path.join(root_dir, dataset_name, "MCCP")
+    save_file_name = f"eval_ans_Overlap_FangHui.data"
+    save_file_path = os.path.join(save_dir, save_file_name)
+    joblib.dump(ans, save_file_path)
+    print(f"save_file_path:{save_file_path}")
+    print("MCCP evaluation FangHui end")
+    return ans  
+
+def app_MCCP_eval_Unique_FangHui():
+    sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
+    # 定义出存储结果的数据结构
+    '''
+    ans = {
+        0.01:[],
+        0.03:[]
+    }
+    '''
+    ans = {}
+    for sample_rate in sample_rate_list:
+        ans[sample_rate] = []
+    
+    os.environ['CUDA_VISIBLE_DEVICES']='1'
+    config_tf = tf.compat.v1.ConfigProto()
+    config_tf.gpu_options.allow_growth=True 
+    # config.gpu_options.per_process_gpu_memory_fraction = 0.3
+    session = tf.compat.v1.Session(config=config_tf)
+    set_session(session)
+    config = animal_2_config
+    root_dir = "/data2/mml/overlap_v2_datasets"
+    dataset_name =  config["dataset_name"]
+    setproctitle.setproctitle(f"{dataset_name}|MCCP|eval|FangHui")
+    print(f"dataset_name:{dataset_name}")
+    combin_model = load_model(config["combination_model_path"])
+    df_merged = pd.read_csv(config["merged_df_path"])
+    df_test = pd.read_csv(config["merged_unique_df"])
+    for sample_rate in sample_rate_list:
+        print(f"sample_rate:{sample_rate}")
+        for repeat_num in range(10):
+            print(f"repeat_num:{repeat_num}")
+            weight_path = os.path.join(root_dir, f"{dataset_name}", "MCCP", "trained_weights_FangHui", str(int(sample_rate*100)), f"weight_{repeat_num}.h5")
+            adam = Adam(learning_rate=config["combiantion_lr"], beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
+            combin_model.compile(optimizer=adam,loss="categorical_crossentropy",metrics="accuracy")
+            combin_model.load_weights(weight_path)
+            mccp_eval = MCCP_Eval(combin_model, dataset_name, df_merged, df_test)
+            eval_res = mccp_eval.eval(
+                target_size_A = config["target_size_A"],
+                target_size_B = config["target_size_B"],
+                generator_A_test = config["generator_A_test"],
+                generator_B_test = config["generator_B_test"])
+            acc = eval_res["accuracy"]
+            ans[sample_rate].append(acc)
+    
+    save_dir = os.path.join(root_dir, dataset_name, "MCCP")
+    save_file_name = f"eval_ans_Unique_FangHui.data"
+    save_file_path = os.path.join(save_dir, save_file_name)
+    joblib.dump(ans, save_file_path)
+    print(f"save_file_path:{save_file_path}")
+    print("MCCP evaluation FangHui end")
+    return ans  
+
+def app_MCCP_eval_TrueFalse_FangHui():
     sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
     # 定义出存储结果的数据结构
     '''
@@ -485,7 +589,6 @@ def    app_MCCP_eval_TrueFalse_FangHui():
     print(f"save_file_path:{save_file_path}")
     print("MCCP evaluation FangHui end")
     return ans
-
 
 def app_MCCP_init_overlap_merged_acc():    
     os.environ['CUDA_VISIBLE_DEVICES']='0'
@@ -583,15 +686,119 @@ def app_MCCP_init_merged_acc():
     print("app_MCCP_init_merged_acc end")
     return acc
 
+def app_MCCP_init_overlap_acc():    
+    os.environ['CUDA_VISIBLE_DEVICES']='2'
+    config_tf = tf.compat.v1.ConfigProto()
+    config_tf.gpu_options.allow_growth=True 
+    # config.gpu_options.per_process_gpu_memory_fraction = 0.3
+    session = tf.compat.v1.Session(config=config_tf)
+    set_session(session)
+    config = animal_2_config
+    root_dir = "/data2/mml/overlap_v2_datasets"
+    dataset_name =  config["dataset_name"]
+    setproctitle.setproctitle(f"{dataset_name}|MCCP|merged|init")
+    print(f"dataset_name:{dataset_name}")
+    combin_model = load_model(config["combination_model_path"])
+    df_merged = pd.read_csv(config["merged_df_path"])
+    df_test = pd.read_csv(config["merged_overlap_df"])
+    adam = Adam(learning_rate=config["combiantion_lr"], beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
+    combin_model.compile(optimizer=adam,loss="categorical_crossentropy",metrics="accuracy")  
+    mccp_eval = MCCP_Eval(combin_model, dataset_name, df_merged, df_test)
+    eval_res = mccp_eval.eval(
+        target_size_A = config["target_size_A"],
+        target_size_B = config["target_size_B"],
+        generator_A_test = config["generator_A_test"],
+        generator_B_test = config["generator_B_test"])
+    acc = eval_res["accuracy"]
+    save_dir = os.path.join(root_dir, dataset_name, "MCCP")
+    save_file_name = f"init_overlap_test_acc.data"
+    save_file_path = os.path.join(save_dir, save_file_name)
+    joblib.dump(acc, save_file_path)
+    print(f"save_file_path:{save_file_path}")
+    print("app_MCCP_init_overlap_acc end")
+    return acc
+
+def app_MCCP_init_unique_acc():    
+    os.environ['CUDA_VISIBLE_DEVICES']='3'
+    config_tf = tf.compat.v1.ConfigProto()
+    config_tf.gpu_options.allow_growth=True 
+    # config.gpu_options.per_process_gpu_memory_fraction = 0.3
+    session = tf.compat.v1.Session(config=config_tf)
+    set_session(session)
+    config = animal_2_config
+    root_dir = "/data2/mml/overlap_v2_datasets"
+    dataset_name =  config["dataset_name"]
+    setproctitle.setproctitle(f"{dataset_name}|MCCP|merged|init")
+    print(f"dataset_name:{dataset_name}")
+    combin_model = load_model(config["combination_model_path"])
+    df_merged = pd.read_csv(config["merged_df_path"])
+    df_test = pd.read_csv(config["merged_unique_df"])
+    adam = Adam(learning_rate=config["combiantion_lr"], beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
+    combin_model.compile(optimizer=adam,loss="categorical_crossentropy",metrics="accuracy")  
+    mccp_eval = MCCP_Eval(combin_model, dataset_name, df_merged, df_test)
+    eval_res = mccp_eval.eval(
+        target_size_A = config["target_size_A"],
+        target_size_B = config["target_size_B"],
+        generator_A_test = config["generator_A_test"],
+        generator_B_test = config["generator_B_test"])
+    acc = eval_res["accuracy"]
+    save_dir = os.path.join(root_dir, dataset_name, "MCCP")
+    save_file_name = f"init_unique_test_acc.data"
+    save_file_path = os.path.join(save_dir, save_file_name)
+    joblib.dump(acc, save_file_path)
+    print(f"save_file_path:{save_file_path}")
+    print("app_MCCP_init_overlap_acc end")
+    return acc
+
+
+def app_MCCP_init_merged_classes_acc():
+    os.environ['CUDA_VISIBLE_DEVICES']='1'
+    config_tf = tf.compat.v1.ConfigProto()
+    config_tf.gpu_options.allow_growth=True 
+    # config.gpu_options.per_process_gpu_memory_fraction = 0.3
+    session = tf.compat.v1.Session(config=config_tf)
+    set_session(session)
+    config = animal_2_config
+    root_dir = "/data2/mml/overlap_v2_datasets"
+    dataset_name =  config["dataset_name"]
+    setproctitle.setproctitle(f"{dataset_name}|MCCP|merged|init")
+    print(f"dataset_name:{dataset_name}")
+    combin_model = load_model(config["combination_model_path"])
+    df_merged = pd.read_csv(config["merged_df_path"])
+    true_labels = df_merged["label_globalIndex"].values
+    adam = Adam(learning_rate=config["combiantion_lr"], beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False)
+    combin_model.compile(optimizer=adam,loss="categorical_crossentropy",metrics="accuracy")  
+    mccp_eval = MCCP_Eval(combin_model, dataset_name, df_merged, df_merged)
+    predict_output = mccp_eval.predict_output(
+        target_size_A = config["target_size_A"],
+        target_size_B = config["target_size_B"],
+        generator_A_test = config["generator_A_test"],
+        generator_B_test = config["generator_B_test"])
+    predict_labels = np.argmax(predict_output, axis=1)
+    report = classification_report(true_labels, predict_labels, output_dict=True)
+    save_dir = os.path.join(root_dir, dataset_name, "MCCP")
+    save_file_name = f"init_merged_test_classes_acc.data"
+    save_file_path = os.path.join(save_dir, save_file_name)
+    joblib.dump(report, save_file_path)
+    print(f"save_file_path:{save_file_path}")
+    print("app_MCCP_init_merged_classes_acc end")
+    return report
+
+
+
 if __name__ == "__main__":
     # app_MCCP_retrain()
     # app_MCCP_eval()
     # app_MCCP_retrain_FangHui()
     # app_MCCP_eval_FangHui()
     # app_MCCP_eval_Classes_FangHui()
-    app_MCCP_eval_TrueFalse_FangHui()
+    # app_MCCP_eval_TrueFalse_FangHui()
     # app_MCCP_init_overlap_merged_acc()
     # app_MCCP_init_unique_merged_acc()
     # app_MCCP_init_merged_acc()
-
+    # app_MCCP_init_merged_classes_acc()
+    # app_MCCP_eval_Overlap_FangHui()
+    # app_MCCP_eval_Unique_FangHui()
+    app_MCCP_init_overlap_acc()
+    # app_MCCP_init_unique_acc()
     pass

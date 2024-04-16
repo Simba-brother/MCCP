@@ -30,10 +30,10 @@ def stat_WTL(root_dir, config, save_path):
                 ans[method][sample_rate][dataset_name] = None
 
     for dataset_name in dataset_name_list:
-        MCCP_eval_data = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_FangHui.data"))
-        HMR_eval_data = joblib.load(os.path.join(root_dir, dataset_name, "HMR", "eval_ans_FangHui.data"))
-        CFL_eval_data = joblib.load(os.path.join(root_dir, dataset_name, "CFL", "eval_ans_FangHui.data"))
-        Dummy_eval_data = joblib.load(os.path.join(root_dir, dataset_name, "Dummy", "eval_ans_FangHui.data"))
+        MCCP_eval_data = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans.data"))
+        HMR_eval_data = joblib.load(os.path.join(root_dir, dataset_name, "HMR", "eval_ans.data"))
+        CFL_eval_data = joblib.load(os.path.join(root_dir, dataset_name, "CFL", "eval_ans.data"))
+        Dummy_eval_data = joblib.load(os.path.join(root_dir, dataset_name, "Dummy", "eval_ans.data"))
         for sample_rate in sample_rate_list:
             MCCP_eval_list = MCCP_eval_data[sample_rate]
             HMR_eval_list = HMR_eval_data[sample_rate]
@@ -97,7 +97,7 @@ if __name__ == "__main__":
     root_dir = "/data2/mml/overlap_v2_datasets"
     save_dir = os.path.join("exp_data", "all")
     makedir_help(save_dir)
-    save_file_name = "WTL.data"
+    save_file_name = "WTL_split.data"
     save_path = os.path.join(save_dir, save_file_name)
     ans = stat_WTL(root_dir, config_2, save_path)
 
