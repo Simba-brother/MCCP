@@ -84,12 +84,10 @@ class Dummy(object):
         pseudo_labels = np.array(pseudo_labels)
         return pseudo_labels
     
-def app_Dummy():
-    os.environ['CUDA_VISIBLE_DEVICES']='0'
-    config = animal_3_config
+def app_Dummy_NoFangHui(config):
     dataset_name = config["dataset_name"]
     root_dir = "/data2/mml/overlap_v2_datasets/"
-    setproctitle.setproctitle(f"{dataset_name}|Dummy|eval")
+    setproctitle.setproctitle(f"{dataset_name}|Dummy|eval|noFangHui")
     test_dir = f"exp_data/{dataset_name}/sampling/percent/random_split/test"
     df_test = pd.read_csv(os.path.join(test_dir, "test.csv"))
     generator_A_test = config["generator_A_test"]
@@ -103,11 +101,11 @@ def app_Dummy():
     acc = dummy.integrate(generator_A_test,  generator_B_test, target_size_A, target_size_B, local_to_global_A, local_to_global_B)
     save_dir = os.path.join(root_dir, dataset_name, "Dummy")
     makedir_help(save_dir)
-    save_file_name = f"eval_ans.data"
+    save_file_name = f"eval_ans_NoFangHui.data"
     save_file_path = os.path.join(save_dir, save_file_name)
     joblib.dump(acc, save_file_path)
     print(f"save_file_path:{save_file_path}")
-    print("Dummy evaluation end")
+    print("app_Dummy_NoFangHui end")
     return acc
 
 def app_Dummy_FangHui():
@@ -172,7 +170,15 @@ def app_Dummy_classes_FangHui():
     return report
 
 if __name__ == "__main__":
-    # app_Dummy()
+    os.environ['CUDA_VISIBLE_DEVICES']='6'
+    # tf设置GPU内存分配
+    config_tf = tf.compat.v1.ConfigProto()
+    config_tf.gpu_options.allow_growth=True 
+    # config.gpu_options.per_process_gpu_memory_fraction = 0.3
+    session = tf.compat.v1.Session(config=config_tf)
+    set_session(session)
+    config = flower_2_config
+    app_Dummy_NoFangHui(config)
     # app_Dummy_FangHui()
-    app_Dummy_classes_FangHui()
+    # app_Dummy_classes_FangHui()
     pass

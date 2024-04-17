@@ -170,12 +170,11 @@ class CFL_Eval(object):
         return output_predict
 
 
-def app_CFL_retrain():
-    os.environ['CUDA_VISIBLE_DEVICES']='4'
+def app_CFL_retrain_NoFangHui(config):
     root_dir = "/data2/mml/overlap_v2_datasets/"
-    config = animal_3_config
+    repeat_num = 10
     dataset_name = config["dataset_name"]
-    setproctitle.setproctitle(f"{dataset_name}|CFL")
+    setproctitle.setproctitle(f"{dataset_name}|CFL|retrain|NoFanghui")
     train_dir = f"exp_data/{dataset_name}/sampling/percent/random_split/train"
     test_dir = f"exp_data/{dataset_name}/sampling/percent/random_split/test"
     df_test = pd.read_csv(os.path.join(test_dir, "test.csv"))
@@ -201,8 +200,8 @@ def app_CFL_retrain():
     sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
     for sample_rate in sample_rate_list:
         sample_rate_dir = os.path.join(train_dir, str(int(sample_rate*100)))
-        for repeat_num in range(5):
-            df_retrain = pd.read_csv(os.path.join(sample_rate_dir, f"sample_{repeat_num}.csv"))
+        for repeat_i in range(repeat_num):
+            df_retrain = pd.read_csv(os.path.join(sample_rate_dir, f"sample_{repeat_i}.csv"))
              # 加载模型
             model_A = load_model(config["model_A_struct_path"])
             if not config["model_A_weight_path"] is None:
@@ -235,14 +234,14 @@ def app_CFL_retrain():
                 local_to_global_party_B = local_to_global_party_B,
                 all_class_nums = all_class_nums
                 )
-            
-            save_dir = os.path.join(root_dir, dataset_name, "CFL", "trained_weights", str(int(sample_rate*100)))
+            save_dir = os.path.join(root_dir, dataset_name, 
+                                    "CFL", "trained_weights_NoFangHui", str(int(sample_rate*100)))
             makedir_help(save_dir)
-            save_file_name = f"weight_{repeat_num}.h5"
+            save_file_name = f"weight_{repeat_i}.h5"
             save_file_path = os.path.join(save_dir, save_file_name)
             model.save_weights(save_file_path)
             print(f"save_file_path:{save_file_path}")
-    print("==========CFL retraining ends==========")
+    print("app_CFL_retrain_NoFangHui end")
 
 def app_CFL_retrain_FangHui():
     os.environ['CUDA_VISIBLE_DEVICES']='2'
@@ -323,8 +322,9 @@ def app_CFL_retrain_FangHui():
     print("==========CFL retraining FangHui ends==========")
 
 
-def app_CFL_eval():
+def app_CFL_eval_NoFangHui(config):
     sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
+    repeat_num = 10
     # 定义出存储结果的数据结构
     '''
     ans = {
@@ -335,11 +335,9 @@ def app_CFL_eval():
     ans = {}
     for sample_rate in sample_rate_list:
         ans[sample_rate] = []
-    os.environ['CUDA_VISIBLE_DEVICES']='4'
     root_dir = "/data2/mml/overlap_v2_datasets/"
-    config = animal_3_config
     dataset_name = config["dataset_name"]
-    setproctitle.setproctitle(f"{dataset_name}|CFL|eval")
+    setproctitle.setproctitle(f"{dataset_name}|CFL|eval|NoFangHui")
     test_dir = f"exp_data/{dataset_name}/sampling/percent/random_split/test"
     df_test = pd.read_csv(os.path.join(test_dir, "test.csv"))
     generator_stu_test = ImageDataGenerator(rescale=1/255.)
@@ -354,10 +352,10 @@ def app_CFL_eval():
     stu_model = load_model(config["stu_model_path"])
     for sample_rate in sample_rate_list:
         print(f"sample_rate:{sample_rate}")
-        for repeat_num in range(5):
-            print(f"repeat_num:{repeat_num}")
+        for repeat_i in range(repeat_num):
+            print(f"repeat_num:{repeat_i}")
             # /data2/mml/overlap_v2_datasets/car_body_style/CFL/trained_weights/1/weight_0.h5
-            weight_path = os.path.join(root_dir,f"{dataset_name}", "CFL", "trained_weights", str(int((sample_rate*100))), f"weight_{repeat_num}.h5")
+            weight_path = os.path.join(root_dir,f"{dataset_name}", "CFL", "trained_weights_NoFangHui", str(int((sample_rate*100))), f"weight_{repeat_i}.h5")
             stu_model.compile(loss=categorical_crossentropy,optimizer=Adamax(learning_rate=1e-3),metrics=['accuracy'])
             stu_model.load_weights(weight_path)
             cfl_eval = CFL_Eval(stu_model, df_test)
@@ -365,11 +363,11 @@ def app_CFL_eval():
             acc = eval_res["accuracy"]
             ans[sample_rate].append(acc)
     save_dir = os.path.join(root_dir, dataset_name, "CFL")
-    save_file_name = f"eval_ans.data"
+    save_file_name = f"eval_ans_NoFangHui.data"
     save_file_path = os.path.join(save_dir, save_file_name)
     joblib.dump(ans, save_file_path)
     print(f"save_file_path:{save_file_path}")
-    print("CFL evaluation end")
+    print("app_CFL_eval_NoFangHui end")
     return ans
 
 def app_CFL_eval_FangHui():
@@ -481,11 +479,23 @@ def app_CFL_eval_Classes_FangHui():
     print("CFL evaluation FangHui end")
     return ans
 if __name__ == "__main__":
-    # app_CFL_retrain()
-    # app_CFL_eval()
+    # 设置GPU id
+    os.environ['CUDA_VISIBLE_DEVICES']='3'
+    # tf设置GPU内存分配
+    config_tf = tf.compat.v1.ConfigProto()
+    config_tf.gpu_options.allow_growth=True 
+    # config.gpu_options.per_process_gpu_memory_fraction = 0.3
+    session = tf.compat.v1.Session(config=config_tf)
+    set_session(session)
+    # 倒入数据集相关配置
+    config = flower_2_config
+    # NoFangHui HMR train application
+    app_CFL_retrain_NoFangHui(config)
+    # NoFangHui CFL eval application
+    # app_CFL_eval_NoFangHui(config)
     # app_CFL_retrain_FangHui()
     # app_CFL_eval_FangHui()
-    app_CFL_eval_Classes_FangHui()
+    # app_CFL_eval_Classes_FangHui()
     pass
     
 

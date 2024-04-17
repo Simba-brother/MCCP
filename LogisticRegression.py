@@ -388,10 +388,12 @@ if __name__ == "__main__":
     # config.gpu_options.per_process_gpu_memory_fraction = 0.3
     session = tf.compat.v1.Session(config=config_tf)
     set_session(session)
+    # combin probability output
     # app_LR_train()
     # app_LR_eval()
+    # combin the last hidden layer output features
     # app_LR2_train()
-    app_LR2_eval()
+    # app_LR2_eval()
 
 
 

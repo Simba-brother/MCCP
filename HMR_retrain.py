@@ -228,12 +228,11 @@ class HMR_Eval(object):
         # output_predict = np.argmax(proba_vector,axis=1)
         return proba_vector
 
-def app_HMR_retrain():
-    os.environ['CUDA_VISIBLE_DEVICES']='2'
+def app_HMR_retrain_NoFangHui(config):
     root_dir = "/data2/mml/overlap_v2_datasets/"
-    config = car_body_style_config
     dataset_name = config["dataset_name"]
-    setproctitle.setproctitle(f"{dataset_name}|HMR|retrain")
+    setproctitle.setproctitle(f"{dataset_name}|HMR|retrain|NoFangHui")
+    repeat_num = 10
     class_name_list_A = getClasses(config["dataset_A_train_path"]) # sorted
     class_name_list_B = getClasses(config["dataset_B_train_path"]) # sorted
     generator_A = config["generator_A"]
@@ -244,8 +243,8 @@ def app_HMR_retrain():
     sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
     for sample_rate in sample_rate_list:
         sample_rate_dir = os.path.join(train_dir,str(int(sample_rate*100))) 
-        for repeat_num in range(5):
-            df_retrain = pd.read_csv(os.path.join(sample_rate_dir, f"sample_{repeat_num}.csv"))
+        for repeat_i in range(repeat_num):
+            df_retrain = pd.read_csv(os.path.join(sample_rate_dir, f"sample_{repeat_i}.csv"))
             model_A_extend, model_B_extend = load_models_pool(config) # 添加新类和编译
             hmr_retrain = HMR_Retrain(model_A_extend,model_B_extend,df_retrain)
             model_A_extend_retrained = hmr_retrain.train_A(
@@ -260,17 +259,17 @@ def app_HMR_retrain():
                 class_name_list=class_name_list_B, 
                 generator_train = generator_B, 
                 target_size=target_size_B)
-            save_dir = os.path.join(root_dir, dataset_name, "HMR", "trained_weights", str(int(sample_rate*100)))
+            save_dir = os.path.join(root_dir, dataset_name, "HMR", "trained_weights_NoFangHui", str(int(sample_rate*100)))
             makedir_help(save_dir)
-            save_file_name = f"model_A_weight_{repeat_num}.h5"
+            save_file_name = f"model_A_weight_{repeat_i}.h5"
             save_file_path = os.path.join(save_dir, save_file_name)
             model_A_extend_retrained.save_weights(save_file_path)
             print(f"save_file_path:{save_file_path}")
-            save_file_name = f"model_B_weight_{repeat_num}.h5"
+            save_file_name = f"model_B_weight_{repeat_i}.h5"
             save_file_path = os.path.join(save_dir, save_file_name)
             model_B_extend_retrained.save_weights(save_file_path)
             print(f"save_file_path:{save_file_path}")
-    print("app HMR retraining end")            
+    print("app_HMR_retrain_NoFangHui")            
             
 def app_HMR_retrain_FangHui():
     os.environ['CUDA_VISIBLE_DEVICES']='0'
@@ -321,8 +320,9 @@ def app_HMR_retrain_FangHui():
             print(f"save_file_path:{save_file_path}")
     print("app HMR retraining FangHui end")
 
-def app_HMR_eval():
+def app_HMR_eval_NoFangHui(config):
     sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
+    repeat_num = 10
     # 定义出存储结果的数据结构
     '''
     ans = {
@@ -333,13 +333,10 @@ def app_HMR_eval():
     ans = {}
     for sample_rate in sample_rate_list:
         ans[sample_rate] = []
-    
-    os.environ['CUDA_VISIBLE_DEVICES']='7'
     root_dir = "/data2/mml/overlap_v2_datasets/"
-    config = sport_config
     dataset_name =  config["dataset_name"]
     model_A_extend, model_B_extend = load_models_pool(config) # 构建和编译
-    setproctitle.setproctitle(f"{dataset_name}|HMR|eval")
+    setproctitle.setproctitle(f"{dataset_name}|HMR|eval|NoFangHui")
     test_dir = f"exp_data/{dataset_name}/sampling/percent/random_split/test"
     df_test = pd.read_csv(os.path.join(test_dir, "test.csv"))
     class_name_list_A = getClasses(config["dataset_A_train_path"]) # sorted
@@ -356,9 +353,9 @@ def app_HMR_eval():
     local_to_global_party_A = joblib.load(config["local_to_global_party_A_path"])
     local_to_global_party_B = joblib.load(config["local_to_global_party_B_path"])
     for sample_rate in sample_rate_list:
-        for repeat_num in range(5):
-            weight_A_path = os.path.join(root_dir, f"{dataset_name}", "HMR", "trained_weights", str(int(sample_rate*100)), f"model_A_weight_{repeat_num}.h5")
-            weight_B_path = os.path.join(root_dir, f"{dataset_name}", "HMR", "trained_weights", str(int(sample_rate*100)), f"model_B_weight_{repeat_num}.h5")
+        for repeat_i in range(repeat_num):
+            weight_A_path = os.path.join(root_dir, f"{dataset_name}", "HMR", "trained_weights_NoFangHui", str(int(sample_rate*100)), f"model_A_weight_{repeat_i}.h5")
+            weight_B_path = os.path.join(root_dir, f"{dataset_name}", "HMR", "trained_weights_NoFangHui", str(int(sample_rate*100)), f"model_B_weight_{repeat_i}.h5")
             model_A_extend.load_weights(weight_A_path)
             model_B_extend.load_weights(weight_B_path)
             hmr_eval = HMR_Eval(model_A_extend, model_B_extend, df_test)
@@ -372,11 +369,11 @@ def app_HMR_eval():
                 local_to_global_party_B)
             ans[sample_rate].append(acc)
     save_dir = os.path.join(root_dir, dataset_name, "HMR")
-    save_file_name = f"eval_ans.data"
+    save_file_name = f"eval_ans_NoFangHui.data"
     save_file_path = os.path.join(save_dir, save_file_name)
     joblib.dump(ans, save_file_path)
     print(f"save_file_path:{save_file_path}")
-    print("HMR evaluation end")
+    print("app_HMR_eval_NoFangHui end")
     return ans
 
 def app_HMR_eval_FangHui():
@@ -607,10 +604,22 @@ def app_HMR_eval_initial():
 
 
 if __name__ == "__main__":
-    # app_HMR_retrain()
-    # app_HMR_eval()
+    # 设置GPU id
+    os.environ['CUDA_VISIBLE_DEVICES']='2'
+    # tf设置GPU内存分配
+    config_tf = tf.compat.v1.ConfigProto()
+    config_tf.gpu_options.allow_growth=True 
+    # config.gpu_options.per_process_gpu_memory_fraction = 0.3
+    session = tf.compat.v1.Session(config=config_tf)
+    set_session(session)
+    # 倒入数据集相关配置
+    config = flower_2_config
+    # NoFangHui HMR train application
+    app_HMR_retrain_NoFangHui(config)
+    # NoFangHui HMR eval application
+    # app_HMR_eval_NoFangHui(config)
     # app_HMR_eval_initial()
     # app_HMR_retrain_FangHui()
-    app_HMR_eval_FangHui()
+    # app_HMR_eval_FangHui()
     # app_HMR_eval_TrueFalse_FangHui()
     # app_HMR_eval_classes_FangHui()
