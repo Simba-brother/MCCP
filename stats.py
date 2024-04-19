@@ -510,7 +510,7 @@ def calc_correlation():
     corr = df.corr(method='spearman', min_periods=1)
     new_corr = corr.iloc[0:4,4:10]
     save_dir = "exp_data/all"
-    file_name = "spearman_corr.csv"
+    file_name = "spearman_corr_new.csv"
     file_path = os.path.join(save_dir, file_name)
     new_corr.to_csv(file_path)
     print("calc_correlation successfully!")
@@ -558,6 +558,7 @@ def test():
     pass
 
 if __name__ == "__main__":
+    '''
     os.environ['CUDA_VISIBLE_DEVICES']='3'
     config = animal_3_config
     Base_acc_config = Base_acc.animal_3
@@ -583,6 +584,7 @@ if __name__ == "__main__":
     all_classes_list.sort()
     # 总分类数
     all_classes_num = len(all_classes_list)
+    '''
 
     # ans = ourMethod_init_acc(config)
     # save_dir = f"exp_data/{dataset_name}"
@@ -601,7 +603,7 @@ if __name__ == "__main__":
     # file_path = os.path.join(save_dir, file_name)
     # df_v.to_csv(file_path)
 
-    # calc_correlation()
+    calc_correlation()
 
     # train_acc = get_eval_data()
     # save_dir = f"exp_data/{dataset_name}/retrainResult/percent/OurCombin"

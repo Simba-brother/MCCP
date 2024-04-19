@@ -490,9 +490,9 @@ if __name__ == "__main__":
     # 倒入数据集相关配置
     config = flower_2_config
     # NoFangHui HMR train application
-    app_CFL_retrain_NoFangHui(config)
+    # app_CFL_retrain_NoFangHui(config)
     # NoFangHui CFL eval application
-    # app_CFL_eval_NoFangHui(config)
+    app_CFL_eval_NoFangHui(config)
     # app_CFL_retrain_FangHui()
     # app_CFL_eval_FangHui()
     # app_CFL_eval_Classes_FangHui()

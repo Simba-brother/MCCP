@@ -173,8 +173,8 @@ if __name__ == "__main__":
     save_file_name = "WTL_ML_FangHui.data"
     save_path = os.path.join(save_dir, save_file_name)
     # ans = stat_WTL(root_dir, config_2, save_path)
-    # ans = stat_WTL_NoFangHui(root_dir, config_2, save_path)
-    ans = stat_WTL_machine_learning(root_dir, config_2, save_path)
-x
+    ans = stat_WTL_NoFangHui(root_dir, config_2, save_path)
+    # ans = stat_WTL_machine_learning(root_dir, config_2, save_path)
+
 
     

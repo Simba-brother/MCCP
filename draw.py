@@ -128,7 +128,7 @@ def draw_line_main_FangHui(config):
     x_list = ["1%","3%","5%", "10%", "15%", "20%"]
     root_dir = "/data2/mml/overlap_v2_datasets"
     MCCP_res = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_FangHui.data"))
-    HMR_res = joblib.load(os.path.join(root_dir, dataset_name, "HMR", "eval_ans_FangHu.data"))
+    HMR_res = joblib.load(os.path.join(root_dir, dataset_name, "HMR", "eval_ans_FangHui.data"))
     CFL_res = joblib.load(os.path.join(root_dir, dataset_name, "CFL", "eval_ans_FangHui.data"))
     Dummy_res = joblib.load(os.path.join(root_dir, dataset_name, "Dummy", "eval_ans_FangHui.data"))
     MCCP_y_list = get_y_list_internal(MCCP_res)
@@ -356,6 +356,56 @@ def draw_box():
     file_name = "box.pdf"
     file_path = os.path.join(save_dir, file_name)
     # plt.savefig(file_path, bbox_inches = 'tight',pad_inches = 0.1)
+    print("draw_box successfully!")
+
+
+def draw_box_update(config):
+    root_dir = "/data2/mml/overlap_v2_datasets"
+    dataset_name = config["dataset_name"]
+    labels = '1%', '3%', '5%', '10%', '15%', '20%'
+    ans = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_FangHui.data"))
+    # train_acc = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_acc_v3.data")
+    A = ans[0.01]
+    # 计算方差
+    var_A = np.var(A)
+    B = ans[0.03]
+    var_B = np.var(B)
+    C = ans[0.05]
+    var_C = np.var(C)
+    D = ans[0.1]
+    var_D = np.var(D)
+    E = ans[0.15]
+    var_E = np.var(E)
+    F = ans[0.2]
+    var_F = np.var(F)
+    print(format(var_A,".3E"))
+    print(format(var_B,".3E"))
+    print(format(var_C,".3E"))
+    print(format(var_D,".3E"))
+    print(format(var_E,".3E"))
+    print(format(var_F,".3E"))
+    data = [A, B, C, D, E, F]
+    plt.figure(figsize=(3,3),dpi=600)
+    plt.grid(True)  # 显示网格
+    plt.boxplot(data,
+                widths=0.4,
+                medianprops={'color': 'red', 'linewidth': '1.5'}, # 设置中位数的属性，如线的类型、粗细等；
+                showmeans=True,
+                meanline=False,
+                # meanline=True,
+                # meanprops={'color': 'blue', 'ls': '--', 'linewidth': '1.5'},
+                flierprops={"marker": "o", "markerfacecolor": "red", "markersize": 10}, # 设置异常值的属性，如异常点的形状、大小、填充色等
+                labels=labels)
+    # plt.yticks(np.arange(0.4, 0.81, 0.1))
+    plt.xticks(fontproperties = 'Times New Roman', size = 11)
+    plt.yticks(fontproperties = 'Times New Roman', size = 11)
+    plt.xlabel("Sampling ratio", fontproperties = "Times New Roman", fontsize = 12)
+    plt.ylabel("Accuracy", fontproperties = "Times New Roman", fontsize = 12)
+    plt.show()
+    save_dir = f"exp_image/{dataset_name}"
+    file_name = "box_update.pdf"
+    file_path = os.path.join(save_dir, file_name)
+    plt.savefig(file_path, bbox_inches = 'tight',pad_inches = 0.1)
     print("draw_box successfully!")
 
 def draw_overlap_unqiue_initAcc_bar():
@@ -613,6 +663,46 @@ def draw_overlap_unqiue_avg_improve_line(config):
     plt.savefig(file_path, bbox_inches = 'tight', pad_inches = 0.1, dpi=600)
     print("draw_overlap_unqiue_avg_improve_line() successfully!")
 
+def draw_overlap_unqiue_avg_improve_line_update(config):
+    root_dir = "/data2/mml/overlap_v2_datasets"
+    dataset_name = config["dataset_name"]
+    overlap = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_Overlap_FangHui.data"))
+    init_overlap = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_overlap_test_acc.data"))    
+    unique_y = []
+    overlap_y = []
+    sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
+    for sample_rate in sample_rate_list:
+        avg_u = sum(unique_trained_data["train"][percent])/len(unique_trained_data["train"][percent])
+        u_improve = avg_u - unique_initAcc
+        u_improve = round(u_improve,4)
+        unique_y.append(u_improve)
+
+        avg_o = sum(overlap_trained_data["train"][percent])/len(overlap_trained_data["train"][percent])
+        o_improve = avg_o - overlap_initAcc
+        o_improve = round(o_improve,4)
+        overlap_y.append(o_improve)
+    plt.figure(figsize=(3,3))
+
+    x_list = ["1%","3%","5%", "10%", "15%", "20%"]
+    # 画线
+    line_1 = plt.plot(x_list, unique_y, label = "unique", color = "red", marker = "x")
+    line_2 = plt.plot(x_list, overlap_y, label = "overlapping", color = "green", marker = "o")
+    # 画网格
+    plt.grid()
+    # 图例
+    plt.legend()
+    # 坐标轴说明
+    plt.xlabel("Sampling ratio", fontproperties = "Times New Roman", fontsize = 12)
+    plt.ylabel("Improved accuracy", fontproperties = "Times New Roman", fontsize = 12)
+    plt.xticks(fontproperties = "Times New Roman", fontsize = 11)
+    plt.xticks(fontproperties = "Times New Roman", fontsize = 11)
+    save_dir = f"exp_image/{dataset_name}"
+    file_name = "unique_overlap_improve.pdf"
+    file_path = os.path.join(save_dir, file_name)
+    plt.savefig(file_path, bbox_inches = 'tight', pad_inches = 0.1, dpi=600)
+    print("draw_overlap_unqiue_avg_improve_line_update() successfully!")
+
+
 def draw_unique_overlap_avg_line():
     dataset_name = config["dataset_name"]
     unique_data = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_unique_v3.data")
@@ -698,7 +788,7 @@ def draw_slope(config):
     print(slope)
 
 def draw_heatmap():
-    spearman_corr = pd.read_csv("exp_data/all/spearman_corr.csv", index_col=0)
+    spearman_corr = pd.read_csv("exp_data/all/spearman_corr_new.csv", index_col=0)
     # mask = np.zeros_like(spearman_corr, dtype=np.bool)  # 定义一个大小一致全为零的矩阵  用布尔类型覆盖原来的类型
     # mask[np.triu_indices_from(mask)]= True  #返回矩阵的上三角，并将其设置为true
     # cmap = sns.diverging_palette(230, 20, as_cmap=True)
@@ -716,7 +806,7 @@ def draw_heatmap():
                 )
     ax.set_yticklabels(ax.get_yticklabels(), rotation=360)
     save_dir = "exp_image/all"
-    file_name = "corr.pdf"
+    file_name = "corr_new.pdf"
     file_path = os.path.join(save_dir, file_name)
     # plt.show()
     f.savefig(file_path, dpi=800, bbox_inches="tight")
@@ -853,12 +943,13 @@ def draw_Overlap_unique_improve(config):
     pass
 if __name__ == "__main__":
     # 全局变量区
-    config = flower_2_config
+    config = animal_3_config
     # local_to_global_A = joblib.load(config["local_to_global_party_A_path"])
     # local_to_global_B = joblib.load(config["local_to_global_party_B_path"])
     # print(local_to_global_A)
     # print(local_to_global_B)
     # draw_overlap_unqiue_avg_improve_line(config)
+    # draw_overlap_unqiue_avg_improve_line_update(config)
     # draw_slope(config)
     # draw_overlap_unqiue_initAcc_bar()
     # draw_overlap_initAcc_bar()
@@ -868,11 +959,12 @@ if __name__ == "__main__":
     # draw_unique_overlap_avg_line()
     # draw_unique_overlap_var_line()
     # draw_box()
+    # draw_box_update(config)
     # draw_line_main(config)
     # draw_line_main_FangHui(config)
-    draw_line_main_NoFangHui(config)
+    # draw_line_main_NoFangHui(config)
     # draw_line_main_ML(config)
-    # draw_heatmap()
+    draw_heatmap()
     # draw_case_study(config)
     # draw_stable_bar(config)
     # draw_classes_improve(config)
