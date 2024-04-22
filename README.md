@@ -1,6 +1,6 @@
-## Dataset 
+## Website for data set collection
 
-| Domain   | $T_A$                                                                                       | $T_B$                                                                                                         |
+| Domain   | $Task_A$                                                                                       | $Task_B$                                                                                                         |
 |----------|---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
 | Car      | https://www.kaggle.com/datasets/darshan1504/car-body-style-dataset                          | https://pan.baidu.com/s/1xeYXXIp0V-llV1c9IEqk-w (password:zq4s)                                               |
 | Flower   | https://www.kaggle.com/datasets/utkarshsaxenadn/flower-classification-5-classes-roselilyetc | https://www.kaggle.com/datasets/alxmamaev/flowers-recognition                                                 |
