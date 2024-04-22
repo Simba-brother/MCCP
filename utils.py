@@ -514,15 +514,13 @@ if __name__ == "__main__":
     # img_dir = "/Users/mml/workspace/dataSets/overlap_v2_datasets/sport/party_A"
     # common_dir = "/Users/mml/workspace/dataSets/overlap_v2_datasets/sport/party_A/dataset"
     # classToDir_sport(df, img_dir, common_dir)
-
-
     '''
     双方模型评估
     '''
     # eval()
-
     '''
     划分merged_test_dataset
+    并采样
     '''
     # dataset_name = config['dataset_name']
     # root_dir = config["root_dir"]
