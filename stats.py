@@ -1,14 +1,14 @@
-import sys
 import os
-from tensorflow.keras.models import Model, Sequential, load_model
+
 import pandas as pd
 import numpy as np
 import joblib
-from utils import deleteIgnoreFile, saveData, makedir_help
-from scipy.stats import spearmanr
+# from scipy.stats import spearmanr
+
+from tensorflow.keras.models import Model, load_model
 import tensorflow.keras as keras
 from tensorflow.keras.layers import Dense
-from tensorflow.keras.preprocessing.image import load_img, img_to_array, ImageDataGenerator
+from tensorflow.keras.preprocessing.image import  ImageDataGenerator
 from tensorflow.keras import optimizers
 from tensorflow.keras import backend as K
 from DataSetConfig import food_config, fruit_config, sport_config, weather_config, flower_2_config, car_body_style_config, animal_config, animal_2_config, animal_3_config
@@ -17,6 +17,7 @@ from model_eval import eval_combination_Model
 from HMR import load_models_pool, evaluate_on
 from CFL_simple import eval_stu_model
 from dummy import dummy_eval
+from utils import deleteIgnoreFile
 
 def generate_generator_multiple(batches_A, batches_B):
     '''
@@ -558,7 +559,7 @@ def test():
     pass
 
 if __name__ == "__main__":
-    '''
+    
     os.environ['CUDA_VISIBLE_DEVICES']='3'
     config = animal_3_config
     Base_acc_config = Base_acc.animal_3
@@ -584,7 +585,7 @@ if __name__ == "__main__":
     all_classes_list.sort()
     # 总分类数
     all_classes_num = len(all_classes_list)
-    '''
+    
 
     # ans = ourMethod_init_acc(config)
     # save_dir = f"exp_data/{dataset_name}"
