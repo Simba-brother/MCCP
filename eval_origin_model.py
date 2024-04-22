@@ -11,6 +11,7 @@ from tensorflow.keras.losses import categorical_crossentropy
 from tensorflow.keras.optimizers import Adamax
 from DataSetConfig import car_body_style_config,flower_2_config,food_config,fruit_config,sport_config,weather_config,animal_config,animal_2_config,animal_3_config
 from utils import deleteIgnoreFile, makedir_help
+
 def getClasses(dir_path):
     '''
     得到数据集目录的class_name_list

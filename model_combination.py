@@ -1,8 +1,7 @@
-import json
-import os
 import sys
-
-
+sys.path.append("./")
+import os
+import json
 import joblib
 import numpy as np
 import tensorflow.keras as keras
@@ -12,10 +11,15 @@ from tensorflow.keras.models import (Model, Sequential, load_model,
 from tensorflow.python.keras.layers.core import Dropout
 from yaml import load
 
-sys.path.append("./")
-from utils import deleteIgnoreFile, getOverlapGlobalLabelIndex, saveData
+from DataSetConfig import (car_body_style_config,
+                           flower_2_config,
+                           food_config,
+                           fruit_config, 
+                           sport_config, 
+                           weather_config, animal_config, animal_2_config, animal_3_config)
 
-os.environ['CUDA_VISIBLE_DEVICES']='0'
+
+
 
 def combination(one_model, two_model, classes_num, model_A_layeIndex, model_B_layerIndex):
     '''
@@ -144,10 +148,10 @@ def modify_combination_weights(model_1,
     print("modify_combination_weights() successs")
     return combination_model
 
-'''
-扩展单方模型的分类空间到总空间
-'''
 def modifyModel(model, layer_index, classes_num, local_to_global_map):
+    '''
+    扩展单方模型的分类空间到总空间
+    '''
     # 获得原来模型输出层权重数据
     weights = model.get_layer(index = -1).get_weights()
     weight_array =  weights[0]
@@ -188,39 +192,67 @@ def modifyModel(model, layer_index, classes_num, local_to_global_map):
     return model_final
 
 
-if __name__ == "__main__":
+def load_teacher_models(config, lr=1e-5):
+    # 加载模型
+    model_A = load_model(config["model_A_struct_path"])
+    if not config["model_A_weight_path"] is None:
+        model_A.load_weights(config["model_A_weight_path"])
+
+    model_B = load_model(config["model_B_struct_path"])
+    if not config["model_B_weight_path"] is None:
+        model_B.load_weights(config["model_B_weight_path"])
+    # model_A = add_reserve_class(model_A)
+    # model_B = add_reserve_class(model_B)
+    # model_A.compile(loss=categorical_crossentropy,
+    #             optimizer=Adamax(learning_rate=lr),
+    #             metrics=['accuracy'])
+    # model_B.compile(loss=categorical_crossentropy,
+    #             optimizer=Adamax(learning_rate=lr),
+    #             metrics=['accuracy'])
+    # # 各方模型池
+    # models_pool = [model_A, model_B]
+    # # 模型池中的模型是否具备保留类功能
+    # hasReceived_pool = [True, True]
+    return model_A,model_B
+
+
+def app_join_teacher_models(config, root_dir):
     '''
-    连个模型合并
+    生成MCCP级联model
     '''
-    # # 加载 双方模型
-    model_A = load_model("/data/mml/overlap_v2_datasets/animal_3/party_A/models/model_struct/EfficientNetB3_224_224.h5")
-    model_A.load_weights("/data/mml/overlap_v2_datasets/animal_3/party_A/models/model_weights/model_weight_023_0.8618.h5")
+    # 加载 双方模型
+    model_A, model_B = load_teacher_models(config)
+    # 简单合并模型
+    merged_classes_num = 9  # 100分类+22分类-13重叠分类
+    model_A_layerIndex = config["model_A_cut"]
+    model_B_layerIndex = config["model_B_cut"]
+    combined_model_randomWeights = combination(model_A, model_B, merged_classes_num, model_A_layerIndex, model_B_layerIndex)
+    # save_dir = "/data/mml/overlap_v2_datasets/animal_3/merged_model"
+    # combined_model_randomWeights.save(os.path.join(save_dir,"combination_Model_randomWeights.h5"))
 
-    model_B = load_model("/data/mml/overlap_v2_datasets/animal_3/party_B/models/model_struct/EfficientNetB3_224_224_poolingMax.h5")
-    model_B.load_weights("/data/mml/overlap_v2_datasets/animal_3/party_B/models/model_weights/model_weight_009_0.9927.h5")
-
-    # # 简单合并模型
-    merged_classes_num = 9  # 100分类+22分类-13overlap
-    model_A_layerIndex = -2 # -2 是 dropOut
-    model_B_layerIndex = -3  # -2 是 dropOut
-    combination_Model_randomWeights = combination(model_A, model_B, merged_classes_num, model_A_layerIndex, model_B_layerIndex)
-    save_dir = "/data/mml/overlap_v2_datasets/animal_3/merged_model"
-    # combination_Model_randomWeights.save(os.path.join(save_dir,"combination_Model_randomWeights.h5"))
-
-    local_to_gobal_party_A = joblib.load("exp_data/animal_3/LocalToGlobal/local_to_gobal_party_A.data")
-    local_to_gobal_party_B = joblib.load("exp_data/animal_3/LocalToGlobal/local_to_gobal_party_B.data")
+    local_to_gobal_party_A = joblib.load(config["local_to_global_party_A_path"])
+    local_to_gobal_party_B = joblib.load(config["local_to_global_party_B_path"])
 
     # 得到权重继承模型
-    combination_model_inheritWeights = modify_combination_weights(
+    combined_model_inheritWeights = modify_combination_weights(
                             model_A,
                             model_B, 
                             merged_classes_num, 
                             local_to_gobal_party_A, 
                             local_to_gobal_party_B,
-                            combination_Model_randomWeights
+                            combined_model_randomWeights
                         )
-    combination_model_inheritWeights.save(os.path.join(save_dir,"combination_model_inheritWeights.h5"))
+    # combined_model_inheritWeights.save(os.path.join(save_dir,"combination_model_inheritWeights.h5"))
+    return combined_model_randomWeights, combined_model_inheritWeights
 
+if __name__ == "__main__":
+    os.environ['CUDA_VISIBLE_DEVICES']='0'
+    config = car_body_style_config
+    root_dir = "/data2/mml/overlap_v2_datasets"
+    '''
+    MCCP模型合并
+    '''
+    # app_join_teacher_models(config, root_dir)
     '''
     单方模型扩展
     '''
@@ -233,121 +265,6 @@ if __name__ == "__main__":
     # save_dir = "/data/mml/overlap_v2_datasets/weather/merged_model"
     # file_name = "model_B_extended.h5"
     # model_extended.save(os.path.join(save_dir, file_name))
+
     
-    #------------------------------------------分割线------------------------------------------------------------------
-
-    # custom_shape
-    # model_1 = load_model("/data/mml/dataSets/overlap_datasets/custom_dataset/train_test/party_A/percent_20_adv/models/model_007_0.9960.h5")
-    # model_2 = load_model("/data/mml/dataSets/overlap_datasets/custom_dataset/train_test/party_B/percent_20_adv/models/model_035_0.9940.h5")
-    ## animal(train_test)
-    # model_1 = load_model("/data/mml/dataSets/overlap_datasets/animal/train_test/party_A/models/model_004_0.9439.h5")
-    # model_2 = load_model("/data/mml/dataSets/overlap_datasets/animal/train_test/party_B/models/model_012_0.9721.h5")
-
-    # classes_num = 6
-    # save_dir = "./saved/custom_split/shape/Geometric_Shapes_Mathematics/train_test/merge_model"
-    # save_fileName = "combination_model.h5"
-    # combination_model = combination(model_1, model_2, classes_num)
-    # combination_model.save(os.path.join(save_dir, save_fileName))
-
-    # c_m = load_model("saved/real/car_body_style/merge_model/combination_model_softmax_unlock.h5")
-    # c_m.save_weights("./temp/weights.h5")
-    # jst = c_m.to_json()
-    # print(jst)
-
-    # 修改模型output
-    # model_origin = load_model("/data/mml/dataSets/overlap_datasets/car_body_style/part_A/dataset_cut/models/model_025_0.9507.h5")
-    # model_final = modifyModel(model_origin, -2, classes_num=7)
-    # save_dir = "/data/mml/dataSets/overlap_datasets/car_body_style/part_A/dataset_cut/models/modify_model"
-    # file_name = "modify_model_7_classNum.h5"
-    # model_final.save(os.path.join(save_dir, file_name))
-
-
-    # custom_shape
-    # model_1 = load_model("/data/mml/dataSets/overlap_datasets/custom_dataset/train_test/party_A/percent_20_adv/models/model_007_0.9960.h5")
-    # model_2 = load_model("/data/mml/dataSets/overlap_datasets/custom_dataset/train_test/party_B/percent_20_adv/models/model_035_0.9940.h5")
-    ## animal(train_test)
-    # model_1 = load_model("/data/mml/dataSets/overlap_datasets/animal/train_test/party_A/models/model_004_0.9439.h5")
-    # model_2 = load_model("/data/mml/dataSets/overlap_datasets/animal/train_test/party_B/models/model_012_0.9721.h5")
-
-    # classes_num = 6
-    # save_dir = "./saved/custom_split/shape/Geometric_Shapes_Mathematics/train_test/merge_model"
-    # save_fileName = "combination_model.h5"
-    # combination_model = combination(model_1, model_2, classes_num)
-    # combination_model.save(os.path.join(save_dir, save_fileName))
-
-    # c_m = load_model("saved/real/car_body_style/merge_model/combination_model_softmax_unlock.h5")
-    # c_m.save_weights("./temp/weights.h5")
-    # jst = c_m.to_json()
-    # print(jst)
-
-    # 修改模型output
-    # model_origin = load_model("/data/mml/dataSets/overlap_datasets/car_body_style/part_A/dataset_cut/models/model_025_0.9507.h5")
-    # model_final = modifyModel(model_origin, -2, classes_num=7)
-    # save_dir = "/data/mml/dataSets/overlap_datasets/car_body_style/part_A/dataset_cut/models/modify_model"
-    # file_name = "modify_model_7_classNum.h5"
-    # model_final.save(os.path.join(save_dir, file_name))
-
-
-    '''
-    修改一方模型的分类空间并继承原始分类权重
-    '''
-    ## car_body_style
-    # model = load_model("/data/mml/dataSets/overlap_datasets/car_body_style/part_B/dataset_cut_Sedan/models/model_024_0.8900.h5")
-    # classes_num = 7
-    # local_to_global_map =  {0:3, 1:4, 2:5, 3:6}
-    # layer_index = -2
-
-    ## custom_split_shape
-    ## party_A model_path
-    # model = load_model("/data/mml/dataSets/overlap_datasets/custom_dataset/train_test/party_/percent_20_adv/models/model_007_0.9960.h5")
-    ## party_B model path
-    # model = load_model("/data/mml/dataSets/overlap_datasets/custom_dataset/train_test/party_B/percent_20_adv/models/model_035_0.9940.h5")
-    # classes_num = 6
-    # local_to_global_map =  {0:2, 1:3, 2:4, 3:5} # party_A: {0:0, 1:1, 2:2} party_B:{0:2, 1:3, 2:4, 3:5}
-    # layer_index = -2
-
-    # model_adaptation = modifyModel(model, layer_index, classes_num, local_to_global_map)
-    # save_dir= "saved/custom_split/shape/Geometric_Shapes_Mathematics/train_test/merge_model"
-    # save_file_name = "model_adaptation_party_B.h5"
-    # model_adaptation.save(os.path.join(save_dir, save_file_name))
-    # print("success")
-    
-    '''
-    两个模型合并然后,继承原来 分类权重
-    '''
-    # model_1 = load_model("/data/mml/dataSets/overlap_datasets/car_body_style/part_A/dataset_cut/models/model_025_0.9507.h5")
-    # model_2 = load_model("/data/mml/dataSets/overlap_datasets/car_body_style/part_B/dataset_cut_Sedan/models/model_024_0.8900.h5")
-
-    ## animal
-    # model_1 = load_model("/data/mml/dataSets/overlap_datasets/animal/train_test/party_A/models/model_004_0.9439.h5")
-    # model_2 = load_model("/data/mml/dataSets/overlap_datasets/animal/train_test/party_B/models/model_012_0.9721.h5")
-    # combination_model = load_model("saved/real/animal/train_test/merge_model/combination_model.h5")
-
-    ## custom_split_shape
-    # model_1 = load_model("/data/mml/dataSets/overlap_datasets/custom_dataset/train_test/party_A/percent_20_adv/models/model_007_0.9960.h5")
-    # model_2 = load_model("/data/mml/dataSets/overlap_datasets/custom_dataset/train_test/party_B/percent_20_adv/models/model_035_0.9940.h5")
-    # combination_model = load_model("saved/custom_split/shape/Geometric_Shapes_Mathematics/train_test/merge_model/combination_model.h5")
-    # classes_num = 6
-
-    ## car_body_style
-    # party_A_local_to_global_map =  {0:0, 1:1, 2:2, 3:4}
-    # party_B_local_to_global_map = {0:3, 1:4, 2:5, 3:6}
-
-    ## animal
-    # party_A_local_to_global_map =  {0:1, 1:3, 2:4, 3:5, 4:6}
-    # party_B_local_to_global_map = {0:0, 1:2, 2:4, 3:7}
-
-    ## custom_shape
-    # party_A_local_to_global_map = {0:0, 1:1, 2:2}
-    # party_B_local_to_global_map = {0:2, 1:3, 2:4, 3:5}
-    # combination_model = modify_combination_weights(model_1, 
-    #                         model_2, 
-    #                         classes_num, 
-    #                         party_A_local_to_global_map, 
-    #                         party_B_local_to_global_map,
-    #                         combination_model
-    #                         )
-    # save_dir = "saved/custom_split/shape/Geometric_Shapes_Mathematics/train_test/merge_model"
-    # save_file_name = "combination_model_lock_newWeights.h5"
-    # combination_model.save(os.path.join(save_dir, save_file_name))
    

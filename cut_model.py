@@ -1,6 +1,10 @@
+'''
+将教师模型切一刀,将特征层暴露出来
+'''
+import os
+
 import tensorflow.keras as keras 
 import tensorflow as tf
-import os
 from tensorflow.keras.models import load_model
 from tensorflow.keras.losses import categorical_crossentropy
 from tensorflow.python.keras.backend import set_session

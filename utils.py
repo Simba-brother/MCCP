@@ -1,38 +1,40 @@
-import os
-from shutil import copy, move
-import splitfolders
-import pandas as pd
-import random
-# from cleverhans.tf2.attacks.fast_gradient_method import fast_gradient_method
-# from cleverhans.tf2.attacks.carlini_wagner_l2 import carlini_wagner_l2
-# from cleverhans.tf2.attacks.projected_gradient_descent import projected_gradient_descent
-from tensorflow.keras.models import Model, Sequential, load_model
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-import glob
-from PIL import Image as pil_image
-import numpy as np
-from matplotlib.pyplot import imshow
-from absl import app, flags
-import matplotlib.pyplot as plt
-import tensorflow as tf
-import matplotlib
-import cv2
-from shutil import copyfile
-import joblib
-import io
-import re     # python re正则模块
-from DatasetConfig_2 import config
-from sklearn.model_selection import train_test_split
-import math
+'''
+1:工具文件:比如deleteIgnoreFile,makedir_help,saveData
+2:原生数据集组织与划分
+'''
 
+import os
+import io
+import re
+import math
+import joblib
+import splitfolders
+from shutil import copy, move, copyfile
+
+import numpy as np
+import pandas as pd
+from PIL import Image as pil_image
+from sklearn.model_selection import train_test_split
+
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+     
+from DatasetConfig_2 import config
+
+def deleteIgnoreFile(file_list):
+    '''
+    移除隐文件
+    '''
+    for item in file_list:
+        if item.startswith('.'):# os.path.isfile(os.path.join(Dogs_dir, item)):
+            file_list.remove(item)
+    return file_list
 
 def makedir_help(dir_path):
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
     
 def saveData(data, filename):
-    # with open(filename, "wb+") as file_obj:
-    #     pickle.dump(data, file_obj)
     joblib.dump(data, filename)
 
 def copy_flower_2():
@@ -99,24 +101,9 @@ def split_data():
     splitfolders.ratio(origin_dir, output=target_dir, seed=1337, ratio=(.8, .2), group_prefix=None) # default values
     print("split_data() success")
 
-
-def look_csv(csv_path):
-    df = pd.read_csv(csv_path)
-    print(f"df.shape:{df.shape}")
-
-
 def split_df(df):
     df_train,df_test = train_test_split(df,test_size = 0.5,random_state = 666, stratify=df['label'])
     return df_train, df_test
-
-def deleteIgnoreFile(file_list):
-    '''
-    移除隐文件
-    '''
-    for item in file_list:
-        if item.startswith('.'):# os.path.isfile(os.path.join(Dogs_dir, item)):
-            file_list.remove(item)
-    return file_list
 
 def count():
     '''
@@ -136,153 +123,6 @@ def count():
         print("{},{}".format(class_name, len(file_name_list)))
         # print(len(file_name_list))
     print(count)
-
-# def generate_adversary_sample(model, file_path, eps):
-#     '''
-#     生成fgsm对抗样本
-#     model:在该数据集上训练好的
-#     img_array:shape(batch, h, w, channels)
-#     label_1:shape(batch, classes)
-#     '''
-#     # 加载评估数据
-#     image_height = 224
-#     image_weight = 224
-#     img_array = np.array(Image.open(file_path).convert('RGB').resize((image_height,image_weight)))
-#     img_array = img_array.reshape(-1, image_height, image_weight, 3)
-#     # x_fgm = fast_gradient_method(model, img_array, FLAGS.eps, np.inf)
-#     x_fgm = fast_gradient_method(model, img_array, eps, np.inf)
-#     output_clean =  model.predict(img_array)
-#     output_adv= model.predict(x_fgm)
-#     ans_clean = np.argmax(output_clean, axis = 1)
-#     ans_adv = np.argmax(output_adv, axis = 1)
-#     count  = 0
-#     while ans_clean == ans_adv:
-#         # 当攻击没有成功, 在此次对抗样本基础上再生成一轮
-#         print("经过第{}轮".format(count+1))
-#         x_fgm = fast_gradient_method(model, x_fgm, eps, np.inf)
-#         output_clean =  model.predict(img_array)
-#         output_adv= model.predict(x_fgm)
-#         print("输出概率:",output_adv)
-#         ans_clean = np.argmax(output_clean, axis = 1)
-#         ans_adv = np.argmax(output_adv, axis = 1)
-#         count += 1
-#     print("原始output", output_clean)
-#     print("对抗output", output_adv)
-#     print("原始label", ans_clean)
-#     print("对抗label", ans_adv)
-#     return img_array, ans_clean, x_fgm, ans_adv  
-
-# def cw_help(model, file_path):
-#     '''
-#     model
-#     img_array:shape(batch, h, w, channels)
-#     label_1:shape(batch, classes)
-#     '''
-#     # 加载评估数据
-#     image_height = 224
-#     image_weight = 224
-#     img_array = np.array(Image.open(file_path).convert('RGB').resize((image_height,image_weight)))    
-#     img_array = img_array.reshape(-1, image_height, image_weight, 3)
-#     # adver_example = carlini_wagner_l2(model, data.to(device), 10, y = torch.tensor([3]*batch_size,device = device) ,targeted = True)
-#     x_cw = carlini_wagner_l2(model, img_array, confidence = 10)
-#     output_clean =  model.predict(img_array)
-#     output_adv = model.predict(x_cw)
-#     label_clean = np.argmax(output_clean, axis = 1)
-#     label_adv = np.argmax(output_adv, axis = 1)
-#     count = 0
-#     while label_clean == label_adv:
-#         print("经过第{}轮".format(count+1))
-#         x_cw = carlini_wagner_l2(model, x_cw)
-#         output_adv = model.predict(x_cw)
-#         print("clean",output_clean)
-#         print("cw",output_adv)
-#         label_adv = np.argmax(output_adv, axis = 1)
-#         count += 1
-#     print("原始output", output_clean)
-#     print("对抗output", output_adv)
-#     print("原始label", label_clean)
-#     print("对抗label", label_adv)
-#     return img_array, label_clean, x_cw, label_adv
-
-# def CW(dir_path, percent, model_path, origin_path, adv_path):
-#     '''
-#     这个是model_A的 对抗算法
-#     dir_path: /Users/mml/workspace/custom_dataset/part_B/percent_10_adv/dataset/val/parallelogram
-#     percent: 对抗样本所占比例
-#     model_path: /Users/mml/workspace/custom_dataset/part_A/percent_10_adv/models/model_007_0.9960.h5
-#     origin_path: /Users/mml/workspace/custom_dataset/part_B/percent_10_adv/origin_dataset/val/parallelogram
-#     adv_path:/Users/mml/workspace/custom_dataset/part_B/percent_10_adv/adv/val/parallelogram
-#     '''
-#     # 加载数据
-#     file_name_list = os.listdir(dir_path)
-#     file_name_list = deleteIgnoreFile(file_name_list)
-#     file_name_list.sort()  # 也很关键
-#     # 已经得到了文件列表， 准备去挑选20%的文件去被替换
-#     total = len(file_name_list)
-#     target_num = int(total * percent)
-#     index_list = [i for i in range(total)]
-#     sample_index_list = random.sample(index_list, target_num)
-#     # 得到了待替换图片的索引
-#     for index, file_name in enumerate(file_name_list):
-#         # 定位到了文件
-#         file_path = os.path.join(dir_path, file_name)
-#         if index in sample_index_list:
-#             # 1. 生成对抗样本
-#             model = load_model(model_path)
-#             img_array, label_o, x_cw, label_adv = cw_help(model, file_path) 
-#             x_cw = np.array(x_cw)
-#             # 2. 移动(剪切)原文件到 origin目录
-#             move(file_path, os.path.join(origin_path,file_name))
-#             x_cw = x_cw[0]
-#             # x_cw = x_cw.astype(np.uint8)
-#             adv_img = Image.fromarray(x_cw)
-#             # 另存
-#             adv_img.save(os.path.join(adv_path, file_name))
-#             # 回写
-#             adv_img.save(os.path.join(dir_path,file_name))
-#     print("CW() success")     
-
-# def fsgm(dir_path, percent, model_path, origin_path, adv_path):
-#     '''
-#     dir_path:/Users/mml/workspace/custom_dataset/part_A/percent_10_adv/dataset/val/parallelogram
-#     model_path:/Users/mml/workspace/custom_dataset/part_A/percent_10_adv/models
-#     origin_path:/Users/mml/workspace/custom_dataset/part_A/percent_10_adv/origin_dataset/val/parallelogram
-#     adv_path:/Users/mml/workspace/custom_dataset/part_A/percent_10_adv/adv/val/parallelogram
-#     '''
-#     file_name_list = os.listdir(dir_path)
-#     file_name_list = deleteIgnoreFile(file_name_list)
-#     # file_name_list.sort(key= lambda x:int(x[:-4]))
-#     file_name_list.sort()  # 也很关键
-#     # 已经得到了文件列表， 准备去挑选20%的文件去被替换
-#     total = len(file_name_list)
-#     target_num = int(total * percent)
-#     index_list = [i for i in range(total)]
-#     sample_index_list = random.sample(index_list, target_num)
-#     # 得到了待替换图片的索引
-#     for index, file_name in enumerate(file_name_list):
-#         # 定位到了文件
-#         file_path = os.path.join(dir_path, file_name)
-#         if index in sample_index_list:
-#             # 此文件是待替换文件
-#             # 1. 生成对抗样本
-#             model = load_model(model_path)
-#             img_array, label_o, x_fgm, label_adv = generate_adversary_sample(model, file_path, eps = 200)
-#             output_adv= model.predict(x_fgm)
-#             ans_adv = np.argmax(output_adv, axis = 1)
-#             print("再次确认", ans_adv)
-#             x_fgm = np.array(x_fgm)
-#             # 2. 移动(剪切)原文件到 origin目录
-#             move(file_path, os.path.join(origin_path, file_name))
-#             # 3. 保存对抗样本 到 adversary目录
-#             x_fgm = x_fgm[0]
-#             x_fgm = x_fgm.astype(np.uint8)
-#             adv_img = Image.fromarray(x_fgm)
-#             adv_img.save(os.path.join(adv_path,file_name))
-#             # 回写
-#             adv_img.save(os.path.join(dir_path,file_name))
-            
-#     print("fsgm() success!")
-
 
 def generate_CSV(dir_path, source):
     ## 得到所有的类名
@@ -343,7 +183,6 @@ def setOverlap(data_df, dir_path_A, dir_path_B):
     is_overlap_series = pd.Series(is_overlap_list, name="is_overlap")
     data_df = pd.concat([data_df, is_overlap_series], axis=1)
     return data_df
-
 
 def classToDir(df, img_dir, common_dir):
     '''
@@ -571,7 +410,6 @@ def str_probabilty_list_To_list(str_data):
     return ans_list
 
 if __name__ == "__main__":
-
     # copy_flower_2()
     '''
     删除数据集中无效文件
@@ -679,37 +517,6 @@ if __name__ == "__main__":
 
 
     '''
-    对抗样本
-    '''
-    # flags.DEFINE_float("eps", 0.9, "Total epsilon for FGM and PGD attacks.")
-    # app.run(add_distributions)
-    # img_array, x_fgm = generate_adversary_sample("/Users/mml/workspace/dataSets/overlap_datasets/shapes/Geometric_Shapes_Mathematics/six-shapes-dataset-v1/dataset_artificial_pivot/part_1/train/parallelogram_adversary/parallelogram-train-1.png", eps = 0.99)
-
-    '''
-    fsgm对抗样本生成
-    '''
-    # dir_path = "/Users/mml/workspace/dataSets/overlap_datasets/custom_dataset_flower/part_A/percent_20_adv/dataset/val/bromelia"
-    # percent = 0.2
-    # model_path = "/Users/mml/workspace/dataSets/overlap_datasets/custom_dataset_flower/part_B/percent_20_adv/models/model_003_0.9972.h5"
-    # origin_path = "/Users/mml/workspace/dataSets/overlap_datasets/custom_dataset_flower/part_A/percent_20_adv/origin_dataset/val/bromelia"
-    # adv_path = "/Users/mml/workspace/dataSets/overlap_datasets/custom_dataset_flower/part_A/percent_20_adv/adv/val/bromelia"
-    # fsgm(dir_path, percent, model_path, origin_path, adv_path)
-
-    '''
-    CW对抗样本生成
-    '''
-    # part_B 的 某个 overlap
-    # dir_path = "/Users/mml/workspace/dataSets/overlap_datasets/custom_dataset_flower/part_A/percent_20_adv/dataset/val/bromelia"
-    # percent = 0.2
-    # # part_A 的 model_path
-    # model_path = "/Users/mml/workspace/dataSets/overlap_datasets/custom_dataset_flower/part_B/percent_20_adv/models/model_003_0.9972.h5"
-    # origin_path = "/Users/mml/workspace/dataSets/overlap_datasets/custom_dataset_flower/part_A/percent_20_adv/origin_dataset/val/bromelia"
-    # adv_path = "/Users/mml/workspace/dataSets/overlap_datasets/custom_dataset_flower/part_A/percent_20_adv/adv/val/bromelia"
-    # CW(dir_path, percent, model_path, origin_path, adv_path)
-    # model = load_model("../dataSets/overlap_datasets/shapes/Geometric_Shapes_Mathematics/six-shapes-dataset-v1/saved/model/my_EfficientNetB2-geometry-99.9.h5")
-    # print(model.summary())
-
-    '''
     双方模型评估
     '''
     # eval()
@@ -717,25 +524,26 @@ if __name__ == "__main__":
     '''
     划分merged_test_dataset
     '''
-    dataset_name = config['dataset_name']
-    root_dir = config["root_dir"]
-    dataset_csv_path = os.path.join(root_dir,dataset_name,"merged_data","test","merged_df.csv")
-    df = pd.read_csv(dataset_csv_path)
-    df_train, df_test = split_df(df)
-    save_dir = f"exp_data/{dataset_name}/sampling/percent/random_split/test"
-    makedir_help(save_dir)
-    save_file_name = "test.csv"
-    save_file_path = os.path.join(save_dir, save_file_name)
-    df_test.to_csv(save_file_path, index=False)
-    total_num = df.shape[0]
-    sample_rate_list = config["sample_rate_list"]
-    for sample_rate in sample_rate_list:
-        sample_num = math.ceil(total_num*sample_rate)
-        for i in range(10):
-            sampled_df = df_train.sample(n=sample_num, axis=0) # random_state=123    
-            save_dir = f"exp_data/{dataset_name}/sampling/percent/random_split/train/{int(sample_rate*100)}" 
-            makedir_help(save_dir)
-            save_file_name =f"sample_{i}.csv" 
-            save_file_path = os.path.join(save_dir, save_file_name)
-            sampled_df.to_csv(save_file_path, index=False)
+    # dataset_name = config['dataset_name']
+    # root_dir = config["root_dir"]
+    # dataset_csv_path = os.path.join(root_dir,dataset_name,"merged_data","test","merged_df.csv")
+    # df = pd.read_csv(dataset_csv_path)
+    # df_train, df_test = split_df(df)
+    # save_dir = f"exp_data/{dataset_name}/sampling/percent/random_split/test"
+    # makedir_help(save_dir)
+    # save_file_name = "test.csv"
+    # save_file_path = os.path.join(save_dir, save_file_name)
+    # df_test.to_csv(save_file_path, index=False)
+    # total_num = df.shape[0]
+    # sample_rate_list = config["sample_rate_list"]
+    # for sample_rate in sample_rate_list:
+    #     sample_num = math.ceil(total_num*sample_rate)
+    #     for i in range(10):
+    #         sampled_df = df_train.sample(n=sample_num, axis=0) # random_state=123    
+    #         save_dir = f"exp_data/{dataset_name}/sampling/percent/random_split/train/{int(sample_rate*100)}" 
+    #         makedir_help(save_dir)
+    #         save_file_name =f"sample_{i}.csv" 
+    #         save_file_path = os.path.join(save_dir, save_file_name)
+    #         sampled_df.to_csv(save_file_path, index=False)
+    # pass
     pass
