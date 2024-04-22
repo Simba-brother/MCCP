@@ -224,7 +224,7 @@ def app_MCCP_retrain_NoFangHui(config):
                 generator_A_test=config["generator_A_test"],
                 generator_B_test=config["generator_B_test"]
                 )
-            save_dir = os.path.join(root_dir, dataset_name, "MCCP", "trained_weights_NoFangHui", str(int(sample_rate*100)))
+            save_dir = os.path.join(root_dir, dataset_name, "MCCP", "trained_weights_NoFangHui_update", str(int(sample_rate*100)))
             makedir_help(save_dir)
             save_file_name = f"weight_{repeat_i}.h5"
             save_file_path = os.path.join(save_dir, save_file_name)
@@ -303,7 +303,7 @@ def app_MCCP_eval_NoFangHui(config):
         for repeat_i in range(repeat_num):
             print(f"repeat_num:{repeat_i}")
             weight_path = os.path.join(root_dir, f"{dataset_name}", 
-                                       "MCCP", "trained_weights_NoFangHui", 
+                                       "MCCP", "trained_weights_NoFangHui_update", 
                                        str(int(sample_rate*100)), f"weight_{repeat_i}.h5")
             
             adam = Adam(learning_rate=config["combiantion_lr"], beta_1=0.9, 
@@ -320,7 +320,7 @@ def app_MCCP_eval_NoFangHui(config):
             ans[sample_rate].append(acc)
     
     save_dir = os.path.join(root_dir, dataset_name, "MCCP")
-    save_file_name = f"eval_ans_NoFangHui.data"
+    save_file_name = f"eval_ans_NoFangHui_update.data"
     save_file_path = os.path.join(save_dir, save_file_name)
     joblib.dump(ans, save_file_path)
     print(f"save_file_path:{save_file_path}")
@@ -477,7 +477,7 @@ def app_MCCP_eval_Overlap_FangHui(config):
     print("MCCP evaluation FangHui end")
     return ans  
 
-def app_MCCP_eval_Unique_FangHui():
+def app_MCCP_eval_Unique_FangHui(config):
     sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
     # 定义出存储结果的数据结构
     '''
@@ -489,17 +489,10 @@ def app_MCCP_eval_Unique_FangHui():
     ans = {}
     for sample_rate in sample_rate_list:
         ans[sample_rate] = []
-    
-    os.environ['CUDA_VISIBLE_DEVICES']='1'
-    config_tf = tf.compat.v1.ConfigProto()
-    config_tf.gpu_options.allow_growth=True 
-    # config.gpu_options.per_process_gpu_memory_fraction = 0.3
-    session = tf.compat.v1.Session(config=config_tf)
-    set_session(session)
-    config = animal_2_config
+   
     root_dir = "/data2/mml/overlap_v2_datasets"
     dataset_name =  config["dataset_name"]
-    setproctitle.setproctitle(f"{dataset_name}|MCCP|eval|FangHui")
+    setproctitle.setproctitle(f"{dataset_name}|MCCP|eval_Unique|FangHui")
     print(f"dataset_name:{dataset_name}")
     combin_model = load_model(config["combination_model_path"])
     df_merged = pd.read_csv(config["merged_df_path"])
@@ -780,7 +773,7 @@ def app_MCCP_init_merged_classes_acc():
 
 if __name__ == "__main__":
     # 设置GPU id
-    os.environ['CUDA_VISIBLE_DEVICES']='7'
+    os.environ['CUDA_VISIBLE_DEVICES']='1'
     # tf设置GPU内存分配
     config_tf = tf.compat.v1.ConfigProto()
     config_tf.gpu_options.allow_growth=True 
@@ -788,13 +781,13 @@ if __name__ == "__main__":
     session = tf.compat.v1.Session(config=config_tf)
     set_session(session)
     # 倒入数据集相关配置
-    config = animal_3_config
+    # config = flower_2_config
     # NoFangHui MCCP train application
     # app_MCCP_retrain_NoFangHui(config)
     # NoFangHui MCCP eval application
     # app_MCCP_eval_NoFangHui(config)
     # app_MCCP_retrain_FangHui()
-    app_MCCP_eval_FangHui()
+    # app_MCCP_eval_FangHui()
     # app_MCCP_eval_Classes_FangHui()
     # app_MCCP_eval_TrueFalse_FangHui()
     # app_MCCP_init_overlap_merged_acc()
@@ -802,7 +795,7 @@ if __name__ == "__main__":
     # app_MCCP_init_merged_acc()
     # app_MCCP_init_merged_classes_acc()
     # app_MCCP_eval_Overlap_FangHui(config)
-    # app_MCCP_eval_Unique_FangHui()
+    # app_MCCP_eval_Unique_FangHui(config)
     # app_MCCP_init_overlap_acc()
     # app_MCCP_init_unique_acc()
     pass

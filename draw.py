@@ -79,23 +79,30 @@ def draw_truncation_line(x_list, y_data):
     ax1.plot(x_list, ourCombin_list, label = "MCCP", color = "red", marker = "x")   # 绘制折线
     ax1.plot(x_list, hmr_list, label = "HMR", color = "green", marker = "o")
     ax1.plot(x_list, cfl_list, label = "CFL", color = "blue", marker = 's')
-    ax1.axhline(y_data["Dummy_base_acc"], color = "orange", ls="solid", marker="^", label="Dummy")
-    ax1.set_ylim(0.84,0.92)# 设置纵坐标范围
+    ax1.axhline(y_data["Dummy_base_acc"], label="Dummy", color = "orange", marker="^", ls="solid")
+    # 设置纵坐标范围
+    ax1.set_ylim(0.85,0.92)
     # car:(0.75,0.85)
-    # flower:(0.85,0.92) rebuttal：(0.84,0.92)
-    # food:(0.80,0.95) rebuttal:(0.7,0.95)
+    # flower:(0.85,0.92)
+    # food:(0.7,0.95)
     # fruit:(0.80,1.0)
     # sport:(0.7,0.90)
-    # weather:(0.7,0.82) rebuttal:(0.7,0.85)
-    # animal_1:(0.81,0.83) rebuttal:(0.81,0.84)
+    # weather:(0.7,0.85)
+    # animal_1:(0.81,0.84)
     # animal_2:(0.80,0.90)
     # animal_3:(0.70,0.86)
     # 画网格
     ax1.grid(axis="both")
     ax2.grid(axis="both")
 
-    ax1.legend() # 让图例生效
-
+    ax2.set_ylim(0,)
+    placeholder_list = [-1]*len(x_list)
+    ax2.plot(x_list, placeholder_list, label = "MCCP", color = "red", marker = "x")
+    ax2.plot(x_list, placeholder_list, label = "HMR", color = "green", marker = "o")
+    ax2.plot(x_list, placeholder_list, label="Dummy", color = "orange", marker="^", ls="solid")
+    # ax2.legend(loc = "lower right", fontsize ="xx-small",framealpha=0.5) # 让图例生效
+    ax2.legend(loc = "lower right", fontsize ="x-small") # 让图例生效
+    
 
     ax2.spines['top'].set_visible(False)    # 边框控制
     ax2.spines['bottom'].set_visible(True) # 边框控制
@@ -159,7 +166,7 @@ def draw_line_main_NoFangHui(config):
     dataset_name = config["dataset_name"]
     x_list = ["1%","3%","5%", "10%", "15%", "20%"]
     root_dir = "/data2/mml/overlap_v2_datasets"
-    MCCP_res = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_NoFangHui.data"))
+    MCCP_res = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_NoFangHui_update.data"))
     HMR_res = joblib.load(os.path.join(root_dir, dataset_name, "HMR", "eval_ans_NoFangHui.data"))
     CFL_res = joblib.load(os.path.join(root_dir, dataset_name, "CFL", "eval_ans_NoFangHui.data"))
     Dummy_res = joblib.load(os.path.join(root_dir, dataset_name, "Dummy", "eval_ans_NoFangHui.data"))
@@ -666,19 +673,21 @@ def draw_overlap_unqiue_avg_improve_line(config):
 def draw_overlap_unqiue_avg_improve_line_update(config):
     root_dir = "/data2/mml/overlap_v2_datasets"
     dataset_name = config["dataset_name"]
+    unique = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_Unique_FangHui.data"))
+    init_unique = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_unique_merged_test_acc.data"))
     overlap = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_Overlap_FangHui.data"))
-    init_overlap = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_overlap_test_acc.data"))    
+    init_overlap = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_overlap_merged_test_acc.data"))    
     unique_y = []
     overlap_y = []
     sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
     for sample_rate in sample_rate_list:
-        avg_u = sum(unique_trained_data["train"][percent])/len(unique_trained_data["train"][percent])
-        u_improve = avg_u - unique_initAcc
+        avg_u = sum(unique[sample_rate])/len(unique[sample_rate])
+        u_improve = avg_u - init_unique
         u_improve = round(u_improve,4)
         unique_y.append(u_improve)
 
-        avg_o = sum(overlap_trained_data["train"][percent])/len(overlap_trained_data["train"][percent])
-        o_improve = avg_o - overlap_initAcc
+        avg_o = sum(overlap[sample_rate])/len(overlap[sample_rate])
+        o_improve = avg_o - init_overlap
         o_improve = round(o_improve,4)
         overlap_y.append(o_improve)
     plt.figure(figsize=(3,3))
@@ -697,7 +706,7 @@ def draw_overlap_unqiue_avg_improve_line_update(config):
     plt.xticks(fontproperties = "Times New Roman", fontsize = 11)
     plt.xticks(fontproperties = "Times New Roman", fontsize = 11)
     save_dir = f"exp_image/{dataset_name}"
-    file_name = "unique_overlap_improve.pdf"
+    file_name = "unique_overlap_improve_new.pdf"
     file_path = os.path.join(save_dir, file_name)
     plt.savefig(file_path, bbox_inches = 'tight', pad_inches = 0.1, dpi=600)
     print("draw_overlap_unqiue_avg_improve_line_update() successfully!")
@@ -943,7 +952,7 @@ def draw_Overlap_unique_improve(config):
     pass
 if __name__ == "__main__":
     # 全局变量区
-    config = animal_3_config
+    config = flower_2_config
     # local_to_global_A = joblib.load(config["local_to_global_party_A_path"])
     # local_to_global_B = joblib.load(config["local_to_global_party_B_path"])
     # print(local_to_global_A)
@@ -962,9 +971,9 @@ if __name__ == "__main__":
     # draw_box_update(config)
     # draw_line_main(config)
     # draw_line_main_FangHui(config)
-    # draw_line_main_NoFangHui(config)
+    draw_line_main_NoFangHui(config)
     # draw_line_main_ML(config)
-    draw_heatmap()
+    # draw_heatmap()
     # draw_case_study(config)
     # draw_stable_bar(config)
     # draw_classes_improve(config)

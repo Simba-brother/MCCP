@@ -135,7 +135,7 @@ class HMR_Retrain(object):
         batches = generator_train.flow_from_dataframe(
             df_retrain, 
             directory = self.root_dir, # 添加绝对路径前缀
-            seed=42,
+            seed=666,
             x_col='file_path', y_col="label", 
             target_size=target_size, 
             class_mode='categorical', # one-hot
@@ -164,7 +164,7 @@ class HMR_Retrain(object):
         batches = generator_train.flow_from_dataframe(
             df_retrain, 
             directory = self.root_dir, # 添加绝对路径前缀
-            seed=42,
+            seed=666,
             x_col='file_path', y_col="label", 
             target_size=target_size, 
             class_mode='categorical', # one-hot
@@ -245,7 +245,7 @@ def app_HMR_retrain_NoFangHui(config):
         sample_rate_dir = os.path.join(train_dir,str(int(sample_rate*100))) 
         for repeat_i in range(repeat_num):
             df_retrain = pd.read_csv(os.path.join(sample_rate_dir, f"sample_{repeat_i}.csv"))
-            model_A_extend, model_B_extend = load_models_pool(config) # 添加新类和编译
+            model_A_extend, model_B_extend = load_models_pool(config,lr=1e-4) # 添加新类和编译
             hmr_retrain = HMR_Retrain(model_A_extend,model_B_extend,df_retrain)
             model_A_extend_retrained = hmr_retrain.train_A(
                 epochs=5, 
@@ -259,7 +259,7 @@ def app_HMR_retrain_NoFangHui(config):
                 class_name_list=class_name_list_B, 
                 generator_train = generator_B, 
                 target_size=target_size_B)
-            save_dir = os.path.join(root_dir, dataset_name, "HMR", "trained_weights_NoFangHui", str(int(sample_rate*100)))
+            save_dir = os.path.join(root_dir, dataset_name, "HMR", "trained_weights_NoFangHui_update", str(int(sample_rate*100)))
             makedir_help(save_dir)
             save_file_name = f"model_A_weight_{repeat_i}.h5"
             save_file_path = os.path.join(save_dir, save_file_name)
@@ -354,8 +354,8 @@ def app_HMR_eval_NoFangHui(config):
     local_to_global_party_B = joblib.load(config["local_to_global_party_B_path"])
     for sample_rate in sample_rate_list:
         for repeat_i in range(repeat_num):
-            weight_A_path = os.path.join(root_dir, f"{dataset_name}", "HMR", "trained_weights_NoFangHui", str(int(sample_rate*100)), f"model_A_weight_{repeat_i}.h5")
-            weight_B_path = os.path.join(root_dir, f"{dataset_name}", "HMR", "trained_weights_NoFangHui", str(int(sample_rate*100)), f"model_B_weight_{repeat_i}.h5")
+            weight_A_path = os.path.join(root_dir, f"{dataset_name}", "HMR", "trained_weights_NoFangHui_update", str(int(sample_rate*100)), f"model_A_weight_{repeat_i}.h5")
+            weight_B_path = os.path.join(root_dir, f"{dataset_name}", "HMR", "trained_weights_NoFangHui_update", str(int(sample_rate*100)), f"model_B_weight_{repeat_i}.h5")
             model_A_extend.load_weights(weight_A_path)
             model_B_extend.load_weights(weight_B_path)
             hmr_eval = HMR_Eval(model_A_extend, model_B_extend, df_test)
