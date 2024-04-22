@@ -3,19 +3,15 @@ sys.path.append("./")
 
 from collections import defaultdict
 
-from tensorflow.keras.models import Model, Sequential, load_model
+from tensorflow.keras.models import load_model
 import pandas as pd
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import os
 import sys
 import numpy as np
-from tensorflow.keras import optimizers
-from tensorflow.keras.optimizers import Adam, Adamax
-from tensorflow.keras.losses import CategoricalCrossentropy
 import joblib
 
 from DataSetConfig import car_body_style_config,flower_2_config, food_config, fruit_config,sport_config,weather_config, animal_config, animal_2_config, animal_3_config
-from complement_exp.code.utils import getClasses
+from Jaccard_exp.code.utils import getClasses
 
 
 

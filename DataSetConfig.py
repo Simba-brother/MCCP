@@ -35,7 +35,6 @@ car_body_style_config = {
     "combination_model_path":"/data2/mml/overlap_v2_datasets/car_body_style/merged_model/combination_model_inheritWeights.h5",
     "stu_model_path":"/data2/mml/overlap_v2_datasets/car_body_style/merged_model/DenseNet121_224_224_claNum_10.h5",
     "combiantion_lr":0.0003,
-    "save_retrainResult_path":"exp_data/car_body_style/retrainResult/num/CFL",
     "model_A_cut":-3,
     "model_B_cut":-3
 }
@@ -71,7 +70,6 @@ flower_2_config = {
     "combination_model_path":"/data2/mml/overlap_v2_datasets/flower_2/merged_model/combination_model_inheritWeights.h5",
     "stu_model_path":"/data2/mml/overlap_v2_datasets/flower_2/merged_model/DenseNet121_224_224_claNum_7.h5",
     "combiantion_lr":0.0005,
-    "save_retrainResult_path":"exp_data/flower_2/retrainResult/num/CFL",
     "model_A_cut":-2,
     "model_B_cut":-2
 }
@@ -106,7 +104,6 @@ food_config = {
     "combination_model_path":"/data2/mml/overlap_v2_datasets/food/merged_model/combination_model_inheritWeights.h5",
     "stu_model_path":"/data2/mml/overlap_v2_datasets/food/merged_model/DenseNet121_224_224_claNum_12.h5",
     "combiantion_lr":0.00003,
-    "save_retrainResult_path":"exp_data/food/retrainResult/num/CFL",
     "model_A_cut":-3,
     "model_B_cut":-2
 }
@@ -141,7 +138,6 @@ fruit_config = {
     "combination_model_path":"/data2/mml/overlap_v2_datasets/Fruit/merged_model/combination_model_inheritWeights.h5",
     "stu_model_path":"/data2/mml/overlap_v2_datasets/Fruit/merged_model/DenseNet121_224_224_claNum_16.h5",
     "combiantion_lr":0.0003,
-    "save_retrainResult_path":"exp_data/Fruit/retrainResult/num/CFL",
     "model_A_cut":-2,
     "model_B_cut":-2
 }
@@ -176,7 +172,6 @@ sport_config = {
     "combination_model_path":"/data2/mml/overlap_v2_datasets/sport/merged_model/combination_model_inheritWeights.h5",
     "stu_model_path":"/data2/mml/overlap_v2_datasets/sport/merged_model/DenseNet121_224_224_claNum_109.h5",
     "combiantion_lr":0.00003,
-    "save_retrainResult_path":"exp_data/sport/retrainResult/num/CFL",
     "model_A_cut":-3,
     "model_B_cut":-3
 }
@@ -211,7 +206,6 @@ weather_config = {
     "combination_model_path":"/data2/mml/overlap_v2_datasets/weather/merged_model/combination_model_inheritWeights.h5",
     "stu_model_path":"/data2/mml/overlap_v2_datasets/weather/merged_model/DenseNet121_224_224_claNum_13.h5",
     "combiantion_lr":0.0003,
-    "save_retrainResult_path":"exp_data/weather/retrainResult/num/CFL",
     "model_A_cut":-2,
     "model_B_cut":-3
 }
@@ -246,7 +240,6 @@ animal_config = {
     "combination_model_path":"/data2/mml/overlap_v2_datasets/animal/merged_model/combination_model_inheritWeights.h5",
     "stu_model_path":"/data2/mml/overlap_v2_datasets/animal/merged_model/DenseNet121_224_224_claNum_13.h5",
     "combiantion_lr":0.0003,
-    "save_retrainResult_path":"exp_data/animal/retrainResult/num/CFL",
     "model_A_cut":-3,
     "model_B_cut":-3
 }
@@ -281,7 +274,6 @@ animal_2_config = {
     "combination_model_path":"/data2/mml/overlap_v2_datasets/animal_2/merged_model/combination_model_inheritWeights.h5",
     "stu_model_path":"/data2/mml/overlap_v2_datasets/animal_2/merged_model/DenseNet121_224_224_claNum_6.h5",
     "combiantion_lr":0.0005,
-    "save_retrainResult_path":"exp_data/animal_2/retrainResult/num/CFL",
     "model_A_cut":-3,
     "model_B_cut":-3
 }
@@ -316,7 +308,6 @@ animal_3_config = {
     "combination_model_path":"/data2/mml/overlap_v2_datasets/animal_3/merged_model/combination_model_inheritWeights.h5",
     "stu_model_path":"/data2/mml/overlap_v2_datasets/animal_3/merged_model/DenseNet121_224_224_claNum_9.h5",
     "combiantion_lr":0.0005,
-    "save_retrainResult_path":"exp_data/animal_3/retrainResult/num/CFL",
     "model_A_cut":-3,
     "model_B_cut":-3
 }

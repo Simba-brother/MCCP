@@ -12,6 +12,60 @@
 | Animal_2 | https://www.kaggle.com/datasets/ashishsaxena2209/animal-image-datasetdog-cat-and-panda      | https://www.kaggle.com/datasets/shiv28/animal-5-mammal                                                        |
 | Animal_3 | https://www.kaggle.com/datasets/enisahovi/cats-projekat-4                                   | https://www.kaggle.com/datasets/anshulmehtakaggl/wildlife-animals-images?select=cheetah-resize-224            |
 
+## Description of the core document
+./model_combination.py<br>
+Codes for MCCP joins Teacher Models
 
-## Model
+./MCCP_retrain.py<br>
+Codes for training and evaluation of the MCCP methodology
+
+./HMR_retrain.py<br>
+Codes for training and evaluation of the HMR methodology
+
+./CFL_retrain.py<br>
+Codes for training and evaluation of the CFL methodology
+
+./Dummy.py<br>
+Codes for evaluation of the Dummy methodology
+
+./DecisionTree.py<br>
+Codes for evaluation of the DecisionTree methodology
+
+./LogisticRegression.py<br>
+Codes for evaluation of the LogisticRegression methodology
+
+./utils.py
+1. Tool Code File<br>
+Used in e.g. deleteIgnoreFile,makedir_help,saveData
+2. Segmentation and organisation of native datasets
+
+./statistical.py<br>
+For statistical work on data, e.g. calculation of Win/Tie/Lose and correlation
+
+./model_prepare folder<br>
+It is used to train the teacher model with the aim of obtaining a well-performing teacher model.
+
+./cut_model.py<br>
+The code is used to segment the teacher model and obtain the cut teacher model in order to obtain the feature layer output of the teacher model.
+
+./draw.py<br>
+Code for statistical data plotting.
+
+./exp_data<br>
+The code is used to store variables during the experiment, such as sampled data
+
+./exp_image<br>
+Used to store plotted statistical graphs
+
+./DatasetConfig.py<br>
+Main configuration file
+
+./DatasetConfig_2.py<br>
+Another configuration file
+
+./requirements.txt<br>
+Project runtime dependency packages
+
+
+## 数据集和模型
 link :https://pan.baidu.com/s/140xObdWGvQQf5Ei8YyxgTg  password:wuse
