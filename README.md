@@ -67,5 +67,5 @@ Another configuration file
 Project runtime dependency packages
 
 
-## 数据集和模型
-link :https://pan.baidu.com/s/140xObdWGvQQf5Ei8YyxgTg  password:wuse
+## Download addresses of other Datasets and Models
+https://pan.quark.cn/s/09b446b8f944
