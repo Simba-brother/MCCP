@@ -68,4 +68,5 @@ Project runtime dependency packages
 
 
 ## Download addresses of other Datasets and Models
+Since the data set and model are large and the platform has limitations, we upload the remaining data sets and models to the link below. If necessary, you can download them through the link below.
 https://pan.quark.cn/s/09b446b8f944
