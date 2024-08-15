@@ -615,7 +615,7 @@ if __name__ == "__main__":
     # 倒入数据集相关配置
     config = flower_2_config
     # NoFangHui HMR train application
-    app_HMR_retrain_NoFangHui(config)
+    # app_HMR_retrain_NoFangHui(config)
     # NoFangHui HMR eval application
     # app_HMR_eval_NoFangHui(config)
     # app_HMR_eval_initial()

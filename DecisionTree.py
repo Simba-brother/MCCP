@@ -14,7 +14,7 @@ from tensorflow.keras.losses import categorical_crossentropy
 from tensorflow.keras.optimizers import Adamax
 from tensorflow.python.keras.backend import set_session
 
-from DataSetConfig import car_body_style_config,flower_2_config,food_config,fruit_config,sport_config,weather_config,animal_config,animal_2_config,animal_3_config
+from DataSetConfig import exp_dir,car_body_style_config,flower_2_config,food_config,fruit_config,sport_config,weather_config,animal_config,animal_2_config,animal_3_config
 from eval_origin_model import EvalOriginModel
 from utils import deleteIgnoreFile, makedir_help
 
@@ -124,8 +124,11 @@ def myGenerator(batch_size, X, Y):
     return myGenerator
 
 
-def app_DT_train():
-    config = animal_3_config
+def app_DT_train(config, isFangHuiFlag):
+    if isFangHuiFlag is True:
+        suffix = "FangHui"
+    else:
+        suffix = "NoFangHui"
     dataset_name = config["dataset_name"]
     setproctitle.setproctitle(f"{dataset_name}|DecisionTree|train")
     root_dir = "/data2/mml/overlap_v2_datasets/"
@@ -139,7 +142,10 @@ def app_DT_train():
     target_size_A = config["target_size_A"]
     target_size_B = config["target_size_B"]
     model_A_cutted, model_B_cutted = load_cutted_models(config)
-    sampled_dir = f"exp_data/{dataset_name}/sampling/percent/random/"
+    if isFangHuiFlag is True:
+        sampled_dir = f"exp_data/{dataset_name}/sampling/percent/random/"
+    else:
+        sampled_dir = f"exp_data/{dataset_name}/sampling/percent/random_split/train/"
     sample_rate_list = [0.01,0.03,0.05,0.1,0.15,0.2]
     repeat_num = 10
     for sample_rate in sample_rate_list:
@@ -147,7 +153,10 @@ def app_DT_train():
         rate_dir = os.path.join(sampled_dir, str(int(sample_rate*100)))
         for repeat_i in range(repeat_num):
             print(f"repeat_i:{repeat_i}")
-            sampled_df = pd.read_csv(os.path.join(rate_dir, f"sampled_{repeat_i}.csv"))
+            if isFangHuiFlag is True:
+                sampled_df = pd.read_csv(os.path.join(rate_dir, f"sampled_{repeat_i}.csv"))
+            else:
+                sampled_df = pd.read_csv(os.path.join(rate_dir, f"sample_{repeat_i}.csv"))
             combined_features = combin_features_AB(
                 root_dir,
                 model_A_cutted, 
@@ -162,13 +171,17 @@ def app_DT_train():
             model = DecisionTreeClassifier(random_state=666)
             model.fit(combined_features, Y)
             save_file_name = f"model_{repeat_i}.joblib"
-            save_dir = os.path.join(root_dir,dataset_name,"DecisionTree","trained_models",str(int(sample_rate*100)))
+            save_dir = os.path.join(root_dir,dataset_name,"DecisionTree",f"trained_models_{suffix}",str(int(sample_rate*100)))
             makedir_help(save_dir)
             save_file_path = os.path.join(save_dir, save_file_name)
             joblib.dump(model, save_file_path)
             print(f"save_file_path:{save_file_path}")
 
-def app_DT_eval():
+def app_DT_eval(config,isFangHuiFlag):
+    if isFangHuiFlag is True:
+        suffix = "FangHui"
+    else:
+        suffix = "NoFangHui"
     sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
     # 定义出存储结果的数据结构
     '''
@@ -180,12 +193,13 @@ def app_DT_eval():
     ans = {}
     for sample_rate in sample_rate_list:
         ans[sample_rate] = []
-
-    config = animal_3_config
     dataset_name = config["dataset_name"]
     setproctitle.setproctitle(f"{dataset_name}|DecisionTree|eval")
     root_dir = "/data2/mml/overlap_v2_datasets/"
-    df_merged = pd.read_csv(config["merged_df_path"])
+    if isFangHuiFlag is True:
+        df_merged = pd.read_csv(config["merged_df_path"])
+    else:
+        df_merged = pd.read_csv(os.path.join(f"exp_data/{dataset_name}/sampling/percent/random_split/test/test.csv"))
     classes_A = getClasses(config["dataset_A_train_path"])
     classes_B = getClasses(config["dataset_B_train_path"])
     all_class_name_list = list(set(classes_A+classes_B))
@@ -206,21 +220,22 @@ def app_DT_eval():
                 target_size_B,
                 batch_size, 
                 df_merged)
-    Y = df_merged["label_globalIndex"].to_numpy()
     
+
+    Y = df_merged["label_globalIndex"].to_numpy()
     repeat_num = 10
     for sample_rate in sample_rate_list:
         print(f"sample_rate:{sample_rate}")
         for repeat_i in range(repeat_num):
             print(f"repeat_i:{repeat_i}")   
-            save_file_path = os.path.join(root_dir,dataset_name,"DecisionTree","trained_models",str(int(sample_rate*100)), f"model_{repeat_i}.joblib")
+            save_file_path = os.path.join(root_dir,dataset_name,"DecisionTree", f"trained_models_{suffix}",str(int(sample_rate*100)), f"model_{repeat_i}.joblib")
             model = joblib.load(save_file_path)
             predictions = model.predict(combined_features)
             acc = accuracy_score(Y, predictions)
             ans[sample_rate].append(acc)
     
     save_dir = os.path.join(root_dir, dataset_name, "DecisionTree")
-    save_file_name = f"eval_ans.data"
+    save_file_name = f"eval_ans_{suffix}.data"
     save_file_path = os.path.join(save_dir, save_file_name)
     joblib.dump(ans, save_file_path)
     print(f"save_file_path:{save_file_path}")
@@ -234,8 +249,9 @@ if __name__ == "__main__":
     # config.gpu_options.per_process_gpu_memory_fraction = 0.3
     session = tf.compat.v1.Session(config=config_tf)
     set_session(session)    
-    # app_DT_train()
-    app_DT_eval()
+    config = sport_config
+    # app_DT_train(config,isFangHuiFlag=False)
+    app_DT_eval(config,isFangHuiFlag=False)
 
 
 

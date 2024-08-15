@@ -8,7 +8,7 @@ import os
 import numpy as np
 import seaborn as sns
 import pandas as pd
-from DataSetConfig import food_config, fruit_config, sport_config, weather_config, flower_2_config, car_body_style_config, animal_config, animal_2_config, animal_3_config
+from DataSetConfig import exp_dir, food_config, fruit_config, sport_config, weather_config, flower_2_config, car_body_style_config, animal_config, animal_2_config, animal_3_config
 
 
 def get_y_list(dic):
@@ -196,10 +196,10 @@ def draw_line_main_ML(config):
     
     dataset_name = config["dataset_name"]
     x_list = ["1%","3%","5%", "10%", "15%", "20%"]
-    root_dir = "/data2/mml/overlap_v2_datasets"
-    MCCP_res = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_FangHui.data"))
-    LogisticRegression_res = joblib.load(os.path.join(root_dir, dataset_name, "LogisticRegression", "eval_ans.data"))
-    DecisionTree_res = joblib.load(os.path.join(root_dir, dataset_name, "DecisionTree", "eval_ans.data"))
+    root_dir = exp_dir
+    MCCP_res = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_NoFangHui.data"))
+    LogisticRegression_res = joblib.load(os.path.join(root_dir, dataset_name, "LogisticRegression", "eval_ans_NoFangHui.data"))
+    DecisionTree_res = joblib.load(os.path.join(root_dir, dataset_name, "DecisionTree", "eval_ans_NoFangHui.data"))
     MCCP_y_list = get_y_list_internal(MCCP_res)
     LR_y_list = get_y_list_internal(LogisticRegression_res)
     DT_y_list = get_y_list_internal(DecisionTree_res)
@@ -210,17 +210,17 @@ def draw_line_main_ML(config):
     fig = draw_lines(x_list, y_data)
     # 保存图片
     save_dir = f"exp_image/{dataset_name}"
-    file_name = f"RQ2_MCCP_LR_DT.pdf"
+    file_name = f"RQ2_MCCP_LR_DT_NoFangHui.pdf"
     file_path = os.path.join(save_dir, file_name)
     fig.savefig(file_path,bbox_inches="tight",pad_inches=0.1)
 
     
 
 def draw_box_update(config):
-    root_dir = "/data2/mml/overlap_v2_datasets"
+    root_dir = exp_dir
     dataset_name = config["dataset_name"]
     labels = '1%', '3%', '5%', '10%', '15%', '20%'
-    ans = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_FangHui.data"))
+    ans = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_NoFangHui.data"))
     # train_acc = joblib.load(f"exp_data/{dataset_name}/retrainResult/percent/OurCombin/train_acc_v3.data")
     A = ans[0.01]
     # 计算方差
@@ -260,10 +260,10 @@ def draw_box_update(config):
     plt.ylabel("Accuracy", fontproperties = "Times New Roman", fontsize = 12)
     plt.show()
     save_dir = f"exp_image/{dataset_name}"
-    file_name = "box_update.pdf"
+    file_name = "box_noFangHui.pdf"
     file_path = os.path.join(save_dir, file_name)
     plt.savefig(file_path, bbox_inches = 'tight',pad_inches = 0.1)
-    print("draw_box successfully!")
+    print(f"box is saved:{file_path}")
 
 def draw_overlap_unqiue_initAcc_bar():
     '''
@@ -274,9 +274,13 @@ def draw_overlap_unqiue_initAcc_bar():
     overlap_list = []
     unique_list = []
     for dataset_name in dataset_name_list:
-        initAcc = joblib.load(f"exp_data/{dataset_name}/initAcc.data") 
-        overlap_list.append(initAcc["overlap_initAcc"]["accuracy"])
-        unique_list.append(initAcc["unique_initAcc"]["accuracy"])
+        unique_init_acc = joblib.load(os.path.join(exp_dir, dataset_name, "MCCP", "init_unique_test_acc_NoFangHui.data"))
+        overlap_init_acc = joblib.load(os.path.join(exp_dir, dataset_name, "MCCP", "init_overlap_test_acc_NoFangHui.data"))
+        unique_list.append(unique_init_acc)
+        overlap_list.append(overlap_init_acc)
+        # initAcc = joblib.load(f"exp_data/{dataset_name}/initAcc.data") 
+        # overlap_list.append(initAcc["overlap_initAcc"]["accuracy"])
+        # unique_list.append(initAcc["unique_initAcc"]["accuracy"])
     fig = plt.figure(figsize=(7,5))  
     x = list(range(len(dataset_name_list)))
     bar_width = 0.2 # 柱子宽度
@@ -291,7 +295,7 @@ def draw_overlap_unqiue_initAcc_bar():
     plt.legend()
     plt.show()
     save_dir = f"exp_image/all"
-    file_name = "overlap_unique_initAcc.pdf"
+    file_name = "overlap_unique_initAcc_NoFangHui.pdf"
     file_path = os.path.join(save_dir, file_name)
     plt.savefig(file_path)
     print("draw_overlap_unqiue_initAcc_bar() successfully!")
@@ -302,12 +306,12 @@ def draw_overlap_initAcc_bar():
     model_A_list = []
     model_B_list = []
     mccp_list = []
-    root_dir = "/data2/mml/overlap_v2_datasets"
+    root_dir = exp_dir
     for dataset_name in dataset_name_list:
-        overlap_init_acc_teachers =  joblib.load(os.path.join(root_dir,dataset_name,"OriginModel","eval_overlap_merged_test.data"))
+        overlap_init_acc_teachers =  joblib.load(os.path.join(root_dir,dataset_name,"OriginModel","eval_overlap_merged_test_NoFangHui.data"))
         acc_t1 = overlap_init_acc_teachers["acc_A"]
         acc_t2 = overlap_init_acc_teachers["acc_B"]
-        acc_mccp = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_overlap_merged_test_acc.data"))
+        acc_mccp = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_overlap_test_acc_NoFangHui.data"))
         model_A_list.append(acc_t1)
         model_B_list.append(acc_t2)
         mccp_list.append(acc_mccp)
@@ -331,7 +335,7 @@ def draw_overlap_initAcc_bar():
     plt.tight_layout()
     plt.show()
     save_dir = f"exp_image/all"
-    file_name = "overlap_initAcc.pdf"
+    file_name = "overlap_initAcc_NoFangHui.pdf"
     file_path = os.path.join(save_dir, file_name)
     plt.savefig(file_path)
     print("draw_overlap_initAcc_bar() successfully!")
@@ -344,10 +348,10 @@ def draw_unique_initAcc_bar():
     mccp_list = []
     root_dir = "/data2/mml/overlap_v2_datasets"
     for dataset_name in dataset_name_list:
-        overlap_init_acc_teachers =  joblib.load(os.path.join(root_dir,dataset_name,"OriginModel","eval_unique_merged_test.data"))
+        overlap_init_acc_teachers =  joblib.load(os.path.join(root_dir,dataset_name,"OriginModel","eval_unique_merged_test_NoFangHui.data"))
         acc_t1 = overlap_init_acc_teachers["acc_A"]
         acc_t2 = overlap_init_acc_teachers["acc_B"]
-        acc_mccp = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_unique_merged_test_acc.data"))
+        acc_mccp = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_unique_test_acc_NoFangHui.data")) #  init_unique_merged_test_acc_.data
         model_A_list.append(acc_t1)
         model_B_list.append(acc_t2)
         mccp_list.append(acc_mccp)
@@ -371,7 +375,7 @@ def draw_unique_initAcc_bar():
     plt.tight_layout()
     plt.show()
     save_dir = f"exp_image/all"
-    file_name = "unique_initAcc.pdf"
+    file_name = "unique_initAcc_NoFangHui.pdf"
     file_path = os.path.join(save_dir, file_name)
     plt.savefig(file_path)
     print("draw_unique_initAcc_bar() successfully!")
@@ -384,10 +388,10 @@ def draw_merged_initAcc_bar():
     mccp_list = []
     root_dir = "/data2/mml/overlap_v2_datasets"
     for dataset_name in dataset_name_list:
-        overlap_init_acc_teachers =  joblib.load(os.path.join(root_dir,dataset_name,"OriginModel","eval_merged_test.data"))
+        overlap_init_acc_teachers =  joblib.load(os.path.join(root_dir,dataset_name,"OriginModel","eval_merged_test_NoFangHui.data"))
         acc_t1 = overlap_init_acc_teachers["acc_A"]
         acc_t2 = overlap_init_acc_teachers["acc_B"]
-        acc_mccp = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_merged_test_acc.data"))
+        acc_mccp = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_merged_test_acc_NoFangHui.data"))
         model_A_list.append(acc_t1)
         model_B_list.append(acc_t2)
         mccp_list.append(acc_mccp)
@@ -411,7 +415,7 @@ def draw_merged_initAcc_bar():
     plt.tight_layout()
     plt.show()
     save_dir = f"exp_image/all"
-    file_name = "merged_initAcc.pdf"
+    file_name = "merged_initAcc_NoFangHui.pdf"
     file_path = os.path.join(save_dir, file_name)
     plt.savefig(file_path)
     print("draw_merged_initAcc_bar() successfully!")
@@ -420,7 +424,7 @@ def draw_merged_initAcc_bar():
 
 
 def draw_heatmap():
-    spearman_corr = pd.read_csv("exp_data/all/spearman_corr_new.csv", index_col=0)
+    spearman_corr = pd.read_csv("exp_data/all/spearman_corr_NoFangHui.csv", index_col=0)
     # mask = np.zeros_like(spearman_corr, dtype=np.bool)  # 定义一个大小一致全为零的矩阵  用布尔类型覆盖原来的类型
     # mask[np.triu_indices_from(mask)]= True  #返回矩阵的上三角，并将其设置为true
     # cmap = sns.diverging_palette(230, 20, as_cmap=True)
@@ -438,17 +442,18 @@ def draw_heatmap():
                 )
     ax.set_yticklabels(ax.get_yticklabels(), rotation=360)
     save_dir = "exp_image/all"
-    file_name = "corr_new.pdf"
+    file_name = "corr_NoFangHui.pdf"
     file_path = os.path.join(save_dir, file_name)
     # plt.show()
     f.savefig(file_path, dpi=800, bbox_inches="tight")
-
+    print(f"save file in: {file_path}")
+    print("draw_heatmap() End")
 
 def draw_classes_improve(config):
-    root_dir = "/data2/mml/overlap_v2_datasets"
+    root_dir = exp_dir
     dataset_name = config["dataset_name"]
-    classes_acc_record = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_classes_FangHui.data"))
-    base_classes_acc = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_merged_test_classes_acc.data"))
+    classes_acc_record = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_classes_NoFangHui.data"))
+    base_classes_acc = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_merged_test_classes_acc_NoFangHui.data"))
     local_to_global_A = joblib.load(config["local_to_global_party_A_path"])
     local_to_global_B = joblib.load(config["local_to_global_party_B_path"])
     global_A = list(local_to_global_A.values())
@@ -482,17 +487,17 @@ def draw_classes_improve(config):
     plt.grid()
     plt.xticks(rotation=-15)
     save_dir = f"exp_image/{dataset_name}"
-    save_file_name = f"classes_improve_{str(sample_rate)}.pdf"
+    save_file_name = f"classes_improve_{str(sample_rate)}_NoFangHui.pdf"
     save_file_path = os.path.join(save_dir,save_file_name)
     plt.savefig(save_file_path,bbox_inches='tight')
 
 def draw_Overlap_unique_improve(config):
-    root_dir = "/data2/mml/overlap_v2_datasets"
+    root_dir = exp_dir
     dataset_name = config["dataset_name"]
-    overlap_ans = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_Overlap_FangHui.data"))
-    unique_ans = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_Unique_FangHui.data"))
-    overlap_base = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_overlap_test_acc.data"))
-    unique_base = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_unique_test_acc.data"))
+    overlap_ans = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_Overlap_NoFangHui.data"))
+    unique_ans = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "eval_ans_Unique_NoFangHui.data"))
+    overlap_base = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_overlap_test_acc_NoFangHui.data"))
+    unique_base = joblib.load(os.path.join(root_dir, dataset_name, "MCCP", "init_unique_test_acc_NoFangHui.data"))
     sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
     overlap_improve_list = []
     unique_improve_list = []
@@ -526,7 +531,7 @@ def draw_Overlap_unique_improve(config):
     plt.xticks(fontproperties = "Times New Roman", fontsize = 11)
     plt.xticks(fontproperties = "Times New Roman", fontsize = 11)
     save_dir = f"exp_image/{dataset_name}"
-    file_name = "discussion_improve_new.pdf"
+    file_name = "discussion_improve_NoFangHui.pdf"
     file_path = os.path.join(save_dir, file_name)
     plt.savefig(file_path, bbox_inches = 'tight', pad_inches = 0.1, dpi=600)
     print("draw_Overlap_unique_improve() successfully!")
@@ -536,15 +541,15 @@ def draw_Overlap_unique_improve(config):
 
 if __name__ == "__main__":
     # 全局变量区
-    config = flower_2_config
+    config = car_body_style_config
     '''MCCP student model在overlap和unique上初始精度对比(Discussion 5.2)'''
     # draw_overlap_unqiue_initAcc_bar()
     '''MCCP和教师模型(Model A和Model B)在overlap上初始精度对比(Discussion 5.6)'''
-    # draw_overlap_initAcc_bar()
+    draw_overlap_initAcc_bar()
     '''MCCP和教师模型(Model A和Model B)在unique上初始精度对比(Discussion 5.6)'''
-    # draw_unique_initAcc_bar()
+    draw_unique_initAcc_bar()
     '''MCCP和教师模型(Model A和Model B)在mixed上初始精度对比(Discussion 5.6)'''
-    # draw_merged_initAcc_bar()
+    draw_merged_initAcc_bar()
     '''MCCP性能稳定性(Discussion 5.1)'''
     # draw_box_update(config)
     '''RQ2'''

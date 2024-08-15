@@ -12,7 +12,7 @@ from tensorflow.keras.losses import categorical_crossentropy
 from tensorflow.keras.optimizers import Adamax
 from tensorflow.python.keras.backend import set_session
 
-from DataSetConfig import car_body_style_config,flower_2_config,food_config,fruit_config,sport_config,weather_config,animal_config,animal_2_config,animal_3_config
+from DataSetConfig import exp_dir,car_body_style_config,flower_2_config,food_config,fruit_config,sport_config,weather_config,animal_config,animal_2_config,animal_3_config
 from eval_origin_model import EvalOriginModel
 from utils import deleteIgnoreFile, makedir_help
 
@@ -259,8 +259,11 @@ def app_LR_eval():
     print("LogisticRegression evaluation end")
     return ans
 
-def app_LR2_train():
-    config = animal_config
+def app_LR2_train(config, isFangHuiFlag):
+    if isFangHuiFlag is True:
+        suffix = "FangHui"
+    else:
+        suffix = "NoFangHui"
     dataset_name = config["dataset_name"]
     setproctitle.setproctitle(f"{dataset_name}|LogisticRegression|train")
     root_dir = "/data2/mml/overlap_v2_datasets/"
@@ -274,7 +277,10 @@ def app_LR2_train():
     target_size_A = config["target_size_A"]
     target_size_B = config["target_size_B"]
     model_A_cutted, model_B_cutted = load_cutted_models(config)
-    sampled_dir = f"exp_data/{dataset_name}/sampling/percent/random/"
+    if isFangHuiFlag is True:
+        sampled_dir = f"exp_data/{dataset_name}/sampling/percent/random/"
+    else:
+        sampled_dir = f"exp_data/{dataset_name}/sampling/percent/random_split/train/"
     sample_rate_list = [0.01,0.03,0.05,0.1,0.15,0.2]
     repeat_num = 10
     for sample_rate in sample_rate_list:
@@ -282,7 +288,10 @@ def app_LR2_train():
         rate_dir = os.path.join(sampled_dir, str(int(sample_rate*100)))
         for repeat_i in range(repeat_num):
             print(f"repeat_i:{repeat_i}")
-            sampled_df = pd.read_csv(os.path.join(rate_dir, f"sampled_{repeat_i}.csv"))
+            if isFangHuiFlag is True:
+                sampled_df = pd.read_csv(os.path.join(rate_dir, f"sampled_{repeat_i}.csv"))
+            else:
+                sampled_df = pd.read_csv(os.path.join(rate_dir, f"sample_{repeat_i}.csv"))
             combined_features = combin_features_AB(
                 root_dir,
                 model_A_cutted, 
@@ -305,15 +314,19 @@ def app_LR2_train():
                 verbose = 1,
                 shuffle = True)
             save_file_name = f"weight_{repeat_i}.h5"
-            save_dir = os.path.join(root_dir,dataset_name,"LogisticRegression","trained_weights",str(int(sample_rate*100)))
+            save_dir = os.path.join(root_dir,dataset_name,"LogisticRegression",f"trained_weights_{suffix}",str(int(sample_rate*100)))
             makedir_help(save_dir)
             save_file_path = os.path.join(save_dir, save_file_name)
             model.save_weights(save_file_path)
             print(f"save_file_path:{save_file_path}")
             
-    pass
+    
 
-def app_LR2_eval():
+def app_LR2_eval(config, isFangHuiFlag):
+    if isFangHuiFlag is True:
+        suffix = "FangHui"
+    else:
+        suffix = "NoFangHui"
     sample_rate_list = [0.01, 0.03, 0.05, 0.1, 0.15, 0.2]
     # 定义出存储结果的数据结构
     '''
@@ -326,11 +339,13 @@ def app_LR2_eval():
     for sample_rate in sample_rate_list:
         ans[sample_rate] = []
 
-    config = animal_3_config
     dataset_name = config["dataset_name"]
     setproctitle.setproctitle(f"{dataset_name}|LogisticRegression|eval")
-    root_dir = "/data2/mml/overlap_v2_datasets/"
-    df_merged = pd.read_csv(config["merged_df_path"])
+    root_dir = exp_dir
+    if isFangHuiFlag is True:
+        df_merged = pd.read_csv(config["merged_df_path"])
+    else:
+        df_merged = pd.read_csv(os.path.join(f"exp_data/{dataset_name}/sampling/percent/random_split/test/test.csv"))
     classes_A = getClasses(config["dataset_A_train_path"])
     classes_B = getClasses(config["dataset_B_train_path"])
     all_class_name_list = list(set(classes_A+classes_B))
@@ -352,7 +367,6 @@ def app_LR2_eval():
                 batch_size, 
                 df_merged)
     Y = df_merged["label_globalIndex"].to_numpy()
-    
     repeat_num = 10
     for sample_rate in sample_rate_list:
         print(f"sample_rate:{sample_rate}")
@@ -361,7 +375,7 @@ def app_LR2_eval():
             classes_num = len(all_class_name_list)
             n_features = combined_features.shape[1]
             model = get_LogisticRegression_model(classes_num, n_features)
-            weight_path = os.path.join(root_dir,dataset_name,"LogisticRegression","trained_weights",str(int(sample_rate*100)),  f"weight_{repeat_i}.h5")
+            weight_path = os.path.join(root_dir,dataset_name,"LogisticRegression",f"trained_weights_{suffix}",str(int(sample_rate*100)),  f"weight_{repeat_i}.h5")
             model.load_weights(weight_path)
             eval_res = model.evaluate(
                 x = combined_features,
@@ -374,7 +388,7 @@ def app_LR2_eval():
             ans[sample_rate].append(acc)
     
     save_dir = os.path.join(root_dir, dataset_name, "LogisticRegression")
-    save_file_name = f"eval_ans.data"
+    save_file_name = f"eval_ans_{suffix}.data"
     save_file_path = os.path.join(save_dir, save_file_name)
     joblib.dump(ans, save_file_path)
     print(f"save_file_path:{save_file_path}")
@@ -382,7 +396,7 @@ def app_LR2_eval():
     return ans
 
 if __name__ == "__main__":
-    os.environ['CUDA_VISIBLE_DEVICES']='1'
+    os.environ['CUDA_VISIBLE_DEVICES']='7'
     config_tf = tf.compat.v1.ConfigProto()
     config_tf.gpu_options.allow_growth=True 
     # config.gpu_options.per_process_gpu_memory_fraction = 0.3
@@ -392,8 +406,9 @@ if __name__ == "__main__":
     # app_LR_train()
     # app_LR_eval()
     # combin the last hidden layer output features
-    # app_LR2_train()
-    # app_LR2_eval()
+    config = animal_3_config
+    # app_LR2_train(config, isFangHuiFlag=False)
+    app_LR2_eval(config, isFangHuiFlag=False)
 
 
 
