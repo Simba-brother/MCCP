@@ -325,6 +325,7 @@ def app_eval_origin_model(config):
 
     A_overlap_df = pd.read_csv(config["df_A_val_overlap"]) 
     B_overlap_df = pd.read_csv(config["df_B_val_overlap"]) 
+    overlap_df = pd.read_csv(config["merged_overlap_df"])
 
     model_A, model_B = load_models_pool(config) # compiled
 
@@ -347,7 +348,16 @@ def app_eval_origin_model(config):
         target_size = config["target_size_A"], 
         classes = getClasses(config["dataset_A_train_path"]) # sorted
         )
-    
+    # 评估model_A,在mergedOverlap 
+    evalOriginModel = EvalOriginModel(model_A, overlap_df)
+    eval_ans_A_mergedOverlap = evalOriginModel.eval(
+        root_dir,
+        batch_size=32,  
+        generator_test = config["generator_A_test"],
+        target_size = config["target_size_A"], 
+        classes = getClasses(config["dataset_A_train_path"]) # sorted
+        )
+
     # 评估model_B 在overlap A
     evalOriginModel = EvalOriginModel(model_B, A_overlap_df)
     eval_ans_BA = evalOriginModel.eval(
@@ -367,25 +377,46 @@ def app_eval_origin_model(config):
         target_size = config["target_size_B"], 
         classes = getClasses(config["dataset_B_train_path"]) # sorted
         )
+    
+    # 评估model_B在mergedOverlap
+    evalOriginModel = EvalOriginModel(model_B,overlap_df)
+    eval_ans_B_mergedOverlap = evalOriginModel.eval(
+        root_dir,
+        batch_size=32,  
+        generator_test = config["generator_B_test"],
+        target_size = config["target_size_B"], 
+        classes = getClasses(config["dataset_B_train_path"]) # sorted
+        )
+
     acc_AA = eval_ans_AA["accuracy"]
     acc_AB = eval_ans_AB["accuracy"]
     acc_BA = eval_ans_BA["accuracy"]
     acc_BB = eval_ans_BB["accuracy"]
-    ans = {"acc_AA":acc_AA, "acc_AB":acc_AB, "acc_BA":acc_BA, "acc_BB":acc_BB}
+    acc_A_merged_overlap = eval_ans_A_mergedOverlap["accuracy"]
+    acc_B_merged_overlap = eval_ans_B_mergedOverlap["accuracy"]
+    acc_dif_abs = round(abs(acc_A_merged_overlap - acc_B_merged_overlap),4)
+    ans = {"acc_AA":acc_AA, 
+           "acc_AB":acc_AB, 
+           "acc_BA":acc_BA, 
+           "acc_BB":acc_BB, 
+           "acc_A_merged_overlap":round(acc_A_merged_overlap,4), 
+           "acc_B_merged_overlap":round(acc_B_merged_overlap,4), 
+           "acc_dif_abs":acc_dif_abs
+           }
     print(ans)
     print("origin model eval end")
     return ans
     
 if __name__ == "__main__":
-    os.environ['CUDA_VISIBLE_DEVICES']='1'
+    os.environ['CUDA_VISIBLE_DEVICES']='0'
     config = animal_3_config
 
     # app_eval_origin_model_with_overlap_merged(config,isFangHuiFlag=False)
     # app_eval_origin_model_with_unique_merged(config,isFangHuiFlag=False)
     # app_eval_origin_model_with_merged(config,isFangHuiFlag=False)
 
-    # app_eval_origin_model(config)
+    app_eval_origin_model(config)
 
-    app_get_features()
+    # app_get_features()
     
 

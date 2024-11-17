@@ -14,39 +14,17 @@ from numpy import linalg as LA
 from DataSetConfig import exp_dir, car_body_style_config,flower_2_config,food_config,fruit_config, sport_config, weather_config, animal_config, animal_2_config, animal_3_config
 import setproctitle
 
-def get_similiary_matrix():
-    # 加载数据集
-    testset_merged_overlap_df = pd.read_csv(config["merged_overlap_df"])
-    A_overlap_df = testset_merged_overlap_df[testset_merged_overlap_df["source"]==1]
-    B_overlap_df = testset_merged_overlap_df[testset_merged_overlap_df["source"]==2]
-    # 构建相似度矩阵
-    num_A = A_overlap_df.shape[0]
-    num_B = B_overlap_df.shape[0]
-    # 计算相似度模型
-    model = SentenceTransformer('clip-ViT-B-32')
-    similiary_matrix = np.zeros((num_A,num_B))
-    for A_idx in range(num_A):
-        row_A = A_overlap_df.iloc[A_idx]
-        A_image_path = os.path.join(exp_dir,row_A["file_path"]) 
-        for B_idx in range(num_B):
-            row_B = B_overlap_df.iloc[B_idx]
-            B_image_path = os.path.join(exp_dir,row_B["file_path"]) 
-            # Compute similarities
-            img_A_emb = model.encode(Image.open(A_image_path))
-            img_B_emb = model.encode(Image.open(B_image_path))
-            similarity_score = model.similarity(img_A_emb, img_B_emb)
-            similiary_matrix[A_idx][B_idx] = similarity_score
-    return similiary_matrix
+
 
 def analysis_similiary_sore(similarity_matrix):
     A_num = similarity_matrix.shape[0]
     B_num = similarity_matrix.shape[1]
-
+    # 以A数据做为库，遍历每个B数据从库中找最大相似度
     A_cover_B = 0
     for B_i in range(B_num):
        A_cover_B += max(similarity_matrix[:,B_i])
     A_cover_B = round(A_cover_B / B_num,4)
-
+    # 以B数据做为库，遍历每个A数据从库中找最大相似度
     B_cover_A = 0
     for A_i in range(A_num):
        B_cover_A += max(similarity_matrix[A_i,:])
@@ -59,6 +37,9 @@ def analysis_similiary_sore(similarity_matrix):
 
 
 def cal_similiary():
+    '''
+    根据模型输出的相似性
+    '''
     data_path = os.path.join(exp_dir, config["dataset_name"], "features.data")
     features = joblib.load(data_path)
     AA_features = features["AA_features"]
@@ -94,6 +75,10 @@ def cal_similiary():
 
 
 def cal_similarity_by_group():
+    '''
+    以每个overlap label为一组，分组计算cosine similarity
+    '''
+
     proc_title = f"{config['dataset_name']}|similarity_group"
     print(proc_title)
     setproctitle.setproctitle(proc_title)
@@ -130,7 +115,7 @@ def cal_similarity_by_group():
                 img_A_emb = model.encode(Image.open(A_img_file_path))
                 img_B_emb = model.encode(Image.open(B_img_file_path))
                 similarity_score = model.similarity(img_A_emb, img_B_emb)
-                matrix[i][j] = similarity_score
+                matrix[i][j] = similarity_score[0][0].item()
         
         score_dic = analysis_similiary_sore(matrix)
         A_cover_B = score_dic["A_cover_B"]
@@ -183,8 +168,6 @@ def calcu_euclidean(feature_1, feature_2):
 
 if __name__ == "__main__":
     config = animal_3_config
-
-    # similiary_matrix = get_similiary_matrix()
     cal_similarity_by_group()
     
     # save_dir = os.path.join("exp_data", config["dataset_name"])
@@ -195,4 +178,4 @@ if __name__ == "__main__":
 
     # similiary_matrix = joblib.load(f"exp_data/{config['dataset_name']}/overlap_similarity_score.data")
     # covered_measure = analysis_similiary_sore(similiary_matrix)
-    # print(covered_measure)
+    #print(covered_measure)

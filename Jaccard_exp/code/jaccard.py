@@ -57,7 +57,7 @@ def my_perdict(config,domain):
     print(f"result is saved in {file_path}")
 
 def caculate_Jaccard(domain:str):
-    df = pd.read_csv(f"complement_exp/result/{domain}_predic_overlap.csv")
+    df = pd.read_csv(f"Jaccard_exp/result/{domain}_predic_overlap.csv")
     predict_global_label_A_list = list(df["predict_global_label_A"])
     predict_global_label_B_list = list(df["predict_global_label_B"])
 
@@ -72,15 +72,31 @@ def caculate_Jaccard(domain:str):
             count_fenmu_dic[l_B] += 1
     ans = 0        
     cur_sum = 0
-    n0 = 0
+    n0 = 0 # 分类数量
     for label,fenzi in count_fenzi_dic.items():
         n0 += 1
         fenmu = count_fenmu_dic[label]
         cur_sum += fenzi/fenmu
     ans = round(cur_sum / n0,2)
-    print(ans)
+    return ans
+
+
+def caculate_Jaccard_v2(domain:str):
+    df = pd.read_csv(f"Jaccard_exp/result/{domain}_predic_overlap.csv")
+    predict_global_label_A_list = list(df["predict_global_label_A"])
+    predict_global_label_B_list = list(df["predict_global_label_B"])
+
+    consistent_num = 0
+    for l_A, l_B in zip(predict_global_label_A_list, predict_global_label_B_list):
+        if l_A == l_B:
+            consistent_num += 1
+    jaccard = consistent_num/len(predict_global_label_A_list)
+    jaccard = round(jaccard,2)
+    return jaccard
+
 
 if __name__ == "__main__":
+    '''
     domain = "animal_3"
     config = animal_3_config
     config_A = {
@@ -108,7 +124,12 @@ if __name__ == "__main__":
         "csv_path":f"complement_exp/result/{domain}_predic_overlap.csv"
     }
     # my_perdict(config_B,domain=domain)
-    
+    '''
+
     domain_list = ["car", "flower", "food", "fruit", "sport", "weather", "animal_1", "animal_2","animal_3"]
     for d in domain_list:
-        caculate_Jaccard(d)
+        print(d)
+        jaccard_v1 = caculate_Jaccard(d)
+        jaccard_v2 = caculate_Jaccard_v2(d)
+        print("jaccard_v1",jaccard_v1)
+        print("jaccard_v2",jaccard_v2)
